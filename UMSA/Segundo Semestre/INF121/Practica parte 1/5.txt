@@ -1,0 +1,26 @@
+5. Crear un procedimiento en pseudocodigo que imprima el máximo común divisor de dos números enteros (iterativamente) introducidos por teclado
+
+int MCD (int a, int b) {
+	int mayor, r
+	if (a < b) {
+		mayor <- a
+	}
+	else {
+		mayor <- b
+	}
+	for int i <- 1 to mayor step 1 {
+		if (a MOD i = 0) {
+			if (b MOD i = 0) {
+				r <- i
+			}
+		}
+	}
+	return r
+}
+Main {
+	int a, b, r
+	Read (a)
+	Read (b)
+	r <- MCD (a, b)
+	Print (r)
+}

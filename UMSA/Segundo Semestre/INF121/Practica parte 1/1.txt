@@ -1,0 +1,14 @@
+1. Crear un procedimiento en pseudocodigo donde dado un numero N, imprimir todos los numeros que dividen a N.
+
+divn (int n) {
+	for int i <- 1 to n step 1 {
+		if (n MOD i = 0) {
+			Print (i)
+		}
+	}
+}
+Main {
+	int N
+	Read (N)
+	divn (N)
+}

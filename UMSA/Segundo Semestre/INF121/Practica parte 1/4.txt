@@ -1,0 +1,17 @@
+4. Crear un procedimiento en pseudocodigo para invertir el numero dado:
+
+int invertido (int n) {
+	int r <- 0, a
+	while (n < 0) {
+		a <- n MOD 10
+		n <- n DIV 10
+		r <- r * 10 + a 
+	}
+	return r
+}
+Main {
+	int n, nv
+	Read (n)
+	nv = invertido (n)
+	Print (nv)
+}

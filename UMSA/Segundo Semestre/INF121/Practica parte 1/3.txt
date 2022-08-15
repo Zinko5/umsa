@@ -1,0 +1,19 @@
+3. Crear una función en pseudocodigo que devuelva un valor entero de la cantidad de vocales de una cadena introducida por teclado.
+
+int vocales (String c) {
+	int l, c
+	l = strlen(c)
+	for int i <- 0 to l step 1 {
+		if (cad[i] = "a" OR cad[i] = "e" OR cad[i] = "i" OR cad[i] = "o" OR cad[i] = "u") {
+			c <- c + 1
+		}
+	}
+	return c
+}
+Main {
+	int v
+	String c
+	Read (c)
+	v <- vocales (c)
+	Print (v , " vocales")
+}

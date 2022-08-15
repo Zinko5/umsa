@@ -1,0 +1,13 @@
+7. Dado un vector de enteros y un número X, se pide una función en pseudocodigo que cuente la cantidad de pares de números que hay en el vector, tal que la suma de estos dos números sea igual a X
+
+Main {
+	int V[50], x, c <- 0 
+	Read (x)
+	for int i <- 0 to x step 1 {
+		Read (V[i])
+		if (V[i] MOD 2 = 0) {
+			c <- c + 1
+		}
+	}
+	Print (c)
+}

@@ -1,0 +1,33 @@
+2. Crear un procedimiento en pseudocodigo para eliminar los digitos primos de un número.
+
+boolean esprimo (int a) {
+	c <- 0
+	for int i <- 2 to a / 2 + 1 step 1 {
+		if (a MOD i = 0) {
+			c <- c + 1
+		}
+	}
+	if (c = 0) {
+		return true
+	}
+	else {
+		return false
+	}
+}
+int sinprimos (int n) {
+	int s <- 0, a
+	while (n > 0) {
+		a <- n MOD 10
+		n <- n DIV 10
+		if (esprimo(a) = false) {
+			s <- s + a
+		}
+	}
+	return s
+}
+Main {
+	int n, c
+	Read (n)
+	c <- sinprimos (n)
+	Print (c)
+}
