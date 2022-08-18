@@ -1,0 +1,28 @@
+10. Implementar un procedimiento en pseudocodigo que permita registrar el Nombre
+y Apellido, CI, Nro de celular de N-personas, donde sus datos son ingresados por
+teclado, y almacenarlas en una matriz de tama ̃no Nx3, posteriormente mostrar
+los datos
+
+llenar(String M[][], int n) {
+    for int i <- 0 to n step 1 {
+        Read(M[i, 0])
+        Read(M[i, 1])
+        Read(M[i, 2])
+    }
+}
+
+mostrar(String M[][], int n) {
+    for int i <- 0 to n step 1 {
+        Print(M[i, 0])
+        Print(M[i, 1])
+        Print(M[i, 2])
+    }
+    Print("\n")
+}
+
+Main {
+    int n
+    String M[50, 3]
+    Read(n)
+    llenar(M[][], n)
+}

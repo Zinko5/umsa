@@ -1,0 +1,18 @@
+9. Implementar un procedimiento en pseudocodigo que genere un codigo de usuario
+tomando como dato de entrada el apellido paterno, apellido materno, y fecha de
+nacimiento.
+
+Main {
+    String nom, ap, am, l, r
+    int dia, mes, año, n
+    Read(nom)
+    Read(ap)
+    Read(am)
+    Read(dia)
+    Read(mes)
+    Read(año)
+    l <- nom[0] + ap[0] + am[0]
+    n <- dia * 1000000 + mes * 10000 + año
+    r <- convString(n) + "-" + nom + ap + am
+    Print (r)
+}
