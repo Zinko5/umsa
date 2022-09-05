@@ -1,0 +1,30 @@
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.csproj.AssemblyReference.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.AssemblyInfoInputs.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.AssemblyInfo.cs
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.csproj.CoreCompileInputs.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/bin/Debug/net6.0/ejer 2
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/bin/Debug/net6.0/ejer 2.deps.json
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/bin/Debug/net6.0/ejer 2.runtimeconfig.json
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/bin/Debug/net6.0/ejer 2.dll
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/bin/Debug/net6.0/ejer 2.pdb
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.dll
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/refint/ejer 2.dll
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.pdb
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ejer 2.genruntimeconfig.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer 2/obj/Debug/net6.0/ref/ejer 2.dll
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/bin/Debug/net6.0/ejer 2
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/bin/Debug/net6.0/ejer 2.deps.json
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/bin/Debug/net6.0/ejer 2.runtimeconfig.json
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/bin/Debug/net6.0/ejer 2.dll
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/bin/Debug/net6.0/ejer 2.pdb
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.csproj.AssemblyReference.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.AssemblyInfoInputs.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.AssemblyInfo.cs
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.csproj.CoreCompileInputs.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.dll
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/refint/ejer 2.dll
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.pdb
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ejer 2.genruntimeconfig.cache
+/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer2/obj/Debug/net6.0/ref/ejer 2.dll
