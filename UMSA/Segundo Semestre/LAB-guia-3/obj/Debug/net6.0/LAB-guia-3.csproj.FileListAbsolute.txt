@@ -1,0 +1,15 @@
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.csproj.AssemblyReference.cache
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.AssemblyInfoInputs.cache
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.AssemblyInfo.cs
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.csproj.CoreCompileInputs.cache
+/home/gabo/VSCode/C#/LAB-guia-3/bin/Debug/net6.0/LAB-guia-3
+/home/gabo/VSCode/C#/LAB-guia-3/bin/Debug/net6.0/LAB-guia-3.deps.json
+/home/gabo/VSCode/C#/LAB-guia-3/bin/Debug/net6.0/LAB-guia-3.runtimeconfig.json
+/home/gabo/VSCode/C#/LAB-guia-3/bin/Debug/net6.0/LAB-guia-3.dll
+/home/gabo/VSCode/C#/LAB-guia-3/bin/Debug/net6.0/LAB-guia-3.pdb
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.dll
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/refint/LAB-guia-3.dll
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.pdb
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/LAB-guia-3.genruntimeconfig.cache
+/home/gabo/VSCode/C#/LAB-guia-3/obj/Debug/net6.0/ref/LAB-guia-3.dll
