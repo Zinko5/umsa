@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "/home/gabo/.nuget/packages/": {}
+    "/home/gabriel/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer3/ejer3.csproj",
+      "projectUniqueName": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Guia1/ejer3/ejer3.csproj",
       "projectName": "ejer3",
-      "projectPath": "/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer3/ejer3.csproj",
-      "packagesPath": "/home/gabo/.nuget/packages/",
-      "outputPath": "/home/gabo/VSCode/C#/LAB-121-guia-ejercicios-1/ejer3/obj/",
+      "projectPath": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Guia1/ejer3/ejer3.csproj",
+      "packagesPath": "/home/gabriel/.nuget/packages/",
+      "outputPath": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Guia1/ejer3/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/gabo/.nuget/NuGet/NuGet.Config"
+        "/home/gabriel/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }
