@@ -6,7 +6,7 @@ namespace ejer2
         public AnimalTerrestre(int a, double b, string c, string d):base(a, b, c) {
             sangre = d;
         }
-        public void mostrar() {
+        new public void mostrar() {
             base.mostrar();
             Console.Write(" " + sangre);
         }

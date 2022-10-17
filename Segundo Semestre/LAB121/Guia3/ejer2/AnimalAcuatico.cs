@@ -6,7 +6,7 @@ namespace ejer2
         public AnimalAcuatico(int a, double b, string c, string d):base(a, b, c) {
             respiracion = d;
         }
-        public void mostrar() {
+        new public void mostrar() {
             base.mostrar();
             Console.Write(" " + respiracion);
         }

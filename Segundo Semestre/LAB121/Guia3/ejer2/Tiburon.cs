@@ -6,7 +6,7 @@ namespace ejer2
         public Tiburon(int a, double b, string c, string d, string e):base(a, b, c, d) {
             raza = e;
         }
-        public void mostrar() {
+        new public void mostrar() {
             base.mostrar();
             Console.WriteLine(" " + raza);
         }

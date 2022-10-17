@@ -6,7 +6,7 @@ namespace ejer2
         public AnimalAereo(int a, double b, string c, double d):base(a, b, c) {
             alas = d;
         }
-        public void mostrar() {
+        new public void mostrar() {
             base.mostrar();
             Console.Write(" " + alas);
         }
