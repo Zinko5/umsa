@@ -81,35 +81,12 @@ namespace ejer1
         public void eliminar()
         {
             int aux2 = nroEstudiantes;
-            /*do
-            {
-                
-            } while (true);*/
             for (int i = 0; i < nroEstudiantes; i++)
             {
-                string aux = "";
-                if (capicua(estudiantes[1, i]) == true)
+                if (capicua(estudiantes[1, i]) || primo(estudiantes[1, i]))
                 {
-                    System.Console.WriteLine(estudiantes[1, i] + " es capicua");
-                    estudiantes[0, i] = ""; estudiantes[1, i] = ""; estudiantes[2, i] = "";
-                    aux2--;
-                    for (int y = i; y < aux2; y++) //indices bien
-                    {
-                        for (int j = i; j < aux2 - 1; j++)
-                        {
-                            aux = estudiantes[1, j];
-                            estudiantes[1, j] = estudiantes [1, j + 1];
-                            estudiantes[1, j + 1] = aux;
-    
-                            aux = estudiantes[0, j + 1];
-                            estudiantes[0, j + 1] = estudiantes [0, j];
-                            estudiantes[0, j] = aux;
-    
-                            aux = estudiantes[2, j + 1];
-                            estudiantes[2, j + 1] = estudiantes [2, j];
-                            estudiantes[2, j] = aux;
-                        }
-                    }
+                    System.Console.WriteLine(estudiantes[1, i] + " es capicua o primo");
+                    
                 }
             }
             nroEstudiantes = aux2;
@@ -124,6 +101,25 @@ namespace ejer1
                 //513 3 31 315
             }
             if (ci == sp)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool primo(string ci)
+        {
+            int cd = 0;
+            for (int i = 2; i < int.Parse(ci) / 2 + 1; i++)
+            {
+                if (int.Parse(ci) % i == 0)
+                {
+                    cd++;
+                }
+            }
+            if (cd == 0)
             {
                 return true;
             }

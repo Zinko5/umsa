@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         
-        CPreparatoria cp = new CPreparatoria(481, 3, 147951, "Emilio", "D13", "Pando", "Jose", "3B", "tecnica");
+        CPreparatoria cp = new CPreparatoria(481, 6, 147951, "Emilio", "D13", "Pando", "Jose", "3B", "tecnica");
         CSecundaria cs = new CSecundaria(405, 0, 697741, "Pepe", "D51", "Tarija", "Luix", 'A', "Matematica");
         cp.mostrar(); System.Console.WriteLine();
         //cs.mostrar(); System.Console.WriteLine();
