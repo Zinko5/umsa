@@ -30,7 +30,7 @@ namespace ejer1
         new public void mostrar()
         {
             System.Console.WriteLine("Curso: " + id + ", " + nroEstudiantes + ", " + ciProfesor  + ", " + nomDirector + ", " + nroDistrito + ", " + ciudad + ", " + nomProfesor);
-            for (int i = 0; i < nroEstudiantes; i++)
+            for (int i = 0; i < 49; i++)
             {
                 System.Console.WriteLine("Estudiante: " + estudiantes[0, i] + ", " + estudiantes[1, i] + ", " + estudiantes[2, i]);
             }
@@ -80,13 +80,39 @@ namespace ejer1
         }
         public void eliminar()
         {
+            int aux2 = nroEstudiantes;
+            /*do
+            {
+                
+            } while (true);*/
             for (int i = 0; i < nroEstudiantes; i++)
             {
+                string aux = "";
                 if (capicua(estudiantes[1, i]) == true)
                 {
                     System.Console.WriteLine(estudiantes[1, i] + " es capicua");
+                    estudiantes[0, i] = ""; estudiantes[1, i] = ""; estudiantes[2, i] = "";
+                    aux2--;
+                    for (int y = i; y < aux2; y++) //indices bien
+                    {
+                        for (int j = i; j < aux2 - 1; j++)
+                        {
+                            aux = estudiantes[1, j];
+                            estudiantes[1, j] = estudiantes [1, j + 1];
+                            estudiantes[1, j + 1] = aux;
+    
+                            aux = estudiantes[0, j + 1];
+                            estudiantes[0, j + 1] = estudiantes [0, j];
+                            estudiantes[0, j] = aux;
+    
+                            aux = estudiantes[2, j + 1];
+                            estudiantes[2, j + 1] = estudiantes [2, j];
+                            estudiantes[2, j] = aux;
+                        }
+                    }
                 }
             }
+            nroEstudiantes = aux2;
         }
         public bool capicua(string ci)
         {
