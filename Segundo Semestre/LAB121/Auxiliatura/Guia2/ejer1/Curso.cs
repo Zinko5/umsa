@@ -1,3 +1,4 @@
+using System.Linq;
 namespace ejer1
 {
     public class Curso
@@ -30,7 +31,7 @@ namespace ejer1
         new public void mostrar()
         {
             System.Console.WriteLine("Curso: " + id + ", " + nroEstudiantes + ", " + ciProfesor  + ", " + nomDirector + ", " + nroDistrito + ", " + ciudad + ", " + nomProfesor);
-            for (int i = 0; i < 49; i++)
+            for (int i = 0; i < nroEstudiantes; i++)
             {
                 System.Console.WriteLine("Estudiante: " + estudiantes[0, i] + ", " + estudiantes[1, i] + ", " + estudiantes[2, i]);
             }
@@ -80,16 +81,31 @@ namespace ejer1
         }
         public void eliminar()
         {
-            int aux2 = nroEstudiantes;
+            string aux = "";
             for (int i = 0; i < nroEstudiantes; i++)
             {
-                if (capicua(estudiantes[1, i]) || primo(estudiantes[1, i]))
+                for (int y = 0; y < nroEstudiantes - 1; y++)
                 {
-                    System.Console.WriteLine(estudiantes[1, i] + " es capicua o primo");
-                    
+                    if (capicua(estudiantes[1, y]) || primo(estudiantes[1, y]))
+                    {
+                        estudiantes[0, y] = "";
+                        aux = estudiantes[0, y];
+                        estudiantes[0, y] = estudiantes[0, y + 1];
+                        estudiantes[0, y + 1] = aux;
+
+                        estudiantes[1, y] = "";
+                        aux = estudiantes[1, y];
+                        estudiantes[1, y] = estudiantes[1, y + 1];
+                        estudiantes[1, y + 1] = aux;
+
+                        estudiantes[2, y] = "";
+                        aux = estudiantes[2, y];
+                        estudiantes[2, y] = estudiantes[2, y + 1];
+                        estudiantes[2, y + 1] = aux;
+                        nroEstudiantes--;
+                    }
                 }
             }
-            nroEstudiantes = aux2;
         }
         public bool capicua(string ci)
         {
@@ -98,7 +114,6 @@ namespace ejer1
             for (int i = 0; i < l; i++)
             {
                 sp = sp + ci.Substring(l - i - 1, 1);
-                //513 3 31 315
             }
             if (ci == sp)
             {
