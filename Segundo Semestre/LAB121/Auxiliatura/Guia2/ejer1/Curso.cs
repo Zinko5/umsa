@@ -82,6 +82,7 @@ namespace ejer1
         public void eliminar()
         {
             string aux = "";
+            int auxint = nroEstudiantes;
             for (int i = 0; i < nroEstudiantes; i++)
             {
                 for (int y = 0; y < nroEstudiantes - 1; y++)
@@ -102,10 +103,11 @@ namespace ejer1
                         aux = estudiantes[2, y];
                         estudiantes[2, y] = estudiantes[2, y + 1];
                         estudiantes[2, y + 1] = aux;
-                        nroEstudiantes--;
+                        auxint--;
                     }
                 }
             }
+            nroEstudiantes = auxint;
         }
         public bool capicua(string ci)
         {
@@ -142,6 +144,35 @@ namespace ejer1
             {
                 return false;
             }
+        }
+        public void agregar(Curso c, int k)
+        {
+            if (nroEstudiantes < c.nroEstudiantes)
+            {
+                this.agregar(k);
+            }
+            else
+            {
+                if (c.nroEstudiantes < nroEstudiantes)
+                {
+                    c.agregar(k);
+                }
+            }
+        }
+        public void agregar(int k)
+        {
+            int aux = nroEstudiantes + k;
+            for (int i = nroEstudiantes; i < aux; i++)
+            {
+                System.Console.Write("Leer nombre de estudiante: ");
+                estudiantes[0, i] = Console.ReadLine();
+                System.Console.Write("Leer ci de estudiante: ");
+                estudiantes[1, i] = Console.ReadLine();
+                System.Console.Write("Leer edad de estudiante: ");
+                estudiantes[2, i] = Console.ReadLine();
+                System.Console.WriteLine();
+            }
+            nroEstudiantes = aux;
         }
     }
 }
