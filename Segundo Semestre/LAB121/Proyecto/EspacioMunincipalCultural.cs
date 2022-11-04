@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto
 {
-    public class EspacioMunincipalCultural:Evento
+    public class EspacioMunincipalCultural
     {
         private string NombredelEspacio;
         public string nombredelEspacio

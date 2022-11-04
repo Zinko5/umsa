@@ -80,21 +80,13 @@ namespace Proyecto
         }
         public void Añadir(Arte Arte)
         {
-            int c = 0;
             Obras[nroObras] = Arte;
             nroObras ++;
-            for (int i = 0; i < nroArtistas; i++)
-            {
-                if (Arte.artista == Artistas[i])
-                {
-                    c = 1;
-                }
-            }
-            if (c == 0)
-            {
-                Artistas[nroArtistas] = Arte.artista;
-                nroArtistas ++;
-            }
+        }
+        public void Añadir(Artista Artista)
+        {
+            Artistas[nroArtistas] = Artista;
+            nroArtistas ++;
         }
     }
 }

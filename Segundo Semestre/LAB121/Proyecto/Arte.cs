@@ -19,13 +19,6 @@ namespace Proyecto
             get { return NombredelaObra; }
             set { NombredelaObra = value; }
         }
-
-        private Artista Artista = new Artista();
-        public Artista artista
-        {
-            get { return Artista; }
-            set { Artista = value; }
-        }
         public void Leer()
         {
             System.Console.WriteLine("Leer el año de publicacion de la obra: ");
