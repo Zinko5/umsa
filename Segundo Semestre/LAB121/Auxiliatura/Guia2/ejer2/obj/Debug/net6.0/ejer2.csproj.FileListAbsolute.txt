@@ -1,0 +1,15 @@
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.csproj.AssemblyReference.cache
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.AssemblyInfoInputs.cache
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.AssemblyInfo.cs
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.csproj.CoreCompileInputs.cache
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/bin/Debug/net6.0/ejer2
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/bin/Debug/net6.0/ejer2.deps.json
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/bin/Debug/net6.0/ejer2.runtimeconfig.json
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/bin/Debug/net6.0/ejer2.dll
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/bin/Debug/net6.0/ejer2.pdb
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.dll
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/refint/ejer2.dll
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.pdb
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ejer2.genruntimeconfig.cache
+/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Auxiliatura/Guia2/ejer2/obj/Debug/net6.0/ref/ejer2.dll
