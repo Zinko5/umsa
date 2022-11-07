@@ -19,14 +19,14 @@ public class Artista {
     public Artista() {
     }
     public void Leer() {
-        System.out.println("Leyendo artista: ");
-        System.out.println("Leer nombre:");
+        System.out.print("Leyendo artista: ");
+        System.out.print("Leer nombre: ");
         nombre = sc.nextLine();
-        System.out.println("Leer edad: ");
+        System.out.print("Leer edad: ");
         edad = sc.nextInt();
     }
     public void Mostrar() {
-        System.out.println("Mostrando artista: ");
+        System.out.print("Mostrando artista: ");
         System.out.println(nombre + " " + edad);
     }
 }

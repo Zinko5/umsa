@@ -8,9 +8,10 @@ public class App {
         b2.Leer();
         b1.Mostrar();
         b2.Mostrar();
-        System.out.println("Leer x: ");
+        System.out.print("Leer x: ");
         String x = sc.nextLine();
         b1.Verificar(x);
         b1.Mostrar(b2);
+        sc.close();
     }
 }

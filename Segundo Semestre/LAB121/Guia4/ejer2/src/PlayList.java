@@ -25,10 +25,10 @@ public class PlayList {
     public PlayList() {
     }
     public void Leer() {
-        System.out.println("Leyendo playlist: ");
-        System.out.println("Leer nombre: ");
+        System.out.print("Leyendo playlist: ");
+        System.out.print("Leer nombre: ");
         nombre = sc.nextLine();
-        System.out.println("Leer numero de canciones: ");
+        System.out.print("Leer numero de canciones: ");
         nroCanciones = sc.nextInt();
         for (int i = 0; i < nroCanciones; i++) {
             canciones[i] = new Cancion();
@@ -36,7 +36,7 @@ public class PlayList {
         }
     }
     public void Mostrar() {
-        System.out.println("Mostrando playlist: ");
+        System.out.print("Mostrando playlist: ");
         System.out.println(nombre + " " + nroCanciones);
         for (int i = 0; i < nroCanciones; i++) {
             canciones[i].Mostrar();

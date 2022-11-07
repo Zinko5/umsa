@@ -25,16 +25,16 @@ public class Empleado extends Persona {
     public Empleado() {
     }
     public void Leer() {
-        System.out.println("Leyendo empleado: ");
-        System.out.println("Leer cargo: ");
+        System.out.print("Leyendo empleado: ");
+        System.out.print("Leer cargo: ");
         cargo = sc.nextLine();
-        System.out.println("Leer numero de item: ");
+        System.out.print("Leer numero de item: ");
         nroItem = sc.nextInt();
-        System.out.println("Leer sueldo: ");
+        System.out.print("Leer sueldo: ");
         sueldo = sc.nextDouble();
     }
     public void Mostrar() {
-        System.out.println("Mostrando empleado: ");
+        System.out.print("Mostrando empleado: ");
         System.out.println(cargo + " " + nroItem + " " + sueldo);
     }
 }

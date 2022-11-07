@@ -32,17 +32,17 @@ public class Biblioteca {
     public Biblioteca() {
     }
     public void Mostrar() {
-        System.out.println("Mostrando bilbioteca: ");
+        System.out.print("Mostrando bilbioteca: ");
         System.out.println(nombre + " " + nroLibros);
         for (int i = 0; i < nroLibros; i++) {
             libros[i].Mostrar();
         }
     }
     public void Leer() {
-        System.out.println("Leer Biblioteca: ");
-        System.out.println("Leer nombre: ");
+        System.out.print("Leer Biblioteca: ");
+        System.out.print("Leer nombre: ");
         nombre = sc.nextLine();
-        System.out.println("Leer numero de libros: ");
+        System.out.print("Leer numero de libros: ");
         nroLibros = sc.nextInt();
         for (int i = 0; i < nroLibros; i++) {
             libros[i] = new Libro();
@@ -50,7 +50,7 @@ public class Biblioteca {
         }
     }
     public void Verificar(String x) {
-        System.out.println("Verificando: ");
+        System.out.print("Verificando: ");
         boolean c = false;
         for (int i = 0; i < nroLibros; i++) {
 

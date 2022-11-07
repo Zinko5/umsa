@@ -32,17 +32,17 @@ public class Cancion {
     public Cancion() {
     }
     public void Leer() {
-        System.out.println("Leyendo cancion: ");
-        System.out.println("Leer nombre: ");
+        System.out.print("Leyendo cancion: ");
+        System.out.print("Leer nombre: ");
         nombre = sc.nextLine();
-        System.out.println("Leer genero: ");
+        System.out.print("Leer genero: ");
         genero = sc.nextLine();
-        System.out.println("Leer duracion: ");
+        System.out.print("Leer duracion: ");
         duracion = sc.nextInt();
         artista.Leer();
     }
     public void Mostrar() {
-        System.out.println("Mostrando cancion: ");
+        System.out.print("Mostrando cancion: ");
         System.out.println(nombre + " " + duracion + " " + genero);
         artista.Mostrar();
     }

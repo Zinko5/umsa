@@ -18,8 +18,8 @@ public class MyPlayLists {
     public MyPlayLists() {
     }
     public void Leer() {
-        System.out.println("Leyendo my playlists");
-        System.out.println("Leer numero de playlists: ");
+        System.out.print("Leyendo my playlists: ");
+        System.out.print("Leer numero de playlists: ");
         nroPlayLists = sc.nextInt();
         for (int i = 0; i < nroPlayLists; i++) {
             playLists[i] = new PlayList();
@@ -27,14 +27,14 @@ public class MyPlayLists {
         }
     }
     public void Mostrar() {
-        System.out.println("Mostrando my playlist: ");
+        System.out.print("Mostrando my playlist: ");
         System.out.println(nroPlayLists);
         for (int i = 0; i < nroPlayLists; i++) {
             playLists[i].Mostrar();
         }
     }
     public void MostrarM() {
-        System.out.println("Mostrando playlists con mayor numero de canciones: ");
+        System.out.print("Mostrando playlists con mayor numero de canciones: ");
         int m = 0;
         for (int i = 0; i < nroPlayLists; i++) {
             if (playLists[i].getNroCanciones() > m) {

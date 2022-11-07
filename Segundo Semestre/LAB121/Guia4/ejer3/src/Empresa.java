@@ -39,12 +39,12 @@ public class Empresa {
     public Empresa() {
     }
     public void Leer() {
-        System.out.println("Leyendo empresa: ");
-        System.out.println("Leer nombre: ");
+        System.out.print("Leyendo empresa: ");
+        System.out.print("Leer nombre: ");
         nombre = sc.nextLine();
-        System.out.println("Leer numero de clientes: ");
+        System.out.print("Leer numero de clientes: ");
         nroClientes = sc.nextInt();
-        System.out.println("Leer nro de empleados: ");
+        System.out.print("Leer nro de empleados: ");
         nroEmpleados = sc.nextInt();
         for (int i = 0; i < nroClientes; i++) {
             cliente[i] = new Cliente();
@@ -56,7 +56,7 @@ public class Empresa {
         }
     }
     public void Mostrar() {
-        System.out.println("Mostrando empresa: ");
+        System.out.print("Mostrando empresa: ");
         System.out.println(nombre + " " + nroClientes + " " + nroEmpleados);
         for (int i = 0; i < nroClientes; i++) {
             cliente[i].Mostrar();

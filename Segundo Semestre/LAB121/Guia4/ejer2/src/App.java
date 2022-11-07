@@ -7,13 +7,14 @@ public class App {
         pl.Leer();
         pl.Mostrar();
         pl.MostrarM();
-        System.out.println("Leer X: ");
+        System.out.print("Leer X: ");
         String X = sc.nextLine();
         pl.Verificar(X);
-        System.out.println("Leer X: ");
+        System.out.print("Leer X: ");
         X = sc.nextLine();
         pl.MostrarG(X);
         pl.Ordenar();
         pl.Mostrar();
+        sc.close();
     }
 }

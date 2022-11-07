@@ -39,20 +39,20 @@ public class Persona {
     public Persona() {
     }
     public void Leer() {
-        System.out.println("Leyendo persona: ");
-        System.out.println("Leer ci: ");
+        System.out.print("Leyendo persona: ");
+        System.out.print("Leer ci: ");
         ci = sc.nextLine();
-        System.out.println("Leer nombre: ");
+        System.out.print("Leer nombre: ");
         nombre = sc.nextLine();
-        System.out.println("Leer paterno: ");
+        System.out.print("Leer paterno: ");
         paterno = sc.nextLine();
-        System.out.println("Leer materno: ");
+        System.out.print("Leer materno: ");
         materno = sc.nextLine();
-        System.out.println("Leer fecha de naciimiento: ");
+        System.out.print("Leer fecha de naciimiento: ");
         fechaNacimiento = sc.nextLine();
     }
     public void Mostrar() {
-        System.out.println("Mostrando persona: ");
+        System.out.print("Mostrando persona: ");
         System.out.println(ci + " " + nombre + " " + paterno + " " + materno + " " + fechaNacimiento);
     }
 }

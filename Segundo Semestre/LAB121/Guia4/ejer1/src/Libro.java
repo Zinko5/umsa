@@ -32,16 +32,16 @@ public class Libro {
         this.tipo = tipo;
     }
     public void Mostrar() {
-        System.out.println("Mostrando libro: ");
+        System.out.print("Mostrando libro: ");
         System.out.println(titulo + " " + autor + " " + tipo);
     }
     public void Leer() {
-        System.out.println("Leer libro: ");
-        System.out.println("Leer titulo: ");
+        System.out.print("Leer libro: ");
+        System.out.print("Leer titulo: ");
         titulo = sc.nextLine();
-        System.out.println("Leer autor: ");
+        System.out.print("Leer autor: ");
         autor = sc.nextLine();
-        System.out.println("Leer tipo: ");
+        System.out.print("Leer tipo: ");
         tipo = sc.nextLine();
     }
 }
