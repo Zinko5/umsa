@@ -7,6 +7,12 @@ namespace Proyecto
 {
     public class Persona
     {
+        private string Nombre;
+        public string nombre
+        {
+            get { return Nombre; }
+            set { Nombre = value; }
+        }
         private int AñoNacimiento;
         public int añoNacimineto
         {
@@ -33,6 +39,8 @@ namespace Proyecto
         }
         public void Leer()
         {
+            System.Console.WriteLine("Leer Nombre");
+            Nombre = Console.ReadLine();
             System.Console.WriteLine("Leer año de nacimiento: ");
             AñoNacimiento = int.Parse(Console.ReadLine());
             System.Console.WriteLine("Leer  CI: ");
@@ -44,7 +52,7 @@ namespace Proyecto
         }
         public void Mostrar()
         {
-            System.Console.WriteLine(AñoNacimiento + " " + Ci + " " + Nacionalidad + " " + Edad);
+            System.Console.WriteLine(Nombre + " " + AñoNacimiento + " " + Ci + " " + Nacionalidad + " " + Edad);
         }
     }
 }

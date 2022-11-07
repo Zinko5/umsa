@@ -52,7 +52,7 @@ namespace Proyecto
             Aforo = int.Parse(Console.ReadLine());
             System.Console.WriteLine("Leer numero de artistas invitados: ");
             nroArtistas = int.Parse(Console.ReadLine());
-            System.Console.WriteLine("Leer numero de obras de arte");
+            System.Console.WriteLine("Leer numero de obras de arte: ");
             nroObras = int.Parse(Console.ReadLine());
             for (int i = 0; i < nroArtistas; i++)
             {
@@ -67,7 +67,8 @@ namespace Proyecto
         }
         public void Mostrar()
         {
-            System.Console.WriteLine(NombredelEvento + " " + FechadelEvento + " " + Aforo);
+            System.Console.WriteLine("Mostrando evento: ");
+            System.Console.WriteLine(NombredelEvento + " " + FechadelEvento + " " + Aforo + " " + nroArtistas + " " + nroObras);
             for (int i = 0; i < nroArtistas; i++)
             {
                 Artistas[i].Mostrar();
@@ -76,6 +77,16 @@ namespace Proyecto
             {
                 Obras[i].Mostrar();
             }
+        }
+        public void Añadir(Arte Arte)
+        {
+            Obras[nroObras] = Arte;
+            nroObras ++;
+        }
+        public void Añadir(Artista Artista)
+        {
+            Artistas[nroArtistas] = Artista;
+            nroArtistas ++;
         }
     }
 }

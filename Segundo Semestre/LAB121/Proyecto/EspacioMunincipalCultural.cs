@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto
 {
-    public class EspacioMunincipalCultural:Evento
+    public class EspacioMunincipalCultural
     {
         private string NombredelEspacio;
         public string nombredelEspacio
@@ -50,17 +50,17 @@ namespace Proyecto
         }
         public void Leer()
         {
-            System.Console.WriteLine("Enter nombre del espacio: ");
+            System.Console.WriteLine("Leer nombre del espacio: ");
             NombredelEspacio = Console.ReadLine();
-            System.Console.WriteLine("Enter tipo (biliboteca, auditorio, escenario): ");
+            System.Console.WriteLine("Leer tipo (biliboteca, auditorio, escenario): ");
             Tipo = Console.ReadLine();
-            System.Console.WriteLine("Enter aforo disponible: ");
+            System.Console.WriteLine("Leer aforo disponible: ");
             AforoDisponible = Console.ReadLine();
-            System.Console.WriteLine("Enter ubicacion: ");
+            System.Console.WriteLine("Leer ubicacion: ");
             Ubicacion = Console.ReadLine();
-            System.Console.WriteLine("Enter estado: ");
+            System.Console.WriteLine("Leer estado: ");
             Estado = Console.ReadLine();
-            System.Console.WriteLine("Enter numero de eventos agendados: ");
+            System.Console.WriteLine("Leer numero de eventos agendados: ");
             nroEventos = int.Parse(Console.ReadLine());
             for (int i = 0; i < nroEventos; i++)
             {
@@ -70,6 +70,7 @@ namespace Proyecto
         }
         public void Mostrar()
         {
+            System.Console.WriteLine("Mostrando espacio: ");
             System.Console.WriteLine(NombredelEspacio + " " + Tipo + " " + AforoDisponible + " " + Ubicacion + " " + Estado + " " + nroEventos);
             for (int i = 0; i < nroEventos; i++)
             {
@@ -80,7 +81,6 @@ namespace Proyecto
         {
             Eventos[nroEventos] = Evento;
             nroEventos ++;
-            // 1
         }
     }
 }

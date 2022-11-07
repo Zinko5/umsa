@@ -15,6 +15,7 @@ namespace Proyecto
         }
         public void Leer()
         {
+            base.Leer();
             System.Console.WriteLine("Leer genero: ");
             Genero = Console.ReadLine();
         }
