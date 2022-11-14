@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Proyecto/Proyecto.csproj",
-      "projectName": "Proyecto",
-      "projectPath": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Proyecto/Proyecto.csproj",
+      "projectUniqueName": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Persistencia/ejer1/ejer1.csproj",
+      "projectName": "ejer1",
+      "projectPath": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Persistencia/ejer1/ejer1.csproj",
       "packagesPath": "/home/gabriel/.nuget/packages/",
-      "outputPath": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Proyecto/obj/",
+      "outputPath": "/home/gabriel/Documentos/UMSA/Segundo Semestre/LAB121/Persistencia/ejer1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/gabriel/.nuget/NuGet/NuGet.Config"
