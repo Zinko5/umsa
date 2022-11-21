@@ -19,7 +19,7 @@ namespace persistencia
 		}
 		public void crear() {
 			if( System.IO.File.Exists(nombre) ) {
-				Console.WriteLine("Realmente quiere borrar el archivo?. s/n");
+				Console.Write("Realmente quiere borrar el archivo?. s/n");
 				if( Console.ReadKey().KeyChar == 's' )
 					System.IO.File.Delete(Nombre);
 				}

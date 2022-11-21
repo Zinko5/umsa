@@ -11,7 +11,8 @@ namespace persistencia
 		static void Main( string[] args ) {
 			bool sw = true;
 			while( sw ) {
-				Console.WriteLine("\n ");
+				System.Console.Write("\n MENU \n ==== \n\n1. CREAR\n2. ADICION\n3. ALISTADO\n4. CONTAR RUTA X\n5. LISTAR CON CONDUCTOR X\n0. SALIR\n\nINTRODUZCA UNA OPCION => ");
+				/*Console.WriteLine("\n ");
 				Console.WriteLine(" MENU ");
 				Console.WriteLine(" ==== ");
 				Console.WriteLine(" ");
@@ -22,31 +23,31 @@ namespace persistencia
 				Console.WriteLine("5. LISTAR CON CONDUCTOR X");
 				Console.WriteLine("0. SALIR ");
 				Console.WriteLine(" ");
-				Console.Write("INTRODUZCA UNA OPCION => ");
-				ArchiBus bus = new ArchiBus(@"/home/gabriel/Público/datos.txt");
+				Console.Write("INTRODUZCA UNA OPCION => ");*/
+				ArchiBus archibus = new ArchiBus(@"/home/gabriel/Publico/datos.txt");
 				switch( Console.ReadKey().KeyChar ) {
 					case '1':
 						Console.WriteLine();
-						bus.crear();
+						archibus.crear();
 						break;
 					case '2':
 						Console.WriteLine();
-						bus.adicionar();
+						archibus.adicionar();
 						break;
 					case '3':
 						Console.WriteLine();
-						bus.listar();
+						archibus.listar();
 						break;
 					case '4':
 						Console.WriteLine();
-						bus.contar();
+						archibus.contar();
 						break;
 					case '5':
 						Console.WriteLine();
-						bus.listaralgunos();
+						archibus.listaralgunos();
 						break;
 					default:
-						Console.WriteLine("\n El programa ya termino !!!");
+						Console.WriteLine("\nEl programa ya termino !!!");
 						sw = false;
 						break;
 				}
