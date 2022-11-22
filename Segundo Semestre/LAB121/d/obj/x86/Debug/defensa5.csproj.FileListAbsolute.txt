@@ -1,5 +1,0 @@
-C:\121\defensa\defensa5\defensa5\bin\Debug\defensa5.exe
-C:\121\defensa\defensa5\defensa5\bin\Debug\defensa5.pdb
-C:\121\defensa\defensa5\defensa5\obj\x86\Debug\defensa5.csprojResolveAssemblyReference.cache
-C:\121\defensa\defensa5\defensa5\obj\x86\Debug\defensa5.exe
-C:\121\defensa\defensa5\defensa5\obj\x86\Debug\defensa5.pdb
