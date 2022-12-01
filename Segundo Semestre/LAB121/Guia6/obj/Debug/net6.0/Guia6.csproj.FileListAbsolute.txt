@@ -1,0 +1,15 @@
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/bin/Debug/net6.0/Guia6
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/bin/Debug/net6.0/Guia6.deps.json
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/bin/Debug/net6.0/Guia6.runtimeconfig.json
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/bin/Debug/net6.0/Guia6.dll
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/bin/Debug/net6.0/Guia6.pdb
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.csproj.AssemblyReference.cache
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.AssemblyInfoInputs.cache
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.AssemblyInfo.cs
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.csproj.CoreCompileInputs.cache
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.dll
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/refint/Guia6.dll
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.pdb
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/Guia6.genruntimeconfig.cache
+/home/gabriel/Publico/UMSA/Segundo Semestre/LAB121/Guia6/obj/Debug/net6.0/ref/Guia6.dll
