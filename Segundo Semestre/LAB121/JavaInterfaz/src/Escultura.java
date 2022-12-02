@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Escultura extends Arte
     {
 
@@ -10,15 +13,20 @@
         {
             get { return Material; }
             set { Material = value; }
-        }
+        }*/
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextLine();
+        */
         public void Leer()
         {
-            System.Console.WriteLine("Leer genero: ");
-            Material = Console.ReadLine();
+            System.out.println("Leer genero: ");
+            Material = sc.nextLine();
         }
         public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(Material);
-        }*/
+            super.Mostrar();
+            System.out.println(Material);
+        }
     }

@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Musica extends Arte
     {
         private String Genero;
@@ -6,16 +9,21 @@
             get { return Genero; }
             set { Genero = value; }
         }*/
-        /*public void Leer()
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextLine();
+        */
+        public void Leer()
         {
-            System.Console.WriteLine("Leer genero: ");
-            Genero = Console.ReadLine();
+            System.out.println("Leer genero: ");
+            Genero = sc.nextLine();
         }
         public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(Genero);
-        }*/
+            super.Mostrar();
+            System.out.println(Genero);
+        }
 
     public Musica(String gen, int apub, String nomobra, String pop, String acep) {
         super(apub, nomobra, pop, acep);

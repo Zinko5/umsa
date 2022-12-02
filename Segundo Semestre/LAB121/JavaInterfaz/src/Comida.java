@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Comida extends Cultura
     {
 
@@ -11,23 +14,28 @@
             set { nroIngredientes = value; }
         }*/
         private String []Ingredientes = new String[50];
-        /*public void Leer()
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextInt();
+        */
+        public void Leer()
         {
-            System.Console.WriteLine("Leer numero de partes: ");
-            nroIngredientes = int.Parse(Console.ReadLine());
+            System.out.println("Leer numero de partes: ");
+            nroIngredientes = sc.nextInt();
             for (int i = 0; i < nroIngredientes; i++)
             {
-                System.Console.WriteLine("Leer parte de la vestimenta: ");
-                Ingredientes[i] = Console.ReadLine();
+                System.out.println("Leer parte de la vestimenta: ");
+                Ingredientes[i] = sc.nextLine();
             }
         }
         public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(nroIngredientes);
+            super.Mostrar();
+            System.out.println(nroIngredientes);
             for (int i = 0; i < nroIngredientes; i++)
             {
-                System.Console.WriteLine(Ingredientes[i]);
+                System.out.println(Ingredientes[i]);
             }
-        }*/
+        }
     }

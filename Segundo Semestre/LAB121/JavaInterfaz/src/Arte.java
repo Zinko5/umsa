@@ -1,4 +1,7 @@
 
+import java.util.Scanner;
+
+
     public class Arte
     {
         private int AñodePublicacion;
@@ -28,17 +31,18 @@
             get { return NombredelaObra; }
             set { NombredelaObra = value; }
         }*/
-        /*public void Leer()
+        Scanner sc = new Scanner(System.in);
+        public void Leer()
         {
             System.out.println("Leer el año de publicacion de la obra: ");
-            añodePublicacion = int.Parse(Console.ReadLine());
+            AñodePublicacion = sc.nextInt();
             System.out.println("Leer el nombre de la obra: ");
-            NombredelaObra = Console.ReadLine();
+            NombredelaObra = sc.nextLine();
         }
         public void Mostrar()
         {
             System.out.println(AñodePublicacion + " " + NombredelaObra);
-        }*/
+        }
 
     public String getPopularidad() {
         return Popularidad;

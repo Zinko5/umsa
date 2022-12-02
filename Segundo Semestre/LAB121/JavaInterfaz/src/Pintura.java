@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Pintura extends Arte
     {
 
@@ -10,15 +13,20 @@
         {
             get { return Tecnica; }
             set { Tecnica = value; }
-        }
+        }*/
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextLine();
+        */
         public void Leer()
         {
-            System.Console.WriteLine("Leer genero: ");
-            Tecnica = Console.ReadLine();
+            System.out.println("Leer genero: ");
+            Tecnica = sc.nextLine();
         }
         public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(Tecnica);
-        }*/
+            super.Mostrar();
+            System.out.println(Tecnica);
+        }
     }

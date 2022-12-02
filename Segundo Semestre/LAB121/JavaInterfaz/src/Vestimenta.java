@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Vestimenta extends Cultura
     {
         private int nroPartes;
@@ -12,23 +15,28 @@
     }
 
         private String []Partes = new String [20];
-        /*public void Leer()
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextLine();
+        */
+        public void Leer()
         {
-            System.Console.WriteLine("Leer numero de partes: ");
-            nroPartes = int.Parse(Console.ReadLine());
+            System.out.println("Leer numero de partes: ");
+            nroPartes = sc.nextInt();
             for (int i = 0; i < nroPartes; i++)
             {
-                System.Console.WriteLine("Leer parte de la vestimenta: ");
-                Partes[i] = Console.ReadLine();
+                System.out.println("Leer parte de la vestimenta: ");
+                Partes[i] = sc.nextLine();
             }
         }
         public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(nroPartes);
+            super.Mostrar();
+            System.out.println(nroPartes);
             for (int i = 0; i < nroPartes; i++)
             {
-                System.Console.WriteLine(Partes[i]);
+                System.out.println(Partes[i]);
             }
-        }*/
+        }
     }

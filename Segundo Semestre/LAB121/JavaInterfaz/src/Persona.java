@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Persona
     {
         private String Nombre;
@@ -37,22 +40,23 @@
             get { return Edad; }
             set { Edad = value; }
         }*/
-        /*public void Leer()
+    Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextLine();
+        */
+        public void Leer()
         {
-            System.Console.WriteLine("Leer Nombre");
-            Nombre = Console.ReadLine();
-            System.Console.WriteLine("Leer año de nacimiento: ");
-            AñoNacimiento = int.Parse(Console.ReadLine());
-            System.Console.WriteLine("Leer  CI: ");
-            Ci = int.Parse(Console.ReadLine());
-            System.Console.WriteLine("Leer Nacionalidad: ");
-            Nacionalidad = Console.ReadLine();
-            System.Console.WriteLine("Leer edad");
-            Edad = int.Parse(Console.ReadLine());
+            System.out.println("Leer Nombre");
+            Nombre = sc.nextLine();
+            System.out.println("Leer Nacionalidad: ");
+            Nacionalidad = sc.nextLine();
+            System.out.println("Leer edad");
+            Edad = sc.nextInt();
         }
         public void Mostrar()
         {
-            System.Console.WriteLine(Nombre + " " + AñoNacimiento + " " + Ci + " " + Nacionalidad + " " + Edad);
-        }*/
+            System.out.println(Nombre + " " + Nacionalidad + " " + Edad);
+        }
 
     }

@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Danza extends Arte
     {
 
@@ -10,15 +13,20 @@
         {
             get { return Ritmo; }
             set { Ritmo = value; }
-        }
+        }*/
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextLine();
+        */
         public void Leer()
         {
-            System.Console.WriteLine("Leer genero: ");
-            Ritmo = Console.ReadLine();
+            System.out.println("Leer genero: ");
+            Ritmo = sc.nextLine();
         }
         public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(Ritmo);
-        }*/
+            super.Mostrar();
+            System.out.println(Ritmo);
+        }
     }

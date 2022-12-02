@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Cultura
     {
         private String Historia;
@@ -5,14 +8,19 @@
         {
             get { return Historia; }
             set { Historia = value; }
-        }
+        }*/
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextLine();
+        */
         public void Leer()
         {
-            System.Console.WriteLine("Leer Historia: ");
-            Historia = Console.ReadLine();
+            System.out.println("Leer Historia: ");
+            Historia = sc.nextLine();
         }
         public void Mostrar()
         {
-            System.Console.WriteLine(Historia);
-        }*/
+            System.out.println(Historia);
+        }
     }

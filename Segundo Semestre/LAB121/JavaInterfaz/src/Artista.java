@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Artista extends Persona
     {
         private String Disciplina;
@@ -6,17 +9,18 @@
             get { return Disciplina; }
             set { Disciplina = value; }
         }*/
-        /*public void Mostrar()
+        public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(Disciplina);
+            super.Mostrar();
+            System.out.println(Disciplina);
         }
         public void Leer()
         {
-            base.Leer();
-            System.Console.WriteLine("Leer disciplina: ");
-            Disciplina = Console.ReadLine();
-        }*/
+            super.Leer();
+            System.out.println("Leer disciplina: ");
+            Disciplina = sc.nextLine();
+        }
+        
 
     public Artista(String Disciplina, String Nom, String Nac, int Ed) {
         super(Nom, Nac, Ed);

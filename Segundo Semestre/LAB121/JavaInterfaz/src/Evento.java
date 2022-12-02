@@ -160,16 +160,16 @@ import java.util.Scanner;
         {
             System.out.println("Mostrando evento: ");
             System.out.println(NombredelEvento + " " + FechadelEvento + " " + Aforo + " " + nroArtistas + " " + nroObras);
-            /*for (int i = 0; i < nroArtistas; i++)
+            for (int i = 0; i < nroArtistas; i++)
             {
                 Artistas[i].Mostrar();
             }
             for (int i = 0; i < nroObras; i++)
             {
                 Obras[i].Mostrar();
-            }*/
+            }
         }
-        /*public void Añadir(Arte Arte)
+        public void Añadir(Arte Arte)
         {
             Obras[nroObras] = Arte;
             nroObras ++;
@@ -178,5 +178,5 @@ import java.util.Scanner;
         {
             Artistas[nroArtistas] = Artista;
             nroArtistas ++;
-        }*/
+        }
     }

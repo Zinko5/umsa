@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
     public class Cine extends Arte
     {
 
@@ -10,15 +13,20 @@
         {
             get { return Genero; }
             set { Genero = value; }
-        }
+        }*/
+        Scanner sc = new Scanner(System.in);
+        /*
+        System.out.println(
+        sc.nextInt();
+        */
         public void Leer()
         {
-            System.Console.WriteLine("Leer genero: ");
-            Genero = Console.ReadLine();
+            System.out.println("Leer genero: ");
+            Genero = sc.nextLine();
         }
         public void Mostrar()
         {
-            base.Mostrar();
-            System.Console.WriteLine(Genero);
-        }*/
+            super.Mostrar();
+            System.out.println(Genero);
+        }
     }
