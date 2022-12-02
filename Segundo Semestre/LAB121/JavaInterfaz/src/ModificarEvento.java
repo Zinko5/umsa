@@ -14,13 +14,11 @@ public class ModificarEvento extends javax.swing.JFrame {
      */
     private EspacioMunicipalCultural e1;
     private EspacioMunicipalCultural e2;
-    private ModificarEventoMenu mem;
+    private MenuModificarEvento mem;
     int n;
     public ModificarEvento() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.e1 = e1;
-        this.e2 = e2;
     }
     public ModificarEvento(EspacioMunicipalCultural e1, EspacioMunicipalCultural e2, int n) {
         initComponents();
@@ -51,7 +49,7 @@ public class ModificarEvento extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
         jTextField1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +90,7 @@ public class ModificarEvento extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(35, 35, 35)
                         .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
@@ -103,12 +101,12 @@ public class ModificarEvento extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(384, 384, 384)
                         .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(30, 30, 30)
                 .addComponent(jButton1)
                 .addGap(106, 106, 106)
                 .addComponent(jLabel1)
@@ -118,7 +116,7 @@ public class ModificarEvento extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 600));
@@ -139,7 +137,7 @@ public class ModificarEvento extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        mem = new ModificarEventoMenu(e1, e2);
+        mem = new MenuModificarEvento(e1, e2);
         mem.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

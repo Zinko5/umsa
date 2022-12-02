@@ -12,15 +12,13 @@ public class Admin extends javax.swing.JFrame {
     /**
      * Creates new form Admin
      */
-    private ModificarEventoMenu mod;
+    private MenuModificarEvento mod;
     private Principal p;
     private EspacioMunicipalCultural e1;
     private EspacioMunicipalCultural e2;
     public Admin() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.e1 = e1;
-        this.e2 = e2;
     }
     public Admin(EspacioMunicipalCultural e1, EspacioMunicipalCultural e2) {
         initComponents();
@@ -79,9 +77,9 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(211, 211, 211))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton2)
@@ -90,13 +88,13 @@ public class Admin extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(30, 30, 30)
                 .addComponent(jButton1)
                 .addGap(92, 92, 92)
                 .addComponent(jLabel1)
                 .addGap(126, 126, 126)
                 .addComponent(jToggleButton2)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 600));
@@ -125,7 +123,7 @@ public class Admin extends javax.swing.JFrame {
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
-        mod = new ModificarEventoMenu(e1, e2);
+        mod = new MenuModificarEvento(e1, e2);
         mod.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jToggleButton2ActionPerformed

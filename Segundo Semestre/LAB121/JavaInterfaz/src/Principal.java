@@ -16,8 +16,8 @@ public class Principal extends javax.swing.JFrame {
     private MostrarEMC memc;
     private EspacioMunicipalCultural e1;
     private EspacioMunicipalCultural e2;
-    private MenuEventos me;
-    private MenuEventos2 me2;
+    private EventosMenu me;
+    private EventosMenu2 me2;
     private MenuObras mo;
     public Principal() {
         initComponents();
@@ -180,8 +180,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        me = new MenuEventos(e1, e2);
-        me = new MenuEventos(e1, e2);
+        me = new EventosMenu(e1, e2);
         me.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -195,8 +194,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        me2 = new MenuEventos2(e1, e2);
-        me2 = new MenuEventos2(e1, e2);
+        me2 = new EventosMenu2(e1, e2);
         me2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
