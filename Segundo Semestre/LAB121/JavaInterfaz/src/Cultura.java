@@ -1,7 +1,7 @@
     public class Cultura
     {
-        private string Historia;
-        public string historia
+        private String Historia;
+        /*public string historia
         {
             get { return Historia; }
             set { Historia = value; }
@@ -14,5 +14,5 @@
         public void Mostrar()
         {
             System.Console.WriteLine(Historia);
-        }
+        }*/
     }

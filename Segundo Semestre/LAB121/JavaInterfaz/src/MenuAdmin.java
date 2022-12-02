@@ -13,10 +13,20 @@ public class MenuAdmin extends javax.swing.JFrame {
      * Creates new form MenuAdmin
      */
     private Principal p;
+    private EspacioMunicipalCultural e1;
+    private EspacioMunicipalCultural e2;
     private Admin a;
     public MenuAdmin() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.e1 = e1;
+        this.e2 = e2;
+    }
+    public MenuAdmin(EspacioMunicipalCultural e1, EspacioMunicipalCultural e2) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.e1 = e1;
+        this.e2 = e2;
     }
 
     /**
@@ -52,8 +62,10 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 28)); // NOI18N
         jLabel2.setText("Constraseña:");
 
+        jToggleButton1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jToggleButton1.setText("Enviar");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,10 +86,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(154, 154, 154))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -87,29 +95,32 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
+                        .addGap(111, 111, 111)
                         .addComponent(jLabel2)
-                        .addGap(58, 58, 58)
+                        .addGap(18, 18, 18)
                         .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
+                        .addGap(43, 43, 43)
                         .addComponent(jToggleButton1)))
-                .addGap(0, 110, Short.MAX_VALUE))
+                .addGap(0, 89, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(141, 141, 141))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jButton1)
-                .addGap(61, 61, 61)
+                .addGap(109, 109, 109)
                 .addComponent(jLabel1)
-                .addGap(145, 145, 145)
+                .addGap(110, 110, 110)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1))
-                .addGap(121, 121, 121)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(msg)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 600));
@@ -134,7 +145,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        p = new Principal();
+        p = new Principal(e1, e2);
         p.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -142,7 +153,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
         if (jPasswordField1.getText().equals("123")) {
-            a = new Admin();
+            a = new Admin(e1, e2);
             a.setVisible(true);
             this.setVisible(false);
         }

@@ -1,36 +1,43 @@
     public class Persona
     {
-        private string Nombre;
-        public string nombre
+        private String Nombre;
+        /*public string nombre
         {
             get { return Nombre; }
             set { Nombre = value; }
-        }
-        private int AñoNacimiento;
-        public int añoNacimineto
-        {
-            get { return AñoNacimiento; }
-            set { AñoNacimiento = value; }
-        }
-        private int Ci;
-        public int ci
-        {
-            get { return Ci; }
-            set { Ci = value; }
-        }
-        private string Nacionalidad;
-        public string nacionalidad
+        }*/
+        private String Nacionalidad;
+        /*public string nacionalidad
         {
             get { return Nacionalidad; }
             set { Nacionalidad = value; }
-        }
+        }*/
         private int Edad;
-        public int edad
+
+    public Persona(String Nombre, String Nacionalidad, int Edad) {
+        this.Nombre = Nombre;
+        this.Nacionalidad = Nacionalidad;
+        this.Edad = Edad;
+    }
+
+    public int getEdad() {
+        return Edad;
+    }
+
+    public String getNacionalidad() {
+        return Nacionalidad;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+        
+        /*public int edad
         {
             get { return Edad; }
             set { Edad = value; }
-        }
-        public void Leer()
+        }*/
+        /*public void Leer()
         {
             System.Console.WriteLine("Leer Nombre");
             Nombre = Console.ReadLine();
@@ -46,5 +53,6 @@
         public void Mostrar()
         {
             System.Console.WriteLine(Nombre + " " + AñoNacimiento + " " + Ci + " " + Nacionalidad + " " + Edad);
-        }
+        }*/
+
     }

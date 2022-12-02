@@ -1,7 +1,12 @@
-    public class Danza:Arte
+    public class Danza extends Arte
     {
-        private string Ritmo;
-        public string ritmo
+
+    public Danza(String Ritmo, int AñodePublicacion, String NombredelaObra, String Popularidad, String Aceptacion) {
+        super(AñodePublicacion, NombredelaObra, Popularidad, Aceptacion);
+        this.Ritmo = Ritmo;
+    }
+        private String Ritmo;
+        /*public string ritmo
         {
             get { return Ritmo; }
             set { Ritmo = value; }
@@ -15,5 +20,5 @@
         {
             base.Mostrar();
             System.Console.WriteLine(Ritmo);
-        }
+        }*/
     }

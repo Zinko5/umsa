@@ -1,6 +1,11 @@
-    public class Pintura:Arte
+    public class Pintura extends Arte
     {
-        private string Tecnica;
+
+    public Pintura(String Tecnica, int AñodePublicacion, String NombredelaObra, String Popularidad, String Aceptacion) {
+        super(AñodePublicacion, NombredelaObra, Popularidad, Aceptacion);
+        this.Tecnica = Tecnica;
+    }
+        private String Tecnica;/*
         public string tecnica
         {
             get { return Tecnica; }
@@ -15,5 +20,5 @@
         {
             base.Mostrar();
             System.Console.WriteLine(Tecnica);
-        }
+        }*/
     }

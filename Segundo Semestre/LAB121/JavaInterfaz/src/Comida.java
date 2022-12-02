@@ -1,13 +1,17 @@
-    public class Comida:Cultura
+    public class Comida extends Cultura
     {
+
+    public Comida(int nroIngredientes) {
+        this.nroIngredientes = nroIngredientes;
+    }
         private int nroIngredientes;
-        public int NroIngredientes
+        /*public int NroIngredientes
         {
             get { return nroIngredientes; }
             set { nroIngredientes = value; }
-        }
-        private string []Ingredientes = new string[50];
-        public void Leer()
+        }*/
+        private String []Ingredientes = new String[50];
+        /*public void Leer()
         {
             System.Console.WriteLine("Leer numero de partes: ");
             nroIngredientes = int.Parse(Console.ReadLine());
@@ -25,5 +29,5 @@
             {
                 System.Console.WriteLine(Ingredientes[i]);
             }
-        }
+        }*/
     }

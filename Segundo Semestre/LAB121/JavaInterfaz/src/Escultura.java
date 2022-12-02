@@ -1,7 +1,12 @@
-    public class Escultura:Arte
+    public class Escultura extends Arte
     {
-        private string Material;
-        public string material
+
+    public Escultura(String Material, int AñodePublicacion, String NombredelaObra, String Popularidad, String Aceptacion) {
+        super(AñodePublicacion, NombredelaObra, Popularidad, Aceptacion);
+        this.Material = Material;
+    }
+        private String Material;
+        /*public string material
         {
             get { return Material; }
             set { Material = value; }
@@ -15,5 +20,5 @@
         {
             base.Mostrar();
             System.Console.WriteLine(Material);
-        }
+        }*/
     }

@@ -16,16 +16,18 @@ public class MostrarEMC extends javax.swing.JFrame {
     /**
      * Creates new form MostrarEMC
      */
-    private EspacioMunicipalCultural emc;
+    private EspacioMunicipalCultural e1;
+    private EspacioMunicipalCultural e2;
     private Principal p;
     private DefaultTableModel tabla;
     public MostrarEMC() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public MostrarEMC(EspacioMunicipalCultural e) {
+    public MostrarEMC(EspacioMunicipalCultural e1, EspacioMunicipalCultural e2) {
         initComponents();
-        emc = e;
+        this.e1 = e1;
+        this.e2 = e2;
         tabla = new DefaultTableModel();
         tabla.addColumn("Nombre");
         tabla.addColumn("Tipo");
@@ -34,12 +36,19 @@ public class MostrarEMC extends javax.swing.JFrame {
         tabla.addColumn("Estado");
         tabla.addColumn("Eventos");
         String V[] = new String[6];
-        V[0] = emc.getNombredelEspacio();
-        V[1] = emc.getTipo();
-        V[2] = emc.getAforoDisponible();
-        V[3] = emc.getUbicacion();
-        V[4] = emc.getEstado();
-        V[5] = emc.getAforoDisponible() + "";
+        V[0] = e1.getNombredelEspacio();
+        V[1] = e1.getTipo();
+        V[2] = e1.getAforoDisponible() + "";
+        V[3] = e1.getUbicacion();
+        V[4] = e1.getEstado();
+        V[5] = e1.getNroEventos() + "";
+        tabla.addRow(V);
+        V[0] = e2.getNombredelEspacio();
+        V[1] = e2.getTipo();
+        V[2] = e2.getAforoDisponible() + "";
+        V[3] = e2.getUbicacion();
+        V[4] = e2.getEstado();
+        V[5] = e2.getNroEventos() + "";
         tabla.addRow(V);
         /*tabla.addColumn(emc.getNombredelEspacio());
         tabla.addColumn(emc.getTipo());
@@ -100,29 +109,30 @@ public class MostrarEMC extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jButton1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
-                .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(32, 32, 32)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(77, 77, 77)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 600));
@@ -143,7 +153,7 @@ public class MostrarEMC extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        p = new Principal();
+        p = new Principal(e1, e2);
         p.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -1,7 +1,12 @@
-    public class Cine:Arte
+    public class Cine extends Arte
     {
-        private string Genero;
-        public string genero
+
+    public Cine(String Genero, int AñodePublicacion, String NombredelaObra, String Popularidad, String Aceptacion) {
+        super(AñodePublicacion, NombredelaObra, Popularidad, Aceptacion);
+        this.Genero = Genero;
+    }
+        private String Genero;
+        /*public string genero
         {
             get { return Genero; }
             set { Genero = value; }
@@ -15,5 +20,5 @@
         {
             base.Mostrar();
             System.Console.WriteLine(Genero);
-        }
+        }*/
     }
