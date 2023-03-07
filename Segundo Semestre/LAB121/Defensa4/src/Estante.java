@@ -71,7 +71,7 @@ public class Estante {
 			div[i].Mostrar();
 		}
 	}
-	public void Agregar(Prenda p) {
+	public void Agregar(prenda p) {
 		for (int i = 0; i < nroDivisiones; i++) {
 			div[i].Agregar(p);
 		}

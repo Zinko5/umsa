@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Prenda {
+public class prenda {
 	Scanner sc = new Scanner(System.in);
 	private String nombre;
 	private String color;
@@ -36,7 +36,7 @@ public class Prenda {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public Prenda() {}
+	public prenda() {}
 	public void Leer() {
 		System.out.println("\nLeyendo prenda: ");
 		System.out.println("Leer nombre: ");

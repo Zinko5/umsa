@@ -88,7 +88,7 @@ public class App {
         a.adicionar(p5);
         a.mostrar();
         
-        //verificar si existe la prenda con nombre x true/false
+        //verificar si existe la Prenda con nombre x true/false
         String x;
         System.out.print("\nEnter x: ");
         x = sc.nextLine();

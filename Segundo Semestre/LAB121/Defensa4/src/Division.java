@@ -3,7 +3,7 @@ public class Division {
 	Scanner sc = new Scanner(System.in);
 	private String codigoDiv;
 	private int cantidadPrendas;
-	private Prenda pre[] = new Prenda[100];
+	private prenda pre[] = new prenda[100];
 	public String getCodigoDiv() {
 		return codigoDiv;
 	}
@@ -31,7 +31,7 @@ public class Division {
 		codigoDiv = sc.nextLine();
 		cantidadPrendas = sc.nextInt();
 		for (int i = 0; i < cantidadPrendas; i++) {
-			pre[i] = new Prenda();
+			pre[i] = new prenda();
 			pre[i].Leer();
 		}
 	}
@@ -41,7 +41,7 @@ public class Division {
 			pre[i].Mostrar();
 		}
 	}
-	public void Agregar(Prenda p) {
+	public void Agregar(prenda p) {
 		pre[cantidadPrendas] = p;
 		cantidadPrendas ++;
 	}
