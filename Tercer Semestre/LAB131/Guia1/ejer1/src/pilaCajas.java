@@ -109,15 +109,15 @@ public class pilaCajas {
     }
     public int maxcant() {
         int m = 0;
-        pilaCajas auxPila = new pilaCajas();
+        pilaCajas auxPilaJ = new pilaCajas();
         while (!this.esvacia()) {
             Caja cajaAux = this.eliminar();
             if (cajaAux.getCantidad() > m) {
                 m = cajaAux.getCantidad();
             }
-            auxPila.adicionar(cajaAux);
+            auxPilaJ.adicionar(cajaAux);
         }
-        vaciar(auxPila);
+        vaciar(auxPilaJ);
         return m;
     }
     public void mover() {
@@ -151,14 +151,45 @@ public class pilaCajas {
         }
     }
     public void mostrarprecio(int x) {
-        pilaCajas auxPila = new pilaCajas();
+        pilaCajas auxPilaJ = new pilaCajas();
         while (!esvacia()) {
             Caja auxCaja = eliminar();
             if (auxCaja.getPrecioUnitario() > x) {
                 auxCaja.mostrar();
             }
-            auxPila.adicionar(auxCaja);            
+            auxPilaJ.adicionar(auxCaja);            
         }
-        vaciar(auxPila);
+        vaciar(auxPilaJ);
     }
+    public void reorganizar(int J, int K, pilaCajas B, pilaCajas C) { 
+        if (J > K) {
+            System.out.println("J debe ser menor o igual a K");
+        } else {
+            pilaCajas auxPilaK = new pilaCajas();
+            pilaCajas auxPilaJ = new pilaCajas();
+            pilaCajas auxPila = new pilaCajas();
+            this.reorganizar(J, K, auxPilaJ, auxPilaK, auxPila);
+            B.reorganizar(J, K, auxPilaJ, auxPilaK, auxPila);
+            C.reorganizar(J, K, auxPilaJ, auxPilaK, auxPila);
+            this.vaciar(auxPilaJ);
+            B.vaciar(auxPila);
+            C.vaciar(auxPilaK);
+
+        }
+    }
+    public void reorganizar(int J, int K, pilaCajas auxPilaJ, pilaCajas auxPilaK, pilaCajas auxPila) {
+        while (!this.esvacia()) {
+            Caja auxCaja = this.eliminar();
+            if (auxCaja.getCantidad() < J) {
+                auxPilaJ.adicionar(auxCaja);
+            } else {
+                if (auxCaja.getCantidad() > K) {
+                    auxPilaK.adicionar(auxCaja);
+                } else {
+                    auxPila.adicionar(auxCaja);
+                }
+            }
+        }
+    }
+    
 }
