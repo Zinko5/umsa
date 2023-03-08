@@ -47,7 +47,7 @@ public class Pila {
             System.out.println ("Pila vacia");
         else
         {
-            System.out.println ("Datos de la Pila:");
+            System.out.println ("Objetos de la Pila:");
             Pila aux = new Pila ();
             while (!esvacia ())
             {

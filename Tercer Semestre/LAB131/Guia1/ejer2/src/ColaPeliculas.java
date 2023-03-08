@@ -75,19 +75,37 @@ public class ColaPeliculas {
         int c = 0;
         int s = 0;
         ColaPersonas CPerAux = new ColaPersonas();
-        while (!CPer.esvacia()) {
-            Persona PerAux = CPer.eliminar();
-            for (int i = 1; i <= nroelem(); i++) {
-                Pelicula PelAux = eliminar();
+        ColaPeliculas CPelAux = new ColaPeliculas();
+        while (!esvacia()) {
+            Pelicula PelAux = eliminar();
+            while (!CPer.esvacia()) {
+                Persona PerAux = CPer.eliminar();
                 if (PelAux.getIdPelicula().equals(PerAux.getIdPelicula()) && PelAux.getTitulo().equals(X) ) {
                     c++;
                     s = s + PerAux.getEdad();
-                    CPerAux.adicionar(PerAux);
-                    adicionar(PelAux);
                 }
+                CPerAux.adicionar(PerAux);
             }
+            CPelAux.adicionar(PelAux);
+            CPer.vaciar(CPerAux);
         }
-        CPer.vaciar(CPerAux);
+        vaciar(CPelAux);
         System.out.println("\nedad promedio: " + s/c);
+    }
+    public void cuantas(String X, ColaPersonas CPer) {
+        int c = 0;
+        ColaPersonas CPerAux = new ColaPersonas();
+        while (!esvacia()) {
+            Pelicula PelAux = eliminar();
+            while (!CPer.esvacia()) {
+                Persona PerAux = CPer.eliminar();
+                if (PelAux.getIdPelicula().equals(PerAux.getIdPelicula()) && PelAux.getTitulo().equals(X) ) {
+                    c++;
+                }
+                CPerAux.adicionar(PerAux);
+            }
+            CPer.vaciar(CPerAux);
+        }
+        System.out.println(c + " personas veran " + X);
     }
 }

@@ -52,7 +52,7 @@ public class ColaSimple {
             System.out.println ("Cola simple vacia");
         else
         {
-            System.out.println ("objetos de la Cola:");
+            System.out.println ("Objetos de la Cola:");
             ColaSimple aux = new ColaSimple ();
             while (!esvacia ())
             {
