@@ -53,9 +53,9 @@ public class Pila {
             {
                 elem = eliminar ();
                 aux.adicionar (elem);
-                System.out.println("<");
+                System.out.print("[");
                 elem.mostrar();
-                System.out.println("> ");
+                System.out.print("] ");
             }
             System.out.println();
             while (!aux.esvacia ())
