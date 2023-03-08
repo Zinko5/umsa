@@ -58,10 +58,11 @@ public class ColaPeliculas {
             {
                 Pelicula elem = eliminar ();
                 aux.adicionar (elem);
-                System.out.print(" <");
+                System.out.print("<");
                 elem.mostrar();
                 System.out.print("> ");
             }
+            System.out.println();
             vaciar(aux);
         }
     }
@@ -92,7 +93,7 @@ public class ColaPeliculas {
         vaciar(CPelAux);
         System.out.println("\nedad promedio: " + s/c);
     }
-    public void cuantas(String X, ColaPersonas CPer) {
+    public void cuantasTitulo(String X, ColaPersonas CPer) {
         int c = 0;
         ColaPersonas CPerAux = new ColaPersonas();
         while (!esvacia()) {
@@ -108,4 +109,33 @@ public class ColaPeliculas {
         }
         System.out.println(c + " personas veran " + X);
     }
+    /*public int cuantasGenero(String X, ColaPersonas CPer) {
+        int c = 0;
+        ColaPersonas CPerAux = new ColaPersonas();
+        while (!esvacia()) {
+            Pelicula PelAux = eliminar();
+            while (!CPer.esvacia()) {
+                Persona PerAux = CPer.eliminar();
+                if (PelAux.getIdPelicula().equals(PerAux.getIdPelicula()) && PelAux.getGenero().equals(X) ) {
+                    c++;
+                }
+                CPerAux.adicionar(PerAux);
+            }
+            CPer.vaciar(CPerAux);
+        }
+        return c;
+    }
+    public void mayor(ColaPersonas CPer) {
+        int m = 0;
+        if (cuantasGenero("Documental", CPer) > m) {
+            m = cuantasGenero("Documental", CPer);
+        }
+        if (cuantasGenero("Documental", CPer) > m) {
+            m = cuantasGenero("Ciencia Ficcion", CPer);
+        }
+        if (cuantasGenero("Documental", CPer) > m) {
+            m = cuantasGenero("Misterio", CPer);
+        }
+        System.out.println(m + " personas");
+    }*/
 }

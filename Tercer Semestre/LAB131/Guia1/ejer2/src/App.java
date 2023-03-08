@@ -19,6 +19,7 @@ public class App {
         CPeliculas.mostrar();
         CPersonas.mostrar();
         CPeliculas.edadPromedio("El Mundo", CPersonas);
-        CPeliculas.cuantas("El Vaso", CPersonas);
+        CPeliculas.cuantasTitulo("El Vaso", CPersonas);
+        //CPeliculas.mayor(CPersonas);
     }
 }

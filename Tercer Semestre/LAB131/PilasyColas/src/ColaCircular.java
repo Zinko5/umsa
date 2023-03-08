@@ -63,6 +63,7 @@ public class ColaCircular {
                 elem.mostrar();
                 System.out.print("] ");
             }
+            System.out.println();
             vaciar(aux);
         }
     }

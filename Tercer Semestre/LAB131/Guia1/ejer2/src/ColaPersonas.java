@@ -58,10 +58,11 @@ public class ColaPersonas {
             {
                 Persona elem = eliminar ();
                 aux.adicionar (elem);
-                System.out.print(" <");
+                System.out.print("<");
                 elem.mostrar();
                 System.out.print("> ");
             }
+            System.out.println();
             vaciar(aux);
         }
     }
