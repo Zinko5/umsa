@@ -33,6 +33,7 @@ public class App {
         C.mostrar();
         System.out.println("precio mayor a x (6) de la fila i (2):");
         A.mostrarprecio(6, B, C, 2);
+        System.out.println("Reorganizando con J = 5, K = 15");
         A.reorganizar(5, 15, B, C);
         A.mostrar();
         B.mostrar();
