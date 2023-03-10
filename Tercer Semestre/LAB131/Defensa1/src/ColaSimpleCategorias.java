@@ -1,0 +1,75 @@
+public class ColaSimpleCategorias {
+    private int max = 20;
+    private int ini, fin;
+    private Categoria v[] = new Categoria[max + 1];
+
+    public ColaSimpleCategorias() {
+        ini = fin = 0;
+    }
+    public boolean esvacia ()
+    {
+        if (ini == 0 && fin == 0)
+            return (true);
+        return (false);
+    }
+    public boolean esllena ()
+    {
+        if (fin == max)
+            return (true);
+        return (false);
+    }
+    public int nroelem ()
+    {
+        return (fin - ini);
+    }
+    public void adicionar (Categoria elem)
+    {
+        if (!esllena ())
+        {
+            fin++;         //v[fin+1]=elem
+            v [fin] = elem;  //fin=fin+1
+        }
+        else
+            System.out.println ("Cola Simple llena");
+    }
+    public Categoria eliminar ()
+    {
+        Categoria elem = null;
+        if (!esvacia ())
+        {
+            ini++;
+            elem = v [ini];
+            if (ini == fin)
+                ini = fin = 0;
+        }
+        else
+            System.out.println ("Cola simple vacia");
+        return (elem);
+    }
+    public void mostrar ()
+    {
+        if (esvacia ())
+            System.out.println ("Cola simple vacia");
+        else
+        {
+            System.out.println ("Objetos de la Cola:");
+            ColaSimpleCategorias aux = new ColaSimpleCategorias ();
+            while (!esvacia ())
+            {
+                Categoria elem = eliminar ();
+                aux.adicionar (elem);
+                System.out.print("<");
+                elem.mostrar();
+                System.out.println("> ");
+            }
+            System.out.println();
+            vaciar(aux);
+        }
+    }
+    public void vaciar (ColaSimpleCategorias a)
+    {
+            while (!a.esvacia ())
+                adicionar (a.eliminar ());
+
+    }
+}
