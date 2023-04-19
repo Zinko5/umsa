@@ -1,0 +1,38 @@
+LinkedList:
+La sintaxis en el main es 
+LinkedList<"objeto"> A = new LinkedList<"objeto">
+los metodos de A para agregar "objeto"s son:
+A.add("objeto")
+A.addFirst("objeto")
+A.addLast("objeto")
+
+para manejar la LinkedList:
+
+public static void mostrar(LinkedList<Tema> A)
+    {
+        ListIterator<Tema> r=A.listIterator(); // para lista de objetos
+
+        while(r.hasNext())
+        {
+                Tema tx = r.next();
+                tx.mostrar();//proceso
+        }
+    }
+
+
+
+ArrayList:
+La sintaxis en el main es 
+ArrayList<"objeto"> B = new ArrayList<"objeto">();  
+los metodos de B para agregar "objeto"s son:
+A.add("objeto")
+
+para manejar la ArrayList
+
+public static public void Mostrar(ArrayList<Zona> rrylistZona){
+    for (int i = 0; i < rrylistZona.size(); i++) {
+        objeto objetosacado = rrylistZona.get(i);
+        objetosacado.mostrar();
+    }
+}
+
