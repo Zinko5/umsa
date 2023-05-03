@@ -3,7 +3,7 @@ public class NodoDoble {
     /*si el nodo es de algo, un "objeto" no creado, definir aqui sus atributos, getters y setters */
     private NodoDoble ant, sig;
 
-    NodoDoble(){
+    NodoDoble() {
         ant = sig = null;
     }
 

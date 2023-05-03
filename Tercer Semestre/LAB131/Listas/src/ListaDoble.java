@@ -1,7 +1,7 @@
 public class ListaDoble {
     private NodoDoble nodo;
-    ListaDoble()
-    {
+
+    ListaDoble() {
         nodo = null;
     }
 
@@ -12,27 +12,26 @@ public class ListaDoble {
     public void setNodo(NodoDoble nodo) {
         this.nodo = nodo;
     }
-    public void adiFinal(objeto o /*si el "objeto" no es un objeto creado, colocar aqui parametros del objeto */){
-        NodoDoble nuevo = new NodoDoble();
-        nuevo.setObjeto(o); /*si el "objeto" no es un objeto creado, reemplazar aqui colocando los atributos del "objeto" con setters */
-        
+
+    public void adiFinal(objeto o/*si el "objeto" no es un objeto creado, colocar aqui parametros del objeto*/) {
+        NodoDoble nuevoNodo = new NodoDoble();
+        nuevoNodo.setObjeto(o);//si el "objeto" no es un objeto creado, reemplazar aqui colocando los atributos del "objeto" con setters
         if(getNodo() == null)
-            setNodo(nuevo);
+            setNodo(nuevoNodo);
         else {
-            NodoDoble r = getNodo();
-            while(r.getSig()!=null)
-                r = r.getSig();
-            r.setSig(nuevo);
-            nuevo.setAnt(r);
+            NodoDoble nodo = getNodo();
+            while(nodo.getSig() != null)
+                nodo = nodo.getSig();
+            nodo.setSig(nuevoNodo);
+            nuevoNodo.setAnt(nodo);
         }
     }
-    public void mostrar()
-    {
-        NodoDoble o = getNodo();
-        while(o!=null)
-        {
-            o.getObjeto().mostrar(); /*si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto" */
-            o=o.getSig();
+
+    public void mostrar() {
+        NodoDoble nodo = getNodo();
+        while(nodo != null) {
+            nodo.getObjeto().mostrar();//si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto"
+            nodo = nodo.getSig();
         }
     }
 }

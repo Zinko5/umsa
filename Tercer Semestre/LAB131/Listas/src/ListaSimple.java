@@ -1,8 +1,7 @@
 public class ListaSimple {
     private NodoSimple nodo;
     
-    ListaSimple()
-    {
+    ListaSimple() {
         nodo = null;
     }
 
@@ -10,31 +9,28 @@ public class ListaSimple {
         return nodo;
     }
 
-    public void setNodo(NodoSimple p) {
-        this.nodo = p;
+    public void setNodo(NodoSimple nodo) {
+        this.nodo = nodo;
     }
-    public void adifinal(/*si el "objeto" no es un objeto creado, colocar aqui parametros del objeto */ objeto o)
-    {
-        NodoSimple nue = new NodoSimple();
-        nue.setObjeto(o); /*si el "objeto" no es un objeto creado, reemplazar aqui colocando los atributos del "objeto" con setters */
+
+    public void adifinal(objeto o/*si el "objeto" no es un objeto creado, colocar aqui parametros del objeto*/) {
+        NodoSimple nuevoNodo = new NodoSimple();
+        nuevoNodo.setObjeto(o);//si el "objeto" no es un objeto creado, reemplazar aqui colocando los atributos del "objeto" con setters
         if(getNodo() == null)
-            setNodo(nue);
-        else{
-            NodoSimple m = getNodo();
-            while(m.getSig() != null)//recorre al ultimo nodo
-                m = m.getSig();
-            m.setSig(nue);
-        }
-            
-    }
-    public void mostrar()
-    {
-        NodoSimple d = getNodo();
-        while(d != null)//recorre hasta el final
-        {
-            d.getObjeto().mostrar(); /*si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto" */
-            d = d.getSig();
+            setNodo(nuevoNodo);
+        else {
+            NodoSimple nodo = getNodo();
+            while(nodo.getSig() != null)//recorre al ultimo nodo
+                nodo = nodo.getSig();
+            nodo.setSig(nuevoNodo);
         }
     }
-    
+
+    public void mostrar() {
+        NodoSimple nodo = getNodo();
+        while(nodo != null) {
+            nodo.getObjeto().mostrar(); /*si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto" */
+            nodo = nodo.getSig();
+        }
+    }
 }

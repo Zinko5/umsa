@@ -1,5 +1,6 @@
 public class objeto {
     private String dato;
+    
     public String getDato() {
         return dato;
     }

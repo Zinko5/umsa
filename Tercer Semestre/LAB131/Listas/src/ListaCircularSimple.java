@@ -1,7 +1,7 @@
 public class ListaCircularSimple {
     private NodoCircularSimple nodo;
-    ListaCircularSimple()
-    {
+
+    ListaCircularSimple() {
         nodo = null;
     }
 
@@ -12,32 +12,30 @@ public class ListaCircularSimple {
     public void setP(NodoCircularSimple nodo) {
         this.nodo = nodo;
     }
-    public void adiprimero (/*si el "objeto" no es un objeto creado, colocar aqui parametros del objeto */ objeto o)
-    {
-    	NodoCircularSimple nue = new NodoCircularSimple ();
-    	nue.setObjeto(o); /*si el "objeto" no es un objeto creado, reemplazar aqui colocando los atributos del "objeto" con setters */
-	    if (getNodo()==null)
-	    {
-	        setP(nue);
+
+    public void adiprimero (objeto o/*si el "objeto" no es un objeto creado, colocar aqui parametros del objeto*/) {
+    	NodoCircularSimple nuevoNodo = new NodoCircularSimple();
+    	nuevoNodo.setObjeto(o);//si el "objeto" no es un objeto creado, reemplazar aqui colocando los atributos del "objeto" con setters
+	    if (getNodo() == null) {
+	        setP(nuevoNodo);
 	        getNodo().setSig(getNodo());//nue.setSig(nue)
 	    }
-	    else
-	    {
-            nue.setSig(getNodo());
-	        NodoCircularSimple r = getNodo();
-	        while (r.getSig() != getNodo())
-	    	    r = r.getSig();
-	        r.setSig(nue);
-            setP(nue);
+	    else {
+            nuevoNodo.setSig(getNodo());
+	        NodoCircularSimple nodo = getNodo();
+	        while (nodo.getSig() != getNodo())
+	    	    nodo = nodo.getSig();
+	        nodo.setSig(nuevoNodo);
+            setP(nuevoNodo);
 	    }
     }
-    void mostrar()
-    {
-        NodoCircularSimple r = getNodo();
-	    while (r.getSig() != getNodo()){
-            r.getObjeto().mostrar(); /*si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto" */
-            r = r.getSig();
+
+    void mostrar() {
+        NodoCircularSimple nodo = getNodo();
+	    while (nodo.getSig() != getNodo()) {
+            nodo.getObjeto().mostrar();//si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto"
+            nodo = nodo.getSig();
         }
-        r.getObjeto().mostrar(); /*si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto" */
+        nodo.getObjeto().mostrar();//si el "objeto" no es un objeto creado, reemplazar aqui con mostrando los atributos del "objeto"
     }
 }

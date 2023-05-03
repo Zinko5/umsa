@@ -3,7 +3,7 @@ public class NodoCircularSimple {
     /*si el nodo es de algo, un "objeto" no creado, definir aqui sus atributos, getters y setters*/
     private NodoCircularSimple sig;
     
-    NodoCircularSimple(){
+    NodoCircularSimple() {
         sig = null;
     }
 

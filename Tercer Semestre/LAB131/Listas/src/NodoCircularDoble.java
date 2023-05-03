@@ -3,8 +3,7 @@ public class NodoCircularDoble {
     /*si el nodo es de algo, un "objeto" no creado, definir aqui sus atributos, getters y setters */
     private NodoCircularDoble ant, sig;
     
-    NodoCircularDoble()
-    {
+    NodoCircularDoble() {
         ant = sig = null;
     }
 
