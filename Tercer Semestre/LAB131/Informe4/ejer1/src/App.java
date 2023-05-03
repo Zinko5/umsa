@@ -40,6 +40,7 @@ public class App {
         listaDobleBienInmueble.mostrar();
 
     }
+
     public static void masMuebles(ListaDobleBienInmueble listaDobleBienInmueble) {
         int m = 0;
         NodoDobleBienInmueble nodoDobleBienInmueble = listaDobleBienInmueble.getNodo();
@@ -76,7 +77,7 @@ public class App {
         if (nodoCircularSimpleHabitaciones.getTipo_habitacion().equals("Dormitorio")) {
             NodoSimpleMuebles nodoSimpleMuebles = nodoCircularSimpleHabitaciones.getListaSimpleMuebles().getNodo();
             while (nodoSimpleMuebles != null) {
-                c ++;
+                c = c + nodoSimpleMuebles.getCantidad();
                 nodoSimpleMuebles = nodoSimpleMuebles.getSig();
             }
         }
@@ -155,17 +156,3 @@ public class App {
         }
     }
 }
-
-/*
-    NodoCircularSimpleHabitaciones nodoCircularSimpleHabitaciones =  nodoDobleBienInmueble.getCircularSimpleHabitaciones().getNodo();
- * while (nodoCircularSimpleHabitaciones.getSig() != nodoDobleBienInmueble.getCircularSimpleHabitaciones().getNodo()) {
-            if (nodoCircularSimpleHabitaciones.getTipo_habitacion().equals("Dormitorio")) {
-                NodoSimpleMuebles nodoSimpleMuebles = nodoCircularSimpleHabitaciones.getListaSimpleMuebles().getNodo();
-                while (nodoSimpleMuebles != null) {
-                    c ++;
-                    nodoSimpleMuebles = nodoSimpleMuebles.getSig();
-                }
-            }
-            nodoCircularSimpleHabitaciones = nodoCircularSimpleHabitaciones.getSig();
-        }
- */
