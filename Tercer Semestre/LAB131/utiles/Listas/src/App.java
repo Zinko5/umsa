@@ -40,6 +40,15 @@ public class App {
         /*mismas cosas del problema de arriba */
     }
 
+    //Recursividad:
+    public static void ejercicioRec(NodoCircularDoble nodo) {
+        if (nodo != null) {
+            //cosas del problema
+            ejercicioRec(nodo.getSig());
+        }
+    }
+
+
     /*
     LinkedList:
     LinkedList<"objeto"> A = new LinkedList<"objeto">
@@ -48,13 +57,12 @@ public class App {
     A.addLast("objeto")
 
     public static void mostrar(LinkedList<Tema> A) {
-            ListIterator<Tema> r=A.listIterator(); // para lista de objetos
-
-            while(r.hasNext()) {
-                    Tema tx = r.next();
-                    tx.mostrar();//proceso
-            }
+        ListIterator<Tema> r=A.listIterator(); // para lista de objetos
+        while(r.hasNext()) {
+                Tema tx = r.next();
+                tx.mostrar();//proceso
         }
+    }
 
     ArrayList:
     ArrayList<"objeto"> B = new ArrayList<"objeto">();  
