@@ -6,7 +6,7 @@ public class App {
         System.out.println("\nPreorden:");
         ab.preorden();
         ab.podarHojas(ab.getRaiz());
-        System.out.println("\nPreorden:");
+        System.out.println("\nCortando hojas\nPreorden:");
         ab.preorden();
     }
 }
