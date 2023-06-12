@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Ruta {
     private String origen;
@@ -50,17 +49,14 @@ public class Ruta {
 
     public void Leer() {
         System.out.println("<Lectura de Ruta>");
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el origen: ");
-        origen = scanner.nextLine();
+        origen = Leer.dato();
         System.out.print("Ingrese el destino: ");
-        destino = scanner.nextLine();
+        destino = Leer.dato();
         System.out.print("Ingrese el tiempo estimado: ");
-        tiempoEstimado = scanner.nextInt();
-        scanner.nextLine();
+        tiempoEstimado = Leer.datoInt();
         System.out.print("¿Cuantos transportes leer para la ruta?: ");
-        int n = scanner.nextInt();
-        scanner.nextLine();
+        int n = Leer.datoInt();
         for (int i = 0; i < n; i++) {
             Transporte transporte = new Transporte();
             transporte.Leer();

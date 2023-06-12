@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Transporte {
     private String tipoTransporte;
     private String placa;
@@ -40,14 +38,12 @@ public class Transporte {
 
     public void Leer() {
         System.out.println("<Lectura de Transporte>");
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el tipo de transporte: ");
-        tipoTransporte = scanner.nextLine();
+        tipoTransporte = Leer.dato();
         System.out.print("Ingrese la placa: ");
-        placa = scanner.nextLine();
+        placa = Leer.dato();
         System.out.print("Ingrese el costo: ");
-        costo = scanner.nextDouble();
-        scanner.nextLine();
+        costo = Leer.datoDouble();
         //scanner.close();
     }
 

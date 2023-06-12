@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class LugarCercano {
     private String nombre;
     private String tipo;
@@ -16,16 +14,15 @@ public class LugarCercano {
 
     public void Leer() {
         System.out.println("<Lectura de Lugar Cercano>");
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el nombre: ");
-        nombre = scanner.nextLine();
+        nombre = Leer.dato();
 
         System.out.print("Ingrese el tipo: ");
-        tipo = scanner.nextLine();
+        tipo = Leer.dato();
 
         System.out.print("Ingrese el horario de atención: ");
-        horarioAtencion = scanner.nextLine();
+        horarioAtencion = Leer.dato();
 
         //scanner.close();
     }

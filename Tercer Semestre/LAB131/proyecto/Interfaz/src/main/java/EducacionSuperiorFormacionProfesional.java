@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class EducacionSuperiorFormacionProfesional {
     private String nombre;
@@ -61,13 +60,12 @@ public class EducacionSuperiorFormacionProfesional {
 
     public void Leer() {
         System.out.println("\n<Lectura de Lugar de Educacion Superior y Formacion Profesional>");
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el nombre: ");
-        nombre = scanner.nextLine();
+        nombre = Leer.dato();
         System.out.print("Ingrese el tipo: ");
-        tipo = scanner.nextLine();
+        tipo = Leer.dato();
         System.out.print("Ingrese la ubicación: ");
-        ubicacion = scanner.nextLine();
+        ubicacion = Leer.dato();
         Leer(ListaCircularSimplelugaresCercanos);
         Leer(ArrayListRutas);
         //scanner.close();
@@ -89,10 +87,8 @@ public class EducacionSuperiorFormacionProfesional {
 
     public  void Leer(ArrayList<Ruta> lista) {
         int n;
-        Scanner scanner = new Scanner(System.in);
         System.out.print("¿Cuantas rutas leer?: ");
-        n = scanner.nextInt();
-        scanner.nextLine();
+        n = Leer.datoInt();
         for (int i = 0; i < n; i++) {
                 Ruta ruta = new Ruta();
                 ruta.Leer();
@@ -102,10 +98,8 @@ public class EducacionSuperiorFormacionProfesional {
     }
 
     public void Leer(ListaCircularSimpleLugarCercano lista) {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Cuantos lugares cercanos leer?: ");
-        int n = scanner.nextInt();
-        scanner.nextLine();
+        int n = Leer.datoInt();
         for (int i = 0; i < n; i++) {
                 LugarCercano lugarCercano = new LugarCercano();
                 lugarCercano.Leer();

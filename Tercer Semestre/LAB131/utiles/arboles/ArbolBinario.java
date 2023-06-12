@@ -105,7 +105,7 @@ public class ArbolBinario {
                     Nodo nuevoNodo = new Nodo();
                     System.out.println("DATOS descendiente izquierdo");
                     //settear los atributos
-                    getRaiz().setNombre(Leer.dato());
+                    nuevoNodo.setNombre(Leer.dato());
                     getRaiz().setDato(Leer.dato());
                     r.setIzq(nuevoNodo);
                     descendiente.adicionar(r.getIzq());
@@ -113,12 +113,12 @@ public class ArbolBinario {
                 System.out.println(r.getNombre() + "Tendra descendiente derecho? s/n");
                 respuesta = Leer.dato();
                 if (respuesta.equals("s")) {
-                    Nodo nueD = new Nodo();
+                    Nodo nuevoNodo = new Nodo();
                     System.out.println("DATOS descendiente derecho");
                     //settear los atributos
-                    getRaiz().setNombre(Leer.dato());
-                    getRaiz().setDato(Leer.dato());
-                    r.setDer(nueD);
+                    nuevoNodo.setNombre(Leer.dato());
+                    nuevoNodo.setDato(Leer.dato());
+                    r.setDer(nuevoNodo);
                     descendiente.adicionar(r.getDer());
                 }
             }
