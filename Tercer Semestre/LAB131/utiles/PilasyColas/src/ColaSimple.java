@@ -6,58 +6,52 @@ public class ColaSimple {
     public ColaSimple() {
         ini = fin = 0;
     }
-    public boolean esvacia ()
-    {
+
+    public boolean esvacia() {
         if (ini == 0 && fin == 0)
             return (true);
         return (false);
     }
-    public boolean esllena ()
-    {
+
+    public boolean esllena() {
         if (fin == max)
             return (true);
         return (false);
     }
-    public int nroelem ()
-    {
+
+    public int nroelem() {
         return (fin - ini);
     }
-    public void adicionar (objeto elem)
-    {
-        if (!esllena ())
-        {
-            fin++;         //v[fin+1]=elem
-            v [fin] = elem;  //fin=fin+1
-        }
-        else
-            System.out.println ("Cola Simple llena");
+
+    public void adicionar(objeto elem) {
+        if (!esllena()) {
+            fin++; // v[fin+1]=elem
+            v[fin] = elem; // fin=fin+1
+        } else
+            System.out.println("Cola Simple llena");
     }
-    public objeto eliminar ()
-    {
+
+    public objeto eliminar() {
         objeto elem = null;
-        if (!esvacia ())
-        {
+        if (!esvacia()) {
             ini++;
-            elem = v [ini];
+            elem = v[ini];
             if (ini == fin)
                 ini = fin = 0;
-        }
-        else
-            System.out.println ("Cola simple vacia");
+        } else
+            System.out.println("Cola simple vacia");
         return (elem);
     }
-    public void mostrar ()
-    {
-        if (esvacia ())
-            System.out.println ("Cola simple vacia");
-        else
-        {
-            System.out.println ("Objetos de la Cola:");
-            ColaSimple aux = new ColaSimple ();
-            while (!esvacia ())
-            {
-                objeto elem = eliminar ();
-                aux.adicionar (elem);
+
+    public void mostrar() {
+        if (esvacia())
+            System.out.println("Cola simple vacia");
+        else {
+            System.out.println("Objetos de la Cola:");
+            ColaSimple aux = new ColaSimple();
+            while (!esvacia()) {
+                objeto elem = eliminar();
+                aux.adicionar(elem);
                 System.out.print("<");
                 elem.mostrar();
                 System.out.println("> ");
@@ -66,10 +60,10 @@ public class ColaSimple {
             vaciar(aux);
         }
     }
-    public void vaciar (ColaSimple a)
-    {
-            while (!a.esvacia ())
-                adicionar (a.eliminar ());
+
+    public void vaciar(ColaSimple a) {
+        while (!a.esvacia())
+            adicionar(a.eliminar());
 
     }
 }

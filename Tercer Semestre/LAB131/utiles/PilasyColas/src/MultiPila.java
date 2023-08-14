@@ -1,78 +1,74 @@
 public class MultiPila {
-    private int np;  //numero de pilas
-    private Pila v[]=new Pila[100];
-    
-    MultiPila()
-    {
-        for(int i=1;i<100;i++) {
-            v[i]=new Pila();
+    private int numeroPilas; // numero de pilas
+    private Pila v[] = new Pila[100];
+
+    MultiPila() {
+        for (int i = 1; i < 100; i++) {
+            v[i] = new Pila();
         }
     }
 
-    public int getNp() {
-        return np;
+    public int getNumeroPilas() {
+        return numeroPilas;
     }
 
-    public void setNp(int np) {
-        this.np = np;
+    public void setNumeroPilas(int np) {
+        this.numeroPilas = np;
     }
-    int nroelem(int i)
-    {
+
+    int nroelem(int i) {
         return (v[i].nroelem());
     }
-    boolean esvacia (int i)
-    {
-        if (v[i].esvacia ()){
+
+    boolean esvacia(int i) {
+        if (v[i].esvacia()) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
-    boolean esllena (int i)
-    {
-        if (v[i].esllena ()){
+
+    boolean esllena(int i) {
+        if (v[i].esllena()) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
-    void adicionar (int i, objeto L)
-    {
-        if (!v [i].esllena ())
-            v [i].adicionar (L);
+
+    void adicionar(int i, objeto L) {
+        if (!v[i].esllena())
+            v[i].adicionar(L);
         else
-            System.out.print ("Pila " + i + " esta llena");
+            System.out.print("Pila " + i + " esta llena");
     }
-    objeto eliminar (int i)
-    {
+
+    objeto eliminar(int i) {
         objeto e = null;
-        if (!v [i].esvacia ())
-            e = v [i].eliminar ();
+        if (!v[i].esvacia())
+            e = v[i].eliminar();
         else
-            System.out.print ("Pila " + i + " esta vacia");
+            System.out.print("Pila " + i + " esta vacia");
         return e;
     }
-    void mostrar(int i)
-    {
+
+    void mostrar(int i) {
         v[i].mostrar();
     }
-    void mostrar ()
-    {
-        for (int i = 1 ; i <= np ; i++)
-        {
+
+    void mostrar() {
+        for (int i = 1; i <= numeroPilas; i++) {
             System.out.println("\nPila " + i + " ");
-            v [i].mostrar ();
+            v[i].mostrar();
         }
     }
-    void vaciar(int i, Pila a )
-    {
-        while(!a.esvacia())
-                adicionar(i,a.eliminar());
+
+    void vaciar(int i, Pila a) {
+        while (!a.esvacia())
+            adicionar(i, a.eliminar());
     }
-    void vaciar(int i, int j)
-    {
+
+    void vaciar(int i, int j) {
         v[i].vaciar(v[j]);
     }
 }
