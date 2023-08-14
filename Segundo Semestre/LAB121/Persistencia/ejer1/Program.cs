@@ -24,7 +24,7 @@ namespace persistencia
 				Console.WriteLine("0. SALIR ");
 				Console.WriteLine(" ");
 				Console.Write("INTRODUZCA UNA OPCION => ");*/
-				ArchiBus archibus = new ArchiBus(@"/home/gabriel/Publico/datos.txt");
+				ArchiBus archibus = new ArchiBus(@"datos.dat");
 				switch( Console.ReadKey().KeyChar ) {
 					case '1':
 						Console.WriteLine();
