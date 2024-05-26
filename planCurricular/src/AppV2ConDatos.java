@@ -1,21 +1,13 @@
 import java.util.*;
 
-public class App {
+public class AppV2ConDatos {
     private static Map<String, Asignatura> asignaturas = new HashMap<>();
 
     public static void main(String[] args) {
         inicializarAsignaturas();
-        Scanner scanner = new Scanner(System.in);
 
         // Estado de las materias del usuario
-        Map<String, String> estadoMaterias = new HashMap<>();
-
-        // Preguntar al usuario sobre el estado de cada materia
-        for (String codigo : asignaturas.keySet()) {
-            if (!estadoMaterias.containsKey(codigo)) {
-                preguntarEstadoMateria(codigo, estadoMaterias, scanner);
-            }
-        }
+        Map<String, String> estadoMaterias = inicializarEstadoMaterias();
 
         // Listar materias que el usuario está tomando actualmente
         List<String> tomandoActualmente = new ArrayList<>();
@@ -26,7 +18,12 @@ public class App {
         }
 
         System.out.println("Materias que estás tomando actualmente: " + tomandoActualmente);
-
+        // Actualizar estado de las materias tomadas actualmente
+        for (String codigo : tomandoActualmente) {
+            estadoMaterias.put(codigo, "y");
+        }
+        tomandoActualmente.clear(); // Limpiar la lista de materias tomadas actualmente después de moverlas a
+                                    // aprobadas
         int gestion = 2; // Empezamos en la gestion II/2024
         int year = 2024;
         boolean planTerminado = false;
@@ -48,7 +45,7 @@ public class App {
             if (materiasSemestre.isEmpty()) {
                 planTerminado = true;
             } else {
-                System.out.println("Materias que tomarás en la gestión " + (gestion % 2 == 0 ? "II" : "I") + "/" + year
+                System.out.println("Materias que tomarás el semestre " + (gestion % 2 == 0 ? "II" : "I") + "/" + year
                         + ": " + materiasSemestre);
                 for (String codigo : materiasSemestre) {
                     estadoMaterias.put(codigo, "y");
@@ -63,7 +60,59 @@ public class App {
         System.out.println("Fin del plan curricular.");
     }
 
-    // calcular semestre en que se encuentra el usuario
+    private static Map<String, String> inicializarEstadoMaterias() {
+        Map<String, String> estadoMaterias = new HashMap<>();
+        // Inicializar con valores predeterminados
+        estadoMaterias.put("INF-111", "n");
+        estadoMaterias.put("INF-112", "n");
+        estadoMaterias.put("INF-113", "n");
+        estadoMaterias.put("INF-114", "n");
+        estadoMaterias.put("INF-115", "n");
+        estadoMaterias.put("INF-117", "n");
+        estadoMaterias.put("INF-121", "n");
+        estadoMaterias.put("INF-122", "n");
+        estadoMaterias.put("INF-123", "n");
+        estadoMaterias.put("INF-124", "n");
+        estadoMaterias.put("INF-125", "n");
+        estadoMaterias.put("INF-126", "n");
+        estadoMaterias.put("INF-131", "n");
+        estadoMaterias.put("INF-132", "n");
+        estadoMaterias.put("INF-133", "n");
+        estadoMaterias.put("INF-134", "n");
+        estadoMaterias.put("DAT-135", "n");
+        estadoMaterias.put("TRA-136", "n");
+        estadoMaterias.put("DAT-241", "n");
+        estadoMaterias.put("DAT-242", "n");
+        estadoMaterias.put("DAT-243", "n");
+        estadoMaterias.put("DAT-244", "n");
+        estadoMaterias.put("DAT-245", "n");
+        estadoMaterias.put("DAT-246", "n");
+        estadoMaterias.put("DAT-251", "n");
+        estadoMaterias.put("DAT-252", "n");
+        estadoMaterias.put("DAT-253", "n");
+        estadoMaterias.put("DAT-254", "n");
+        estadoMaterias.put("DAT-255", "n");
+        estadoMaterias.put("TRA-256", "n");
+        estadoMaterias.put("DAT-261", "n");
+        estadoMaterias.put("DAT-262", "n");
+        estadoMaterias.put("DAT-263", "n");
+        estadoMaterias.put("DAT-264", "n");
+        estadoMaterias.put("DAT-265", "n");
+        estadoMaterias.put("Electiva I", "n");
+        estadoMaterias.put("DAT-371", "n");
+        estadoMaterias.put("DAT-372", "n");
+        estadoMaterias.put("TRA-374", "n");
+        estadoMaterias.put("Electiva II", "n");
+        estadoMaterias.put("Electiva III", "n");
+        estadoMaterias.put("DAT-381", "n");
+        estadoMaterias.put("DAT-382", "n");
+        estadoMaterias.put("DAT-383", "n");
+        estadoMaterias.put("Electiva IV", "n");
+        estadoMaterias.put("Electiva V", "n");
+        estadoMaterias.put("DAT-391", "n");
+        return estadoMaterias;
+    }
+
     private static int calcularSemestre(Map<String, String> estadoMaterias) {
         int semestre = 0;
         int v[] = new int[9];
@@ -203,32 +252,6 @@ public class App {
         // Noveno semestre
         asignaturas.put("DAT-391",
                 new Asignatura("Taller de graduación II", 9, Arrays.asList("Octavo semestre vencido")));
-    }
-
-    private static void preguntarEstadoMateria(String codigo, Map<String, String> estadoMaterias, Scanner scanner) {
-        if (asignaturas.get(codigo) == null) {
-            estadoMaterias.put(codigo, "y"); // Asignatura no definida, asumir aprobada
-            return;
-        }
-
-        Asignatura asignatura = asignaturas.get(codigo);
-        System.out.print("¿Aprobaste " + codigo + " (" + asignatura.nombre + ")? (y/n/o): ");
-        String respuesta = scanner.nextLine().trim().toLowerCase();
-
-        while (!respuesta.equals("y") && !respuesta.equals("n") && !respuesta.equals("o")) {
-            System.out.print("Respuesta inválida. ¿Aprobaste " + codigo + " (" + asignatura.nombre + ")? (y/n/o): ");
-            respuesta = scanner.nextLine().trim().toLowerCase();
-        }
-
-        estadoMaterias.put(codigo, respuesta);
-
-        if (respuesta.equals("n")) {
-            for (String prerrequisito : asignatura.prerrequisitos) {
-                if (!estadoMaterias.containsKey(prerrequisito)) {
-                    preguntarEstadoMateria(prerrequisito, estadoMaterias, scanner);
-                }
-            }
-        }
     }
 
     private static boolean puedeTomar(Asignatura asignatura, Map<String, String> estadoMaterias, int semestreActual) {

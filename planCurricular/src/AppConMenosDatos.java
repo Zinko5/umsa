@@ -13,13 +13,13 @@ public class AppConMenosDatos {
         estadoMaterias.put("INF-113", "y");
         estadoMaterias.put("INF-114", "y");
         estadoMaterias.put("INF-115", "y");
-        estadoMaterias.put("INF-117", "y");
-        estadoMaterias.put("INF-121", "y");
-        estadoMaterias.put("INF-122", "y");
-        estadoMaterias.put("INF-123", "y");
-        estadoMaterias.put("INF-124", "y");
-        estadoMaterias.put("INF-125", "y");
-        estadoMaterias.put("INF-126", "o");
+        estadoMaterias.put("INF-117", "n");
+        estadoMaterias.put("INF-121", "n");
+        estadoMaterias.put("INF-122", "n");
+        estadoMaterias.put("INF-123", "n");
+        estadoMaterias.put("INF-124", "n");
+        estadoMaterias.put("INF-125", "n");
+        estadoMaterias.put("INF-126", "n");
         estadoMaterias.put("INF-131", "n");
         estadoMaterias.put("INF-132", "n");
         estadoMaterias.put("INF-133", "n");
@@ -188,11 +188,6 @@ public class AppConMenosDatos {
 
         estadoMaterias.put(codigo, respuesta);
 
-        if (respuesta.equals("y") || respuesta.equals("o")) {
-            // Marcar como aprobadas las materias prerrequisito
-            marcarPrerrequisitosComoAprobados(asignatura.prerrequisitos, estadoMaterias, scanner);
-        }
-
         if (respuesta.equals("n")) {
             for (String prerrequisito : asignatura.prerrequisitos) {
                 if (!estadoMaterias.containsKey(prerrequisito)) {
@@ -202,23 +197,7 @@ public class AppConMenosDatos {
         }
     }
 
-    private static void marcarPrerrequisitosComoAprobados(List<String> prerrequisitos,
-            Map<String, String> estadoMaterias, Scanner scanner) {
-        if (prerrequisitos == null) {
-            return; // Salir si no hay prerrequisitos definidos
-        }
-
-        for (String prerrequisito : prerrequisitos) {
-            if (!estadoMaterias.containsKey(prerrequisito)) {
-                estadoMaterias.put(prerrequisito, "y");
-                Asignatura asignatura = asignaturas.get(prerrequisito);
-                if (asignatura != null && asignatura.prerrequisitos != null) {
-                    marcarPrerrequisitosComoAprobados(asignatura.prerrequisitos, estadoMaterias, scanner);
-                }
-            }
-        }
-    }
-
+   
     private static boolean puedeTomar(Asignatura asignatura, Map<String, String> estadoMaterias, int semestreActual) {
         for (String prerrequisito : asignatura.prerrequisitos) {
             if (!estadoMaterias.getOrDefault(prerrequisito, "n").equals("y")) {

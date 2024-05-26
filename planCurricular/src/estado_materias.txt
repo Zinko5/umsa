@@ -1,0 +1,47 @@
+INF-112 n
+INF-111 n
+INF-113 n
+INF-114 n
+INF-115 n
+INF-117 n
+INF-121 n
+INF-122 n
+INF-123 n
+INF-124 n
+INF-125 n
+INF-126 n
+INF-131 n
+INF-132 n
+INF-133 n
+INF-134 n
+DAT-135 n
+TRA-136 n
+DAT-241 n
+DAT-242 n
+DAT-243 n
+DAT-244 n
+DAT-245 n
+DAT-246 n
+DAT-251 n
+DAT-252 n
+DAT-253 n
+DAT-254 n
+DAT-255 n
+TRA-256 n
+DAT-261 n
+DAT-262 n
+DAT-263 n
+DAT-264 n
+DAT-265 n
+Electiva I n
+DAT-371 n
+DAT-372 n
+TRA-374 n
+Electiva II n
+Electiva III n
+DAT-381 n
+DAT-382 n
+DAT-383 n
+Electiva IV n
+Electiva V n
+DAT-391 n
