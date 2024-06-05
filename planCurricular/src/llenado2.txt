@@ -1,0 +1,55 @@
+agregarMateria("INF-111", "Programación I", Arrays.asList());
+        agregarMateria("INF-112", "Fundamentos Digitales", Arrays.asList());
+        agregarMateria("INF-113", "Programación Web I", Arrays.asList());
+        agregarMateria("INF-114", "Álgebra", Arrays.asList());
+        agregarMateria("INF-115", "Cálculo I", Arrays.asList());
+        agregarMateria("INF-116", "Matemática Discreta", Arrays.asList());
+
+        agregarMateria("INF-121", "Programación II", Arrays.asList("INF-111"));
+        agregarMateria("INF-122", "Electrónica General", Arrays.asList("INF-112"));
+        agregarMateria("INF-123", "Estadística I", Arrays.asList("INF-114", "INF-317"));
+        agregarMateria("INF-124", "Álgebra Lineal", Arrays.asList("INF-114"));
+        agregarMateria("INF-125", "Cálculo II", Arrays.asList("INF-115"));
+        agregarMateria("INF-126", "Matemática Discreta", Arrays.asList("INF-115"));
+
+        agregarMateria("INF-131", "Programación III", Arrays.asList("INF-121"));
+        agregarMateria("INF-132", "Base de datos I", Arrays.asList("INF-121", "INF-122"));
+        agregarMateria("INF-133", "Programación web III", Arrays.asList("INF-111", "INF-122"));
+        agregarMateria("INF-134", "Estadística II", Arrays.asList("INF-124"));
+        agregarMateria("DAT-135", "Cálculo III", Arrays.asList("INF-126"));
+        agregarMateria("TRA-136", "Metodología de la investigación", Arrays.asList("INF-124", "INF-125"));
+
+        agregarMateria("DAT-241", "Programación Distribuida y Paralela", Arrays.asList("INF-121"));
+        agregarMateria("DAT-242", "Base de Datos II", Arrays.asList("INF-121", "INF-122"));
+        agregarMateria("DAT-243", "Métodos Numéricos I", Arrays.asList("INF-115", "INF-135"));
+        agregarMateria("DAT-244", "Investigación Operativa I", Arrays.asList("INF-124"));
+        agregarMateria("DAT-245", "Inteligencia Artificial", Arrays.asList("INF-123", "INF-125"));
+        agregarMateria("DAT-246", "Modelado Estadístico", Arrays.asList("INF-134"));
+
+        agregarMateria("DAT-251", "Base de Datos III", Arrays.asList("DAT-242"));
+        agregarMateria("DAT-252", "Métodos numéricos II", Arrays.asList("DAT-243"));
+        agregarMateria("DAT-253", "Minería de Datos", Arrays.asList("DAT-246"));
+        agregarMateria("DAT-254", "Investigación Operativa II", Arrays.asList("DAT-244"));
+        agregarMateria("DAT-255", "Aprendizaje automático", Arrays.asList("DAT-246"));
+        agregarMateria("TRA-256", "Legislación informática y ética", Arrays.asList("Tercer semestre vencido"));
+            
+        agregarMateria("DAT-261", "Procesamiento del lenguaje natural", Arrays.asList("DAT-251"));
+        agregarMateria("DAT-262", "Procesos estocásticos y análisis de series de tiempo", Arrays.asList("INF-134", "DAT-135"));
+        agregarMateria("DAT-263", "Análisis de datos", Arrays.asList("DAT-254"));
+        agregarMateria("DAT-264", "Aprendizaje profundo", Arrays.asList("DAT-253"));
+        agregarMateria("DAT-265", "Taller de Análisis de Datos (TS)", Arrays.asList("Quinto semestre vencido"));
+        agregarMateria("Electiva I", "Electiva I", Arrays.asList("Quinto semestre vencido"));
+            
+        agregarMateria("DAT-371", "Computación en la nube", Arrays.asList("DAT-261"));
+        agregarMateria("DAT-372", "Inteligencia de negocios (Business Intelligence)", Arrays.asList("DAT-254", "DAT-264"));
+        agregarMateria("TRA-374", "Práctica profesional", Arrays.asList("Quinto semestre vencido"));
+        agregarMateria("Electiva II", "Electiva II", Arrays.asList("Quinto semestre vencido"));
+        agregarMateria("Electiva III", "Electiva III", Arrays.asList("Quinto semestre vencido"));
+            
+        agregarMateria("DAT-381", "Macrosdatos y analítica de datos (Big Data)", Arrays.asList("DAT-372"));
+        agregarMateria("DAT-382", "Visualización de datos", Arrays.asList("DAT-263"));
+        agregarMateria("DAT-383", "Taller de graduación I", Arrays.asList("Sexto semestre vencido"));
+        agregarMateria("Electiva IV", "Electiva IV", Arrays.asList("Sexto semestre vencido"));
+        agregarMateria("Electiva V", "Electiva V", Arrays.asList("Sexto semestre vencido"));
+            
+        agregarMateria("DAT-391", "Taller de graduación II", Arrays.asList("Octavo semestre vencido"));
