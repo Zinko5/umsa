@@ -1,0 +1,65 @@
+// Inicialización de las materias y sus requisitos
+        materias.put("INF-111", new Materia("INF-111", "Programación I", 1, Arrays.asList()));
+        materias.put("INF-112", new Materia("INF-112", "Fundamentos digitales", 1, Arrays.asList()));
+        materias.put("INF-113", new Materia("INF-113", "Programación web I", 1, Arrays.asList()));
+        materias.put("INF-114", new Materia("INF-114", "Álgebra", 1, Arrays.asList()));
+        materias.put("INF-115", new Materia("INF-115", "Cálculo I", 1, Arrays.asList()));
+        materias.put("INF-117", new Materia("INF-117", "Matemática discreta", 1, Arrays.asList()));
+            
+        // Segundo semestre
+        materias.put("INF-121", new Materia("INF-121", "Programación II", 2, Arrays.asList("INF-111")));
+        materias.put("INF-122", new Materia("INF-122", "Programación web II", 2, Arrays.asList("INF-113")));
+        materias.put("INF-123", new Materia("INF-123", "Electrónica general", 2, Arrays.asList("INF-112")));
+        materias.put("INF-124", new Materia("INF-124", "Estadística I", 2, Arrays.asList("INF-114")));
+        materias.put("INF-125", new Materia("INF-125", "Álgebra lineal", 2, Arrays.asList("INF-114")));
+        materias.put("INF-126", new Materia("INF-126", "Cálculo II", 2, Arrays.asList("INF-115")));
+            
+        // Tercer semestre
+        materias.put("INF-131", new Materia("INF-131", "Programación III", 3, Arrays.asList("INF-121")));
+        materias.put("INF-132", new Materia("INF-132", "Base de datos I", 3, Arrays.asList("INF-121", "INF-122")));
+        materias.put("INF-133", new Materia("INF-133", "Programación web III", 3, Arrays.asList("INF-111", "INF-122")));
+        materias.put("INF-134", new Materia("INF-134", "Estadística II", 3, Arrays.asList("INF-124")));
+        materias.put("DAT-135", new Materia("DAT-135", "Cálculo III", 3, Arrays.asList("INF-126")));
+        materias.put("TRA-136", new Materia("TRA-136", "Metodología de la investigación", 3, Arrays.asList("INF-124", "INF-125")));
+            
+        // Cuarto semestre
+        materias.put("DAT-241", new Materia("DAT-241", "Programación distribuida y paralela", 4, Arrays.asList("INF-131")));
+        materias.put("DAT-242", new Materia("DAT-242", "Base de datos II", 4, Arrays.asList("INF-132")));
+        materias.put("DAT-243", new Materia("DAT-243", "Métodos numéricos I", 4, Arrays.asList("DAT-135")));
+        materias.put("DAT-244", new Materia("DAT-244", "Investigación Operativa I", 4, Arrays.asList("INF-134")));
+        materias.put("DAT-245", new Materia("DAT-245", "Inteligencia artificial", 4, Arrays.asList("INF-123", "INF-125")));
+        materias.put("DAT-246", new Materia("DAT-246", "Modelado estadístico", 4, Arrays.asList("INF-134")));
+            
+        // Quinto semestre
+        materias.put("DAT-251", new Materia("DAT-251", "Base de Datos III", 5, Arrays.asList("DAT-242")));
+        materias.put("DAT-252", new Materia("DAT-252", "Métodos numéricos II", 5, Arrays.asList("DAT-243")));
+        materias.put("DAT-253", new Materia("DAT-253", "Minería de Datos", 5, Arrays.asList("DAT-246")));
+        materias.put("DAT-254", new Materia("DAT-254", "Investigación Operativa II", 5, Arrays.asList("DAT-244")));
+        materias.put("DAT-255", new Materia("DAT-255", "Aprendizaje automático", 5, Arrays.asList("DAT-246")));
+        materias.put("TRA-256", new Materia("TRA-256", "Legislación informática y ética", 5, Arrays.asList("Tercer semestre vencido")));
+            
+        // Sexto semestre
+        materias.put("DAT-261", new Materia("DAT-261", "Procesamiento del lenguaje natural", 6, Arrays.asList("DAT-251")));
+        materias.put("DAT-262", new Materia("DAT-262", "Procesos estocásticos y análisis de series de tiempo", 6, Arrays.asList("INF-134", "DAT-135")));
+        materias.put("DAT-263", new Materia("DAT-263", "Análisis de datos", 6, Arrays.asList("DAT-254")));
+        materias.put("DAT-264", new Materia("DAT-264", "Aprendizaje profundo", 6, Arrays.asList("DAT-253")));
+        materias.put("DAT-265", new Materia("DAT-265", "Taller de Análisis de Datos (TS)", 6, Arrays.asList("Quinto semestre vencido")));
+        materias.put("Electiva I", new Materia("Electiva I", "Electiva I", 6, Arrays.asList("Quinto semestre vencido")));
+            
+        // Séptimo semestre
+        materias.put("DAT-371", new Materia("DAT-371", "Computación en la nube", 7, Arrays.asList("DAT-261")));
+        materias.put("DAT-372", new Materia("DAT-372", "Inteligencia de negocios (Business Intelligence)", 7, Arrays.asList("DAT-254", "DAT-264")));
+        materias.put("TRA-374", new Materia("TRA-374", "Práctica profesional", 7, Arrays.asList("Quinto semestre vencido")));
+        materias.put("Electiva II", new Materia("Electiva II", "Electiva II", 7, Arrays.asList("Quinto semestre vencido")));
+        materias.put("Electiva III", new Materia("Electiva III", "Electiva III", 7, Arrays.asList("Quinto semestre vencido")));
+            
+        // Octavo semestre
+        materias.put("DAT-381", new Materia("DAT-381", "Macrosdatos y analítica de datos (Big Data)", 8, Arrays.asList("DAT-372")));
+        materias.put("DAT-382", new Materia("DAT-382", "Visualización de datos", 8, Arrays.asList("DAT-263")));
+        materias.put("DAT-383", new Materia("DAT-383", "Taller de graduación I", 8, Arrays.asList("Sexto semestre vencido")));
+        materias.put("Electiva IV", new Materia("Electiva IV", "Electiva IV", 8, Arrays.asList("Sexto semestre vencido")));
+        materias.put("Electiva V", new Materia("Electiva V", "Electiva V", 8, Arrays.asList("Sexto semestre vencido")));
+            
+        // Noveno semestre
+        materias.put("DAT-391", new Materia("DAT-391", "Taller de graduación II", 9, Arrays.asList("Octavo semestre vencido")));
+        // Otros semestres seguirían la misma lógica, pero por brevedad, se omiten algunas inicializaciones
