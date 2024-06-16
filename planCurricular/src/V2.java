@@ -1,33 +1,20 @@
 import java.util.*;
 
 public class V2 {
-    private static Map<String, Asignatura> asignaturas = new HashMap<>();
+    private static ArrayList<ArrayList<Asignatura>> asignaturas = new ArrayList<>();
 
     public static void main(String[] args) {
-        inicializarAsignaturas();
+        inicializarAsignaturas(asignaturas);
         Scanner scanner = new Scanner(System.in);
 
         // Estado de las materias del usuario
-        Map<String, String> estadoMaterias = new HashMap<>();
-
         // Preguntar al usuario sobre el estado de cada materia
-        for (String codigo : asignaturas.keySet()) {
-            if (!estadoMaterias.containsKey(codigo)) {
-                preguntarEstadoMateria(codigo, estadoMaterias, scanner);
-            }
+        for (int i = 0; i < asignaturas.size(); i++) {
+            asignaturas.get(i).add(null);
         }
+/* 
 
-        // Listar materias que el usuario está tomando actualmente
-        List<String> tomandoActualmente = new ArrayList<>();
-        for (Map.Entry<String, String> entry : estadoMaterias.entrySet()) {
-            if (entry.getValue().equals("o")) {
-                tomandoActualmente.add(entry.getKey());
-            }
-        }
-
-        System.out.println("Materias que estás tomando actualmente: " + tomandoActualmente);
-
-        int gestion = 2; // Empezamos en la gestion II/2024
+        int gestion = 1; // Empezamos en la gestion II/2024
         int year = 2024;
         boolean planTerminado = false;
         int semestre;
@@ -60,11 +47,11 @@ public class V2 {
             }
         }
 
-        System.out.println("Fin del plan curricular.");
+        System.out.println("Fin del plan curricular."); */
     }
 
     // calcular semestre en que se encuentra el usuario
-    private static int calcularSemestre(Map<String, String> estadoMaterias) {
+   /*  private static int calcularSemestre(Map<String, String> estadoMaterias) {
         int semestre = 0;
         int v[] = new int[9];
         for (Map.Entry<String, String> entry : estadoMaterias.entrySet()) {
@@ -128,84 +115,104 @@ public class V2 {
         return semestre;
     }
 
-    private static void inicializarAsignaturas() {
+ */    private static void inicializarAsignaturas(ArrayList<ArrayList<Asignatura>> asignaturas) {
         // Aquí se inicializan las asignaturas con sus prerrequisitos.
         // Esta función debe completarse con toda la información del plan curricular.
         // Primer semestre
-        asignaturas.put("INF-111", new Asignatura("Programación I", 1, Arrays.asList()));
-        asignaturas.put("INF-112", new Asignatura("Fundamentos digitales", 1, Arrays.asList()));
-        asignaturas.put("INF-113", new Asignatura("Programación web I", 1, Arrays.asList()));
-        asignaturas.put("INF-114", new Asignatura("Álgebra", 1, Arrays.asList()));
-        asignaturas.put("INF-115", new Asignatura("Cálculo I", 1, Arrays.asList()));
-        asignaturas.put("INF-117", new Asignatura("Matemática discreta", 1, Arrays.asList()));
+        ArrayList<Asignatura> primer = new ArrayList<>();
+        ArrayList<Asignatura> segundo = new ArrayList<>();
+        ArrayList<Asignatura> tercer = new ArrayList<>();
+        ArrayList<Asignatura> cuarto = new ArrayList<>();
+        ArrayList<Asignatura> quinto = new ArrayList<>();
+        ArrayList<Asignatura> sexto = new ArrayList<>();
+        ArrayList<Asignatura> septimo = new ArrayList<>();
+        ArrayList<Asignatura> octavo = new ArrayList<>();
+        ArrayList<Asignatura> noveno = new ArrayList<>();
+
+        // Primer semestre
+        primer.add(new Asignatura("INF-111", "Programación I", 1, Arrays.asList(), "R"));
+        primer.add(new Asignatura("INF-112", "Fundamentos digitales", 1, Arrays.asList(), "R"));
+        primer.add(new Asignatura("INF-113", "Programación web I", 1, Arrays.asList(), "R"));
+        primer.add(new Asignatura("INF-114", "Álgebra", 1, Arrays.asList(), "R"));
+        primer.add(new Asignatura("INF-115", "Cálculo I", 1, Arrays.asList(), "R"));
+        primer.add(new Asignatura("INF-117", "Matemática discreta", 1, Arrays.asList(), "R"));
 
         // Segundo semestre
-        asignaturas.put("INF-121", new Asignatura("Programación II", 2, Arrays.asList("INF-111")));
-        asignaturas.put("INF-122", new Asignatura("Programación web II", 2, Arrays.asList("INF-113")));
-        asignaturas.put("INF-123", new Asignatura("Electrónica general", 2, Arrays.asList("INF-112")));
-        asignaturas.put("INF-124", new Asignatura("Estadística I", 2, Arrays.asList("INF-114")));
-        asignaturas.put("INF-125", new Asignatura("Álgebra lineal", 2, Arrays.asList("INF-114")));
-        asignaturas.put("INF-126", new Asignatura("Cálculo II", 2, Arrays.asList("INF-115")));
+        segundo.add(new Asignatura("INF-121", "Programación II", 2, Arrays.asList("INF-111"), "R"));
+        segundo.add(new Asignatura("INF-122", "Programación web II", 2, Arrays.asList("INF-113"), "R"));
+        segundo.add(new Asignatura("INF-123", "Electrónica general", 2, Arrays.asList("INF-112"), "R"));
+        segundo.add(new Asignatura("INF-124", "Estadística I", 2, Arrays.asList("INF-114"), "R"));
+        segundo.add(new Asignatura("INF-125", "Álgebra lineal", 2, Arrays.asList("INF-114"), "R"));
+        segundo.add(new Asignatura("INF-126", "Cálculo II", 2, Arrays.asList("INF-115"), "R"));
 
         // Tercer semestre
-        asignaturas.put("INF-131", new Asignatura("Programación III", 3, Arrays.asList("INF-121")));
-        asignaturas.put("INF-132", new Asignatura("Base de datos I", 3, Arrays.asList("INF-121", "INF-122")));
-        asignaturas.put("INF-133", new Asignatura("Programación web III", 3, Arrays.asList("INF-111", "INF-122")));
-        asignaturas.put("INF-134", new Asignatura("Estadística II", 3, Arrays.asList("INF-124")));
-        asignaturas.put("DAT-135", new Asignatura("Cálculo III", 3, Arrays.asList("INF-126")));
-        asignaturas.put("TRA-136",
-                new Asignatura("Metodología de la investigación", 3, Arrays.asList("INF-124", "INF-125")));
+        tercer.add(new Asignatura("INF-131", "Programación III", 3, Arrays.asList("INF-121"), "R"));
+        tercer.add(new Asignatura("INF-132", "Base de datos I", 3, Arrays.asList("INF-121", "INF-122"), "R"));
+        tercer.add(new Asignatura("INF-133", "Programación web III", 3, Arrays.asList("INF-111", "INF-122"), "R"));
+        tercer.add(new Asignatura("INF-134", "Estadística II", 3, Arrays.asList("INF-124"), "R"));
+        tercer.add(new Asignatura("DAT-135", "Cálculo III", 3, Arrays.asList("INF-126"), "R"));
+        tercer.add(new Asignatura("TRA-136", "Metodología de la investigación", 3, Arrays.asList("INF-124", "INF-125"), "R"));
 
         // Cuarto semestre
-        asignaturas.put("DAT-241", new Asignatura("Programación distribuida y paralela", 4, Arrays.asList("INF-131")));
-        asignaturas.put("DAT-242", new Asignatura("Base de datos II", 4, Arrays.asList("INF-132")));
-        asignaturas.put("DAT-243", new Asignatura("Métodos numéricos I", 4, Arrays.asList("DAT-135")));
-        asignaturas.put("DAT-244", new Asignatura("Investigación Operativa I", 4, Arrays.asList("INF-134")));
-        asignaturas.put("DAT-245", new Asignatura("Inteligencia artificial", 4, Arrays.asList("INF-123", "INF-125")));
-        asignaturas.put("DAT-246", new Asignatura("Modelado estadístico", 4, Arrays.asList("INF-134")));
+        cuarto.add(new Asignatura("DAT-241", "Programación distribuida y paralela", 4, Arrays.asList("INF-131"), "R"));
+        cuarto.add(new Asignatura("DAT-242", "Base de datos II", 4, Arrays.asList("INF-132"), "R"));
+        cuarto.add(new Asignatura("DAT-243", "Métodos numéricos I", 4, Arrays.asList("DAT-135"), "R"));
+        cuarto.add(new Asignatura("DAT-244", "Investigación Operativa I", 4, Arrays.asList("INF-134"), "R"));
+        cuarto.add(new Asignatura("DAT-245", "Inteligencia artificial", 4, Arrays.asList("INF-123", "INF-125"), "R"));
+        cuarto.add(new Asignatura("DAT-246", "Modelado estadístico", 4, Arrays.asList("INF-134"), "R"));
 
         // Quinto semestre
-        asignaturas.put("DAT-251", new Asignatura("Base de Datos III", 5, Arrays.asList("DAT-242")));
-        asignaturas.put("DAT-252", new Asignatura("Métodos numéricos II", 5, Arrays.asList("DAT-243")));
-        asignaturas.put("DAT-253", new Asignatura("Minería de Datos", 5, Arrays.asList("DAT-246")));
-        asignaturas.put("DAT-254", new Asignatura("Investigación Operativa II", 5, Arrays.asList("DAT-244")));
-        asignaturas.put("DAT-255", new Asignatura("Aprendizaje automático", 5, Arrays.asList("DAT-246")));
-        asignaturas.put("TRA-256",
-                new Asignatura("Legislación informática y ética", 5, Arrays.asList("Tercer semestre vencido")));
+        quinto.add(new Asignatura("DAT-251", "Base de Datos III", 5, Arrays.asList("DAT-242"), "R"));
+        quinto.add(new Asignatura("DAT-252", "Métodos numéricos II", 5, Arrays.asList("DAT-243"), "R"));
+        quinto.add(new Asignatura("DAT-253", "Minería de Datos", 5, Arrays.asList("DAT-246"), "R"));
+        quinto.add(new Asignatura("DAT-254", "Investigación Operativa II", 5, Arrays.asList("DAT-244"), "R"));
+        quinto.add(new Asignatura("DAT-255", "Aprendizaje automático", 5, Arrays.asList("DAT-246"), "R"));
+        quinto.add(new Asignatura("TRA-256", "Legislación informática y ética", 5, Arrays.asList("Tercer semestre vencido"), "R"));
 
         // Sexto semestre
-        asignaturas.put("DAT-261", new Asignatura("Procesamiento del lenguaje natural", 6, Arrays.asList("DAT-251")));
-        asignaturas.put("DAT-262", new Asignatura("Procesos estocásticos y análisis de series de tiempo", 6,
-                Arrays.asList("INF-134", "DAT-135")));
-        asignaturas.put("DAT-263", new Asignatura("Análisis de datos", 6, Arrays.asList("DAT-254")));
-        asignaturas.put("DAT-264", new Asignatura("Aprendizaje profundo", 6, Arrays.asList("DAT-253")));
-        asignaturas.put("DAT-265",
-                new Asignatura("Taller de Análisis de Datos (TS)", 6, Arrays.asList("Quinto semestre vencido")));
-        asignaturas.put("Electiva I", new Asignatura("Electiva I", 6, Arrays.asList("Quinto semestre vencido")));
+        sexto.add(new Asignatura("DAT-261", "Procesamiento del lenguaje natural", 6, Arrays.asList("DAT-251"), "R"));
+        sexto.add(new Asignatura("DAT-262", "Procesos estocásticos y análisis de series de tiempo", 6, Arrays.asList("INF-134", "DAT-135"), "R"));
+        sexto.add(new Asignatura("DAT-263", "Análisis de datos", 6, Arrays.asList("DAT-254"), "R"));
+        sexto.add(new Asignatura("DAT-264", "Aprendizaje profundo", 6, Arrays.asList("DAT-253"), "R"));
+        sexto.add(new Asignatura("DAT-265", "Taller de Análisis de Datos (TS)", 6, Arrays.asList("Quinto semestre vencido"), "R"));
+        sexto.add(new Asignatura("Electiva I", "Electiva I", 6, Arrays.asList("Quinto semestre vencido"), "R"));
 
         // Séptimo semestre
-        asignaturas.put("DAT-371", new Asignatura("Computación en la nube", 7, Arrays.asList("DAT-261")));
-        asignaturas.put("DAT-372", new Asignatura("Inteligencia de negocios (Business Intelligence)", 7,
-                Arrays.asList("DAT-254", "DAT-264")));
-        asignaturas.put("TRA-374", new Asignatura("Práctica profesional", 7, Arrays.asList("Quinto semestre vencido")));
-        asignaturas.put("Electiva II", new Asignatura("Electiva II", 7, Arrays.asList("Quinto semestre vencido")));
-        asignaturas.put("Electiva III", new Asignatura("Electiva III", 7, Arrays.asList("Quinto semestre vencido")));
+        septimo.add(new Asignatura("DAT-371", "Computación en la nube", 7, Arrays.asList("DAT-261"), "R"));
+        septimo.add(new Asignatura("DAT-372", "Inteligencia de negocios (Business Intelligence)", 7, Arrays.asList("DAT-254", "DAT-264"), "R"));
+        septimo.add(new Asignatura("TRA-374", "Práctica profesional", 7, Arrays.asList("Quinto semestre vencido"), "R"));
+        septimo.add(new Asignatura("Electiva II", "Electiva II", 7, Arrays.asList("Quinto semestre vencido"), "R"));
+        septimo.add(new Asignatura("Electiva III", "Electiva III", 7, Arrays.asList("Quinto semestre vencido"), "R"));
 
         // Octavo semestre
-        asignaturas.put("DAT-381",
-                new Asignatura("Macrosdatos y analítica de datos (Big Data)", 8, Arrays.asList("DAT-372")));
-        asignaturas.put("DAT-382", new Asignatura("Visualización de datos", 8, Arrays.asList("DAT-263")));
-        asignaturas.put("DAT-383",
-                new Asignatura("Taller de graduación I", 8, Arrays.asList("Sexto semestre vencido")));
-        asignaturas.put("Electiva IV", new Asignatura("Electiva IV", 8, Arrays.asList("Sexto semestre vencido")));
-        asignaturas.put("Electiva V", new Asignatura("Electiva V", 8, Arrays.asList("Sexto semestre vencido")));
+        octavo.add(new Asignatura("DAT-381", "Macrosdatos y analítica de datos (Big Data)", 8, Arrays.asList("DAT-372"), "R"));
+        octavo.add(new Asignatura("DAT-382", "Visualización de datos", 8, Arrays.asList("DAT-263"), "R"));
+        octavo.add(new Asignatura("DAT-383", "Taller de graduación I", 8, Arrays.asList("Sexto semestre vencido"), "R"));
+        octavo.add(new Asignatura("Electiva IV", "Electiva IV", 8, Arrays.asList("Sexto semestre vencido"), "R"));
+        octavo.add(new Asignatura("Electiva V", "Electiva V", 8, Arrays.asList("Sexto semestre vencido"), "R"));
 
         // Noveno semestre
-        asignaturas.put("DAT-391",
-                new Asignatura("Taller de graduación II", 9, Arrays.asList("Octavo semestre vencido")));
+        noveno.add(new Asignatura("DAT-391", "Taller de graduación II", 9, Arrays.asList("Octavo semestre vencido"), "R"));
+    
+        asignaturas.add(primer);
+        asignaturas.add(segundo);
+        asignaturas.add(tercer);
+        asignaturas.add(cuarto);
+        asignaturas.add(quinto);
+        asignaturas.add(sexto);
+        asignaturas.add(septimo);
+        asignaturas.add(octavo);
+        asignaturas.add(noveno);
+
+        for (int i = 0; i < asignaturas.size(); i++) {
+            System.out.println("\n" + (i +  1) + "° semestre");
+            for (int j = 0; j < asignaturas.get(i).size(); j++) {
+                System.out.println(asignaturas.get(i).get(j));
+            }
+        }
     }
 
-    private static void preguntarEstadoMateria(String codigo, Map<String, String> estadoMaterias, Scanner scanner) {
+    /* private static void preguntarEstadoMateria(LinkedMap<String, Asignatura>) {
         if (asignaturas.get(codigo) == null) {
             estadoMaterias.put(codigo, "y"); // Asignatura no definida, asumir aprobada
             return;
@@ -231,7 +238,7 @@ public class V2 {
         }
     }
 
-    private static boolean puedeTomar(Asignatura asignatura, Map<String, String> estadoMaterias, int semestreActual) {
+ */    private static boolean puedeTomar(Asignatura asignatura, Map<String, String> estadoMaterias, int semestreActual) {
         for (String prerrequisito : asignatura.prerrequisitos) {
             if (!estadoMaterias.getOrDefault(prerrequisito, "n").equals("y")) {
                 return false;
@@ -269,14 +276,22 @@ public class V2 {
     }
 
     private static class Asignatura {
+        String sigla;
         String nombre;
         int semestre;
+        String estado;
         List<String> prerrequisitos;
 
-        Asignatura(String nombre, int semestre, List<String> prerrequisitos) {
+        Asignatura(String sigla, String nombre, int semestre, List<String> prerrequisitos, String estado) {
+            this.sigla = sigla;
             this.nombre = nombre;
             this.semestre = semestre;
             this.prerrequisitos = prerrequisitos;
+            this.estado = estado;
+        }
+        @Override
+        public String toString() {
+            return nombre + " " + sigla;
         }
     }
 }
