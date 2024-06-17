@@ -1,0 +1,27 @@
+{% extends "plantilla.html" %}
+{% block body %}
+<h2>Actualizar Entrenador</h2>
+<form method="POST" action="{{ url_for('actualizarEntrenador', ci=entrenador.ci) }}">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="{{ entrenador.nombre }}" required>
+    </div>
+    <div class="form-group">
+        <label for="paterno">Paterno</label>
+        <input type="text" class="form-control" id="paterno" name="paterno" value="{{ entrenador.paterno }}" required>
+    </div>
+    <div class="form-group">
+        <label for="region">Región</label>
+        <input type="text" class="form-control" id="region" name="region" value="{{ entrenador.region }}" required>
+    </div>
+    <div class="form-group">
+        <label for="edad">Edad</label>
+        <input type="number" class="form-control" id="edad" name="edad" value="{{ entrenador.edad }}" required>
+    </div>
+    <div class="form-group">
+        <label for="sexo">Sexo</label>
+        <input type="text" class="form-control" id="sexo" name="sexo" value="{{ entrenador.sexo }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}

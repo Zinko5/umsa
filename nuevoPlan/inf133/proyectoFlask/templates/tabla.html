@@ -1,0 +1,119 @@
+{% extends "plantilla.html" %}
+{% block body %}
+<script>
+    function confirmarEliminacionPokemon(event) {
+        if (!confirm("¿Estás seguro de que deseas eliminar este Pokémon?")) {
+            event.preventDefault(); // Evita que se envíe el formulario
+        }
+    }
+    function confirmarEliminacionEntrenador(event) {
+        if (!confirm("¿Estás seguro de que deseas eliminar este Entrenador?")) {
+            event.preventDefault(); // Evita que se envíe el formulario
+        }
+    }
+    function confirmarEliminacionCaptura(event) {
+        if (!confirm("¿Estás seguro de que deseas eliminar esta Captura?")) {
+            event.preventDefault(); // Evita que se envíe el formulario
+        }
+    }
+</script>
+<h2>Pokemon</h2>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <td>ID</td>
+            <td>Nombre</td>
+            <td>Tipo</td>
+            <td>Generacion</td>
+            <td>Numero</td>
+            <td>Opcion</td>
+        </tr>
+    </thead>
+    {% for pokemon in poked %}
+    <tr>
+        <!--aqui hay que colocar exactamente el nombre de la columna de la base de datos -->
+        <td>{{pokemon.idPokemon}}</td>
+        <td>{{pokemon.nombre}}</td>
+        <td>{{pokemon.tipo}}</td>
+        <td>{{pokemon.generacion}}</td>
+        <td>{{pokemon.nroPokemon}}</td>
+        <td>
+            <a href="{{ url_for('actualizarPokemon', id=pokemon.idPokemon) }}" class="btn btn-primary">Actualizar</a>
+            <form action="{{ url_for('eliminarPokemon', id=pokemon.idPokemon) }}" method="POST"
+                style="display: inline;">
+                <button type="submit" class="btn btn-danger"
+                    onclick="confirmarEliminacionPokemon(event)">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<!-- Boton Adicionar Pokemon -->
+<a href="{{ url_for('adicionarPokemon') }}" class="btn btn-primary">Adicionar Pokémon</a>
+
+<br><br>
+<h2>Entrenadores</h2>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <td>CI</td>
+            <td>Nombre</td>
+            <td>Paterno</td>
+            <td>Región</td>
+            <td>Edad</td>
+            <td>Sexo</td>
+            <td>Opcion</td>
+        </tr>
+    </thead>
+    {% for entrenador in entrenadores %}
+    <tr>
+        <td>{{ entrenador.ci }}</td>
+        <td>{{ entrenador.nombre }}</td>
+        <td>{{ entrenador.paterno }}</td>
+        <td>{{ entrenador.region }}</td>
+        <td>{{ entrenador.edad }}</td>
+        <td>{{ entrenador.sexo }}</td>
+        <td>
+            <a href="{{ url_for('actualizarEntrenador', ci=entrenador.ci) }}" class="btn btn-primary">Actualizar</a>
+            <form action="{{ url_for('eliminarEntrenador', ci=entrenador.ci) }}" method="POST" style="display: inline;">
+                <button type="submit" class="btn btn-danger"
+                    onclick="confirmarEliminacionEntrenador(event)">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<!-- Botón Adicionar Entrenador -->
+<a href="{{ url_for('adicionarEntrenador') }}" class="btn btn-primary">Adicionar Entrenador</a>
+
+<br><br>
+<h2>Capturas</h2>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <td>IDPokémon</td>
+            <td>CI</td>
+            <td>Ruta</td>
+            <td>Opcion</td>
+        </tr>
+    </thead>
+    {% for captura in capturas %}
+    <tr>
+        <td>{{ captura.idPokemon }}</td>
+        <td>{{ captura.ci }}</td>
+        <td>{{ captura.ruta }}</td>
+        <td>
+            <a href="{{ url_for('actualizarCaptura', idPokemon=captura.idPokemon, ci=captura.ci) }}"
+                class="btn btn-primary">Actualizar</a>
+            <form action="{{ url_for('eliminarCaptura', idPokemon=captura.idPokemon, ci=captura.ci) }}" method="POST"
+                style="display: inline;">
+                <button type="submit" class="btn btn-danger"
+                    onclick="confirmarEliminacionCaptura(event)">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<!-- Botón Adicionar Captura -->
+<a href="{{ url_for('adicionarCaptura') }}" class="btn btn-primary">Adicionar Captura</a>
+{% endblock %}

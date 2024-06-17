@@ -1,0 +1,19 @@
+{% extends "plantilla.html" %}
+{% block body %}
+<h2>Actualizar Captura</h2>
+<form method="POST" action="{{ url_for('actualizarCaptura', idPokemon=captura.idPokemon, ci=captura.ci) }}">
+    <div class="form-group">
+        <label for="idPokemon">ID Pokémon</label>
+        <input type="text" class="form-control" id="idPokemon" name="idPokemon" value="{{ captura.idPokemon }}" required>
+    </div>
+    <div class="form-group">
+        <label for="ci">CI</label>
+        <input type="text" class="form-control" id="ci" name="ci" value="{{ captura.ci }}" required>
+    </div>
+    <div class="form-group">
+        <label for="ruta">Ruta</label>
+        <input type="text" class="form-control" id="ruta" name="ruta" value="{{ captura.ruta }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}

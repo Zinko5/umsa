@@ -1,0 +1,27 @@
+{% extends "plantilla.html" %}
+{% block body %}
+    <h2>Agregar Nuevo Pokémon</h2>
+    <form method="POST" action="{{ url_for('adicionarPokemon') }}">
+        <div class="form-group">
+            <label for="idPokemon">ID Pokémon</label>
+            <input type="text" class="form-control" id="idPokemon" name="idPokemon" required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <input type="text" class="form-control" id="tipo" name="tipo" required>
+        </div>
+        <div class="form-group">
+            <label for="generacion">Generación</label>
+            <input type="text" class="form-control" id="generacion" name="generacion" required>
+        </div>
+        <div class="form-group">
+            <label for="nroPokemon">Número de Pokémon</label>
+            <input type="text" class="form-control" id="nroPokemon" name="nroPokemon" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+{% endblock %}
