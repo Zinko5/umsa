@@ -27,7 +27,7 @@ def tabla():
     cursor.close()
     return render_template("tabla.html", poked=datoPokemon, entrenadores=datosEntrenador, capturas=datosCaptura)
 
-@app.route('/adicionar', methods=['GET', 'POST'])
+@app.route('/adicionarPokemon', methods=['GET', 'POST'])
 def adicionarPokemon():
     if request.method == 'POST':
         # Obtener los datos del formulario
@@ -51,7 +51,7 @@ def adicionarPokemon():
     # Renderizar el formulario para agregar un nuevo Pokémon
     return render_template('adicionarPokemon.html')
 
-@app.route('/actualizar/<int:id>', methods=['GET', 'POST'])
+@app.route('/actualizarPokemon/<int:id>', methods=['GET', 'POST'])
 def actualizarPokemon(id):
     try:
         if request.method == 'POST':
@@ -90,7 +90,7 @@ def actualizarPokemon(id):
         # Capturar y mostrar cualquier excepción que pueda ocurrir
         return str(e)
     
-@app.route('/eliminar/<int:id>', methods=['POST'])
+@app.route('/eliminarPokemon/<int:id>', methods=['POST'])
 def eliminarPokemon(id):
     try:
         # Eliminar el Pokémon de la base de datos
