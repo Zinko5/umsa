@@ -22,6 +22,15 @@
 
     <div class="container-sm">
         <br><br>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <span class="navbar-brand" href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" alt="Logo"
+                        width="70.5" height="56.4" class="d-inline-block align-text-center">
+                    <span class="fs-2">PokeMedia en Laravel</span>
+                </span>
+            </div>
+        </nav>
         <h2>Pokemon</h2>
         <table class="table">
             <thead class="table-dark">
@@ -506,7 +515,7 @@
         @endforeach
 
     </div>
-
+    <br><br>
 </body>
 
 </html>
