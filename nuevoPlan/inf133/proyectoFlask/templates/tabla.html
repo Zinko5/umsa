@@ -17,6 +17,15 @@
         }
     }
 </script>
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <span class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" alt="Logo" width="70.5"
+                height="56.4" class="d-inline-block align-text-center">
+                <span class="fs-2">PokeMedia en Flask</span>
+        </span>
+    </div>
+</nav>
 <h2>Pokemon</h2>
 <table class="table">
     <thead class="table-dark">
@@ -62,6 +71,7 @@
             <td>Región</td>
             <td>Edad</td>
             <td>Sexo</td>
+            <td>Numero de Pokemon Capturados</td>
             <td>Opcion</td>
         </tr>
     </thead>
@@ -73,6 +83,7 @@
         <td>{{ entrenador.region }}</td>
         <td>{{ entrenador.edad }}</td>
         <td>{{ entrenador.sexo }}</td>
+        <td>{{ entrenador.nroPokemonCapturados }}</td>
         <td>
             <a href="{{ url_for('actualizarEntrenador', ci=entrenador.ci) }}" class="btn btn-primary">Actualizar</a>
             <form action="{{ url_for('eliminarEntrenador', ci=entrenador.ci) }}" method="POST" style="display: inline;">

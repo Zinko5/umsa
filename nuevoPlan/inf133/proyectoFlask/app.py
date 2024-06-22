@@ -119,11 +119,12 @@ def adicionarEntrenador():
         region = request.form['region']
         edad = request.form['edad']
         sexo = request.form['sexo']
+        nroPokemonCapturados = request.form['nroPokemonCapturados']
 
         # Insertar el nuevo Entrenador en la base de datos
         cursor = mysql.connection.cursor()
-        query = "INSERT INTO Entrenador (ci, nombre, paterno, region, edad, sexo) VALUES (%s, %s, %s, %s, %s, %s)"
-        values = (ci, nombre, paterno, region, edad, sexo)
+        query = "INSERT INTO Entrenador (ci, nombre, paterno, region, edad, sexo, nroPokemonCapturados) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        values = (ci, nombre, paterno, region, edad, sexo, nroPokemonCapturados)
         cursor.execute(query, values)
         mysql.connection.commit()
         cursor.close()
@@ -144,11 +145,12 @@ def actualizarEntrenador(ci):
             region = request.form['region']
             edad = request.form['edad']
             sexo = request.form['sexo']
+            nroPokemonCapturados = request.form['nroPokemonCapturados']
 
             # Realizar la actualización en la base de datos
             cursor = mysql.connection.cursor()
-            query = "UPDATE Entrenador SET nombre = %s, paterno = %s, region = %s, edad = %s, sexo = %s WHERE ci = %s"
-            values = (nombre, paterno, region, edad, sexo, ci)
+            query = "UPDATE Entrenador SET nombre = %s, paterno = %s, region = %s, edad = %s, sexo = %s, nroPokemonCapturados = %s WHERE ci = %s"
+            values = (nombre, paterno, region, edad, sexo, nroPokemonCapturados, ci)
             cursor.execute(query, values)
             mysql.connection.commit()
             cursor.close()

@@ -22,6 +22,10 @@
         <label for="sexo">Sexo</label>
         <input type="text" class="form-control" id="sexo" name="sexo" value="{{ entrenador.sexo }}" required>
     </div>
+    <div class="form-group">
+        <label for="nroPokemonCapturados">Numero de Pokemon Capturados</label>
+        <input type="text" class="form-control" id="nroPokemonCapturados" name="nroPokemonCapturados" value="{{ entrenador.nroPokemonCapturados }}" required>
+    </div>
     <button type="submit" class="btn btn-primary">Actualizar</button>
 </form>
 {% endblock %}
