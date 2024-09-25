@@ -1,0 +1,104 @@
+DECLARE
+    CURSOR C_DEPARTAMENTO 
+    IS
+        SELECT CODDEPAR, NOMBRE_D, CI_JEFE
+        FROM DEPARTAMENTO;
+    
+    CURSOR C_INVESTIGADORA(P_CODDEPAR VARCHAR2) 
+    IS
+        SELECT APELLIDO, NOMBRE, SALARIO
+        FROM INVESTIGADOR
+        WHERE 
+            CODDEPAR = P_CODDEPAR 
+            AND 
+            SEXO = 'FEMENINO'
+        ORDER BY APELLIDO;
+
+    CURSOR C_INVESTIGADOR(P_CODDEPAR VARCHAR2) 
+    IS
+        SELECT APELLIDO, NOMBRE, SALARIO
+        FROM INVESTIGADOR
+        WHERE 
+            CODDEPAR = P_CODDEPAR 
+            AND 
+            SEXO = 'MASCULINO'
+        ORDER BY APELLIDO;
+
+    CURSOR C_JEFE(P_CI_JEFE NUMBER) 
+    IS
+        SELECT APELLIDO, NOMBRE
+        FROM INVESTIGADOR
+        WHERE CI = P_CI_JEFE;
+
+    XCODDEPAR VARCHAR2(15);
+    XNOMBRE_D VARCHAR2(50);
+    XJEFE_DEPAR NUMBER;
+    XAPELLIDO_INV VARCHAR2(50);
+    XNOMBRE_INV VARCHAR2(50);
+    XSALARIO_INV NUMBER;
+    TOTAL_SALARIO NUMBER := 0;
+    CONT_INV NUMBER := 0;
+    PROMEDIO_SALARIO NUMBER;
+    XAPELLIDO_JEFE VARCHAR2(50);
+    XNOMBRE_JEFE VARCHAR2(50);
+    
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('LISTADO DE INVESTIGADORES SEGÚN DEPARTAMENTO');
+    DBMS_OUTPUT.PUT_LINE('===========================================================');
+
+    OPEN C_DEPARTAMENTO;
+    LOOP
+        FETCH C_DEPARTAMENTO INTO XCODDEPAR, XNOMBRE_D, XJEFE_DEPAR;
+        EXIT WHEN C_DEPARTAMENTO%NOTFOUND;
+
+        OPEN C_JEFE(XJEFE_DEPAR);
+            FETCH C_JEFE INTO XAPELLIDO_JEFE, XNOMBRE_JEFE;
+            CLOSE C_JEFE;
+
+            DBMS_OUTPUT.PUT_LINE('DEPARTAMENTO: ' || XNOMBRE_D);
+            DBMS_OUTPUT.PUT_LINE('  JEFE: ' || XAPELLIDO_JEFE || ' ' || XNOMBRE_JEFE);
+            TOTAL_SALARIO := 0;
+            CONT_INV := 0;
+
+            DBMS_OUTPUT.PUT_LINE('      INVESTIGADORAS');
+            OPEN C_INVESTIGADORA(XCODDEPAR);
+                FETCH C_INVESTIGADORA INTO XAPELLIDO_INV, XNOMBRE_INV, XSALARIO_INV;
+                IF C_INVESTIGADORA%NOTFOUND THEN
+                    DBMS_OUTPUT.PUT_LINE('          SIN INVESTIGADORAS');
+                ELSE
+                    LOOP
+                        DBMS_OUTPUT.PUT_LINE('          ' || XAPELLIDO_INV || ' ' || XNOMBRE_INV);
+                        TOTAL_SALARIO := TOTAL_SALARIO + XSALARIO_INV;
+                        CONT_INV := CONT_INV + 1;
+                        FETCH C_INVESTIGADORA INTO XAPELLIDO_INV, XNOMBRE_INV, XSALARIO_INV;
+                        EXIT WHEN C_INVESTIGADORA%NOTFOUND;
+                    END LOOP;
+                END IF;
+            CLOSE C_INVESTIGADORA;
+
+            DBMS_OUTPUT.PUT_LINE('      INVESTIGADORES');
+            OPEN C_INVESTIGADOR(XCODDEPAR);
+                FETCH C_INVESTIGADOR INTO XAPELLIDO_INV, XNOMBRE_INV, XSALARIO_INV;
+                IF C_INVESTIGADOR%NOTFOUND THEN
+                    DBMS_OUTPUT.PUT_LINE('          SIN INVESTIGADORES');
+                ELSE
+                    LOOP
+                        DBMS_OUTPUT.PUT_LINE('          ' || XAPELLIDO_INV || ' ' || XNOMBRE_INV);
+                        TOTAL_SALARIO := TOTAL_SALARIO + XSALARIO_INV;
+                        CONT_INV := CONT_INV + 1;
+                        FETCH C_INVESTIGADOR INTO XAPELLIDO_INV, XNOMBRE_INV, XSALARIO_INV;
+                        EXIT WHEN C_INVESTIGADOR%NOTFOUND;
+                    END LOOP;
+                END IF;
+            CLOSE C_INVESTIGADOR;
+
+        IF CONT_INV > 0 THEN
+            PROMEDIO_SALARIO := TOTAL_SALARIO / CONT_INV;
+        ELSE
+            PROMEDIO_SALARIO := 0;
+        END IF;
+        DBMS_OUTPUT.PUT_LINE('  SUELDO PROMEDIO: ' || ROUND(PROMEDIO_SALARIO,2));
+        DBMS_OUTPUT.PUT_LINE('===========================================================');
+    END LOOP;
+    CLOSE C_DEPARTAMENTO;
+END;
