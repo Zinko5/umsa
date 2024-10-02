@@ -1,0 +1,369 @@
+teniendo esta base de datos:
+
+CREATE TABLE  "ARTICULO" 
+   (	"ID_ARTICULO" NUMBER NOT NULL ENABLE, 
+	"TITULO" VARCHAR2(100) NOT NULL ENABLE, 
+	"CONTENIDO" VARCHAR2(100), 
+	"FECHA_PUBLICACION" DATE, 
+	"CATEGORIA" VARCHAR2(50), 
+	"NOTA_PROMEDIO" NUMBER, 
+	 PRIMARY KEY ("ID_ARTICULO") ENABLE
+   )
+/
+CREATE TABLE  "PERSONA" 
+   (	"CI" NUMBER NOT NULL ENABLE, 
+	"NOMBRE" VARCHAR2(100) NOT NULL ENABLE, 
+	"APELLIDO" VARCHAR2(100) NOT NULL ENABLE, 
+	"GENERO" CHAR(1), 
+	"FECHA_NACIMIENTO" DATE, 
+	"NACIONALIDAD" VARCHAR2(50), 
+	"TELEFONO" VARCHAR2(20), 
+	"EMAIL" VARCHAR2(100), 
+	 CONSTRAINT "PERSONA_PK" PRIMARY KEY ("CI") ENABLE
+   )
+/
+CREATE TABLE  "AUTOR" 
+   (	"CI" NUMBER NOT NULL ENABLE, 
+	"ANIOS_EXPERIENCIA" VARCHAR2(100), 
+	"ESTUDIOS" VARCHAR2(100), 
+	 PRIMARY KEY ("CI") ENABLE, 
+	 FOREIGN KEY ("CI")
+	  REFERENCES  "PERSONA" ("CI") ENABLE
+   )
+/
+CREATE TABLE  "JURADO" 
+   (	"CI" NUMBER NOT NULL ENABLE, 
+	"ESPECIALIDAD" VARCHAR2(100), 
+	"INSTITUCION" VARCHAR2(100), 
+	 PRIMARY KEY ("CI") ENABLE, 
+	 FOREIGN KEY ("CI")
+	  REFERENCES  "PERSONA" ("CI") ENABLE
+   )
+/
+CREATE TABLE  "CALIFICA" 
+   (	"ID_ARTICULO" NUMBER NOT NULL ENABLE, 
+	"CI" NUMBER NOT NULL ENABLE, 
+	"PUNTUACION" NUMBER, 
+	"FECHA_CALIFICACION" DATE, 
+	"COMENTARIOS" VARCHAR2(500), 
+	 PRIMARY KEY ("ID_ARTICULO", "CI") ENABLE, 
+	 FOREIGN KEY ("ID_ARTICULO")
+	  REFERENCES  "ARTICULO" ("ID_ARTICULO") ENABLE, 
+	 FOREIGN KEY ("CI")
+	  REFERENCES  "JURADO" ("CI") ENABLE
+   )
+/
+CREATE TABLE  "CITA" 
+   (	"ID_ARTICULO1" NUMBER NOT NULL ENABLE, 
+	"ID_ARTICULO2" NUMBER NOT NULL ENABLE, 
+	 PRIMARY KEY ("ID_ARTICULO1", "ID_ARTICULO2") ENABLE, 
+	 FOREIGN KEY ("ID_ARTICULO1")
+	  REFERENCES  "ARTICULO" ("ID_ARTICULO") ENABLE, 
+	 FOREIGN KEY ("ID_ARTICULO2")
+	  REFERENCES  "ARTICULO" ("ID_ARTICULO") ENABLE
+   )
+/
+CREATE TABLE  "MEDIO" 
+   (	"ID_MEDIO" NUMBER NOT NULL ENABLE, 
+	"NOMBREM" VARCHAR2(100) NOT NULL ENABLE, 
+	"TIPO" VARCHAR2(50), 
+	"URL" VARCHAR2(200), 
+	 PRIMARY KEY ("ID_MEDIO") ENABLE
+   )
+/
+CREATE TABLE  "DIFUNDE" 
+   (	"ID_ARTICULO" NUMBER NOT NULL ENABLE, 
+	"ID_MEDIO" NUMBER NOT NULL ENABLE, 
+	 PRIMARY KEY ("ID_ARTICULO", "ID_MEDIO") ENABLE, 
+	 FOREIGN KEY ("ID_ARTICULO")
+	  REFERENCES  "ARTICULO" ("ID_ARTICULO") ENABLE, 
+	 FOREIGN KEY ("ID_MEDIO")
+	  REFERENCES  "MEDIO" ("ID_MEDIO") ENABLE
+   )
+/
+CREATE TABLE  "ESCRIBE" 
+   (	"CI" NUMBER NOT NULL ENABLE, 
+	"ID_ARTICULO" NUMBER NOT NULL ENABLE, 
+	 PRIMARY KEY ("CI", "ID_ARTICULO") ENABLE, 
+	 FOREIGN KEY ("CI")
+	  REFERENCES  "AUTOR" ("CI") ENABLE, 
+	 FOREIGN KEY ("ID_ARTICULO")
+	  REFERENCES  "ARTICULO" ("ID_ARTICULO") ENABLE
+   )
+/
+
+ARTÍCULOS
+1 Avances en Astronomia CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Romero Marta F
+J U R A D O S
+Lopez Pedro 8
+2 Avances en Educacion Online CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Paniagua Isabel F
+J U R A D O S
+Garcia Jose 8
+3 Avances en Informatica CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Espinoza Ramon M
+J U R A D O S
+Salazar Luis 9
+4 Avances en Logistica y Cadena de Suministro CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Aguilar Victor M
+J U R A D O S
+Ramos Fernando 9
+5 Avances en Medicina CantAutores: 2 Promedio Obt: 0
+A U T O R E S
+Montes Hugo M
+Navarro Sebastian M
+J U R A D O S
+6 Avances en Psicologia CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Aguilar Victor M
+J U R A D O S
+Mora Andres 8
+7 Avances en Telecomunicaciones CantAutores: 1 Promedio Obt: 10
+A U T O R E S
+Maldonado Andrea F
+J U R A D O S
+Lopez Pedro 10
+8 Ciberseguridad en la Era Digital CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Rico Rodrigo M
+J U R A D O S
+Alvarez Liliana 8
+9 Desarrollo de Energia Nuclear CantAutores: 1 Promedio Obt: 10
+A U T O R E S
+Quintana Isabel F
+J U R A D O S
+Ramos Fernando 10
+10 Desarrollo de Productos Sostenibles CantAutores: 1 Promedio Obt: 6,3333333
+A U T O R E S
+Rodriguez Valeria F
+J U R A D O S
+Perez Juan 6
+Ramos Fernando 8
+
+Serrano Gustavo 5
+11 Desarrollo de Software CantAutores: 1 Promedio Obt: 7
+A U T O R E S
+Palacios Eva F
+J U R A D O S
+Torres Raquel 7
+12 Desarrollo en Energia Eolica CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Campos Gloria F
+J U R A D O S
+Mora Andres 8
+13 Desarrollo en Inteligencia de Negocios CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Romero Marta F
+J U R A D O S
+Figueroa Nancy 9
+Ramos Fernando 7
+14 Desarrollo en Sistemas CantAutores: 1 Promedio Obt: 7
+A U T O R E S
+Campos Gloria F
+J U R A D O S
+Mora Andres 7
+15 Desarrollos en Ciencias del Clima CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Salinas Daniela F
+J U R A D O S
+Serrano Gustavo 8
+16 Desarrollos en Energías Renovables CantAutores: 0 Promedio Obt: 8
+A U T O R E S
+J U R A D O S
+Torres Raquel 8
+17 Descubrimientos en Biologia CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Diaz Oscar M
+J U R A D O S
+Torres Raquel 9
+18 Diseño Sostenible en Arquitectura CantAutores: 1 Promedio Obt: 7
+A U T O R E S
+Rodriguez Valeria F
+J U R A D O S
+Acosta Mauricio 7
+19 Diseños en Arquitectura CantAutores: 1 Promedio Obt: 7
+A U T O R E S
+Maldonado Andrea F
+J U R A D O S
+Mora Andres 7
+20 Estudios en Antropologia CantAutores: 1 Promedio Obt: 7
+A U T O R E S
+Bautista Ricardo M
+J U R A D O S
+Ramos Fernando 7
+21 Estudios en Genetica CantAutores: 2 Promedio Obt: 10
+A U T O R E S
+Montes Hugo M
+Villalobos Fernando M
+J U R A D O S
+Torres Raquel 10
+22 Estudios en Sociologia CantAutores: 2 Promedio Obt: 9
+A U T O R E S
+Arias Elena F
+Vega Antonio M
+
+J U R A D O S
+Torres Raquel 9
+23 Genetica y Biotecnologia CantAutores: 0 Promedio Obt: 9
+A U T O R E S
+J U R A D O S
+Mora Andres 9
+24 Innovacion en Ingenieria Ambiental CantAutores: 1 Promedio Obt: 10
+A U T O R E S
+Rivera Alberto M
+J U R A D O S
+Acosta Mauricio 10
+25 Innovacion en Tratamientos Oncologicos CantAutores: 6 Promedio Obt: 8,5
+A U T O R E S
+Castro Lucia F
+Maldonado Andrea F
+Montes Hugo M
+Navarro Sebastian M
+Rivera Alberto M
+Villalobos Fernando M
+J U R A D O S
+Garcia Jose 9
+Serrano Gustavo 8
+26 Innovaciones en Agricultura Inteligente CantAutores: 2 Promedio Obt: 8
+A U T O R E S
+Cruz Claudia F
+Salinas Daniela F
+J U R A D O S
+Mora Andres 8
+27 Innovaciones en Automatizacion CantAutores: 1 Promedio Obt: 8,8
+A U T O R E S
+Mendez Francisco M
+J U R A D O S
+Lopez Pedro 6
+Mora Andres 15
+Ramos Fernando 7
+Serrano Gustavo 6
+Torres Raquel 10
+28 Innovaciones en Electronica CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Fernandez Pablo M
+J U R A D O S
+Figueroa Nancy 8
+29 Innovaciones en Energia Solar CantAutores: 0 Promedio Obt: 7
+A U T O R E S
+J U R A D O S
+Garcia Jose 7
+30 Innovaciones en Ingeniería Civil CantAutores: 5 Promedio Obt: 9
+A U T O R E S
+Campos Gloria F
+Maldonado Andrea F
+Rico Rodrigo M
+Rivera Alberto M
+Villalobos Fernando M
+J U R A D O S
+Serrano Gustavo 9
+31 Innovaciones en Materiales de Construccion CantAutores: 0 Promedio Obt: 0
+A U T O R E S
+J U R A D O S
+32 Innovaciones en Medicina Veterinaria CantAutores: 3 Promedio Obt: 9
+A U T O R E S
+Arias Elena F
+
+Palacios Eva F
+Romero Marta F
+J U R A D O S
+Lopez Pedro 9
+33 Innovaciones en Nanotecnologia CantAutores: 1 Promedio Obt: 10
+A U T O R E S
+Chavez Monica F
+J U R A D O S
+Torres Raquel 10
+34 Innovaciones en Transporte CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Cruz Claudia F
+J U R A D O S
+Torres Raquel 9
+35 Mejoras en Ingenieria Industrial CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Bautista Ricardo M
+J U R A D O S
+Perez Juan 8
+36 Mejoras en la Ingenieria Quimica CantAutores: 1 Promedio Obt: 0
+A U T O R E S
+Diaz Oscar M
+J U R A D O S
+37 Nuevas Tecnicas en Marketing Digital CantAutores: 0 Promedio Obt: 10
+A U T O R E S
+J U R A D O S
+Lopez Pedro 10
+38 Nuevas Tecnologias en Fintech CantAutores: 1 Promedio Obt: 7
+A U T O R E S
+Castro Lucia F
+J U R A D O S
+Lopez Pedro 7
+39 Nuevas Tendencias en Quimica CantAutores: 1 Promedio Obt: 10
+A U T O R E S
+Rivera Alberto M
+J U R A D O S
+Figueroa Nancy 10
+40 Nuevas Terapias en Salud Mental CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Fernandez Pablo M
+J U R A D O S
+Torres Raquel 9
+41 Nuevos Descubrimientos en Fisica CantAutores: 1 Promedio Obt: 8,5
+A U T O R E S
+Vega Antonio M
+J U R A D O S
+Reyes Victoria 9
+Torres Raquel 8
+42 Progreso en Ciencias Sociales CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Vidal Teresa F
+J U R A D O S
+Lopez Pedro 9
+43 Progreso en Ecologia CantAutores: 1 Promedio Obt: 10,33333333333333333333333333333333333333
+A U T O R E S
+Espinoza Ramon M
+J U R A D O S
+Lopez Pedro 10
+Mora Andres 12
+Ramos Fernando 9
+44 Progreso en Seguridad Alimentaria CantAutores: 1 Promedio Obt: 11
+
+A U T O R E S
+Navarro Sebastian M
+J U R A D O S
+Mora Andres 12
+Torres Raquel 10
+45 Robotica Avanzada CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Chavez Monica F
+J U R A D O S
+Valle Miguel 8
+46 Tecnologia en Agricultura CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Palacios Eva F
+J U R A D O S
+Mora Andres 9
+47 Tecnologia en el Deporte CantAutores: 1 Promedio Obt: 8
+A U T O R E S
+Villalobos Fernando M
+J U R A D O S
+Alvarez Liliana 8
+48 Tendencias en Diseno Grafico CantAutores: 3 Promedio Obt: 9
+A U T O R E S
+Chavez Monica F
+Cruz Claudia F
+Paniagua Isabel F
+J U R A D O S
+Torres Raquel 9
+49 Tendencias en Educacion CantAutores: 1 Promedio Obt: 9
+A U T O R E S
+Vidal Teresa F
+J U R A D O S
+Mora Andres 9
+50 Tendencias en IA CantAutores: 0 Promedio Obt: 7
+A U T O R E S
+J U R A D O S
+Ramos Fernando 7
