@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class App {
+public class e1286 {
     public static void main(String[] args) throws Exception {
         int n;
         int c;
