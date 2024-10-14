@@ -2,13 +2,11 @@ import java.util.ArrayList;
 
 public class arraylist {
     public static void main(String[] args) throws Exception {
-        //utilizar arraylist, linkedlist, vector 
-        //para manejar objetos de celular<marca, precio, modelo>
-        System.out.println("Muñoz Callisaya Gabriel Marcelo     CI:9873103");
+        System.out.println("Callisaya Rodriguez Diana    CI:10900296");
+        celular cel1 = new celular("Samsung", 1200, "AD00");
+        celular cel2 = new celular("Lenovo", 432400, "3fdsfO");
+        celular cel3 = new celular("Samsung", 324000, "asdd3");
         ArrayList<celular> arrayCel = new ArrayList<celular>();
-        celular cel1 = new celular("nokia", 3500, "AXC300");
-        celular cel2 = new celular("iPhone", 10000, "3kPOO");
-        celular cel3 = new celular("Samsung", 5000, "XCT3");
         arrayCel.add(cel1);
         arrayCel.add(1, cel2);
         arrayCel.get(1);

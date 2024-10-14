@@ -2,11 +2,11 @@ import java.util.LinkedList;
 
 public class linkedlist {
     public static void main(String[] args) {
-        System.out.println("Muñoz Callisaya Gabriel Marcelo     CI:9873103");
         LinkedList<celular> listaCel1 = new LinkedList<celular>();
-        celular cel1 = new celular("nokia", 3500, "AXC300");
-        celular cel2 = new celular("iPhone", 10000, "3kPOO");
-        celular cel3 = new celular("Samsung", 5000, "XCT3");
+        System.out.println("Callisaya Rodriguez Diana    CI:10900296");
+        celular cel1 = new celular("Samsung", 1200, "AD00");
+        celular cel2 = new celular("Lenovo", 432400, "3fdsfO");
+        celular cel3 = new celular("Samsung", 324000, "asdd3");
         listaCel1.add(cel1);
         listaCel1.add(cel2);
         listaCel1.add(cel3);
