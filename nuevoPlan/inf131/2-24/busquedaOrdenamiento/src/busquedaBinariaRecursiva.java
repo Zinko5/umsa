@@ -16,20 +16,35 @@ public class busquedaBinariaRecursiva {
         System.out.println();
     }
 
+    // static int busqBinRec(int v[], int p, int u, int x){
+    //     if (p > u) {
+    //         return 0;
+    //     };
+    //     int medio = (p + u) / 2;
+    //     if (v[medio] == x) {
+    //         return medio;
+    //     } else {
+    //         if (v[medio] > x) {
+    //             return busqBinRec(v, p, medio - 1, x);
+    //         } else {
+    //             return busqBinRec(v, medio + 1, u, x);
+    //         }
+    //     } 
+    // }
+
     static int busqBinRec(int v[], int p, int u, int x){
-        int medio;
         if (p > u) {
             return 0;
         }
-        medio = (p + u) / 2;
+        int medio = (p + u) / 2;
         if (v[medio] == x) {
             return medio;
         } else {
             if (v[medio] > x) {
-                return busqBinRec(v, p, medio - 1, x);
+                return busqBinRec(v, p, medio -1, x);
             } else {
                 return busqBinRec(v, medio + 1, u, x);
             }
-        } 
+        }
     }
 }
