@@ -1,15 +1,22 @@
-def es_numero_feliz(n):
-    visitados = set()
-    while n != 1 and n not in visitados:
-        visitados.add(n)
-        n = sum(int(d) ** 2 for d in str(n))
-    return n == 1
-
-num_casos = int(input())
-resultados = []
-for _ in range(num_casos):
+t = int(input())
+for _ in range(t):
     n = int(input())
-    resultados.append("Feliz" if es_numero_feliz(n) else "Triste")
-
-for resultado in resultados:
-    print(resultado)
+    a = [list(map(int, input().split())) for _ in range(n)]
+    bienOrdenado = True
+    for i in range(n):
+        for j in range(n):
+            if a[i][j] != 1:
+                encontrado = False
+                for s in range(n):
+                    for t in range(n):
+                        if a[i][j] == a[i][s] + a[t][j]:
+                            encontrado = True
+                            break
+                    if encontrado:
+                        break
+                if not encontrado:
+                    bienOrdenado = False
+                    break
+        if not bienOrdenado:
+            break
+    print("Si" if bienOrdenado else "No")
