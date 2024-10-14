@@ -32,7 +32,7 @@ public class bubbleSort {
 
     static void burbuja(int v[]){
         int aux;
-        for (int i = 0; i < v.length - 1; i++) {
+        for (int i = 0; i < v.length -1; i++) {
             for (int j = i + 1; j < v.length; j++) {
                 if (v[i] > v[j]) {
                     aux = v[i];

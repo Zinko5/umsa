@@ -65,10 +65,10 @@ public class quickSort {
         int der = fin;
         while (der >= izq) {
             while (fin >= ini && pivote > v[izq]) {
-                izq ++;
+                izq++;
             }
             while (der > ini && v[der] >= pivote) {
-                der --;
+                der--;
             }
             if (der > izq) {
                 int tmp = v[izq];
@@ -81,7 +81,7 @@ public class quickSort {
             v[ini] = v[der];
             v[der] = tmp;
         }
-        quick(v, ini, der - 1);
+        quick(v, ini, der -1);
         quick(v, der + 1, fin);
     }
 }

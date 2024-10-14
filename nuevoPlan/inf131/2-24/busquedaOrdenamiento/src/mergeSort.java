@@ -60,7 +60,7 @@ public class mergeSort {
         int mid = (l + r) / 2;
         merge(v, l, mid);
         merge(v, mid + 1, r);
-        Queue<Integer> L = new LinkedList<Integer>();
+        Queue<Integer> L  = new LinkedList<Integer>();
         Queue<Integer> R = new LinkedList<Integer>();
         for (int i = l; i < mid + 1; i++) {
             L.offer(v[i]);
@@ -78,7 +78,7 @@ public class mergeSort {
             else if (L.peek() > R.peek()) {
                 v[i] = L.poll();
             }
-            else{
+            else {
                 v[i] = R.poll();
             }
         }
