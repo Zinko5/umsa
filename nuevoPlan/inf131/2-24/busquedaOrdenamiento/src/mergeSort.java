@@ -1,8 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-import javax.management.QueryEval;
-
 public class mergeSort {
     public static void main(String[] args) {
         int v[] = new int[4];
@@ -57,10 +55,10 @@ public class mergeSort {
         if (l == r) {
             return;
         }
-        int mid = (l + r) / 2;
+        int mid = (l + r) /2;
         merge(v, l, mid);
         merge(v, mid + 1, r);
-        Queue<Integer> L  = new LinkedList<Integer>();
+        Queue<Integer> L = new LinkedList<Integer>();
         Queue<Integer> R = new LinkedList<Integer>();
         for (int i = l; i < mid + 1; i++) {
             L.offer(v[i]);
@@ -78,7 +76,7 @@ public class mergeSort {
             else if (L.peek() > R.peek()) {
                 v[i] = L.poll();
             }
-            else {
+            else{
                 v[i] = R.poll();
             }
         }
