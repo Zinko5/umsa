@@ -20,6 +20,3 @@ create table estudiante (
     foreign key (idpersona) references persona(idpersona),
     foreign key (idproy) references proyecto(idproy)
 )
-
-insert into persona (column)
-values (values)
