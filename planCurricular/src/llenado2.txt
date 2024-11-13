@@ -1,55 +1,47 @@
-agregarMateria("INF-111", "Programación I", Arrays.asList());
-        agregarMateria("INF-112", "Fundamentos Digitales", Arrays.asList());
-        agregarMateria("INF-113", "Programación Web I", Arrays.asList());
-        agregarMateria("INF-114", "Álgebra", Arrays.asList());
-        agregarMateria("INF-115", "Cálculo I", Arrays.asList());
-        agregarMateria("INF-116", "Matemática Discreta", Arrays.asList());
-
-        agregarMateria("INF-121", "Programación II", Arrays.asList("INF-111"));
-        agregarMateria("INF-122", "Electrónica General", Arrays.asList("INF-112"));
-        agregarMateria("INF-123", "Estadística I", Arrays.asList("INF-114", "INF-317"));
-        agregarMateria("INF-124", "Álgebra Lineal", Arrays.asList("INF-114"));
-        agregarMateria("INF-125", "Cálculo II", Arrays.asList("INF-115"));
-        agregarMateria("INF-126", "Matemática Discreta", Arrays.asList("INF-115"));
-
-        agregarMateria("INF-131", "Programación III", Arrays.asList("INF-121"));
-        agregarMateria("INF-132", "Base de datos I", Arrays.asList("INF-121", "INF-122"));
-        agregarMateria("INF-133", "Programación web III", Arrays.asList("INF-111", "INF-122"));
-        agregarMateria("INF-134", "Estadística II", Arrays.asList("INF-124"));
-        agregarMateria("DAT-135", "Cálculo III", Arrays.asList("INF-126"));
-        agregarMateria("TRA-136", "Metodología de la investigación", Arrays.asList("INF-124", "INF-125"));
-
-        agregarMateria("DAT-241", "Programación Distribuida y Paralela", Arrays.asList("INF-121"));
-        agregarMateria("DAT-242", "Base de Datos II", Arrays.asList("INF-121", "INF-122"));
-        agregarMateria("DAT-243", "Métodos Numéricos I", Arrays.asList("INF-115", "INF-135"));
-        agregarMateria("DAT-244", "Investigación Operativa I", Arrays.asList("INF-124"));
-        agregarMateria("DAT-245", "Inteligencia Artificial", Arrays.asList("INF-123", "INF-125"));
-        agregarMateria("DAT-246", "Modelado Estadístico", Arrays.asList("INF-134"));
-
-        agregarMateria("DAT-251", "Base de Datos III", Arrays.asList("DAT-242"));
-        agregarMateria("DAT-252", "Métodos numéricos II", Arrays.asList("DAT-243"));
-        agregarMateria("DAT-253", "Minería de Datos", Arrays.asList("DAT-246"));
-        agregarMateria("DAT-254", "Investigación Operativa II", Arrays.asList("DAT-244"));
-        agregarMateria("DAT-255", "Aprendizaje automático", Arrays.asList("DAT-246"));
-        agregarMateria("TRA-256", "Legislación informática y ética", Arrays.asList("Tercer semestre vencido"));
-            
-        agregarMateria("DAT-261", "Procesamiento del lenguaje natural", Arrays.asList("DAT-251"));
-        agregarMateria("DAT-262", "Procesos estocásticos y análisis de series de tiempo", Arrays.asList("INF-134", "DAT-135"));
-        agregarMateria("DAT-263", "Análisis de datos", Arrays.asList("DAT-254"));
-        agregarMateria("DAT-264", "Aprendizaje profundo", Arrays.asList("DAT-253"));
-        agregarMateria("DAT-265", "Taller de Análisis de Datos (TS)", Arrays.asList("Quinto semestre vencido"));
-        agregarMateria("Electiva I", "Electiva I", Arrays.asList("Quinto semestre vencido"));
-            
-        agregarMateria("DAT-371", "Computación en la nube", Arrays.asList("DAT-261"));
-        agregarMateria("DAT-372", "Inteligencia de negocios (Business Intelligence)", Arrays.asList("DAT-254", "DAT-264"));
-        agregarMateria("TRA-374", "Práctica profesional", Arrays.asList("Quinto semestre vencido"));
-        agregarMateria("Electiva II", "Electiva II", Arrays.asList("Quinto semestre vencido"));
-        agregarMateria("Electiva III", "Electiva III", Arrays.asList("Quinto semestre vencido"));
-            
-        agregarMateria("DAT-381", "Macrosdatos y analítica de datos (Big Data)", Arrays.asList("DAT-372"));
-        agregarMateria("DAT-382", "Visualización de datos", Arrays.asList("DAT-263"));
-        agregarMateria("DAT-383", "Taller de graduación I", Arrays.asList("Sexto semestre vencido"));
-        agregarMateria("Electiva IV", "Electiva IV", Arrays.asList("Sexto semestre vencido"));
-        agregarMateria("Electiva V", "Electiva V", Arrays.asList("Sexto semestre vencido"));
-            
-        agregarMateria("DAT-391", "Taller de graduación II", Arrays.asList("Octavo semestre vencido"));
+Sigla de la materia: "INF-111", Nombre de la materia:  "Programación I", Semestre de la materia: "1", Requisitos de la materia: (ninguno)
+Sigla de la materia: "INF-112", Nombre de la materia:  "Fundamentos digitales", Semestre de la materia: "1", Requisitos de la materia: (ninguno)
+Sigla de la materia: "INF-113", Nombre de la materia:  "Programación web I", Semestre de la materia: "1", Requisitos de la materia: (ninguno)
+Sigla de la materia: "INF-114", Nombre de la materia:  "Álgebra", Semestre de la materia: "1", Requisitos de la materia: (ninguno)
+Sigla de la materia: "INF-115", Nombre de la materia:  "Cálculo I", Semestre de la materia: "1", Requisitos de la materia: (ninguno)
+Sigla de la materia: "INF-117", Nombre de la materia:  "Matemática discreta", Semestre de la materia: "1", Requisitos de la materia: (ninguno)
+Sigla de la materia: "INF-121", Nombre de la materia:  "Programación II", Semestre de la materia: "2", Requisitos de la materia: ("INF-111")
+Sigla de la materia: "INF-122", Nombre de la materia:  "Programación web II", Semestre de la materia: "2", Requisitos de la materia: ("INF-113")
+Sigla de la materia: "INF-123", Nombre de la materia:  "Electrónica general", Semestre de la materia: "2", Requisitos de la materia: ("INF-112")
+Sigla de la materia: "INF-124", Nombre de la materia:  "Estadística I", Semestre de la materia: "2", Requisitos de la materia: ("INF-114")
+Sigla de la materia: "INF-125", Nombre de la materia:  "Álgebra lineal", Semestre de la materia: "2", Requisitos de la materia: ("INF-114")
+Sigla de la materia: "INF-126", Nombre de la materia:  "Cálculo II", Semestre de la materia: "2", Requisitos de la materia: ("INF-115")
+Sigla de la materia: "INF-131", Nombre de la materia:  "Programación III", Semestre de la materia: "3", Requisitos de la materia: ("INF-121")
+Sigla de la materia: "INF-132", Nombre de la materia:  "Base de datos I", Semestre de la materia: "3", Requisitos de la materia: ("INF-121", "INF-122")
+Sigla de la materia: "INF-133", Nombre de la materia:  "Programación web III", Semestre de la materia: "3", Requisitos de la materia: ("INF-111", "INF-122")
+Sigla de la materia: "INF-134", Nombre de la materia:  "Estadística II", Semestre de la materia: "3", Requisitos de la materia: ("INF-124")
+Sigla de la materia: "DAT-135", Nombre de la materia:  "Cálculo III", Semestre de la materia: "3", Requisitos de la materia: ("INF-126")
+Sigla de la materia: "TRA-136", Nombre de la materia:  "Metodología de la investigación", Semestre de la materia: "3", Requisitos de la materia: ("INF-124", "INF-125")
+Sigla de la materia: "DAT-241", Nombre de la materia:  "Programación distribuida y paralela", Semestre de la materia: "4", Requisitos de la materia: ("INF-131")
+Sigla de la materia: "DAT-242", Nombre de la materia:  "Base de datos II", Semestre de la materia: "4", Requisitos de la materia: ("INF-132")
+Sigla de la materia: "DAT-243", Nombre de la materia:  "Métodos numéricos I", Semestre de la materia: "4", Requisitos de la materia: ("DAT-135")
+Sigla de la materia: "DAT-244", Nombre de la materia:  "Investigación Operativa I", Semestre de la materia: "4", Requisitos de la materia: ("INF-134")
+Sigla de la materia: "DAT-245", Nombre de la materia:  "Inteligencia artificial", Semestre de la materia: "4", Requisitos de la materia: ("INF-123", "INF-125")
+Sigla de la materia: "DAT-246", Nombre de la materia:  "Modelado estadístico", Semestre de la materia: "4", Requisitos de la materia: ("INF-134")
+Sigla de la materia: "DAT-251", Nombre de la materia:  "Base de Datos III", Semestre de la materia: "5", Requisitos de la materia: ("DAT-242")
+Sigla de la materia: "DAT-252", Nombre de la materia:  "Métodos numéricos II", Semestre de la materia: "5", Requisitos de la materia: ("DAT-243")
+Sigla de la materia: "DAT-253", Nombre de la materia:  "Minería de Datos", Semestre de la materia: "5", Requisitos de la materia: ("DAT-246")
+Sigla de la materia: "DAT-254", Nombre de la materia:  "Investigación Operativa II", Semestre de la materia: "5", Requisitos de la materia: ("DAT-244")
+Sigla de la materia: "DAT-255", Nombre de la materia:  "Aprendizaje automático", Semestre de la materia: "5", Requisitos de la materia: ("DAT-246")
+Sigla de la materia: "TRA-256", Nombre de la materia:  "Legislación informática y ética", Semestre de la materia: "5", Requisitos de la materia: ("Tercer semestre vencido")
+Sigla de la materia: "DAT-261", Nombre de la materia:  "Procesamiento del lenguaje natural", Semestre de la materia: "6", Requisitos de la materia: ("DAT-251")
+Sigla de la materia: "DAT-262", Nombre de la materia:  "Procesos estocásticos y análisis de series de tiempo", Semestre de la materia: "6", Requisitos de la materia: ("INF-134", "DAT-135")
+Sigla de la materia: "DAT-263", Nombre de la materia:  "Análisis de datos", Semestre de la materia: "6", Requisitos de la materia: ("DAT-254")
+Sigla de la materia: "DAT-264", Nombre de la materia:  "Aprendizaje profundo", Semestre de la materia: "6", Requisitos de la materia: ("DAT-253")
+Sigla de la materia: "DAT-265", Nombre de la materia:  "Taller de Análisis de Datos (TS)", Semestre de la materia: "6", Requisitos de la materia: ("Quinto semestre vencido")
+Sigla de la materia: "Electiva I", Nombre de la materia: "Electiva I", Semestre de la materia: "6", Requisitos de la materia: ("Quinto semestre vencido")
+Sigla de la materia: "DAT-371", Nombre de la materia:  "Computación en la nube", Semestre de la materia: "7", Requisitos de la materia: ("DAT-261")
+Sigla de la materia: "DAT-372", Nombre de la materia:  "Inteligencia de negocios (Business Intelligence)", Semestre de la materia: "7", Requisitos de la materia: ("DAT-254", "DAT-264")
+Sigla de la materia: "TRA-374", Nombre de la materia:  "Práctica profesional", Semestre de la materia: "7", Requisitos de la materia: ("Quinto semestre vencido")
+Sigla de la materia: "Electiva II", Nombre de la materia: "Electiva II", Semestre de la materia: "7", Requisitos de la materia: ("Quinto semestre vencido")
+Sigla de la materia: "Electiva III", Nombre de la materia: "Electiva III", Semestre de la materia: "7", Requisitos de la materia: ("Quinto semestre vencido")
+Sigla de la materia: "DAT-381", Nombre de la materia:  "Macrosdatos y analítica de datos (Big Data)", Semestre de la materia: "8", Requisitos de la materia: ("DAT-372")
+Sigla de la materia: "DAT-382", Nombre de la materia:  "Visualización de datos", Semestre de la materia: "8", Requisitos de la materia: ("DAT-263")
+Sigla de la materia: "DAT-383", Nombre de la materia:  "Taller de graduación I", Semestre de la materia: "8", Requisitos de la materia: ("Sexto semestre vencido")
+Sigla de la materia: "Electiva IV", Nombre de la materia: "Electiva IV", Semestre de la materia: "8", Requisitos de la materia: ("Sexto semestre vencido")
+Sigla de la materia: "Electiva V", Nombre de la materia: "Electiva V", Semestre de la materia: "8", Requisitos de la materia: ("Sexto semestre vencido")
+Sigla de la materia: "DAT-391", Nombre de la materia:  "Taller de graduación II", Semestre de la materia: "9", Requisitos de la materia: ("Octavo semestre vencido")
