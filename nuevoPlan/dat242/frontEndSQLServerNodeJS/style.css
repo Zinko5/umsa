@@ -1,0 +1,52 @@
+/* public/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: beige;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+th {
+    background-color: blanchedalmond;
+}
+
+/* Estilos para la caja de texto y el botón */
+textarea {
+    width: 100%;
+    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor */
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049; /* Un tono más oscuro de verde */
+}
