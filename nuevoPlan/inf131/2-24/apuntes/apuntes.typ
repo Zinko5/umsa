@@ -1,11 +1,273 @@
 #import "@preview/fletcher:0.5.2" as fletcher: diagram, node, edge, shapes
 #import "@preview/cetz:0.3.1": canvas, draw, tree
+#import "@preview/codly:1.1.0": codly-init, codly
 
 #set page(
  margin: (x: 40pt, y: 40pt),
 )
 #set text(lang:"es")
-#set text(font: "New Computer Modern")
+#set text(font: "DejaVu Sans")
+#show math.equation: set text(font: "DejaVu Math TeX Gyre")
+#show grid: set par(leading: 5pt, spacing: 30pt)
+#show grid: set text(size: 10pt)
+#show raw : set text(size: 1.25em)
+#show heading.where(level: 3) : set block(below: 1em)
+#show: codly-init.with()
+// #codly(
+//   display-name: false,
+//   zebra-fill: none,
+
+// )
+
+#codly(
+  number-format: none,  // Desactiva la numeración de líneas
+  zebra-fill: none,     // Desactiva el relleno tipo cebra (zebra striping)
+  stroke: none,         // Desactiva el borde alrededor del bloque
+  display-icon: false,  // Desactiva el ícono del lenguaje
+  display-name: false,  // Desactiva el nombre del lenguaje
+  leading: none,        // Desactiva el espaciado adicional entre líneas
+  breakable: false      // Desactiva el ajuste de las líneas
+)
+
+
+#codly(highlights: (
+  (line: 3, start: 2, end: none, fill: red),  // Resalta desde el segundo carácter de la tercera línea hasta el final
+  (line: 4, start: 13, end: 19, fill: green, tag: "(a)"),  // Resalta desde el carácter 13 al 19 de la cuarta línea
+  (line: 4, start: 26, fill: blue, tag: "(b)")  // Resalta desde el carácter 26 de la cuarta línea hasta el final
+))
+
+```py
+def fib(n):
+  if n <= 1:
+    return n
+  else:
+    return fib(n - 1) + fib(n - 2)
+print(fib(25))
+```
+= Complejidad
+
+== Análisis de frecuencia
+=== Caso base bucles for
+#grid(
+    columns: (auto, auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 0; i < n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+1$ \
+      $n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      \ Dentro del bucle se resta $-1$
+    ]],
+    [#text(fill: rgb("#a53324"))[
+      \ Se ejecuta n veces
+    ]]
+)
+
+==== Variaciones
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 0; i <= n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+2$ \
+      $n+1$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido al `<=`, se suma $+1$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 1; i < n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n$ \
+      $n-1$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido a que empieza en 1, se resta $-1$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 5; i < n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n-4$ \
+      $n-5$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido a que empieza en 5, se resta $-5$
+    ]]
+)
+  
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 0; i < n + 2; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+3$ \
+      $n+2$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido al que itera hasta $n+2$, se suma $+2$
+    ]]
+)
+
+=== Caso base bucle while
+#grid(
+    columns: (auto, auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n--;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+1$ \
+      $n$ \
+      $n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      \ Dentro del bucle se resta $-1$
+    ]],
+    [#text(fill: rgb("#a53324"))[
+      \ Se ejecuta n veces
+    ]]
+)
+
+==== Variaciones
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n >= 0) {
+        System.out.println(n);
+        n = n - 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+2$ \
+      $n+1$ \
+      $n+1$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    Debido al `>=`, se suma $+1$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 2) {
+        System.out.println(n);
+        n--;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n-1$ \
+      $n-2$ \
+      $n-2$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido al `n > 2`, se resta $-2$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n = n - 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n-1$ \
+      $n-2$ \
+      $n-2$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    \ \ Debido al `n = n - 2`, se resta $-2$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n = n * 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $log n +1$ \
+      $log n$ \
+      $log n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    \ \ Debido al `n = n * 2`, se aplica $log n$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n = n / 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $log n +1$ \
+      $log n$ \
+      $log n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    \ \ Debido al `n = n / 2`, se aplica $log n$
+    ]]
+)
+
+#pagebreak()
 = Segment tree
 
 #let data = (
