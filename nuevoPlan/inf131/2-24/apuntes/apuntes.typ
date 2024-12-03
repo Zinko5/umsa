@@ -1,6 +1,5 @@
 #import "@preview/fletcher:0.5.2" as fletcher: diagram, node, edge, shapes
 #import "@preview/cetz:0.3.1": canvas, draw, tree
-#import "@preview/codly:1.1.0": codly-init, codly
 
 #set page(
  margin: (x: 40pt, y: 40pt),
@@ -12,38 +11,7 @@
 #show grid: set text(size: 10pt)
 #show raw : set text(size: 1.25em)
 #show heading.where(level: 3) : set block(below: 1em)
-#show: codly-init.with()
-// #codly(
-//   display-name: false,
-//   zebra-fill: none,
 
-// )
-
-#codly(
-  number-format: none,  // Desactiva la numeración de líneas
-  zebra-fill: none,     // Desactiva el relleno tipo cebra (zebra striping)
-  stroke: none,         // Desactiva el borde alrededor del bloque
-  display-icon: false,  // Desactiva el ícono del lenguaje
-  display-name: false,  // Desactiva el nombre del lenguaje
-  leading: none,        // Desactiva el espaciado adicional entre líneas
-  breakable: false      // Desactiva el ajuste de las líneas
-)
-
-
-#codly(highlights: (
-  (line: 3, start: 2, end: none, fill: red),  // Resalta desde el segundo carácter de la tercera línea hasta el final
-  (line: 4, start: 13, end: 19, fill: green, tag: "(a)"),  // Resalta desde el carácter 13 al 19 de la cuarta línea
-  (line: 4, start: 26, fill: blue, tag: "(b)")  // Resalta desde el carácter 26 de la cuarta línea hasta el final
-))
-
-```py
-def fib(n):
-  if n <= 1:
-    return n
-  else:
-    return fib(n - 1) + fib(n - 2)
-print(fib(25))
-```
 = Complejidad
 
 == Análisis de frecuencia
