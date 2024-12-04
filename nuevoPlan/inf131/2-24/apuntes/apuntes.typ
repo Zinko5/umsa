@@ -7,13 +7,15 @@
 #set text(lang:"es")
 #set text(font: "DejaVu Sans")
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
+#set heading(numbering: "1. 1. a) a)")
+// #show heading.where(level: 3): set heading(numbering: none)
+// #show heading.where(level: 4): set heading(numbering: none)
+
 #show grid: set par(leading: 5pt, spacing: 30pt)
 #show grid: set text(size: 10pt)
 #show raw : set text(size: 1.25em)
 #show heading.where(level: 3) : set block(below: 1em)
-
 = Complejidad
-
 == Análisis de frecuencia
 === Caso base bucles for
 #grid(
