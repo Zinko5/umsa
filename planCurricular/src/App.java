@@ -27,8 +27,8 @@ public class App {
 
         System.out.println("Materias que estás tomando actualmente: " + tomandoActualmente);
 
-        int gestion = 2; // Empezamos en la gestion II/2024
-        int year = 2024;
+        int gestion = 1; // Empezamos en la gestion II/2024
+        int year = 2025;
         boolean planTerminado = false;
         int semestre;
         while (!planTerminado) {
