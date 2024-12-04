@@ -5,7 +5,239 @@
  margin: (x: 40pt, y: 40pt),
 )
 #set text(lang:"es")
-#set text(font: "New Computer Modern")
+#set text(font: "DejaVu Sans")
+#show math.equation: set text(font: "DejaVu Math TeX Gyre")
+#set heading(numbering: "1. 1. a) a)")
+// #show heading.where(level: 3): set heading(numbering: none)
+// #show heading.where(level: 4): set heading(numbering: none)
+
+#show grid: set par(leading: 5pt, spacing: 30pt)
+#show grid: set text(size: 10pt)
+#show raw : set text(size: 1.25em)
+#show heading.where(level: 3) : set block(below: 1em)
+= Complejidad
+== Análisis de frecuencia
+=== Caso base bucles for
+#grid(
+    columns: (auto, auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 0; i < n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+1$ \
+      $n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      \ Dentro del bucle se resta $-1$
+    ]],
+    [#text(fill: rgb("#a53324"))[
+      \ Se ejecuta n veces
+    ]]
+)
+
+==== Variaciones
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 0; i <= n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+2$ \
+      $n+1$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido al `<=`, se suma $+1$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 1; i < n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n$ \
+      $n-1$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido a que empieza en 1, se resta $-1$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 5; i < n; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n-4$ \
+      $n-5$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido a que empieza en 5, se resta $-5$
+    ]]
+)
+  
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    for(int i = 0; i < n + 2; i++) {
+      System.out.println(i);
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+3$ \
+      $n+2$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido al que itera hasta $n+2$, se suma $+2$
+    ]]
+)
+
+=== Caso base bucle while
+#grid(
+    columns: (auto, auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n--;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+1$ \
+      $n$ \
+      $n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      \ Dentro del bucle se resta $-1$
+    ]],
+    [#text(fill: rgb("#a53324"))[
+      \ Se ejecuta n veces
+    ]]
+)
+
+==== Variaciones
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n >= 0) {
+        System.out.println(n);
+        n = n - 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n+2$ \
+      $n+1$ \
+      $n+1$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    Debido al `>=`, se suma $+1$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 2) {
+        System.out.println(n);
+        n--;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n-1$ \
+      $n-2$ \
+      $n-2$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+      Debido al `n > 2`, se resta $-2$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n = n - 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $n-1$ \
+      $n-2$ \
+      $n-2$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    \ \ Debido al `n = n - 2`, se resta $-2$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n = n * 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $log n +1$ \
+      $log n$ \
+      $log n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    \ \ Debido al `n = n * 2`, se aplica $log n$
+    ]]
+)
+
+#grid(
+    columns: (auto, auto, auto),
+    rows: auto,
+    gutter: 20pt,
+    [```java
+    while (n > 0) {
+        System.out.println(n);
+        n = n / 2;
+    }
+    ```],
+    [#text(fill: rgb("#276ef1"))[
+      $log n +1$ \
+      $log n$ \
+      $log n$
+    ]],
+    [#text(fill: rgb("#24a540"))[
+    \ \ Debido al `n = n / 2`, se aplica $log n$
+    ]]
+)
+
+#pagebreak()
 = Segment tree
 
 #let data = (
