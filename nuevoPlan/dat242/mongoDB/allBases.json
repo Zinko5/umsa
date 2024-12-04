@@ -1,0 +1,706 @@
+{
+    "Personas": 
+    [
+      {
+        "personaid": 12369,
+        "nombre": "Francisco",
+        "apellido": "Barroso",
+        "genero": "M",
+        "tipo": "Revisor",
+        "correo_electronico": "francisco.barroso@ejemplo.com"
+      },
+      {
+        "personaid": 12562,
+        "nombre": "Alberto",
+        "apellido": "Cruz",
+        "genero": "M",
+        "tipo": "Autor",
+        "correo_electronico": "alberto.cruz@ejemplo.com"
+      },
+      {
+        "personaid": 13245,
+        "nombre": "Emilio",
+        "apellido": "Quintana",
+        "genero": "M",
+        "tipo": "Revisor",
+        "correo_electronico": "emilio.quintana@ejemplo.com"
+      },
+      {
+        "personaid": 13785,
+        "nombre": "Luis",
+        "apellido": "Martínez",
+        "genero": "M",
+        "tipo": "Autor",
+        "correo_electronico": "luis.martinez@ejemplo.com"
+      },
+      {
+        "personaid": 14840,
+        "nombre": "Carolina",
+        "apellido": "Silva",
+        "genero": "F",
+        "tipo": "Autor",
+        "correo_electronico": "carolina.silva@ejemplo.com"
+      },
+      {
+        "personaid": 14998,
+        "nombre": "David",
+        "apellido": "Vega",
+        "genero": "M",
+        "tipo": "Autor",
+        "correo_electronico": "david.vega@ejemplo.com"
+      },
+      {
+        "personaid": 15330,
+        "nombre": "Guillermo",
+        "apellido": "León",
+        "genero": "M",
+        "tipo": "Revisor",
+        "correo_electronico": "guillermo.leon@ejemplo.com"
+      },
+      {
+        "personaid": 15693,
+        "nombre": "Carmen",
+        "apellido": "Arias",
+        "genero": "F",
+        "tipo": "Autor",
+        "correo_electronico": "carmen.arias@ejemplo.com"
+      },
+      {
+        "personaid": 16028,
+        "nombre": "Rubén",
+        "apellido": "Pacheco",
+        "genero": "M",
+        "tipo": "Revisor",
+        "correo_electronico": "ruben.pacheco@ejemplo.com"
+      },
+      {
+        "personaid": 17395,
+        "nombre": "Gloria",
+        "apellido": "Díaz",
+        "genero": "F",
+        "tipo": "Autor",
+        "correo_electronico": "gloria.diaz@ejemplo.com"
+      }
+    ],
+  
+  
+  
+    "Revisores": 
+    [
+      {
+        "personaid": 12369,
+        "especialidad": "Quimica Fisica",
+        "telefono": 75598765
+      },
+      {
+        "personaid": 13245,
+        "especialidad": "Genetica Animal",
+        "telefono": 75512345
+      },
+      {
+        "personaid": 15330,
+        "especialidad": "Matematicas Aplicadas",
+        "telefono": 75543210
+      },
+      {
+        "personaid": 16028,
+        "especialidad": "Robotica",
+        "telefono": 75576543
+      },
+      {
+        "personaid": 19845,
+        "especialidad": "Astronomia",
+        "telefono": 75523456
+      },
+      {
+        "personaid": 24443,
+        "especialidad": "Ciencias de Materiales",
+        "telefono": 75534567
+      },
+      {
+        "personaid": 25874,
+        "especialidad": "Biotecnologia Vegetal",
+        "telefono": 75512345
+      },
+      {
+        "personaid": 27320,
+        "especialidad": "Astrofisica",
+        "telefono": 75543210
+      },
+      {
+        "personaid": 31638,
+        "especialidad": "Inteligencia Artificial",
+        "telefono": 75556789
+      },
+      {
+        "personaid": 31841,
+        "especialidad": "Quimica Organica",
+        "telefono": 75587654
+      }
+    ],
+  
+  
+  
+  
+    "Autores": [
+      {
+        "personaid": 12562,
+        "nacionalidad": "China",
+        "fec_naci": "1979-09-19"
+      },
+      {
+        "personaid": 13785,
+        "nacionalidad": "Argentina",
+        "fec_naci": "1995-08-22"
+      },
+      {
+        "personaid": 14840,
+        "nacionalidad": "España",
+        "fec_naci": "1976-02-26"
+      },
+      {
+        "personaid": 14998,
+        "nacionalidad": "Canada",
+        "fec_naci": "1992-09-16"
+      },
+      {
+        "personaid": 15693,
+        "nacionalidad": "Egipto",
+        "fec_naci": "1996-05-12"
+      },
+      {
+        "personaid": 17395,
+        "nacionalidad": "Francia",
+        "fec_naci": "2004-07-25"
+      },
+      {
+        "personaid": 20947,
+        "nacionalidad": "Corea del Sur",
+        "fec_naci": "2000-06-11"
+      },
+      {
+        "personaid": 21168,
+        "nacionalidad": "Chile",
+        "fec_naci": "1994-01-29"
+      },
+      {
+        "personaid": 21641,
+        "nacionalidad": "Rusia",
+        "fec_naci": "1979-08-10"
+      },
+      {
+        "personaid": 21816,
+        "nacionalidad": "Brasil",
+        "fec_naci": "1983-09-03"
+      }
+    ],
+  
+  
+    "Revistas": [
+      {
+        "revistaid": 101,
+        "numero_edicion": 1,
+        "nombre_revista": "Revista de Biologia Molecular",
+        "precio": 25.99,
+        "fecha_publicacion": "2021-01-15",
+        "categoria": "Biologia",
+        "medio": "Digital",
+        "editorial": "Ciencias Editoriales"
+      },
+      {
+        "revistaid": 102,
+        "numero_edicion": 2,
+        "nombre_revista": "Avances en Fisica Aplicada",
+        "precio": 19.99,
+        "fecha_publicacion": "2021-02-10",
+        "categoria": "Fisica",
+        "medio": "Impreso",
+        "editorial": "TecnoCiencia"
+      },
+      {
+        "revistaid": 103,
+        "numero_edicion": 3,
+        "nombre_revista": "Investigacion Medica Moderna",
+        "precio": 27.75,
+        "fecha_publicacion": "2021-03-18",
+        "categoria": "Medicina",
+        "medio": "Digital",
+        "editorial": "Salud Global"
+      },
+      {
+        "revistaid": 104,
+        "numero_edicion": 4,
+        "nombre_revista": "Ciencias del Espacio",
+        "precio": 22,
+        "fecha_publicacion": "2021-04-22",
+        "categoria": "Astronomia",
+        "medio": "Impreso",
+        "editorial": "Universo Editores"
+      },
+      {
+        "revistaid": 105,
+        "numero_edicion": 5,
+        "nombre_revista": "Journal de Ingenieria Robotica",
+        "precio": 18.99,
+        "fecha_publicacion": "2021-05-05",
+        "categoria": "Ingenieria",
+        "medio": "Impreso",
+        "editorial": "Innovacion Tecnologica"
+      },
+      {
+        "revistaid": 106,
+        "numero_edicion": 1,
+        "nombre_revista": "Revista Internacional de Neurociencia",
+        "precio": 30.5,
+        "fecha_publicacion": "2021-06-12",
+        "categoria": "Neurociencia",
+        "medio": "Digital",
+        "editorial": "Brain Research Group"
+      },
+      {
+        "revistaid": 107,
+        "numero_edicion": 2,
+        "nombre_revista": "Avances en Quimica Organica",
+        "precio": 24,
+        "fecha_publicacion": "2021-07-30",
+        "categoria": "Quimica",
+        "medio": "Impreso",
+        "editorial": "QuimicPress"
+      },
+      {
+        "revistaid": 108,
+        "numero_edicion": 3,
+        "nombre_revista": "Revista de Matematicas Puras",
+        "precio": 17.75,
+        "fecha_publicacion": "2021-08-20",
+        "categoria": "Matematicas",
+        "medio": "Digital",
+        "editorial": "Matematika Ediciones"
+      },
+      {
+        "revistaid": 109,
+        "numero_edicion": 4,
+        "nombre_revista": "Ecologia y Medio Ambiente",
+        "precio": 21.2,
+        "fecha_publicacion": "2021-09-18",
+        "categoria": "Ecologia",
+        "medio": "Impreso",
+        "editorial": "EcoMundo"
+      },
+      {
+        "revistaid": 110,
+        "numero_edicion": 5,
+        "nombre_revista": "Ciencia de Materiales",
+        "precio": 16.5,
+        "fecha_publicacion": "2021-10-22",
+        "categoria": "Ingenieria de Materiales",
+        "medio": "Digital",
+        "editorial": "MatSci Publisher"
+      },
+      {
+        "revistaid": 111,
+        "numero_edicion": 1,
+        "nombre_revista": "Journal de Genetica Humana",
+        "precio": 29.99,
+        "fecha_publicacion": "2021-11-18",
+        "categoria": "Genetica",
+        "medio": "Digital",
+        "editorial": "GenHum Ediciones"
+      }
+    ],
+  
+  
+    "Articulos": [
+      {
+        "articuloid": 1001,
+        "titulo": "Introduccion a Oracle",
+        "resumen": "Resumen del articulo sobre Oracle",
+        "fecha_publicacion": "2023-01-15",
+        "contenido": "Contenido detallado sobre Oracle",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-02-01",
+        "monto": 150.50,
+        "nota_promedio": 0.0,
+        "revistaid": 101
+      },
+      {
+        "articuloid": 1002,
+        "titulo": "Avances en Bases de Datos",
+        "resumen": "Resumen sobre avances en bases de datos",
+        "fecha_publicacion": "2023-01-20",
+        "contenido": "Contenido avanzado sobre bases de datos",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-02-05",
+        "monto": 200.0,
+        "nota_promedio": 0.0,
+        "revistaid": 101
+      },
+      {
+        "articuloid": 1003,
+        "titulo": "Guia SQL",
+        "resumen": "Guia completa de SQL",
+        "fecha_publicacion": "2023-01-25",
+        "contenido": "Todo sobre SQL y sus aplicaciones",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-02-10",
+        "monto": 120.0,
+        "nota_promedio": 0.0,
+        "revistaid": 101
+      },
+      {
+        "articuloid": 1004,
+        "titulo": "Tecnicas de Optimizacion",
+        "resumen": "Tecnicas para optimizar consultas SQL",
+        "fecha_publicacion": "2023-01-30",
+        "contenido": "Optimizacion en bases de datos",
+        "estado": "en revision",
+        "fecha_ultima_revision": "2023-02-15",
+        "monto": 180.75,
+        "nota_promedio": 0.0,
+        "revistaid": 102
+      },
+      {
+        "articuloid": 1005,
+        "titulo": "Seguridad en Bases de Datos",
+        "resumen": "Resumen sobre seguridad en bases de datos",
+        "fecha_publicacion": "2023-02-05",
+        "contenido": "Seguridad y proteccion de datos",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-02-20",
+        "monto": 210.0,
+        "nota_promedio": 0.0,
+        "revistaid": 102
+      },
+      {
+        "articuloid": 1006,
+        "titulo": "Modelado de Datos",
+        "resumen": "Principios de modelado de datos",
+        "fecha_publicacion": "2023-02-10",
+        "contenido": "Conceptos de modelado de datos",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-02-25",
+        "monto": 140.0,
+        "nota_promedio": 0.0,
+        "revistaid": 103
+      },
+      {
+        "articuloid": 1007,
+        "titulo": "SQL Avanzado",
+        "resumen": "Tecnicas avanzadas de SQL",
+        "fecha_publicacion": "2023-02-15",
+        "contenido": "Consultas avanzadas en SQL",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-03-01",
+        "monto": 160.0,
+        "nota_promedio": 0.0,
+        "revistaid": 104
+      },
+      {
+        "articuloid": 1008,
+        "titulo": "Transacciones en BD",
+        "resumen": "Conceptos de transacciones en bases de datos",
+        "fecha_publicacion": "2023-02-20",
+        "contenido": "Control de transacciones y ACID",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-03-05",
+        "monto": 190.0,
+        "nota_promedio": 0.0,
+        "revistaid": 104
+      },
+      {
+        "articuloid": 1009,
+        "titulo": "Almacenamiento de Datos",
+        "resumen": "Estrategias de almacenamiento en bases de datos",
+        "fecha_publicacion": "2023-02-25",
+        "contenido": "Almacenamiento y acceso a datos",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-03-10",
+        "monto": 220.0,
+        "nota_promedio": 0.0,
+        "revistaid": 104
+      },
+      {
+        "articuloid": 1010,
+        "titulo": "Diseno de Indices",
+        "resumen": "Diseno y uso de indices en SQL",
+        "fecha_publicacion": "2023-03-01",
+        "contenido": "Indices para optimizar consultas",
+        "estado": "publicado",
+        "fecha_ultima_revision": "2023-03-15",
+        "monto": 170.0,
+        "nota_promedio": 0.0,
+        "revistaid": 105
+      }
+    ],
+  
+  
+  
+    "Revisa": [
+      {
+        "articuloid": 1001,
+        "personaid": 12369,
+        "nota": 80
+      },
+      {
+        "articuloid": 1002,
+        "personaid": 13245,
+        "nota": 50
+      },
+      {
+        "articuloid": 1003,
+        "personaid": 15330,
+        "nota": 90
+      },
+      {
+        "articuloid": 1004,
+        "personaid": 16028,
+        "nota": 95
+      },
+      {
+        "articuloid": 1005,
+        "personaid": 19845,
+        "nota": 65
+      },
+      {
+        "articuloid": 1006,
+        "personaid": 24443,
+        "nota": 50
+      },
+      {
+        "articuloid": 1007,
+        "personaid": 25874,
+        "nota": 81
+      },
+      {
+        "articuloid": 1008,
+        "personaid": 27320,
+        "nota": 75
+      },
+      {
+        "articuloid": 1009,
+        "personaid": 31638,
+        "nota": 20
+      },
+      {
+        "articuloid": 1010,
+        "personaid": 31841,
+        "nota": 20
+      }
+    ],
+  
+  
+  
+    "Patrocinadores": [
+      {
+        "patrocinadorid": 1,
+        "nombre": "APPLE",
+        "tipo_patrocinador": "Financiero",
+        "monto_patrocinado": 10000.00,
+        "duracion_patrocinio": "6 meses"
+      },
+      {
+        "patrocinadorid": 2,
+        "nombre": "SAMSUNG",
+        "tipo_patrocinador": "Corporativo",
+        "monto_patrocinado": 25000.00,
+        "duracion_patrocinio": "12 meses"
+      },
+      {
+        "patrocinadorid": 3,
+        "nombre": "MICROSOFT",
+        "tipo_patrocinador": "Cultural",
+        "monto_patrocinado": 5000.00,
+        "duracion_patrocinio": "3 meses"
+      },
+      {
+        "patrocinadorid": 4,
+        "nombre": "GOOGLE",
+        "tipo_patrocinador": "Deportivo",
+        "monto_patrocinado": 8500.00,
+        "duracion_patrocinio": "9 meses"
+      },
+      {
+        "patrocinadorid": 5,
+        "nombre": "INTEL",
+        "tipo_patrocinador": "Corporativo",
+        "monto_patrocinado": 20000.00,
+        "duracion_patrocinio": "12 meses"
+      },
+      {
+        "patrocinadorid": 6,
+        "nombre": "SONY",
+        "tipo_patrocinador": "Tecnológico",
+        "monto_patrocinado": 15000.00,
+        "duracion_patrocinio": "6 meses"
+      },
+      {
+        "patrocinadorid": 7,
+        "nombre": "HUAWEI",
+        "tipo_patrocinador": "Social",
+        "monto_patrocinado": 12000.00,
+        "duracion_patrocinio": "4 meses"
+      },
+      {
+        "patrocinadorid": 8,
+        "nombre": "NVIDIA",
+        "tipo_patrocinador": "Cultural",
+        "monto_patrocinado": 7500.00,
+        "duracion_patrocinio": "6 meses"
+      },
+      {
+        "patrocinadorid": 9,
+        "nombre": "AT&T",
+        "tipo_patrocinador": "Financiero",
+        "monto_patrocinado": 12500.00,
+        "duracion_patrocinio": "9 meses"
+      },
+      {
+        "patrocinadorid": 10,
+        "nombre": "VERIZON",
+        "tipo_patrocinador": "Corporativo",
+        "monto_patrocinado": 18000.00,
+        "duracion_patrocinio": "12 meses"
+      }
+    ],
+  
+  
+    "Patrocina": [
+      {
+        "patrocinadorid": 1,
+        "articuloid": 1001,
+        "monto": 1500.00
+      },
+      {
+        "patrocinadorid": 2,
+        "articuloid": 1002,
+        "monto": 2500.50
+      },
+      {
+        "patrocinadorid": 3,
+        "articuloid": 1003,
+        "monto": 3200.75
+      },
+      {
+        "patrocinadorid": 4,
+        "articuloid": 1004,
+        "monto": 1200.00
+      },
+      {
+        "patrocinadorid": 5,
+        "articuloid": 1005,
+        "monto": 8700.50
+      },
+      {
+        "patrocinadorid": 6,
+        "articuloid": 1006,
+        "monto": 5000.75
+      },
+      {
+        "patrocinadorid": 7,
+        "articuloid": 1007,
+        "monto": 900.00
+      },
+      {
+        "patrocinadorid": 8,
+        "articuloid": 1008,
+        "monto": 7600.45
+      },
+      {
+        "patrocinadorid": 9,
+        "articuloid": 1009,
+        "monto": 3150.99
+      },
+      {
+        "patrocinadorid": 10,
+        "articuloid": 1010,
+        "monto": 1250.50
+      }
+    ],
+  
+      "Escribe": [
+      {
+        "personaid": 51426,
+        "articuloid": 1001,
+        "fecha_contribucion": "1985-02-12"
+      },
+      {
+        "personaid": 41172,
+        "articuloid": 1002,
+        "fecha_contribucion": "1980-05-18"
+      },
+      {
+        "personaid": 13785,
+        "articuloid": 1003,
+        "fecha_contribucion": "1995-08-22"
+      },
+      {
+        "personaid": 28848,
+        "articuloid": 1004,
+        "fecha_contribucion": "1973-11-09"
+      },
+      {
+        "personaid": 93273,
+        "articuloid": 1005,
+        "fecha_contribucion": "1991-03-21"
+      },
+      {
+        "personaid": 51840,
+        "articuloid": 1006,
+        "fecha_contribucion": "1990-07-14"
+      },
+      {
+        "personaid": 21816,
+        "articuloid": 1007,
+        "fecha_contribucion": "1983-09-03"
+      },
+      {
+        "personaid": 57736,
+        "articuloid": 1008,
+        "fecha_contribucion": "1971-04-17"
+      },
+      {
+        "personaid": 62375,
+        "articuloid": 1009,
+        "fecha_contribucion": "1977-06-25"
+      },
+      {
+        "personaid": 89380,
+        "articuloid": 1010,
+        "fecha_contribucion": "1994-01-10"
+      }
+    ],
+  
+    "Referencia": [
+      {
+        "articuloid1": 1001,
+        "articuloid2": 1002
+      },
+      {
+        "articuloid1": 1001,
+        "articuloid2": 1003
+      },
+      {
+        "articuloid1": 1002,
+        "articuloid2": 1004
+      },
+      {
+        "articuloid1": 1003,
+        "articuloid2": 1005
+      },
+      {
+        "articuloid1": 1004,
+        "articuloid2": 1006
+      },
+      {
+        "articuloid1": 1005,
+        "articuloid2": 1007
+      },
+      {
+        "articuloid1": 1006,
+        "articuloid2": 1008
+      }
+    ]
+  }
+  
+  
+  
