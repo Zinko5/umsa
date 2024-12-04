@@ -7,10 +7,11 @@
 #set text(lang:"es")
 #set text(font: "DejaVu Sans")
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
-#set heading(numbering: "1. 1. a) a)")
-// #show heading.where(level: 3): set heading(numbering: none)
-// #show heading.where(level: 4): set heading(numbering: none)
+#set heading(numbering: "1.")
+#show heading.where(level: 3): set heading(numbering: "1. 1. a)")
+#show heading.where(level: 4): set heading(numbering: none)
 
+#set grid(gutter: 20pt, rows: auto)
 #show grid: set par(leading: 5pt, spacing: 30pt)
 #show grid: set text(size: 10pt)
 #show raw : set text(size: 1.25em)
@@ -20,8 +21,6 @@
 === Caso base bucles for
 #grid(
     columns: (auto, auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     for(int i = 0; i < n; i++) {
       System.out.println(i);
@@ -42,8 +41,6 @@
 ==== Variaciones
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     for(int i = 0; i <= n; i++) {
       System.out.println(i);
@@ -60,8 +57,6 @@
 
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     for(int i = 1; i < n; i++) {
       System.out.println(i);
@@ -78,8 +73,6 @@
 
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     for(int i = 5; i < n; i++) {
       System.out.println(i);
@@ -96,8 +89,6 @@
   
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     for(int i = 0; i < n + 2; i++) {
       System.out.println(i);
@@ -115,8 +106,6 @@
 === Caso base bucle while
 #grid(
     columns: (auto, auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     while (n > 0) {
         System.out.println(n);
@@ -139,8 +128,6 @@
 ==== Variaciones
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     while (n >= 0) {
         System.out.println(n);
@@ -159,8 +146,6 @@
 
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     while (n > 2) {
         System.out.println(n);
@@ -179,8 +164,6 @@
 
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     while (n > 0) {
         System.out.println(n);
@@ -199,8 +182,6 @@
 
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     while (n > 0) {
         System.out.println(n);
@@ -219,8 +200,6 @@
 
 #grid(
     columns: (auto, auto, auto),
-    rows: auto,
-    gutter: 20pt,
     [```java
     while (n > 0) {
         System.out.println(n);
@@ -236,6 +215,54 @@
     \ \ Debido al `n = n / 2`, se aplica $log n$
     ]]
 )
+== Algoritmos recursivos
+=== Método iterativo
+#show grid: set align(center)
+#show grid: set par(leading: 1em, spacing: 1em)
+#set grid(gutter: 50pt)
+$ T(n) = cases(
+  4 &quad "si" n=2,
+  T(n-5)+11 &quad "si" n>2
+) $
+Se debe repetir la función hasta encontrar un patrón con $k$
+#grid(align: center,
+  columns: (auto, auto),
+  [$T(n)= T(n-5)+11$\
+   $T(n)=T(n-10)+22$\
+   $T(n)=T(n-15)+33$
+  ],
+  [#text(fill: red)[
+   $T(n-5)=T(n-10)+11$\
+   $T(n-10)=T(n-15)+11$
+  ]]
+)
+El patrón es:
+$ T(n) = T(n-5k)+11k $
+Si igualamos $T(n-5k)=T(2)$:
+#par(leading: 1.3em)[
+$ n-5k=2 \
+-5k =2-n\
+k=-(2-n)/(5) 
+$]
+Ahora
+#par(leading: 1.3em)[
+$ T(n) = T(2)+11k \
+ T(n) = 4+11 ( -(2-n)/(5) )\
+ T(n) = 4 - (22-11n)/5\
+ T(n) = (20-(22-11n))/5\
+ T(n)=(-2+11n)/5
+ $]
+ #set math.equation()
+ Esto da un orden de complejidad $O(n)$ lineal
+ === Teorema máster
+ #show grid: set par(spacing: 2em)
+ $ T(n)=a T(n/b)+c n^k \
+ T(n) in cases(
+  O(n^(log_b a)) &quad "si" a>b^k\
+  O(n^k log n) &quad "si" a=b^k\
+  O(n^k) &quad "si" a<b^k
+ )
+ $
 
 #pagebreak()
 = Segment tree
