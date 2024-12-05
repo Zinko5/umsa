@@ -10,7 +10,7 @@ without any problems as long as the font supports it: ßçœ̃ɛ̃ø∀αβёы�
 
 This was a heading. Number of `=` in font of name corresponds to heading level.
 
-== Second=level heading
+== Second level heading
 
 Okay, let's move to _emphasis_ and *bold* text.
 
@@ -85,7 +85,7 @@ To learn more about math, see corresponding chapter.
 
 Okay, let's now move to more complex things.
 
-First of all, there are *lots of magic* int Typst.
+First of all, there are *lots of magic* in Typst.
 And it major part of it is called "scripting".
 
 To go to scripting mode, type `#` and *some funcion name* after that. We will start with _something dull_:
@@ -127,6 +127,14 @@ There are _two types_ of function arguments:
 If argument is named, it has some _default value_.
 To find out what it is, see #link("https://typst.app/docs/reference/")[Official Typst Reference].
 
+// #heading(level: 2)[#text(blue)[Extra: Types/modes in Typst]] Hace lo mismo que:
+#heading(level: 2, text(blue)[Extra: Types/modes in Typst])
+// ^ Aquí, "text(blue)[Extra: Types/modes in Typst]" es el argumento "body" de heading
+// Nótese que en heading, "level" es un argumento nombrado y "body", uno posicional
+- Math
+- Content
+- Script
+
 = Content
 
 The most "universal" type un Typst language is *content*. Everything you write in the document becomes content.
@@ -135,4 +143,25 @@ The most "universal" type un Typst language is *content*. Everything you write i
   But you can explicitly create it with _scripting mode_ and *square brackets*.
 
   There, in square brackets, you can use any markup functions or whatever you want.
+]
+
+= Markup and code modes
+
+When you use `#`, you are "switching" to code mode.
+When you use `[]`, you turn back:
+
+// +-- going from markup (the default mode) to scripting for that function
+// |                 +-- scripting modeL calling `text`, the last argument is markup
+// |     first arg   |
+// v     vvvvvvvvvv  vvvv
+   #rect(width: 5cm, text(red)[hello *world*])
+
+= Passing content into functions
+
+So what are these suare brackets after funcionts?
+
+If you *write content rifht after function, it will be passed as positional arguments there*.
+
+#quote(block: true)[
+  So #text(red)[_that_] allows me to write _literally_ anything in things
 ]
