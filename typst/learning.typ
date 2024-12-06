@@ -131,6 +131,7 @@ To find out what it is, see #link("https://typst.app/docs/reference/")[Official 
 #heading(level: 2, text(blue)[Extra: Types/modes in Typst])
 // ^ Aquí, "text(blue)[Extra: Types/modes in Typst]" es el argumento "body" de heading
 // Nótese que en heading, "level" es un argumento nombrado y "body", uno posicional
+
 - Math
 - Content
 - Script
@@ -155,6 +156,9 @@ When you use `[]`, you turn back:
 // |     first arg   |
 // v     vvvvvvvvvv  vvvv
    #rect(width: 5cm, text(red)[hello *world*])
+//  ^^^^                       ^^^^^^^^^^^^^ just a markup argument for `text`
+//  |
+//  +-- calling `rect` in scripting mode, with two arguments: width and other content
 
 = Passing content into functions
 
@@ -163,5 +167,125 @@ So what are these suare brackets after funcionts?
 If you *write content rifht after function, it will be passed as positional arguments there*.
 
 #quote(block: true)[
-  So #text(red)[_that_] allows me to write _literally_ anything in things
+  So #text(red)[_that_] allows me to write _literally anything in things
+  I pass to #underline[functions]!_
 ]
+
+= Passing content, part II
+
+So, just to make it clear, when I write
+
+```typ
+- #text(red)[red text]
+- #text([red text], red)
+- #text("red text", red)
+//      ^        ^
+// Quotes there mean a plain string, not a content!
+// This is just text
+```
+
+It all will result in a #text([red text], red)
+
+#set page(width: 15cm, margin: (left: 4cm, right: 4cm))
+
+= #text(stroke: 0.1mm, red)[Basic styling]
+= Set rule
+That was great, but using functions everywhere, especially with many arguments every time is awfully cumbersome.
+
+That's why Typst has _rules_. No, not for you, for the document
+
+#set par(justify: true)
+
+And the first rule we will consider there is `set` rule.
+As you see, I've just used it on `par` (which is short from paragraph) and now all paragraphs became _justified_.
+
+It will apply to all paragraphs after the rule, but will work only in it's _scope_ (we will discuss them later).
+
+#par(justify: false)[
+  Of course you can override a `set` rule.
+  This rule just sets the _default value_ of an argument of an element.
+]
+
+By the way, at first line of this snuppet
+I've reduced page size to make justifyng more visible, also increasing margins to add blank space on left and right.
+
+#set page(paper: "a4", margin: auto)
+#set par(justify: false)
+
+= A bit about length units
+
+Before we continue with rules, we should talk about length. There are several absolute length units int Typst:
+
+#set rect(height: 1em)
+
+#table(
+  columns: 2,
+  [Points], rect(width: 72pt),
+  [Milimeters], rect(width: 25.4mm),
+  [Centimeters], rect(width: 2.54cm),
+  [Inches], rect(width: 1in),
+  [Relative to font size], rect(width: 6.5em)
+)
+
+`1 em` = current font size. \
+It is a very convenient unit, so we are going to use it a lot
+
+= Setting something else
+
+#set box(
+  inset: (x: 2pt, y: 0pt),
+  outset: (x: 0pt, y: 2pt),
+  stroke: black,
+  fill: luma(91.18%),
+  radius: 2pt
+)
+
+Of course, you can use #box[`set`] rule with all built-in functions and all their named arguments to make some argument "default".
+
+For example, let's make all quoptes in this snippet authored by the book:
+
+#set quote(block: true, attribution: [Typst Examples Book])
+
+#quote[
+  Typst is great!
+]
+
+#quote[
+  The problem with quotes on the internet is that it is hard to verify their authenticity.
+]
+
+= Opinionated defaults
+
+That allows you to set Typst default styling as you want it:
+
+#set par(justify: true)
+#set list(indent: 1em)
+#set enum(indent: 1em)
+#set page(numbering: "1")
+
+- List item
+- List item
+
++ Enum item
++ Enum item
+
+Don't complain about bad defaults! #box[Set] your own.
+
+= Numbering
+
+Some of elements have a property called "numbering". They accept so-called "numbering patterns" and are very useful width set rules. Let's see what I mean.
+
+#set heading(numbering: "I.1:")
+
+= This is first level
+= Another first
+== Second
+== Another Second
+=== Now third
+== And second again
+= Now returning to first
+= These are actual romanian numerals
+
+Of course, there are lots of other cool propierties that can be _set_, so feel free to dive into #link("https://typst.app/docs/reference/")[#text(rgb("#387fdb"))[Official Reference]] and explore them!
+
+And now we are moving into something much more interesting...
