@@ -5,64 +5,67 @@ class Materia:
         self.semestre = semestre
         self.requisitos = requisitos
 
+
 def obtener_materias_disponibles(materias, aprobadas, vencidos):
     disponibles = []
     for materia in materias:
-        # Verificar si la materia ya ha sido aprobada
         if materia.sigla in aprobadas:
             continue
-        
-        # Verificar si todos los requisitos están cumplidos
         requisitos_cumplidos = all(req in aprobadas or req in vencidos for req in materia.requisitos)
-        
-        # Agregar a la lista de disponibles si cumple los requisitos
         if requisitos_cumplidos:
             disponibles.append(materia)
-    
     return disponibles
 
-def simular_semestres(materias, aprobadas_iniciales, semestre_inicial, anio_inicial):
+
+def simular_planificacion(materias, aprobadas_iniciales, semestre_inicial, anio_inicial):
     aprobadas = set(aprobadas_iniciales)
-    vencidos = set()  # Semestres "vencidos" (todos aprobados)
+    vencidos = set()
     semestre_actual = semestre_inicial
     anio_actual = anio_inicial
-    historial = []
 
     while True:
-        # Obtener las materias disponibles para el semestre actual
+        if semestre_actual == 1 or semestre_actual == 2:
+            temporada = "Enero" if semestre_actual == 1 else "Julio"
+            print(f"\n¿Cuántas materias desea tomar en el curso de temporada de {temporada} {anio_actual}? (0, 1, 2)")
+            num_temporada = int(input())
+
+            if num_temporada > 0:
+                materias_disponibles = obtener_materias_disponibles(materias, aprobadas, vencidos)
+                for i, mat in enumerate(materias_disponibles):
+                    print(f"[{i + 1}] {mat.sigla} - {mat.nombre}")
+                seleccionadas = []
+                for _ in range(num_temporada):
+                    print("¿Cuál materia desea tomar?")
+                    indice = int(input()) - 1
+                    if 0 <= indice < len(materias_disponibles):
+                        seleccionadas.append(materias_disponibles[indice])
+                aprobadas.update(m.sigla for m in seleccionadas)
+
+        # Materias del semestre regular
+        print(f"\nAño {anio_actual}, Semestre {semestre_actual}:")
         materias_disponibles = obtener_materias_disponibles(materias, aprobadas, vencidos)
-        
         if not materias_disponibles:
-            break  # No hay más materias disponibles, terminamos la simulación
-        
-        # Ordenar materias por semestre sugerido para seguir el "camino principal"
+            print("No hay más materias disponibles. ¡Ha completado todas las materias!")
+            break
+
         materias_disponibles.sort(key=lambda x: x.semestre)
-        
-        # Seleccionar un máximo de 7 materias
         materias_tomar = materias_disponibles[:7]
-        
-        # Registrar el semestre actual en el historial
-        historial.append({
-            "anio": anio_actual,
-            "semestre": semestre_actual,
-            "materias": [(m.sigla, m.nombre) for m in materias_tomar]
-        })
-        
-        # Actualizar las materias aprobadas
+
+        for mat in materias_tomar:
+            print(f"  {mat.sigla} - {mat.nombre}")
         aprobadas.update(m.sigla for m in materias_tomar)
-        
-        # Marcar semestres vencidos si se aprueban todas las materias de un semestre
+
+        # Marcar semestres vencidos
         for i in range(1, 9):
             if all(m.sigla in aprobadas for m in materias if m.semestre == i):
                 vencidos.add(f"{i}to semestre vencido")
-        
+
         # Avanzar al siguiente semestre
         semestre_actual += 1
         if semestre_actual > 2:
             semestre_actual = 1
             anio_actual += 1
-    
-    return historial
+
 
 # Datos de las materias (sigla, nombre, semestre, requisitos)
 materias_datos = [
@@ -114,22 +117,13 @@ materias_datos = [
         Materia("Electiva V", "Electiva V", 8, ["DAT-261", "DAT-262", "DAT-263", "DAT-264", "DAT-265", "Electiva I"]),
         Materia("DAT-391", "Taller de graduación II", 9, ["DAT-381", "DAT-382", "DAT-383", "Electiva IV", "Electiva V"])
 ]
-# materias_aprobadas = []
-# Materias aprobadas por el usuario (ejemplo) 
-# ejemplo 2-24
-# materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-132", "INF-133", "TRA-136"]
-# ejemplo 1-25 si solo repruebo estadistica 2
-# materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-126", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245"]
-# ejemplo 1-25 si apruebo todo
-# materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-126", "INF-131", "INF-132", "INF-133", "INF-134", "TRA-136", "DAT-242", "DAT-245"]
-# ejemplo 1-25 si apruebo todo menos calculo 2 y estadistica 2:
-materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-245"]
 
-# Iniciar simulación desde el semestre 1-2025
-resultado = simular_semestres(materias_datos, materias_aprobadas, semestre_inicial=1, anio_inicial=2025)
+# Materias ya aprobadas
+materias_aprobadas = [
+    "INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117",
+    "INF-121", "INF-122", "INF-123", "INF-124", "INF-125",
+    "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245"
+]
 
-# Mostrar el historial
-for semestre in resultado:
-    print(f"Año {semestre['anio']}, Semestre {semestre['semestre']}:")
-    for sigla, nombre in semestre["materias"]:
-        print(f"  {sigla} - {nombre}")
+# Simular la planificación
+simular_planificacion(materias_datos, materias_aprobadas, 1, 2025)
