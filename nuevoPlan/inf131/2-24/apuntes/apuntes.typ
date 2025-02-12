@@ -247,8 +247,8 @@ $]
 Ahora
 #par(leading: 1.3em)[
 $ T(n) = T(2)+11k \
- T(n) = 4+11 ( -(2-n)/(5) )\
  T(n) = 4 - (22-11n)/5\
+ T(n) = 4+11 ( -(2-n)/(5) )\
  T(n) = (20-(22-11n))/5\
  T(n)=(-2+11n)/5
  $]
@@ -306,3 +306,31 @@ $ T(n) = T(2)+11k \
   node((6,0), `8 `),
   node((7,0), `1 `),
 )
+
+= Exposiciones
+== Preguntas minimax
+- ¿En qué consiste la poda Alpha-Beta?
+- ¿El minimax garantiza siempre la mejor jugada (o se puede equivocar)? 
+- ¿Cómo se puede aplicar minimax al juego Age of Empires II?
+- ¿En qué ejemplos de juegos no se podría aplicar o no sería efectivo el algoritmo minimax?
+- ¿En qué situaciones (del juego) es necesario aplicar la poda alhpa beta?
+\ 
+- ¿Cúal es el objetivo general de minimax?
+ - Determinar la cantidad de movimientos para ganar, maximizar la ventaja del ganador y minimizar la del perdedor
+- ¿Cuál es le mejor lenguaje de programación para usar minimax?
+ - Java
+
+ == Preguntas Alpha-Beta
+- ¿En qué ejemplos de juegos no se podría aplicar o no sería efectivo su algoritmo?
+- ¿En qué situaciones (del juego) es necesario aplicar la poda alhpa beta?
+- ¿Se puede aplicar el algoritmo (alpha beta) en juegos de más de dos jugadores?
+
+== Preguntas Megamax
+- ¿Megamax se puede aplicar para juegos que no son de suma 0?
+ - En juegos que no son de suma 0 u con varios jugadores, megamax se podrá implementar pero no será tan eficiente
+
+== Preguntas Montecarlo
+- ¿En qué ejemplos de juegos no se podría aplicar o no sería efectivo su algoritmo?
+
+== Preguntas Expetiminimax
+- ¿En qué ejemplos de juegos no se podría aplicar o no sería efectivo su algoritmo?
