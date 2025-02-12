@@ -254,14 +254,13 @@ For example, let's make all quoptes in this snippet authored by the book:
   The problem with quotes on the internet is that it is hard to verify their authenticity.
 ]
 
-= Opinionated defaults
-
-That allows you to set Typst default styling as you want it:
-
 #set par(justify: true)
 #set list(indent: 1em)
 #set enum(indent: 1em)
 #set page(numbering: "1")
+= Opinionated defaults
+
+That allows you to set Typst default styling as you want it:
 
 - List item
 - List item
@@ -289,3 +288,22 @@ Some of elements have a property called "numbering". They accept so-called "numb
 Of course, there are lots of other cool propierties that can be _set_, so feel free to dive into #link("https://typst.app/docs/reference/")[#text(rgb("#387fdb"))[Official Reference]] and explore them!
 
 And now we are moving into something much more interesting...
+ 
+#show raw.where(lang: "java"): it => {
+  // Resaltar "i++" en rojo y negrita
+  show regex("i\+\+"): set text(fill: red, weight: "bold")
+  it
+}
+
+```java
+for (int i = 0; i > 5; i++)
+```
+
+
+#text(font: "DejaVu Sans Mono")[
+  ```java for (int i = 0; i > 5; ```#text(black, size: 0.75em, font: "DejaVu Sans Mono")[#box(fill: rgb("#83dbeb"), stroke: 0pt)[*i++*]]`)`
+]
+
+#text(font: "DejaVu Sans Mono")[
+  ```java for (int i = 0; i > 5; ```#text(black, size: 0.75em, font: "DejaVu Sans Mono")[i++]`)`
+]
