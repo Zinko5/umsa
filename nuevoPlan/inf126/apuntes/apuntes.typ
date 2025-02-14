@@ -88,13 +88,13 @@ $
 
   set-style(
     mark: (fill: black, scale: 1),
-    stroke: (thickness: 0.4pt, cap: "round"),
-    // angle: (
-    //   radius: 0.3,
-    //   label-radius: .22,
-    //   fill: green.lighten(80%),
-    //   stroke: (paint: green.darken(50%))
-    // ),
+    stroke: (thickness: .4pt, cap: "round"),
+    angle: (
+      radius: 2,
+      label-radius: 1,
+      // fill: green.lighten(80%),
+      stroke: (paint: green.darken(5%))
+    ),
     content: (padding: 1pt)
   )
 
@@ -107,8 +107,11 @@ $
   line((0, -9), (0, 9), mark: (end: "stealth"))
   content((), $ y $, anchor: "south")
 
-  line((0, 0), (5, 8), mark: (end: "stealth"), stroke: 1pt)
-  content((), $ (5,8) $, anchor: "west")
+  line((0, 0), (5,calc.tan(70deg)), mark: (end: "stealth"), stroke: 1pt)
+  content((), $ (5,2.75) $, anchor: "west")
+
+  line((0, 0), (2,6), mark: (end: "stealth"), stroke: 1pt)
+  content((), $ (2,6) $, anchor: "west")
 
   for (x, ct) in ((-8, $ -8 $),(-7, $ -7 $),(-6, $ -6 $),(-5, $ -5 $),(-4, $ -4 $),(-3, $ -3 $),(-2, $ -2 $),(-1, $ -1 $),(1, $ 1 $),(2, $ 2 $),(3, $ 3 $),(4, $ 4 $),(5, $ 5 $),(6, $ 6 $),(7, $ 7 $),(8, $ 8 $)) {
     line((x, 3pt), (x, -3pt))
@@ -120,8 +123,9 @@ $
     content((), anchor: "east", ct)
   }
 
+  set-style(stroke: (thickness: 1pt))
   // Draw the green angle
-  // cetz.angle.angle((0,0), (1,0), (1, calc.tan(30deg)),
+  // cetz.angle.angle((0,0), (0,0), (5, calc.tan(361deg)),
   //   label: text(green, [#sym.alpha]))
 
   // line((0,0), (1, calc.tan(30deg)))
@@ -134,4 +138,7 @@ $
   // content(("cos.start", 50%, "cos.end"), text(blue)[$ cos alpha $], anchor: "north")
   // line((1, 0), (1, calc.tan(30deg)), name: "tan", stroke: (paint: orange))
   // content("tan.end", $ text(#orange, tan alpha) = text(#red, sin alpha) / text(#blue, cos alpha) $, anchor: "west")
+  // circle((0,0), radius: 5)
+    cetz.angle.angle((1,1), (3,1.6), (1, 3),
+    label: text(red, [#sym.theta]))
 })
