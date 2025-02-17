@@ -13,7 +13,20 @@
 
 = INF 126 - Cálculo 2a
 
-=== Auxiliar
+== Ponderación 
+
+#grid(
+    columns: (auto, auto),
+    inset: 0.5em,
+    row-gutter: 0pt,
+    stroke: 0.1em + black,
+    [1er parcial], [30 puntos],
+    [2do parcial], [30 puntos],
+    [Exámen final], [30 puntos],
+    [Auxiliatura], [10 puntos]
+)
+
+== Auxiliar
 76267371\
 Auxiliar Alexander
 #pagebreak()
