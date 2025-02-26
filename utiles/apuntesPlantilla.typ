@@ -6,8 +6,7 @@
 #set text(font: "DejaVu Sans")
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
 #set par(justify: true)
-#import "@preview/cetz:0.3.1": canvas, draw, tree
-// #set grid(inset: 0.6em, row-gutter: 0.6em)
+
 
 Para grid:
 #grid(
@@ -30,7 +29,7 @@ para títulos ennumerados:
 === Título
 ==== Título
 
-Otros:
+Otros titulos:
 
 #show heading.where(level: 2): it => [
     #pad(left: 30pt)[#it]
@@ -41,10 +40,24 @@ Otros:
 == Título
 #pad(top: 10pt)[#lorem(120)]
 
-paquetes utiles:
+grid para ecuaciones:
+#set grid(inset: 0.6em)
+#show grid: g => align(center, g)
+
+#grid(
+    columns: (auto, auto),
+    align: (right + horizon, left + horizon),
+    [Si la norma es], [$||v||=4$],
+    [], [$arrow(v)=4[cos pi/4, sin pi/4]$],
+    [], [$arrow(v)=4[sqrt(2)/2, sqrt(2)/2]$],
+    [], [$arrow(v)=[2sqrt(2), 2sqrt(2)]$],
+)
+
+paquetes utiles para gráficos:
 
 #import "@preview/fletcher:0.5.2" as fletcher: diagram, node, edge, shapes
 #import "@preview/cetz:0.3.1": canvas, draw, tree
+#import "@preview/cetz:0.3.2"
 
 #let data = (
   [-2], ([0], ([3], [5], [3]), ([0], [0], [7])), ([-1], ([-2], [-2], [4]), ([1], [8], [1]))
@@ -136,4 +149,46 @@ paquetes utiles:
   content(("cos.start", 50%, "cos.end"), text(blue)[$ cos alpha $], anchor: "north")
   line((1, 0), (1, calc.tan(30deg)), name: "tan", stroke: (paint: orange))
   content("tan.end", $ text(#orange, tan alpha) = text(#red, sin alpha) / text(#blue, cos alpha) $, anchor: "west")
+})
+
+#show math.equation: block.with(fill: white, inset: 1pt)
+#cetz.canvas(length: 20pt, {
+  import cetz.draw: *
+
+  set-style(
+    mark: (fill: black, scale: 1),
+    stroke: (thickness: .4pt, cap: "round"),
+    angle: (
+      radius: 2,
+      label-radius: 1,
+      stroke: (paint: green.darken(5%))
+    ),
+    content: (padding: 1pt)
+  )
+
+  grid((-10, -10), (10, 10), step: 1, stroke: gray + 0.5pt)
+  line((-9, 0), (9, 0), mark: (end: "stealth"))
+  content((), $ x $, anchor: "west")
+  line((0, -9), (0, 9), mark: (end: "stealth"))
+  content((), $ y $, anchor: "south")
+
+  line((0, 0), (5,calc.tan(70deg)), mark: (end: "stealth"), stroke: 1pt)
+  content((), $ (5,2.75) $, anchor: "west")
+
+  line((0, 0), (2,6), mark: (end: "stealth"), stroke: 1pt)
+  content((), $ (2,6) $, anchor: "west")
+
+  for (x, ct) in ((-8, $ -8 $),(-7, $ -7 $),(-6, $ -6 $),(-5, $ -5 $),(-4, $ -4 $),(-3, $ -3 $),(-2, $ -2 $),(-1, $ -1 $),(1, $ 1 $),(2, $ 2 $),(3, $ 3 $),(4, $ 4 $),(5, $ 5 $),(6, $ 6 $),(7, $ 7 $),(8, $ 8 $)) {
+    line((x, 3pt), (x, -3pt))
+    content((), anchor: "north", ct)
+  }
+
+  for (y, ct) in ((-8, $ -8 $),(-7, $ -7 $),(-6, $ -6 $),(-5, $ -5 $),(-4, $ -4 $),(-3, $ -3 $),(-2, $ -2 $),(-1, $ -1 $),(1, $ 1 $),(2, $ 2 $),(3, $ 3 $),(4, $ 4 $),(5, $ 5 $),(6, $ 6 $),(7, $ 7 $),(8, $ 8 $)) {
+    line((3pt, y), (-3pt, y))
+    content((), anchor: "east", ct)
+  }
+
+  set-style(stroke: (thickness: 1pt))
+    cetz.angle.angle((1,1), (3,1.6), (1, 3),
+    label: text(red, [#sym.theta]))
 })
