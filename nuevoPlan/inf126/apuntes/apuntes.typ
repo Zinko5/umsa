@@ -8,23 +8,26 @@
 #set par(justify: true)
 #show math.equation:box
 #show grid:box
-#set grid(inset: 0.6em, row-gutter: 0.6em)
+#set grid(inset: 0.6em)
 #import "@preview/cetz:0.3.2"
-
+#show grid: g => align(center, g)
 = INF 126 - Cálculo 2a
 
 == Ponderación 
 
-#grid(
-    columns: (auto, auto),
+#block(
+grid(
+    columns: (auto, auto, auto),
     inset: 0.5em,
     row-gutter: 0pt,
     stroke: 0.1em + black,
-    [1er parcial], [30 puntos],
-    [2do parcial], [30 puntos],
-    [Exámen final], [30 puntos],
-    [Auxiliatura], [10 puntos]
-)
+    [1er parcial], [30 puntos], [Sábado 29 de marzo],
+    [2do parcial], [30 puntos], [Sábado 17 de mayo],
+    [Exámen final], [30 puntos], [Sábado 21 de junio],
+    [Prácticas], [10 puntos], [],
+    [Exámen segundo turno], [100 puntos], [Miércoles 25 de junio],
+))
+El exámen de segundo turno solo aplica a partir de los 35 puntos
 
 == Auxiliar
 76267371\
@@ -35,7 +38,7 @@ Auxiliar Alexander
 La norma de un vector $v$ se escribe $||v||$ e indica el tamaño del vector
 #grid(
     columns: (auto, auto),
-    // stroke: 0.1em + black,
+    align: (right + horizon, left + horizon),
     [Si el vector es], [$arrow(v)=[a, b]$],
     [su norma es], [$||v||=sqrt(a^2 + b^2)$],
 )
@@ -46,7 +49,9 @@ Ejemplo:
 
 #grid(
     columns: (auto, auto),
-    [Si el vector es], [$arrow(v)=[3, 4]$],
+    align: (right + horizon, left + horizon),
+    [Si el vector es], [$
+    arrow(v)=[3, 4]$],
     [su norma es], [$||v||=sqrt(3^2 + 4^2)$],
     [], [$||v||=sqrt(25)=5$],
 )
@@ -54,6 +59,7 @@ Ejemplo:
 Por lo tanto, $arrow(v)=[3, 4]$ no es un vector unitario
 Algunos vectores unitarios son $arrow(v)=[0, 1]$, $arrow(v)=[1, 0]$, que son los vectores canónicos
 
+= Descomposición de vectores
 Sea un vector $arrow(v)=[a, b]$, se puede descomponer por: $[a, b] = [a, 0] + [0, b] = a[1,0]+b[0,1]$
 
 Un vector $v$ está dado por $arrow(v)= [cos theta, sin theta]$. Donde $theta$ es el ángulo que forman las componentes del vector tomando como referencia el centro del plano cartesiano
@@ -61,6 +67,7 @@ Un vector $v$ está dado por $arrow(v)= [cos theta, sin theta]$. Donde $theta$ e
 = Suma de vectores
 #grid(
     columns: (auto, auto),
+    align: (right + horizon, left + horizon),
     [Si los vectores son], [$arrow(v)=[3, 4]$],
     [y], [$arrow(w)=[5, 2]$],
     [su suma es], [$arrow(v)+arrow(w)=[3 + 5, 4+ 2] =[8,6]$],
@@ -78,6 +85,7 @@ Ese caso solo ocurre si los vectores son paralelos
 Dos vectores son paralelos si uno es un producto escalar del otro, por ejemplo:
 #grid(
     columns: (auto, auto),
+    align: (right + horizon, left + horizon),
     [Si los vectores son], [$arrow(v)=[3, 4]$],
     [y], [$arrow(w)=[6, 8]$],
     [son paralelos, porque], [$2[3,4]=[6,8]$],
@@ -91,67 +99,37 @@ $
   arrow(k) = [0,0,1]\
 $
 
+= Producto interior o escalar
+#grid(
+    columns: (auto, auto),
+    align: (right + horizon, left + horizon),
+    [Si el vector vectores es], [$arrow(v)=[v_1, v_2, v_3]$],
+    [y el escalar es], [$x=x$],
+    [el producto escalar es], [$x dot arrow(v)=[x v_1,x v_2,x v_3]$],
+)
 
-#pagebreak()
+= Producto cruz o vectorial 
+#grid(
+    columns: (auto, auto),
+    align: (right + horizon, left + horizon),
+    [Si los vectores son], [$arrow(v)=[v_1, v_2, v_3]$],
+    [y], [$arrow(w)=[w_1, w_2, w_3]$],
+    [el producto vectorial es], [$arrow(v) dot arrow(w)=v_1 w_1 + v_2 w_2 + v_3 w_3$],
+)
 
-#show math.equation: block.with(fill: white, inset: 1pt)
+= Propiedades con el ángulo entre vectores
+#grid(
+    columns: (auto, auto),
+    align: (right + horizon, left + horizon),
+    [El ángulo $theta$ entre dos vectores debe estar entre $0$ y $pi$], [$0 lt.eq theta lt.eq pi$],
+    [Relación de normas y el ángulo], [$||v-w||^2 = ||w||^2 + ||v||^2 = ||v|| dot||w|| cos theta$],
+    [Definición del coseno], [$cos theta=frac(v dot w, ||v||dot||w||) $]
+)
 
-#cetz.canvas(length: 20pt, {
-  import cetz.draw: *
+$$
 
-  set-style(
-    mark: (fill: black, scale: 1),
-    stroke: (thickness: .4pt, cap: "round"),
-    angle: (
-      radius: 2,
-      label-radius: 1,
-      // fill: green.lighten(80%),
-      stroke: (paint: green.darken(5%))
-    ),
-    content: (padding: 1pt)
-  )
-
-  grid((-10, -10), (10, 10), step: 1, stroke: gray + 0.5pt)
-
-  // circle((0,0), radius: 1)
-
-  line((-9, 0), (9, 0), mark: (end: "stealth"))
-  content((), $ x $, anchor: "west")
-  line((0, -9), (0, 9), mark: (end: "stealth"))
-  content((), $ y $, anchor: "south")
-
-  line((0, 0), (5,calc.tan(70deg)), mark: (end: "stealth"), stroke: 1pt)
-  content((), $ (5,2.75) $, anchor: "west")
-
-  line((0, 0), (2,6), mark: (end: "stealth"), stroke: 1pt)
-  content((), $ (2,6) $, anchor: "west")
-
-  for (x, ct) in ((-8, $ -8 $),(-7, $ -7 $),(-6, $ -6 $),(-5, $ -5 $),(-4, $ -4 $),(-3, $ -3 $),(-2, $ -2 $),(-1, $ -1 $),(1, $ 1 $),(2, $ 2 $),(3, $ 3 $),(4, $ 4 $),(5, $ 5 $),(6, $ 6 $),(7, $ 7 $),(8, $ 8 $)) {
-    line((x, 3pt), (x, -3pt))
-    content((), anchor: "north", ct)
-  }
-
-  for (y, ct) in ((-8, $ -8 $),(-7, $ -7 $),(-6, $ -6 $),(-5, $ -5 $),(-4, $ -4 $),(-3, $ -3 $),(-2, $ -2 $),(-1, $ -1 $),(1, $ 1 $),(2, $ 2 $),(3, $ 3 $),(4, $ 4 $),(5, $ 5 $),(6, $ 6 $),(7, $ 7 $),(8, $ 8 $)) {
-    line((3pt, y), (-3pt, y))
-    content((), anchor: "east", ct)
-  }
-
-  set-style(stroke: (thickness: 1pt))
-  // Draw the green angle
-  // cetz.angle.angle((0,0), (0,0), (5, calc.tan(361deg)),
-  //   label: text(green, [#sym.alpha]))
-
-  // line((0,0), (1, calc.tan(30deg)))
-
-  // set-style(stroke: (thickness: 1.2pt))
-
-  // line((30deg, 1), ((), "|-", (0,0)), stroke: (paint: red), name: "sin")
-  // content(("sin.start", 50%, "sin.end"), text(red)[$ sin alpha $])
-  // line("sin.end", (0,0), stroke: (paint: blue), name: "cos")
-  // content(("cos.start", 50%, "cos.end"), text(blue)[$ cos alpha $], anchor: "north")
-  // line((1, 0), (1, calc.tan(30deg)), name: "tan", stroke: (paint: orange))
-  // content("tan.end", $ text(#orange, tan alpha) = text(#red, sin alpha) / text(#blue, cos alpha) $, anchor: "west")
-  // circle((0,0), radius: 5)
-    cetz.angle.angle((1,1), (3,1.6), (1, 3),
-    label: text(red, [#sym.theta]))
-})
+= Desigualdad de Cauchy-Schwarz
+$
+  forall v,w in RR^n, w eq.not 0\
+  |v dot w| lt.eq ||v|| dot ||w||
+$
