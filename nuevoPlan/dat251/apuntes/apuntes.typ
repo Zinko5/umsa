@@ -48,3 +48,9 @@ Crear un ETL con Pentaho, pedir a una IA crear ~1000 registros de TC y conectar 
 + Configurar variables de entorno
 + Instalar pentaho
 + Conectar pentaho con una base de datos a elección
+
+== Clase 2
+Hacer ejercicios con pentahoo
+
+== Clase 3
+Hacer el ejercicio creando tres dimensiones, crear 3 tablas
