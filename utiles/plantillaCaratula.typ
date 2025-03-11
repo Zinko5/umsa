@@ -2,10 +2,6 @@
 #set text(font: "DejaVu Sans")
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
 
-#let nombreTarea = "Nombre de la tarea"
-#let siglaMateria = "Sigla de la materia"
-#let nombreMateria = "Nombre de la materia"
-#let nombreDocente = "Nombre del docente"
 #let fechaEntrega = datetime(year: 2025, month: 1, day: 1)
 
 #let overlay(img, color, width: auto, height: auto) = layout(bounds => {
@@ -37,10 +33,10 @@
         Facultad de Ciencias Puras y Naturales
       ]]
       #text(size: 30pt)[#pad(top: -5pt)[
-        *#nombreTarea*
+        *nombreTarea*
       ]]
       #text(size: 16pt)[#pad(top: -15pt)[
-        #siglaMateria - #nombreMateria
+        siglaMateria - nombreMateria
       ]]
     ]
   #pad(top: 260pt)[
@@ -48,7 +44,7 @@
       *Docente:*
     ]
     #text(size: 14pt)[ #pad(left: 20pt, top: -5pt)[
-      #nombreDocente
+      nombreDocente
     ]]
   ]
   #pad(top: 15pt)[
