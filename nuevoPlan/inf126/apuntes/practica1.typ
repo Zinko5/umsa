@@ -221,3 +221,44 @@
 )
 
 === Hallar el vector $arrow(v)=5arrow(u)-3arrow(w)$ donde $arrow(u)=[2,-1]$ y $arrow(w)=[1,2]$. Ilustrar geométricamente la operación vectorial
+#ejercicio([$
+  5 arrow(u)=5[2, -1]=[10,-5]\
+  3 arrow(w)=3[1,2]=[3,6]\
+  arrow(v)= 5 arrow(u)-3arrow(w)=[10,-5]-[3,6]=[7,-11]
+$
+],
+[
+  #show math.equation: block.with(fill: white, inset: .8pt)
+    #cetz.canvas(length: 12pt, {
+      set-style(
+        mark: (fill: black, scale: 1.1),
+        stroke: (thickness: .7pt, cap: "round"),
+        angle: (
+          radius: 2,
+          label-radius: 1,
+          stroke: (paint: green.darken(5%))
+        ),
+        content: (padding: 1pt),
+      )
+      let tamaño = 1em
+
+      grid((-4, -14), (12, 10), step:2, stroke: gray + 0.5pt)
+      line((-2, 0), (11, 0), mark: (end: "stealth"))
+      content((), text(size:.9em)[$ x $], anchor: "west")
+      line((0, -2), (0, 9), mark: (end: "stealth"))
+      content((),text(size:.9em)[$ y $], anchor: "south")
+
+      line((0, 0), (-4,20), mark: (end: "o", fill:red, scale: 1, anchor: "center"), stroke: 1pt + red)
+      content((), text(size: tamaño)[$ (-4,20) $], anchor: "east", padding: 03pt)
+
+      for (x, ct) in ((-2, $ -2 $),(2, $ 2 $),(4, $ 4 $),(6, $ 6 $),(8, $ 8 $),(10, $ 10 $)) {
+        line((x, 3pt), (x, -3pt))
+        content((), anchor: "north", text(tamaño)[#ct])
+      }
+
+      for (y, ct) in ((-12, $ -12 $),(-10, $ -10 $),(-8, $ -8 $),(-6, $ -6 $),(-4, $ -4 $),(-2, $ -2 $),(2, $ 2 $),(4, $ 4 $),(6, $ 6 $),(8, $ 8 $)) {
+        line((3pt, y), (-3pt, y))
+        content((), anchor: "east", text(tamaño)[#ct])
+      }
+    })
+])
