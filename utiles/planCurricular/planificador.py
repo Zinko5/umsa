@@ -124,12 +124,14 @@ materias_datos = [
 # materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-126", "INF-131", "INF-132", "INF-133", "INF-134", "TRA-136", "DAT-242", "DAT-245"]
 
 # ejemplo 1-25 si apruebo todo menos calculo 2 y estadistica 2:
-materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245"]
+# materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245"]
 
 # materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245", "INF-134", "DAT-135"]
 
+materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245", "INF-134", "DAT-135", "INF-126", "INF-134"]
+
 # Iniciar simulación desde el semestre 1-2025
-resultado = simular_semestres(materias_datos, materias_aprobadas, semestre_inicial=1, anio_inicial=2025)
+resultado = simular_semestres(materias_datos, materias_aprobadas, semestre_inicial=2, anio_inicial=2025)
 
 # Mostrar el historial
 for semestre in resultado:
