@@ -3,6 +3,7 @@
   // margin: (left: 3.8cm, y: 2.5cm, right: 2.5cm) //Para trabajos impresos a doble cara
 )
 #set text(lang:"es")
+#set text(lang:"es")
 #set text(font: "DejaVu Sans")
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
 #set par(justify: true)
@@ -242,23 +243,74 @@ $
       )
       let tamaño = 1em
 
-      grid((-4, -14), (12, 10), step:2, stroke: gray + 0.5pt)
-      line((-2, 0), (11, 0), mark: (end: "stealth"))
+      // cuadricula (x1, y,1), (x2, y2)
+      grid((-4, -14), (16, 4), step:2, stroke: gray + 0.5pt)
+      // linea eje x: (x1, 0), (x2, 0)
+      line((-2, 0), (15, 0), mark: (end: "stealth"))
       content((), text(size:.9em)[$ x $], anchor: "west")
-      line((0, -2), (0, 9), mark: (end: "stealth"))
+      // linea eje y: (0, y1), (0, y2)
+      line((0, -12), (0, 3), mark: (end: "stealth"))
       content((),text(size:.9em)[$ y $], anchor: "south")
 
-      line((0, 0), (-4,20), mark: (end: "o", fill:red, scale: 1, anchor: "center"), stroke: 1pt + red)
-      content((), text(size: tamaño)[$ (-4,20) $], anchor: "east", padding: 03pt)
+      line((0, 0), (7,-11), mark: (end: "o", fill:red, scale: 1, anchor: "center"), stroke: 1pt + red)
+      content((), text(size: tamaño, red)[$ (7,-11) $], anchor: "east", padding: 04pt)
 
-      for (x, ct) in ((-2, $ -2 $),(2, $ 2 $),(4, $ 4 $),(6, $ 6 $),(8, $ 8 $),(10, $ 10 $)) {
+      line((0, 0), (10, -5), mark: (end: "stealth", fill:green, scale: 1), stroke: 1pt + green)
+      content((), text(size: tamaño, green)[$ (10,-5) $], anchor: "west", padding: 2pt)
+
+      line((10, -5), (7, -11), mark: (end: "stealth", fill:blue, scale: 1), stroke: 1pt + blue)
+      content((), text(size: tamaño,blue)[$ (10,-5) $], anchor: "west", padding: 6pt)
+
+      // marcas eje x:
+      for (x, ct) in ((-2, $ -2 $),(2, $ 2 $),(4, $ 4 $),(6, $ 6 $),(8, $ 8 $),(10, $ 10 $), (12, $ 12 $), (14, $ 14 $)) {
         line((x, 3pt), (x, -3pt))
         content((), anchor: "north", text(tamaño)[#ct])
       }
-
-      for (y, ct) in ((-12, $ -12 $),(-10, $ -10 $),(-8, $ -8 $),(-6, $ -6 $),(-4, $ -4 $),(-2, $ -2 $),(2, $ 2 $),(4, $ 4 $),(6, $ 6 $),(8, $ 8 $)) {
+      // marcas eje y:
+      for (y, ct) in ((-12, $ -12 $),(-10, $ -10 $),(-8, $ -8 $),(-6, $ -6 $),(-4, $ -4 $),(-2, $ -2 $),(2, $ 2 $)) { 
         line((3pt, y), (-3pt, y))
         content((), anchor: "east", text(tamaño)[#ct])
       }
     })
 ])
+
+#cetz.canvas(length: 12pt, {
+  set-style(
+    mark: (fill: black, scale: 1.1),
+    stroke: (thickness: .7pt, cap: "round"),
+    content: (padding: 6pt),
+  )
+  let tamaño = 1em
+
+  // Ejes en 3D
+  // Eje X: (0,0,0) a (15,0,0)
+  line((0, 0, 0), (15, 0, 0), mark: (end: "stealth"), stroke: red + 1pt)
+  content((15, 0, 0), text(size: .9em, red)[$ x $], anchor: "west")
+  
+  // Eje Y: (0,0,0) a (0,15,0)
+  line((0, 0, 0), (0, 15, 0), mark: (end: "stealth"), stroke: green + 1pt)
+  content((0, 15, 0), text(size: .9em, green)[$ y $], anchor: "south")
+  
+  // Eje Z: (0,0,0) a (0,0,15)
+  line((0, 0, 0), (0, 0, 15), mark: (end: "stealth"), stroke: blue + 1pt)
+  content((0, 0, 15), text(size: .9em, blue)[$ z $], anchor: "west")
+
+  // Líneas en 3D adaptadas (ajustadas para mostrar profundidad)
+  // Línea de (0,0,0) a (7,-11,5)
+  line((0, 0, 0), (7, -11, 5), mark: (end: "o", fill: red, scale: 1), stroke: 1pt + red)
+  content((7, -11, 5), text(size: tamaño, red)[$ (7,-11,5) $], anchor: "east", padding: 4pt)
+
+  // Marcas en los ejes (opcional, solo para referencia)
+  for (x, ct) in ((5, $ 5 $), (10, $ 10 $), (15, $ 15 $)) {
+    line((x, 3pt, 0), (x, -3pt, 0))
+    content((x, 0, 0), anchor: "north", text(tamaño, red)[#ct])
+  }
+  for (y, ct) in ((5, $ 5 $), (10, $ 10 $), (15, $ 15 $)) {
+    line((-3pt, y, 0), (3pt, y, 0))
+    content((0, y, 0), anchor: "east", text(tamaño, green)[#ct])
+  }
+  for (z, ct) in ((5, $ 5 $), (10, $ 10 $), (15, $ 15 $)) {
+    line((3pt, -3pt, z), (-3pt, 3pt, z))
+    content((0, 0, z), anchor: "east", text(tamaño, blue)[#ct])
+  }
+})
