@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>Exam 4</title>
+<style type="text/css">
+body{font-family: Arial, Helvetica, Sans;}
+</style>
+<meta charset="utf-8" />
+</head>
+
+<body>
+<h2>Exam 4</h2>
+
+<ol>
+<li>
+<h4>Question</h4>
+<p>Entre los métodos de momentos y máxima verosimilitud cúal de ellos emplea un proceso de optimización para en encontrar la estimación</p>
+<br/>
+<ol type="a">
+<li>
+Maxima Verosimilitud
+</li>
+<li>
+Momentos
+</li>
+<li>
+Ninguno
+</li>
+<li>
+Depende
+</li>
+<li>
+Ambos
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>El método de máxima verosimilitud plantea un proceso de optimización usando la primera derivada sobre la función logarítmo.</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Supongase que la variable aleatoria <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> tiene la distribución de probabilidad</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>X</mi><mi>γ</mi></msup><mspace width="1.0em"></mspace><mn>0</mn><mo>&lt;</mo><mi>X</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f(x)=(\gamma+2)X^\gamma \quad 0 &lt; X &lt; 1</annotation></semantics></math></p>
+<p>Sea <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>,</mo><msub><mi>X</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>X</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">X_1, X_2, \ldots, X_n</annotation></semantics></math> un muestra aleatoria de tamaño <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>. Obtenga el estimador de máxima verosimilitud de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></p>
+<br/>
+<ol type="a">
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>γ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>−</mi><mn>1</mn><mo>−</mo><mfrac><mi>n</mi><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mrow><mi>l</mi><mi>n</mi><msub><mi>X</mi><mi>i</mi></msub></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">\hat{\gamma}=-1-\frac{n}{\sum_{i=1}^n{ln X_i}}</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>γ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>−</mi><mn>1</mn><mo>+</mo><mfrac><mi>n</mi><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mrow><mi>l</mi><mi>n</mi><msub><mi>X</mi><mi>i</mi></msub></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex">\hat{\gamma}=-1+\frac{n}{\sum_{i=1}^n{ln X_i}}</annotation></semantics></math>
+</li>
+<li>
+No es una función de probabilidad
+</li>
+<li>
+Ninguno
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>γ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mover><mi>X</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">\hat{\gamma}=\bar{X}</annotation></semantics></math>
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>No es una función de probabilidad, ya que:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msup><mi>X</mi><mi>γ</mi></msup><mi>d</mi><mi>x</mi><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mfrac><msup><mi>X</mi><mrow><mi>γ</mi><mo>+</mo><mn>1</mn></mrow></msup><msubsup><mi>/</mi><mn>0</mn><mn>1</mn></msubsup><mo>=</mo><mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>+</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mfrac><mo>≠</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\int_0^1 f(x)dx=(\gamma+2)\int_0^1 X^\gamma dx=\frac{(\gamma+2)}{(\gamma+1)}X^{\gamma+1} /_0^1=\frac{(\gamma+2)}{(\gamma+1)}\neq 1</annotation></semantics></math></p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>La media muestral de una muestra tomada de una población normal con desviación estándar de 29, siempre es: (Seleccione una o más de una)</p>
+<br/>
+<ol type="a">
+<li>
+Un estimador sesgado de la media poblacional
+</li>
+<li>
+Todas
+</li>
+<li>
+Un estimador insesgado de la media muestral
+</li>
+<li>
+Un estimador sesgado de la media muestral
+</li>
+<li>
+Un estimador insesgado de la media poblacional
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>La respuesta correcta: Un estimador insesgado de la media poblacional</p>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>una muestra aleatoria de tamaño 53 de una población normal tiene media <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>X</mi><mo accent="true">‾</mo></mover><mo>=</mo></mrow><annotation encoding="application/x-tex">\bar{X}=</annotation></semantics></math> 442.31 y una varianza muestral de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mover><mi>S</mi><mo accent="true">̂</mo></mover><mn>2</mn></msup><mo>=</mo></mrow><annotation encoding="application/x-tex">\hat{S}^2=</annotation></semantics></math> 62.61. Encuentre un intervalo de confianza al 99% de confiabilidad.</p>
+<br/>
+<ol type="a">
+<li>
+Falta información
+</li>
+<li>
+440.1797038, 444.4402962
+</li>
+<li>
+439.5058346, 445.1141654
+</li>
+<li>
+440.5275073, 444.0924927
+</li>
+<li>
+Ninguna
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>En R, sean n el tamaño de la muestra, xbar la media y s2 la varianza muestra.</p>
+<pre><code>s2xbar&lt;-s2/n
+xbar+c(-1,1)*2.58*sqrt(s2xbar)</code></pre>
+<pre><code>## [1] 439.5058 445.1142</code></pre>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Se extraen muestras aleatorias de tamaños <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mn>1</mn></msub><mo>=</mo><mi>n</mi><mn>2</mn><mo>=</mo></mrow><annotation encoding="application/x-tex">n_1=n2=</annotation></semantics></math> 26 de dos poblaciones normales independientes. Las varianzas muestrales son <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mover><mi>S</mi><mo accent="true">̂</mo></mover><mn>1</mn><mn>2</mn></msubsup><mo>=</mo></mrow><annotation encoding="application/x-tex">\hat{S}^2_1=</annotation></semantics></math> 19.48 y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mover><mi>S</mi><mo accent="true">̂</mo></mover><mn>2</mn><mn>2</mn></msubsup><mo>=</mo></mrow><annotation encoding="application/x-tex">\hat{S}^2_2=</annotation></semantics></math> 33.85. Construye un intervalo de confianza de dos lados del 95% respecto al cociente de las varianzas de las poblaciones <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mn>1</mn><mn>2</mn></msubsup><mi>/</mi><msubsup><mi>σ</mi><mn>2</mn><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\sigma_1^2/\sigma_2^2</annotation></semantics></math>. Use como <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mn>1</mn><mo>−</mo><mi>α</mi><mi>/</mi><mn>2</mn><mo>,</mo><msub><mi>n</mi><mn>2</mn></msub><mo>−</mo><mn>1</mn><mo>,</mo><msub><mi>n</mi><mn>1</mn></msub><mo>−</mo><mn>1</mn></mrow></msub><mo>=</mo></mrow><annotation encoding="application/x-tex">F_{1-\alpha/2,n_2-1, n_1-1}=</annotation></semantics></math> 0.4483698 y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mi>α</mi><mi>/</mi><mn>2</mn><mo>,</mo><msub><mi>n</mi><mn>2</mn></msub><mo>−</mo><mn>1</mn><mo>,</mo><msub><mi>n</mi><mn>1</mn></msub><mo>−</mo><mn>1</mn></mrow></msub><mo>=</mo></mrow><annotation encoding="application/x-tex">F_{\alpha/2,n_2-1, n_1-1}=</annotation></semantics></math> 2.2303021</p>
+<br/>
+<ol type="a">
+<li>
+0.0516056, 0.2566989
+</li>
+<li>
+0.2580279, 1.2834944
+</li>
+<li>
+Falta información
+</li>
+<li>
+Ninguna
+</li>
+<li>
+0.4580279, 1.4834944
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>En R, sean n1 y n2 los tamaños de muestra por población y s21 y s22 las varianzas muestrales por población</p>
+<pre><code>li&lt;-s21/s22*qf(1-0.05/2,n2-1,n1-1,lower.tail = F)
+ls&lt;-s21/s22*qf(0.05/2,n2-1,n1-1,lower.tail = F)
+c(li,ls)</code></pre>
+<pre><code>## [1] 0.2580279 1.2834944</code></pre>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Se lleva a cabo un estudio para determinar el porcentaje de propietarios de casa que poseen al menos dos aparatos de televisión. ¿Qué tan grande debe ser la muestra si se desea tener una confianza del 95% de que el error al estimar está cantidad sea menor que 0.02? (asuma máxima varianza)</p>
+<br/>
+<ol type="a">
+<li>
+16577
+</li>
+<li>
+4161
+</li>
+<li>
+2401
+</li>
+<li>
+84
+</li>
+<li>
+Falta información
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>En R:</p>
+<pre><code>ceiling(((1.96/error)^2)*0.5^2)</code></pre>
+<pre><code>## [1] 2401</code></pre>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>El voltaje de salida de dos tipos diferentes de transformadores se está investigando. 30 transformadores de cada tipo se seleccionan al azar y se mide el voltaje. Las medias de muestras son 11.8 y 11.3 volts respectivamente. Sabemos que las varianzas del voltaje de salida para los dos tipos de transformadores son 0.6 y 0.7 respectivamente, Construya un intervalo de confianza de dos lados del 95% respecto la diferencia en el voltaje medio.</p>
+<br/>
+<ol type="a">
+<li>
+Ninguna
+</li>
+<li>
+0.0919935, 0.9080065
+</li>
+<li>
+Falta información
+</li>
+<li>
+-0.0370698, 1.0370698
+</li>
+<li>
+0.1586068, 0.8413932
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>En R</p>
+<pre><code>(mu1-mu2)+c(-1,1)*1.96*sqrt((v1/n)+(v2/n))</code></pre>
+<pre><code>## [1] 0.09199346 0.90800654</code></pre>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Se está estudiando el rendimiento de un proceso químico. De la experiencia previa se sabe que la varianza del rendimiento con este proceso es 5. Los últimos seis días de operación de la planta han dado como resultado los siguientes rendimientos (en porcentajes):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">88.99</td>
+</tr>
+<tr class="even">
+<td align="right">89.07</td>
+</tr>
+<tr class="odd">
+<td align="right">91.57</td>
+</tr>
+<tr class="even">
+<td align="right">92.30</td>
+</tr>
+<tr class="odd">
+<td align="right">87.51</td>
+</tr>
+<tr class="even">
+<td align="right">91.76</td>
+</tr>
+</tbody>
+</table>
+<p>¿Hay razón para creer que el rendimiento es menor al 90%? (asuma un error de tipo I del 1%)</p>
+<br/>
+<ol type="a">
+<li>
+No se rechaza H0
+</li>
+<li>
+Falta información
+</li>
+<li>
+Se rechaza H0
+</li>
+<li>
+Ejercicio mal planteado
+</li>
+<li>
+Ninguna
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>Sea <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>90</mn></mrow><annotation encoding="application/x-tex">H_0: \mu=90</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>90</mn></mrow><annotation encoding="application/x-tex">H_1:\mu&lt;90</annotation></semantics></math>. El estadístico de prueba es <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>0</mn></msub><mo>=</mo></mrow><annotation encoding="application/x-tex">Z_0=</annotation></semantics></math> 0.219089. Se rechaza <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math> si:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>0</mn></msub><mo>&lt;</mo><mi>−</mi><mn>2.58</mn></mrow><annotation encoding="application/x-tex">Z_0 &lt; -2.58</annotation></semantics></math>
+por lo que:</p>
+<pre><code>ifelse(z0&lt; (-2.58),&quot;Se rechaza H0&quot;,&quot;No se rechaza H0&quot;)</code></pre>
+<pre><code>## [1] &quot;No se rechaza H0&quot;</code></pre>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Se están investigando dos métodos para producir gasolina a partir de petróleo crudo. Se supone que el rendimiento de ambos procesos se distribuye normalmente, los siguientes datos se han obtenido de la planta piloto:</p>
+<table>
+<caption>Rendimientos</caption>
+<thead>
+<tr class="header">
+<th align="right">x1</th>
+<th align="right">x2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">27</td>
+<td align="right">24</td>
+</tr>
+<tr class="even">
+<td align="right">24</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">27</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="right">26</td>
+<td align="right">24</td>
+</tr>
+<tr class="odd">
+<td align="right">26</td>
+<td align="right">22</td>
+</tr>
+<tr class="even">
+<td align="right">23</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="right">25</td>
+<td align="right">22</td>
+</tr>
+<tr class="even">
+<td align="right">25</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">25</td>
+<td align="right">24</td>
+</tr>
+</tbody>
+</table>
+<p>Suponer igualdad de varianzas, encontrar el valor de <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding="application/x-tex">t_0</annotation></semantics></math></p>
+<br/>
+<ol type="a">
+<li>
+Falta información
+</li>
+<li>
+4.8590553
+</li>
+<li>
+Ninguna
+</li>
+<li>
+3.4731498
+</li>
+<li>
+3.8590553
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>Con <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><msub><mi>μ</mi><mn>1</mn></msub><mo>=</mo><msub><mi>μ</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">H_0: \mu_1=\mu_2</annotation></semantics></math> y varianzas iguales, el estadístico de prueba es:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>=</mo><mfrac><mrow><mover><msub><mi>X</mi><mn>1</mn></msub><mo accent="true">‾</mo></mover><mo>−</mo><msub><mover><mi>X</mi><mo accent="true">‾</mo></mover><mn>2</mn></msub></mrow><mrow><msub><mover><mi>S</mi><mo accent="true">̂</mo></mover><mi>p</mi></msub><msqrt><mrow><mfrac><mn>1</mn><msub><mi>n</mi><mn>1</mn></msub></mfrac><mo>+</mo><mfrac><mn>1</mn><msub><mi>n</mi><mn>2</mn></msub></mfrac></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">t_0=\frac{\bar{X_1}-\bar{X}_2}{\hat{S}_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}</annotation></semantics></math></p>
+<p>Donde:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mover><mi>S</mi><mo accent="true">̂</mo></mover><mi>p</mi><mn>2</mn></msubsup><mo>=</mo><mfrac><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>n</mi><mn>1</mn></msub><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mover><mi>S</mi><mo accent="true">̂</mo></mover><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>n</mi><mn>2</mn></msub><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mover><mi>S</mi><mo accent="true">̂</mo></mover><mn>2</mn><mn>2</mn></msubsup></mrow><mrow><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mo>−</mo><mn>2</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\hat{S}^2_p=\frac{(n_1-1)\hat{S}_1^2+(n_2-1)\hat{S}_2^2}{n_1+n_2-2}</annotation></semantics></math>
+En R:</p>
+<pre><code>s2p&lt;-((n1-1)*var(x1)+(n2-1)*var(x2))/(n1+n2-2)
+t0&lt;-(mean(x1)-mean(x2))/sqrt(s2p/n1+s2p/n2)
+t0</code></pre>
+<pre><code>## [1] 3.859055</code></pre>
+<br/>
+</li>
+<li>
+<h4>Question</h4>
+<p>Se está estudiando el rendimiento de un proceso químico. De la experiencia previa se sabe que la varianza del rendimiento con este proceso es 5. Los últimos diez días de operación de la planta han dado como resultado los siguientes rendimientos (en porcentajes):</p>
+<p>88.83, 86.26, 88.1, 91.31, 92.24, 90.07, 91.01, 88.67, 88.29, 90.48, 89.07, 89.64, 88.4</p>
+<p>¿Hay razón para creer que el rendimiento es menor al 89%? (asuma un error de tipo I del 1%). Trabaje con el estadístico <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mn>0</mn></msub><annotation encoding="application/x-tex">z_0</annotation></semantics></math>.</p>
+<br/>
+<ol type="a">
+<li>
+Ejercicio mal planteado
+</li>
+<li>
+No se rechaza H0
+</li>
+<li>
+Falta información
+</li>
+<li>
+Ninguna
+</li>
+<li>
+Se rechaza H0
+</li>
+</ol>
+<br/>
+<h4>Solution</h4>
+<p>Sea <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo>:</mo><mi>μ</mi><mo>=</mo><mn>89</mn></mrow><annotation encoding="application/x-tex">H_0: \mu=89</annotation></semantics></math> y <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mn>1</mn></msub><mo>:</mo><mi>μ</mi><mo>&lt;</mo><mn>89</mn></mrow><annotation encoding="application/x-tex">H_1:\mu&lt;89</annotation></semantics></math>. El estadístico de prueba es <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>0</mn></msub><mo>=</mo></mrow><annotation encoding="application/x-tex">Z_0=</annotation></semantics></math> 0.6660665. Se rechaza <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mn>0</mn></msub><annotation encoding="application/x-tex">H_0</annotation></semantics></math> si:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>0</mn></msub><mo>&lt;</mo><mi>−</mi><mn>2.58</mn></mrow><annotation encoding="application/x-tex">Z_0 &lt; -2.58</annotation></semantics></math>
+por lo que:</p>
+<pre><code>ifelse(z0&lt; (-2.58),&quot;Se rechaza H0&quot;,&quot;No se rechaza H0&quot;)</code></pre>
+<pre><code>## [1] &quot;No se rechaza H0&quot;</code></pre>
+<br/>
+</li>
+</ol>
+
+</body>
+</html>
