@@ -76,6 +76,8 @@
 #show grid:box
 #set heading(numbering: "H1.")
 #show heading.where(level: 2): set heading(numbering: none)
+#set par(justify: true)
+
 = Identificación del problema
 == Problema identificado
 En una fábrica, se observan ineficiencias en los procesos de producción que generan desperdicio de materiales y elevan los costos de fabricación. Estas ineficiencias no están claramente identificadas ni cuantificadas, lo que dificulta la toma de decisiones para optimizar los recursos.
