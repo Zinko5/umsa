@@ -3,7 +3,6 @@
   // margin: (left: 3.8cm, y: 2.5cm, right: 2.5cm) //Para trabajos impresos a doble cara
 )
 #set text(lang:"es")
-#set text(lang:"es")
 #set text(font: "DejaVu Sans")
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
 #set par(justify: true)
@@ -24,33 +23,41 @@
   // numbering: n => strong(numbering("a)", n)),
   ..it.children.map(item => enum.item()[#item.body]),
 )
-#import "@preview/cetz:0.3.2"
-#import cetz.draw: *
-#let ejercicio(..args) = {
-  let (enunciado, resolucion) = if args.pos().len() == 1 {
-    (none, args.pos().at(0))
+#let nor(a) = $lr(bar.v.double #a bar.v.double)$
+#let vec(..args) = {
+  let components = args.pos()
+  let n = components.len()
+  if n == 2 {
+    $lr(angle.l #components.at(0), #components.at(1) angle.r)$
+  } else if n == 3 {
+    $lr(angle.l #components.at(0), #components.at(1), #components.at(2) angle.r)$
   } else {
-    (args.pos().at(0), args.pos().at(1))
+    panic("La función vector debe recibir 2 o 3 parámetros, pero recibió " + str(n))
+  }
+}
+#let ejercicio(..args) = {
+  let (enunciado, resolucion, conclusion) = if args.pos().len() == 1 {
+    (none, args.pos().at(0), none)
+  } else if args.pos().len() == 2 {
+    (args.pos().at(0), args.pos().at(1), none)
+  } else {
+    (args.pos().at(0), args.pos().at(1), args.pos().at(2))
   }
 
   block(width: 100%, breakable: false, [
     #if enunciado != none {
       align(left)[#h(1em)#enunciado]
     }
-    #align(center)[#h(1em)#resolucion]
+    #align(center)[#resolucion]
+    #if conclusion != none {
+      align(left)[#text(size: 0.8em)[#h(1em)#emph[#conclusion]]]
+    }
   ])
 }
 
-// #let  = $angle.l$
-// #let  = $angle.r$
-// #let nor = $bar.v.double$
-
-#let vec(a, b) = $lr(angle.l #a, #b angle.r)$
-#let nor(a) = $lr(bar.v.double #a bar.v.double)$
-
-= Vectores
-== Vectores en dos y tres dimensiones
-=== 2. Calcular cada uno de los múltiplos escalares de $v=vec(-1,5)$
+= Vectores.
+== Vectores en dos y tres dimensiones.
+=== 2. Calcular cada uno de los múltiplos escalares de $v=vec(-1,5)$.
 
 - $4v$\  
 - $-frac(1,2)$\
@@ -109,7 +116,7 @@
    $]
 )
 
-=== 5. Encontrar la magnitud del vector $v= -10i+3j$
+=== 5. Encontrar la magnitud del vector $v= -10i+3j$.
 #ejercicio(
   [$
     v=-10i+3j=vec(-10,3)\
@@ -118,7 +125,7 @@
    $]
 )
 
-=== 8. Hallar $nor(frac(u+v,nor(u+ v)))$ si $u=vec(2,4)$ y $v=vec(5,5)$
+=== 8. Hallar $nor(frac(u+v,nor(u+ v)))$ si $u=vec(2,4)$ y $v=vec(5,5)$.
 #ejercicio(
   [$
      u+v=vec(2+5,4+5)=vec(7,9)\
@@ -127,3 +134,72 @@
      nor(frac(u+v,nor(u+v)))=sqrt((7/sqrt(130))^2+(9/sqrt(130))^2)=sqrt(49/130+81/130)=sqrt(130/130)=sqrt(1)=1 qed
    $]
 )
+
+=== 9. Demostrar la desigualdad del triángulo si $u= vec(-3,2)$ y $v= vec(1,-2).$
+#ejercicio(
+  [$
+     nor(u+v)^2 lt.eq nor(u)^2+nor(v)^2\
+     nor(u+v)^2=nor(vec(-2,0))^2=(sqrt(4))^2=4\
+     nor(u)^2+nor(v)^2=(sqrt(9+4))^2+(sqrt(1+4))^2=13+5=18\
+     4lt.eq 18 qed
+    $]
+)
+
+=== 10. Hallar las componentes de $v$ dadas su magnitud y el ángulo que forma con el eje x positivo.
+#ejercicio(
+  [*a)* $nor(v)=3$,$theta=0^degree$],
+  [$
+     v=vec(nor(v)cos theta, nor(v)sin theta)\
+     =vec(3cos 0^degree,3sin 0^degree)\
+     =vec(3,0)qed
+   $]
+)
+=== 13. Hallar la distancia entre los puntos:
+#ejercicio(
+  [*a)* $(-2,3,2)$, $(2,-5,-2)$],
+  [$
+     v=vec(4,-8,-4)\
+     nor(v)=sqrt(16+64+16)=sqrt(96)=4sqrt(6)qed
+   $]
+)
+=== 15. Hallar las coordenadas del punto medio del segmento de recta que une los puntos:
+#ejercicio(
+  [*a)* $(5,-9,7)$, $(-2,3,3)$],
+  [$
+     M=(3/2,-6/2,10/2)\
+     =(3/2,-3,5)qed
+   $]
+)
+=== 18. Determinar cuáles de los vectores son paralelos a $z=vec(3,2,-5)$.
+#ejercicio(
+  [*a)* $vec(-6,-4,10)$],
+  [$
+     vec(-6,-4,10)=2vec(3,2,-5)\
+     =2z\
+     "Es paralelo a z." qed
+   $]
+)
+=== 19.
+=== 20.
+=== 22.
+=== 23.
+=== 25.
+=== 26.
+=== 27. 
+=== 29.
+=== 30.
+=== 31.
+=== 32.
+=== 37.
+=== 39.
+=== 40.
+=== 41.
+=== 43.
+=== 44.
+=== 45.
+=== 47.
+=== 48.
+=== 49.
+=== 50.
+=== 51.
+=== 52.

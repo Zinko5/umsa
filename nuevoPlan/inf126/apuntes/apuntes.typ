@@ -9,11 +9,43 @@
 #show math.equation:box
 #show grid:box
 #set grid(inset: 0.6em)
-#import "@preview/cetz:0.3.2"
-#show grid: g => align(center, g)
-= INF 126 - Cálculo 2a
+// #import "@preview/cetz:0.3.2"
+// #show grid: g => align(center, g)
+#let nor(a) = $lr(bar.v.double #a bar.v.double)$
+#let vec(..args) = {
+  let components = args.pos()
+  let n = components.len()
+  if n == 2 {
+    $lr(angle.l #components.at(0), #components.at(1) angle.r)$
+  } else if n == 3 {
+    $lr(angle.l #components.at(0), #components.at(1), #components.at(2) angle.r)$
+  } else {
+    panic("La función vector debe recibir 2 o 3 parámetros, pero recibió " + str(n))
+  }
+}
+#let ejercicio(..args) = {
+  let (enunciado, resolucion, conclusion) = if args.pos().len() == 1 {
+    (none, args.pos().at(0), none)
+  } else if args.pos().len() == 2 {
+    (args.pos().at(0), args.pos().at(1), none)
+  } else {
+    (args.pos().at(0), args.pos().at(1), args.pos().at(2))
+  }
 
-== Ponderación 
+  block(width: 100%, breakable: false, [
+    #if enunciado != none {
+      align(left)[#h(1em)#enunciado]
+    }
+    #align(center)[#resolucion]
+    #if conclusion != none {
+      align(left)[#text(size: 0.8em)[#h(1em)#emph[#conclusion]]]
+    }
+  ])
+}
+
+= INF 126 - Cálculo 2.
+
+== Ponderación.
 
 #block(
 grid(
@@ -21,115 +53,228 @@ grid(
     inset: 0.5em,
     row-gutter: 0pt,
     stroke: 0.1em + black,
-    [1er parcial], [30 puntos], [Sábado 29 de marzo],
-    [2do parcial], [30 puntos], [Sábado 17 de mayo],
-    [Exámen final], [30 puntos], [Sábado 21 de junio],
-    [Prácticas], [10 puntos], [],
-    [Exámen segundo turno], [100 puntos], [Miércoles 25 de junio],
+    [1er parcial.], [30 puntos.], [Sábado 29 de marzo.],
+    [2do parcial.], [30 puntos.], [Sábado 17 de mayo.],
+    [Exámen final.], [30 puntos.], [Sábado 21 de junio.],
+    [Prácticas.], [10 puntos.], [],
+    [Exámen segundo turno.], [100 puntos.], [Miércoles 25 de junio.],
 ))
-El exámen de segundo turno solo aplica a partir de los 35 puntos
+El exámen de segundo turno solo aplica a partir de los 35 puntos.
 
-== Auxiliar
-76267371\
-Auxiliar Alexander
+== Auxiliar.
+76267371.\
+Auxiliar Alexander.
 #pagebreak()
 
-= Norma 
-La norma de un vector $v$ se escribe $||v||$ e indica el tamaño del vector
-#grid(
-    columns: (auto, auto),
-    align: (right + horizon, left + horizon),
-    [Si el vector es], [$arrow(v)=[a, b]$],
-    [su norma es], [$||v||=sqrt(a^2 + b^2)$],
+
+#set heading(numbering: "1.")
+
+= Escalar.
+Un escalar es un número $x in RR$.
+
+= Vector.
+Un vector $v$ es una recta en el espacio. Un vector no es lo mism que una recta.\
+En el plano cartesiano (dos dimensiones) tiene dos componentes, $v=vec(a,b)$.\
+Se representa en una sistema de coordenadas; en el plano cartersiano, partiendo desde el origen $(0,0)$ hasta el punto $(a,b)$.\
+Se describe por los parametros magnitud (un escalar) y dirección (un ángulo).
+
+= Norma o magnitud.
+La norma de un vector $v$ se escribe $nor(v)$ e indica el tamaño del vector.
+#ejercicio(
+  [Definición de norma:],
+  [$
+     v=vec(a,b)\
+     nor(v)=sqrt(a^2+b^2)
+   $],
+   [Da como resultado un escalar.]
 )
-
-= Vectores unitarios
-Son vectores $v$ tal que su norma $||v|| = 1$\
-Ejemplo: 
-
-#grid(
-    columns: (auto, auto),
-    align: (right + horizon, left + horizon),
-    [Si el vector es], [$
-    arrow(v)=[3, 4]$],
-    [su norma es], [$||v||=sqrt(3^2 + 4^2)$],
-    [], [$||v||=sqrt(25)=5$],
-)
-
-Por lo tanto, $arrow(v)=[3, 4]$ no es un vector unitario
-Algunos vectores unitarios son $arrow(v)=[0, 1]$, $arrow(v)=[1, 0]$, que son los vectores canónicos
-
-= Descomposición de vectores
-Sea un vector $arrow(v)=[a, b]$, se puede descomponer por: $[a, b] = [a, 0] + [0, b] = a[1,0]+b[0,1]$
-
-Un vector $v$ está dado por $arrow(v)= [cos theta, sin theta]$. Donde $theta$ es el ángulo que forman las componentes del vector tomando como referencia el centro del plano cartesiano
-
-= Suma de vectores
-#grid(
-    columns: (auto, auto),
-    align: (right + horizon, left + horizon),
-    [Si los vectores son], [$arrow(v)=[3, 4]$],
-    [y], [$arrow(w)=[5, 2]$],
-    [su suma es], [$arrow(v)+arrow(w)=[3 + 5, 4+ 2] =[8,6]$],
-)
-
-Es decir, se deben sumar sus componentes
-
 La norma de la suma de vectores no es igual a la suma de sus normas, es decir
-$
-  ||v+w|| eq.not ||v||+||w||
-$
+#ejercicio(
+  [$
+    nor(v+w) eq.not nor(v)+nor(w)
+   $]
+)
 Ese caso solo ocurre si los vectores son paralelos
 
+= Dirección.
+En un plano cartesiano, la dirección es el ángulo $theta$ que forma un vector $v=vec(a,b)$ respecto al eje x positivo.
+#ejercicio(
+  [Definición de ángulo:],
+  [$
+     theta=arctan(b/a)
+   $]
+)
+Siguiedo las reglas:
+== Si $a gt 0$:
+Si $b gt.eq 0$: Sin modificaciones.\
+Si $b lt 0$:Suma $360^degree$ al resultado
+== Si $a lt 0$:
+Suma $180^degree$ al resultado
+== Si $a = 0$:
+Si $b gt 0$: El resultado es $90^degree$.\
+Si $b lt 0$: El resultado es $270^degree$.\
+
+= Operaciones básicas con vectores.
+== Entre un vector $v=vec(a,b)$ y un escalar $x in RR$.
+#ejercicio(
+  [Definición de multiplicacion por un escalar:],
+  [$
+     x v= x vec(a,b)=vec(a x,b x)\
+   $],
+   [Da como resultado un vector, que mantiene la dirección de $v$.]
+)
+#ejercicio(
+  [Definición de división por un escalar:],
+  [$
+     v/x=frac(vec(a,b),x)=vec(a/x,b/x)
+   $],
+   [Da como resultado un vector, que mantiene la dirección de $v$.]
+)
+
+== Entre dos vectores.
+Sean $v_1=vec(a_1,b_1)$ y $v_2=vec(a_2,b_2)$:
+#ejercicio(
+  [Definición de suma de vectores:],
+  [$
+     v_1+v_2\
+     =vec(a_1,b_1)+vec(a_2,b_2)\
+     =vec(a_1+a_2,b_1+b_2)
+   $],
+   [Da como resultado un vector.]
+)
+#ejercicio(
+  [Definición de resta de vectores:],
+  [$
+     v_1-v_2\
+     =vec(a_1,b_1)-vec(a_2,b_2)\
+     =vec(a_1-a_2,b_1-b_2)
+   $],
+   [Da como resultado un vector.]
+)
+#ejercicio(
+  [Definiciones de producto escalar, producto interior producto punto:],
+  [$
+     v_1 dot v_2 = a_1a_2+b_1b_2\
+     v_1 dot v_2 = nor(v_1-v_2)^2=nor(v_1)^2+nor(v_2)^2\
+     v_1 dot v_2 = nor(v_1)nor(v_2)cos theta\
+   $],
+   [Donde $theta$ es el ángulo entre $v_1$ y $v_2$. Da como resultado un escalar.]
+)
+#ejercicio(
+  [Definición de producto vectorial o producto cruz en dos dimensiones:],
+  [$
+     v_1 times v_2 = a_1b_2-a_2b_1\
+   $],
+   [Da como resultado un escalar.]
+)
+Sean $v_1=vec(a_1,b_1,c_1)$ y $v_2=vec(a_2,b_2,c_2)$:
+#ejercicio(
+  [Definición de producto vectorial o producto cruz en tres dimensiones:],
+  [$
+     v_1 times v_2 = vec(a_1c_2-c_1b_2,c_1a_2-a_1c_2,a_1b_2-b_1a_2)\
+   $],
+   [Da como resultado un vector que es perpendicular a $v_1$ y $v_2$.]
+)
+// u=⟨u1​,u2​,u3​⟩ y v⃗=⟨v1,v2,v3⟩
+// ⟨(u2​v3​−u3​v2​),(u3​v1​−u1​v3),(u1​v2​−u2​v1​)⟩
+// u1=a1 u2=b1 u3=c1
+// v1=a2 v2=b2 v3=c2
+
+= Vectores unitarios.
+Son vectores $v$ tal que su norma $nor(v) = 1$\.
+#ejercicio(
+  [Definición de vector unitario:],
+  [$
+     v=vec(a,b)\ 
+     nor(v)=sqrt(a^2+b^2)=sqrt(1)=1
+   $]
+)
+
+= Nomalización.
+Es el proceso de convertir un vector $v$ cualquiera, a otro vector $arrow(v)$ con la misma dirección que $v$ pero con norma igual a uno $nor(arrow(v))=1$; es decir, unitario.
+#ejercicio(
+  [Definición de normalización:],
+  [$
+     "sea" v=vec(a,b)\
+      arrow(v)=frac(v,nor(v))
+   $]
+)
+
+= Vectores canónicos
+Todo vector en dos dimensiones ($RR^2$) tiene 2 vectores canónicos.
+$
+  i = vec(1,0)\
+  j = vec(0,1)\
+$
+
+= Descomposición de vectores
+Un vector se puede descomponer por sus vectores canónicos.
+#ejercicio(
+  [$ 
+    v=vec(a,b)\
+    =vec(a,0)+vec(0,b)\
+    =a vec(1,0)+b vec(0,1)\
+    =a i+b j
+ $]
+)
+
 = Vectores paralelos
-Dos vectores son paralelos si uno es un producto escalar del otro, por ejemplo:
-#grid(
-    columns: (auto, auto),
-    align: (right + horizon, left + horizon),
-    [Si los vectores son], [$arrow(v)=[3, 4]$],
-    [y], [$arrow(w)=[6, 8]$],
-    [son paralelos, porque], [$2[3,4]=[6,8]$],
+Dos vectores son paralelos si uno es un producto escalar del otro.
+#ejercicio(
+  [Definición de vectores paralelos:],
+  [$
+     v_1=vec(a_1,b_1)\
+     v_2=vec(a_2,b_2)\
+     x in RR\
+     "Son paralelos si" x v_1=v_2
+   $]
 )
 
-= Vectonres unitarios canónicos
-Si un vector está en $RR^3$, tiene 3 vectores canónicos
-$
-  arrow(i) = [1,0,0]\
-  arrow(j) = [0,1,0]\
-  arrow(k) = [0,0,1]\
-$
-
-= Producto interior o escalar
-#grid(
-    columns: (auto, auto),
-    align: (right + horizon, left + horizon),
-    [Si el vector vectores es], [$arrow(v)=[v_1, v_2, v_3]$],
-    [y el escalar es], [$x=x$],
-    [el producto escalar es], [$x dot arrow(v)=[x v_1,x v_2,x v_3]$],
+= Vectores ortogonales
+Dos vectores son ortogonales (perpendiculares) si su producto escalar es cero
+#ejercicio(
+  [Definición de vectores ortogonales:],
+  [$
+     v_1 dot v_2=0 \
+     nor(v_1)nor(v_2)cos theta=0
+   $],
+   [Se cumple siempre que $theta=90^degree$]
 )
 
-= Producto cruz o vectorial 
-#grid(
-    columns: (auto, auto),
-    align: (right + horizon, left + horizon),
-    [Si los vectores son], [$arrow(v)=[v_1, v_2, v_3]$],
-    [y], [$arrow(w)=[w_1, w_2, w_3]$],
-    [el producto vectorial es], [$arrow(v) dot arrow(w)=v_1 w_1 + v_2 w_2 + v_3 w_3$],
+= Propiedades de vectores
+#ejercicio(
+  [Desigualdad del triángulo:],
+  [$
+     nor(v_1+v_2)lt.eq nor(v_1)+nor(v_2)
+   $]
+)
+#ejercicio(
+  [Vector que se forma entre los puntos $p_1=(a_1,b_1)$ y $p_2=(a_2,b_2)$:],
+  [$
+     v=p_2-p_1\
+     =vec(a_2-a_1,b_2-b_1)
+   $]
+)
+#ejercicio(
+  [Distancia $D$ entre los puntos $p_1=(a_1,b_1)$ y $p_2=(a_2,b_2)$:],
+  [$
+     v=p_2-p_1\
+     D=nor(v)\
+   $]
+)
+#ejercicio(
+  [Componentes a partir de medidas:],
+  [$
+     "Magnitud:" nor(v)", dirección:" theta\
+     v=vec(nor(v)cos theta, nor(v)sin theta)
+   $]
+)
+#ejercicio(
+  [Punto medio entre dos puntos:],
+  [$
+     (a_1,b_1)", "(a_2,b_2)\
+     M=(frac(a_1+a_2,2),frac(b_1+b_2,2))
+   $]
 )
 
-= Propiedades con el ángulo entre vectores
-#grid(
-    columns: (auto, auto),
-    align: (right + horizon, left + horizon),
-    [El ángulo $theta$ entre dos vectores debe estar entre $0$ y $pi$], [$0 lt.eq theta lt.eq pi$],
-    [Relación de normas y el ángulo], [$||v-w||^2 = ||w||^2 + ||v||^2 = ||v|| dot||w|| cos theta$],
-    [Definición del coseno], [$cos theta=frac(v dot w, ||v||dot||w||) $]
-)
-
-$$
-
-= Desigualdad de Cauchy-Schwarz
-$
-  forall v,w in RR^n, w eq.not 0\
-  |v dot w| lt.eq ||v|| dot ||w||
-$
+= Recta
