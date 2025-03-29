@@ -147,10 +147,10 @@
 
 === 10. Hallar las componentes de $v$ dadas su magnitud y el ángulo que forma con el eje x positivo.
 #ejercicio(
-  [*a)* $nor(v)=3$,$theta=0^degree$],
+  [*a)* $nor(v)=3$,$theta=0degree$],
   [$
      v=vec(nor(v)cos theta, nor(v)sin theta)\
-     =vec(3cos 0^degree,3sin 0^degree)\
+     =vec(3cos 0degree,3sin 0degree)\
      =vec(3,0)qed
    $]
 )
@@ -179,27 +179,232 @@
      "Es paralelo a z." qed
    $]
 )
-=== 19.
-=== 20.
-=== 22.
-=== 23.
-=== 25.
-=== 26.
-=== 27. 
-=== 29.
-=== 30.
-=== 31.
-=== 32.
-=== 37.
-=== 39.
-=== 40.
-=== 41.
-=== 43.
-=== 44.
-=== 45.
-=== 47.
-=== 48.
-=== 49.
-=== 50.
-=== 51.
-=== 52.
+=== 20. Usar vecrores para determinar si los puntos son vértices de un paralelogramo.
+#ejercicio(
+  [*a)* $(2,9,1)$, $(3,11,4)$, $(0,10,2)$, $(1,12,5)$],
+  [$
+     A=(2,9,1), B=(3,11,4), C=(0,10,2), D=(1,12,5)\
+     arrow(A B)=vec(1,2,3)\
+     arrow(A C)=vec(-2,1,1)\
+     arrow(A D)=vec(-1,3,4)\
+     A+arrow(A B)+arrow(A C)=vec(1,12,5)=D qed\
+   $]
+)
+=== 22. Hallar un vector unitario en la dirección de $u=vec(2,-1,2)$ y otro vector en la dirección opuesta de $u$.
+#ejercicio(
+  [$
+     arrow(u)=u/nor(u)\
+     nor(u)=sqrt(4+1+4)=sqrt(9)=3\
+     arrow(u)=vec(2/3,-1/3,2/3) qed\
+     \
+     -arrow(u)=vec(-2/3,1/3,-2/3) qed
+   $]
+)
+=== 23. Si $u=vec(4,10)$ y $v=vec(-2,3)$, hallar $u v$.
+#ejercicio(
+  [$
+     u v=-8+30=22 qed
+   $]
+)
+=== 25. Calcular $u dot v$ si $nor(u)=8$, $nor(v)=5$ y el ángulo entre $u$ y $v$ es $pi/3$.
+#ejercicio(
+  [$
+     u v=nor(u)nor(v)cos(pi/3)\
+     =40 dot 1/2=20 qed
+   $]
+)
+=== 26. Calcular el ángulo $theta$ entre los vectores $u=vec(2,18)$ y $v=vec(3/2,-1/6)$.
+#ejercicio(
+  [$
+     u v=nor(u)nor(v)cos theta\
+     cos theta=frac(u v,nor(u)nor(v))\
+     u v=3+(-18/6)=9/3-9/3=0\
+     theta=arccos 0=90degree qed
+   $]
+)
+=== 27. Determinar si $u=vec(2,18)$ y $v=vec(3/2,-1/6)$ son ortogonales, paralelos o ninguna de las dos cosas.
+#ejercicio(
+  [$
+     2x=3/2\
+     x=3/4\
+     3/4vec(2,18)=vec(3/2,27/2)\
+     "No son paralelos." qed
+   $]
+)
+#ejercicio(
+  [$
+     u v=3+(-3)=0\
+     "Sí son ortogonales" qed
+   $]
+)
+=== 30. Hallar la componente de $u=vec(9,7)$ que es ortogonal a $v=vec(1,3)$, y $w_1="proj"_v u=vec(3,9)$.
+#ejercicio(
+  [$
+    w_2=u-"proj"_v u\
+    =vec(9,7)-vec(3,9)\
+    =vec(6,-2) qed
+   $]
+)
+=== 31. Hallar la proyección de $u=vec(2,3)$ en $v=vec(5,1)$.
+#ejercicio(
+  [$
+     "proj"_v u=v frac(u dot v,nor(v)^2)\
+     =v 13/nor(v)^2=v 13/((sqrt(25+1))^2)=v 13/26 =vec(65/26,13/26)=vec(5/2,1/2) qed
+   $]
+)
+=== 32. Hallar la componente vectorial de $u=vec(2,-3)$ ortogonal a $v=vec(3,2)$.
+#ejercicio(
+  [$
+     "proj"_v u=v (u dot v)/(nor(v)^2)\
+     w_2=u-"proj"_v u\
+     "proj"_v u=v (6+-6)/((sqrt(9+4))^2)=v 0/13=vec(0,0)\
+     w_2=vec(2,-3)-vec(0,0)=vec(2,-3) qed
+   $]
+)
+=== 37. Calcular $u times v$ si $u=-2i+3j+4k$ y $v=3i+7j+2k$.
+#ejercicio(
+  [$
+     #grid(
+      columns: (auto, auto, auto),
+      inset: 3pt,
+      [i],[j],[k],
+      [-2],[3],[4],
+      [3],[7],[2]
+     )\
+     u times v = (6-28)i-(-4-12)j+(-14-9)k=-22i+16j-23k\
+     =vec(-22,-16,-23) qed
+   $]
+)
+=== 39. Calcular el area del paralelogramo que tiene los vectores dados como lados adyacentes $u=vec(3,2,-1)$ y $v=vec(1,2,3)$
+#ejercicio(
+  [$
+     A=nor(u times v)\
+     "det "(#grid(
+      columns: (auto, auto, auto),
+      inset: 3pt,
+      [i],[j],[k],
+      [3],[2],[-1],
+      [1],[2],[3],
+     ))\
+     u times v=(6+2)i-(9+1)j+(6-2)k=vec(8,-10,4)\
+     nor(vec(8,-10,4))=sqrt(64+100+16)=sqrt(164+16)=sqrt(180)=6sqrt(5) qed
+   $]
+)
+=== 40. Calcular si los puntos $(1,1,1)$, $(2,3,4)$, $(6,5,2)$ y $(7,7,5)$ son vértices de un paralelogramo y calcular su área.
+#ejercicio(
+  [$
+     A=(1,1,1), B=(2,3,4), C=(6,5,2), D=(7,7,5)\
+     arrow(A B)=vec(1,2,3)\
+     arrow(A C)=vec(5,4,1)\
+     arrow(A D)=vec(6,6,4)\
+     A+arrow(A B)+arrow(A C)=A+vec(6,6,3)=vec(7,7,4)=D\
+     "Sí es un paralelogramo, con" arrow(A B) " y " arrow(A C) " como lados adyacentes"\
+     A=nor(arrow(A B)times arrow(A C))\
+     "det "(#grid(
+      columns: (auto, auto, auto),
+      inset:3pt,
+      [i],[j],[k],
+      [1],[2],[3],
+      [5],[4],[1]
+     )) arrow.long (2-12)i-(1-15)j+(4-10)k=vec(-10,14,-6)\
+     nor(vec(-10,14,-6))=sqrt(100+196+36)=sqrt(296+36)=sqrt(332)=2sqrt(83) qed
+   $]
+)
+=== 43. Usar el triple producto escalar para encontrar el volumen del paralelepípedo que tiene como aristas adyacentes $u=i+j$, $v=j+k$ y $w=i+k$
+#ejercicio(
+  [$
+     u=vec(1,1,0)\
+     v=vec(0,1,1)\
+     w=vec(1,0,1)\
+     V=u dot (v times w)\
+     ="det "(#grid(
+      columns: (auto, auto, auto),
+      inset: 3pt,
+      [1],[1],[0],
+      [0],[1],[1],
+      [1],[0],[1]
+     ))arrow.long (1)1-(-1)1+0=1+1=2 qed
+   $]
+)
+=== 44. Encontrar el volumen del paralelepípedo que tiene los siguientes vertices:
+#ejercicio(
+  [$
+     A=(0,0,0),B=(3,0,0),C=(0,5,1),D=(3,5,1),E=(2,0,5),F=(5,0,5),G=(2,5,6),H=(5,5,6)\
+     arrow(A B)=vec(3,0,0)\
+     arrow(A C)=vec(0,5,1)\
+     arrow(A D)=vec(3,5,1)\
+     arrow(A E)=vec(2,0,5)\
+     arrow(A F)=vec(5,0,5)\
+     arrow(A G)=vec(2,5,6)\
+     arrow(A H)=vec(5,5,6)\
+     "det "(#grid(
+      columns: (auto, auto, auto),
+      inset: 3pt,
+      [3],[0],[0],
+      [0],[5],[1],
+      [2],[0],[5]
+     ))=3(25)=75 eq.not 0\
+     u=arrow(A B), v=arrow(A C), w=arrow(A E)\
+     V=u dot (v times w)\
+     ="det "(#grid(
+      columns: (auto, auto, auto),
+      inset: 3pt,
+      [3],[0],[0],
+      [0],[5],[1],
+      [2],[0],[5]
+     ))=75 qed
+   $]
+)
+=== 45. Demostrar que $nor(u times v) = nor(u)nor(y)$ si $u$ y $v$ son ortogonales
+#ejercicio(
+  [$
+     nor(u times v)=nor(u) nor(v)sin theta\
+     "Como "u" y "v" son ortogonales; son perpendiculares, y el ángulo entre ellos es "theta=90degree.\
+     nor(u times v)=nor(u)nor(v)sin 90degree \
+     =nor(u times v)=nor(u)nor(v)1 \
+     =nor(u times v)=nor(u)nor(v)qed
+   $]
+)
+=== 47. Hallar un conjunto de ecuaciones paramétricas de la recta que pasa por el punto $(-2,0,3)$ y es paralela al vector $v=2i+4j-2k$.
+#ejercicio(
+  [$
+     v=vec(2,4,-2)\
+     (-2,0,3)+v t=(-2,0,3)+vec(2,4,-2)t\
+     x=-2+2t, y=4t, z=3-2t qed
+   $]
+)
+=== 48. Hallar un conjunto de ecuaciones simétricas de la recta que pasa por el punto $(1,0,1)$ y es paralela a la recta $x=3+3t, y=5-2t, z=-7+t$.
+#ejercicio(
+  [$
+     v=vec(3,-2,1)\
+     (1,0,1)+vec(3,-2,1)t\
+     x=1+3t arrow.long t=(x-1)/3\
+     y=-2t arrow.long t=-(y)/2\
+     z=1+t arrow.long t=z-1\
+      t=(x-1)/3=-(y)/2=z-1 qed
+   $]
+)
+=== 49. Hallar un conjunro de ecuaciones paramétricas de la recta que pasa por los puntos $(5,-3,-2)$ y $(-2/3,2/3,1)$
+#ejercicio(
+  [$
+     v=vec(-2/3-5,2/3+3,3)=vec(-17/3,11/3,3)\
+     (5,-3,-2)+vec(-17/3,11/3,3)\
+     x=5-17/3t\
+     y=-3+11/3t\
+     z=-2+3t
+   $]
+)
+=== 51. Hallar un conjunto de ecuaciones paramétricas de la recta que pasa por el punto $(-4,5,2)$ y es paralela al plano $x y$ y al plano $y z$
+#ejercicio(
+  [$
+     (-4,5,2)+v t\
+     "Plano" x y=vec(1,1,0)\
+     "Plano" y z=vec(0,1,1)\
+     "Restricciones combinadas:" vec(0,1,0)\
+     (-4,5,2)+vec(0,1,0) t\
+     x=-4+0t\
+     y=5+t\
+     z=2+0t
+
+   $]
+)
