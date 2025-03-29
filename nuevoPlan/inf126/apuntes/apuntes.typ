@@ -7,8 +7,8 @@
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
 #set par(justify: true)
 #show math.equation:box
-#show grid:box
-#set grid(inset: 0.6em)
+// #show grid:box
+// #set grid(inset: 0.6em)
 // #import "@preview/cetz:0.3.2"
 // #show grid: g => align(center, g)
 #let nor(a) = $lr(bar.v.double #a bar.v.double)$
@@ -155,7 +155,6 @@ Sean $v_1=vec(a_1,b_1)$ y $v_2=vec(a_2,b_2)$:
   [Definiciones de producto escalar, producto interior producto punto:],
   [$
      v_1 dot v_2 = a_1a_2+b_1b_2\
-     v_1 dot v_2 = nor(v_1-v_2)^2=nor(v_1)^2+nor(v_2)^2\
      v_1 dot v_2 = nor(v_1)nor(v_2)cos theta\
    $],
    [Donde $theta$ es el ángulo entre $v_1$ y $v_2$. Da como resultado un escalar.]
@@ -171,14 +170,24 @@ Sean $v_1=vec(a_1,b_1,c_1)$ y $v_2=vec(a_2,b_2,c_2)$:
 #ejercicio(
   [Definición de producto vectorial o producto cruz en tres dimensiones:],
   [$
-     v_1 times v_2 = vec(a_1c_2-c_1b_2,c_1a_2-a_1c_2,a_1b_2-b_1a_2)\
+     v_1 times v_2 = vec(a_1c_2-c_1b_2,-(a_1c_2-c_1a_2),a_1b_2-b_1a_2)\
    $],
    [Da como resultado un vector que es perpendicular a $v_1$ y $v_2$.]
 )
-// u=⟨u1​,u2​,u3​⟩ y v⃗=⟨v1,v2,v3⟩
-// ⟨(u2​v3​−u3​v2​),(u3​v1​−u1​v3),(u1​v2​−u2​v1​)⟩
-// u1=a1 u2=b1 u3=c1
-// v1=a2 v2=b2 v3=c2
+== Producto mixto o triple producto escalar
+#ejercicio(
+  [Definición de triple producto escalar],
+  [$
+     u dot (v times w)\
+     ="det "(#grid(
+      columns: (auto, auto, auto),
+      inset:3pt,
+      [$u_1$],[$u_2$],[$u_3$],
+      [$v_1$],[$v_2$],[$v_3$],
+      [$w_1$],[$w_2$],[$w_3$]
+     ))
+   $]
+)
 
 = Vectores unitarios.
 Son vectores $v$ tal que su norma $nor(v) = 1$\.
@@ -276,5 +285,102 @@ Dos vectores son ortogonales (perpendiculares) si su producto escalar es cero
      M=(frac(a_1+a_2,2),frac(b_1+b_2,2))
    $]
 )
+#ejercicio(
+  [Norma del producto vectorial:],
+  [$
+     nor(u times v)=nor(u)nor(v)sin theta
+   $],
+   [Siendo $theta$ el ángulo que forman los vectores.]
+)
+#ejercicio(
+  [Paralelogramo a partir de cuatro puntos:],
+  [$
+     A, B, C, D\
+     "Si se cumple que" A+arrow(A D)+arrow(A C)=B\
+     "O que" A+arrow(A B)+arrow(A D)=C\
+     "O que" A+arrow(A B)+arrow(A C)=D\
+   $],
+   [Entonces los cuatro puntos forman un paralelogramo con $arrow(A X)$ y $arrow(A Y)$ como lados adyacentes.]
+)
+#ejercicio(
+  [Área del paralelogramo con lados adyacentes igual a los vectores $v$ y $u$:],
+  [$
+     A=nor(u times v)
+   $]
+)
+#ejercicio(
+  [Paralelepípedo a partir de ocho puntos:],
+  [$
+     A, B, C, D, E, F, G, H\
+     "Si se cumple que:"\
+     A+u=B\
+     A+v=C\
+     A+w=D\
+     A+u+v=E\
+     A+u+w=F\
+     A+v+w=G\
+     A+u+v+w=H\
+     "Probar con" u= arrow(A U)", " v= arrow(A V)" y "w= arrow(A W)
+   $],
+   [Siendo U, Y y W cualquier punto; u, v y w deben ser linealmente independientes. Entonces los ocho puntos forman un paralelepípedo con $u$, $v$ y $w$ como aristas adyacentes.]
+)
+#ejercicio(
+  [Volumen del paralelepípedo con aristas adyacentes $u$, $v$ y $w$:],
+  [$
+     V=u dot (v times w)
+   $]
+)
+= Proyección ortogonal
+La proyección ortogonal de un vector $u$ sobre otro vector $v$ es un vector que tiene la misma dirección que $v$ con una magnitud determinada de qué tanto $u$ apunta a esa dirección.
+#ejercicio(
+  [Definición de proyección ortogonal:],
+  [$
+     "proj"_v u=v(frac(u dot v,nor(v)^2))
+   $]
+)
 
-= Recta
+= Propiedades de la proyección ortogonal
+#ejercicio(
+  [Componente $w_1$ de un vector $u$ paralelo a un vector $v$],
+  [$f\
+     w_1 = "proj"_v u
+    $]
+)
+#ejercicio(
+  [Componente $w_2$ de un vector $u$ ortogonal a un vector $v$],
+  [$
+     w_2 = u-"proj"_v u
+    $]
+)
+= Recta en tres dimensiones
+Una recta en el sistema de coordenadas de tres dimensiones no tiene un punto de inicio ni fin, o sea que mientras que está atravesando infinitos puntos. \
+Una recta se puede describir con un punto al que atraviesa, un ángulo y una variable $t$, que representa cualquier punto que esa recta atraviera. El ángulo es la dirección de un vector, conocido como el vector director.\
+La recta puede escribirse con ecuaciones paramétricas o en forma vectorial.
+
+#ejercicio(
+  [Definición de recta con ecuaciones paramétricas:],
+  [$
+     x=p_1+v_1t\
+     y=p_2+v_2t\
+     z=p_3 +v_3t
+   $],
+   [Donde $p=(p_1, p_2, p_3)$ es el punto que atraviesa, y $v=vec(v_1,v_2,v_3)$ es el vector director.]
+)
+#ejercicio(
+  [Definición de recta con forma vectorial:],
+  [$
+     r(t)=(p_1, p_2, p_3)+(v_1,v_2,v_3)t
+   $],
+   [Donde $p=(p_1, p_2, p_3)$ es el punto que atraviesa, y $v=vec(v_1,v_2,v_3)$ es el vector director.]
+)
+A partir de las ecuaciones paramétricas, se pueden formar las ecuaciones simétricas despejando $t$ e igualando cada término.
+#ejercicio(
+  [Definición de recta con forma vectorial:],
+  [$
+     x=p_1+v_1t arrow.long t=(x-p_1)/v_1\
+     y=p_2+v_2t arrow.long t=(y-p_2)/v_2\
+     z=p_3 +v_3 arrow.long t=(z-p_2)/v_2\
+     t=(x-p_1)/v_1=(y-p_2)/v_2=(z-p_2)/v_2\
+   $],
+   [Donde $p=(p_1, p_2, p_3)$ es el punto que atraviesa, y $v=vec(v_1,v_2,v_3)$ es el vector director ]
+)
