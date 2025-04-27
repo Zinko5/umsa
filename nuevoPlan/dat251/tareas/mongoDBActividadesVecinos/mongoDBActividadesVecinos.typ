@@ -183,23 +183,23 @@ db.recursos.updateOne(
 ```
 
 == Comprobación:
-#image("../media/m1.png")
-#image("../media/m2.png")
-#image("../media/m3.png")
+#image("./m1.png")
+#image("./m2.png")
+#image("./m3.png")
 
 == Vista en MongoDB Compass:
-#image("m4.png")
-#image("m5.png")
-#image("m6.png")
-#image("m7.png")
+#image("./m4.png")
+#image("./m5.png")
+#image("./m6.png")
+#image("./m7.png")
 
 == Schema:
 === De actividades:
-#image("m8.png")
-#image("m9.png")
+#image("./m8.png")
+#image("./m9.png")
 
 === De recursos:
-#image("{4B62BED9-D2EA-44FE-80AE-E556978AD0F3}.png")
+#image("./m10.png")
 
 === De vecinos:
-#image("{C1553E42-35C9-497F-8803-83ECF1722FA6}.png")
+#image("./m11.png")
