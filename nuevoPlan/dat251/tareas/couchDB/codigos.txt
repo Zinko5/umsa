@@ -1,0 +1,107 @@
+a) 
+{
+  "_id": "libro_001",
+  "titulo": "Cien años de soledad",
+  "autor_id": "autor_001",
+  "editorial_id": "editorial_001",
+  "genero": "Realismo mágico",
+  "anio_publicacion": 1967,
+  "precio": 19.99
+}
+
+b) 
+curl http://127.0.0.1:5984/
+
+c)
+curl -X GET http://admin:123@127.0.0.1:5984/_all_dbs
+
+d)
+curl -X PUT http://admin:123@127.0.0.1:5984/libreria/libro_002 ^
+-H "Content-Type: application/json" -d ^
+"{^
+  \"_id\": \"libro_002\",^
+  \"titulo\": \"El amor en los tiempos del cólera\",^
+  \"autor_id\": \"autor_001\",^
+  \"editorial_id\": \"editorial_002\",^
+  \"genero\": \"Romance\",^
+  \"anio_publicacion\": 1985,^
+  \"precio\": 15.50^
+}"
+
+e)
+curl -X POST -H "Content-Type: application/json" --data @libreria.json ^
+http://admin:123@127.0.0.1:5984/libreria/_bulk_docs
+
+f)
+curl -X GET http://admin:123@127.0.0.1:5984/libreria/_all_docs
+
+g)
+curl -X POST http://admin:123@127.0.0.1:5984/libreria/_find ^
+-H "Content-Type: application/json" -d ^
+"{^
+  \"selector\": {^
+    \"_id\": \"autor_001\"^
+  },^
+  \"fields\": [\"nombre\", \"nacionalidad\"]^
+}"
+
+h)
+curl -X POST http://admin:123@127.0.0.1:5984/libreria/_find ^
+-H "Content-Type: application/json" -d^
+"{^
+  \"selector\": {^
+    \"editorial_id\": \"editorial_002\"^
+  },^
+  \"fields\": [\"titulo\"]^
+}"
+
+i)
+{
+  "selector": {
+    "precio": {
+      "$gte": 10,
+      "$lte": 17
+    }
+  },
+  "fields": [
+    "titulo",
+    "anio_publicacion",
+    "autor_id",
+    "precio"
+  ]
+}
+
+j)
+{
+  "selector": {
+    "$or": [
+      {
+        "precio": {
+          "$lt": 20
+        }
+      },
+      {
+        "anio_publicacion": {
+          "$lt": 1950
+        }
+      }
+    ]
+  },
+  "fields": [
+    "titulo",
+    "precio",
+    "anio_publicacion",
+    "genero"
+  ]
+}
+
+k)
+{
+  "selector": {
+    "tipo": "editorial",
+    "_id": {
+      "$in": ["editorial_002", "editorial_005", "editorial_009"]
+    }
+  },
+  "fields": ["nombre", "pais"]
+}
