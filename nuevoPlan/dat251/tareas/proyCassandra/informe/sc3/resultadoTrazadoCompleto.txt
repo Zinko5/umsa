@@ -1,0 +1,267 @@
+zinko@win11-5znk:~/publico/proyCassandra$ cqlsh
+Connected to Test Cluster at 127.0.0.1:9042
+[cqlsh 6.1.0 | Cassandra 4.1.8 | CQL spec 3.4.6 | Native protocol v5]
+Use HELP for help.
+cqlsh> tracing on;
+Now Tracing is enabled
+cqlsh>
+cqlsh> -- consulta 3:
+cqlsh> SELECT * FROM pedidos_app.pedidos_por_estado WHERE estado = 'entregado'   AND fecha_pedido >= '2025-01-01T00:00:00Z'   AND fecha_pedido <= '2025-04-30T23:59:59Z' ALLOW FILTERING;
+
+ estado    | fecha_pedido                    | id_pedido                            | nombre_cliente  | productos
+-----------+---------------------------------+--------------------------------------+-----------------+----------------------------------------------------------------------------
+ entregado | 2025-04-30 04:34:26.000000+0000 | f054a2e4-57e9-45f1-af85-5a536d46489c |      MariaGomez |    [{'prod8': 7}, {'prod1': 1}, {'prod5': 6}, {'prod17': 3}, {'prod3': 3}]
+ entregado | 2025-04-29 11:14:36.000000+0000 | 861c91d3-2481-4ce5-b739-e2d7d28f64ef |  SofiaFernandez |                                                            [{'prod20': 8}]
+ entregado | 2025-04-22 20:30:08.000000+0000 | 989dc247-497a-4b53-9810-b9c7ce83f1c3 |    AnaRodriguez |                                               [{'prod1': 1}, {'prod6': 9}]
+ entregado | 2025-04-20 07:37:08.000000+0000 | 048ce1d7-0782-40a8-aa38-5466af4a4a90 |      MariaGomez |                                                            [{'prod20': 6}]
+ entregado | 2025-04-20 05:35:27.000000+0000 | 7e4ae06a-037c-4ac4-94cc-b1d8e8c3b1e1 |  SofiaFernandez |                                              [{'prod5': 2}, {'prod16': 4}]
+ entregado | 2025-04-19 18:19:43.000000+0000 | de852f12-b81f-4004-8048-98ad7d0fc1ed |    MiguelTorres |                               [{'prod17': 1}, {'prod5': 5}, {'prod1': 10}]
+ entregado | 2025-04-08 10:23:11.000000+0000 | 964e7670-238c-4b68-af7d-3b0fa118922f |      MariaGomez |                              [{'prod16': 4}, {'prod15': 8}, {'prod19': 8}]
+ entregado | 2025-04-03 10:22:30.000000+0000 | fd91e174-7d16-4b01-b9da-9320a5c6ff63 |  SofiaFernandez |                 [{'prod3': 7}, {'prod10': 8}, {'prod4': 2}, {'prod16': 8}]
+ entregado | 2025-03-24 23:43:25.000000+0000 | d4953d9d-2ac1-4513-b5ad-c148db5ab2a2 |    MiguelTorres |                                                             [{'prod8': 5}]
+ entregado | 2025-03-18 15:53:06.000000+0000 | e9338129-2df6-4945-887d-1a085a5bbd2d | SantiagoAbascal |                 [{'prod18': 7}, {'prod12': 7}, {'prod8': 6}, {'prod1': 8}]
+ entregado | 2025-02-19 18:30:59.000000+0000 | ea883fee-4c29-42fb-b878-c6bd3eca2892 |   LauraMartinez |                                              [{'prod9': 5}, {'prod14': 5}]
+ entregado | 2025-02-18 19:14:19.000000+0000 | 51ecdafa-8817-4fab-87f9-f500ea30cb61 |  RobertoJimenez | [{'prod12': 9}, {'prod6': 9}, {'prod14': 1}, {'prod15': 9}, {'prod20': 6}]
+ entregado | 2025-02-17 03:56:20.000000+0000 | 103d8fd5-e915-4395-a1db-b5fc4451494b |     DavidGarcia |                                                             [{'prod8': 7}]
+ entregado | 2025-02-09 21:14:05.000000+0000 | fb81b1c1-b7fd-448b-9486-d4ddd938bc74 |  RobertoJimenez |                                               [{'prod6': 7}, {'prod9': 5}]
+ entregado | 2025-01-28 00:51:26.000000+0000 | 3888bb0d-57b8-4160-918b-d3d062cee16e |    MiguelTorres |               [{'prod20': 10}, {'prod9': 2}, {'prod10': 3}, {'prod15': 5}]
+ entregado | 2025-01-13 10:14:25.000000+0000 | 20cb54bd-b9e0-4423-b374-7b18f94d633b |  SofiaFernandez |              [{'prod15': 7}, {'prod14': 1}, {'prod18': 10}, {'prod11': 6}]
+ entregado | 2025-01-01 01:14:36.000000+0000 | b5521700-6cf2-45c9-85c3-c087bba06426 |    AnaRodriguez |                                              [{'prod10': 5}, {'prod6': 3}]
+
+(17 rows)
+
+Tracing session: cbc6e900-2599-11f0-9fdc-254df6d06161
+
+ activity                                                                                                                                                                                                                 | timestamp                  | source    | source_elapsed | client
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                                                                                                                                                                       Execute CQL3 query | 2025-04-30 04:04:52.753000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing SELECT * FROM pedidos_app.pedidos_por_estado WHERE estado = 'entregado'   AND fecha_pedido >= '2025-01-01T00:00:00Z'   AND fecha_pedido <= '2025-04-30T23:59:59Z' ALLOW FILTERING; [Native-Transport-Requests-1] | 2025-04-30 04:04:52.753000 | 127.0.0.1 |            157 | 127.0.0.1
+                                                                                                                                                                        Preparing statement [Native-Transport-Requests-1] | 2025-04-30 04:04:52.753001 | 127.0.0.1 |            357 | 127.0.0.1
+                                                                                                                                                     Executing single-partition query on pedidos_por_estado [ReadStage-2] | 2025-04-30 04:04:52.754000 | 127.0.0.1 |           1193 | 127.0.0.1
+                                                                                                                                                                               Acquiring sstable references [ReadStage-2] | 2025-04-30 04:04:52.754001 | 127.0.0.1 |           1258 | 127.0.0.1
+                                                                                                                                  Skipped 0/0 non-slice-intersecting sstables, included 0 due to tombstones [ReadStage-2] | 2025-04-30 04:04:52.754002 | 127.0.0.1 |           1295 | 127.0.0.1
+                                                                                                                                                                  Merged data from memtables and 0 sstables [ReadStage-2] | 2025-04-30 04:04:52.754003 | 127.0.0.1 |           1383 | 127.0.0.1
+                                                                                                                                                                    Read 17 live rows and 0 tombstone cells [ReadStage-2] | 2025-04-30 04:04:52.754004 | 127.0.0.1 |           1401 | 127.0.0.1
+                                                                                                                                                                                                         Request complete | 2025-04-30 04:04:52.754636 | 127.0.0.1 |           1636 | 127.0.0.1
+
+
+cqlsh>
+cqlsh> -- optimzacion 1 (consulta 3 optimizada):
+cqlsh> SELECT * FROM pedidos_app.pedidos_por_estado_fecha WHERE estado = 'entregado'   AND fecha_pedido >= '2025-01-01T00:00:00Z'   AND fecha_pedido <= '2025-04-30T23:59:59Z';
+
+ estado    | fecha_pedido                    | id_pedido                            | nombre_cliente  | productos
+-----------+---------------------------------+--------------------------------------+-----------------+----------------------------------------------------------------------------
+ entregado | 2025-04-30 04:34:26.000000+0000 | f054a2e4-57e9-45f1-af85-5a536d46489c |      MariaGomez |    [{'prod8': 7}, {'prod1': 1}, {'prod5': 6}, {'prod17': 3}, {'prod3': 3}]
+ entregado | 2025-04-29 11:14:36.000000+0000 | 861c91d3-2481-4ce5-b739-e2d7d28f64ef |  SofiaFernandez |                                                            [{'prod20': 8}]
+ entregado | 2025-04-22 20:30:08.000000+0000 | 989dc247-497a-4b53-9810-b9c7ce83f1c3 |    AnaRodriguez |                                               [{'prod1': 1}, {'prod6': 9}]
+ entregado | 2025-04-20 07:37:08.000000+0000 | 048ce1d7-0782-40a8-aa38-5466af4a4a90 |      MariaGomez |                                                            [{'prod20': 6}]
+ entregado | 2025-04-20 05:35:27.000000+0000 | 7e4ae06a-037c-4ac4-94cc-b1d8e8c3b1e1 |  SofiaFernandez |                                              [{'prod5': 2}, {'prod16': 4}]
+ entregado | 2025-04-19 18:19:43.000000+0000 | de852f12-b81f-4004-8048-98ad7d0fc1ed |    MiguelTorres |                               [{'prod17': 1}, {'prod5': 5}, {'prod1': 10}]
+ entregado | 2025-04-08 10:23:11.000000+0000 | 964e7670-238c-4b68-af7d-3b0fa118922f |      MariaGomez |                              [{'prod16': 4}, {'prod15': 8}, {'prod19': 8}]
+ entregado | 2025-04-03 10:22:30.000000+0000 | fd91e174-7d16-4b01-b9da-9320a5c6ff63 |  SofiaFernandez |                 [{'prod3': 7}, {'prod10': 8}, {'prod4': 2}, {'prod16': 8}]
+ entregado | 2025-03-24 23:43:25.000000+0000 | d4953d9d-2ac1-4513-b5ad-c148db5ab2a2 |    MiguelTorres |                                                             [{'prod8': 5}]
+ entregado | 2025-03-18 15:53:06.000000+0000 | e9338129-2df6-4945-887d-1a085a5bbd2d | SantiagoAbascal |                 [{'prod18': 7}, {'prod12': 7}, {'prod8': 6}, {'prod1': 8}]
+ entregado | 2025-02-19 18:30:59.000000+0000 | ea883fee-4c29-42fb-b878-c6bd3eca2892 |   LauraMartinez |                                              [{'prod9': 5}, {'prod14': 5}]
+ entregado | 2025-02-18 19:14:19.000000+0000 | 51ecdafa-8817-4fab-87f9-f500ea30cb61 |  RobertoJimenez | [{'prod12': 9}, {'prod6': 9}, {'prod14': 1}, {'prod15': 9}, {'prod20': 6}]
+ entregado | 2025-02-17 03:56:20.000000+0000 | 103d8fd5-e915-4395-a1db-b5fc4451494b |     DavidGarcia |                                                             [{'prod8': 7}]
+ entregado | 2025-02-09 21:14:05.000000+0000 | fb81b1c1-b7fd-448b-9486-d4ddd938bc74 |  RobertoJimenez |                                               [{'prod6': 7}, {'prod9': 5}]
+ entregado | 2025-01-28 00:51:26.000000+0000 | 3888bb0d-57b8-4160-918b-d3d062cee16e |    MiguelTorres |               [{'prod20': 10}, {'prod9': 2}, {'prod10': 3}, {'prod15': 5}]
+ entregado | 2025-01-13 10:14:25.000000+0000 | 20cb54bd-b9e0-4423-b374-7b18f94d633b |  SofiaFernandez |              [{'prod15': 7}, {'prod14': 1}, {'prod18': 10}, {'prod11': 6}]
+ entregado | 2025-01-01 01:14:36.000000+0000 | b5521700-6cf2-45c9-85c3-c087bba06426 |    AnaRodriguez |                                              [{'prod10': 5}, {'prod6': 3}]
+
+(17 rows)
+
+Tracing session: e3914da0-2599-11f0-9fdc-254df6d06161
+
+ activity                                                                                                                                                                                                       | timestamp                  | source    | source_elapsed | client
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                                                                                                                                                             Execute CQL3 query | 2025-04-30 04:05:32.666000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing SELECT * FROM pedidos_app.pedidos_por_estado_fecha WHERE estado = 'entregado'   AND fecha_pedido >= '2025-01-01T00:00:00Z'   AND fecha_pedido <= '2025-04-30T23:59:59Z'; [Native-Transport-Requests-1] | 2025-04-30 04:05:32.666001 | 127.0.0.1 |            215 | 127.0.0.1
+                                                                                                                                                              Preparing statement [Native-Transport-Requests-1] | 2025-04-30 04:05:32.666002 | 127.0.0.1 |            383 | 127.0.0.1
+                                                                                                                                     Executing single-partition query on pedidos_por_estado_fecha [ReadStage-2] | 2025-04-30 04:05:32.667000 | 127.0.0.1 |           1488 | 127.0.0.1
+                                                                                                                                                                     Acquiring sstable references [ReadStage-2] | 2025-04-30 04:05:32.667001 | 127.0.0.1 |           1533 | 127.0.0.1
+                                                                                                                        Skipped 0/0 non-slice-intersecting sstables, included 0 due to tombstones [ReadStage-2] | 2025-04-30 04:05:32.667002 | 127.0.0.1 |           1603 | 127.0.0.1
+                                                                                                                                                        Merged data from memtables and 0 sstables [ReadStage-2] | 2025-04-30 04:05:32.667003 | 127.0.0.1 |           1693 | 127.0.0.1
+                                                                                                                                                          Read 17 live rows and 0 tombstone cells [ReadStage-2] | 2025-04-30 04:05:32.667004 | 127.0.0.1 |           1713 | 127.0.0.1
+                                                                                                                                                                                               Request complete | 2025-04-30 04:05:32.667962 | 127.0.0.1 |           1962 | 127.0.0.1
+
+
+cqlsh>
+cqlsh> -- recomendacion 2:
+cqlsh> SELECT producto_id, fecha_compra, cantidad
+ras_por_producto   ... FROM pedidos_app.compras_por_producto
+   ... WHERE cliente = 'JuanPerez';
+
+ producto_id | fecha_compra                    | cantidad
+-------------+---------------------------------+----------
+      prod19 | 2025-03-22 23:54:50.000000+0000 |        9
+      prod19 | 2025-01-08 05:56:06.000000+0000 |       10
+       prod6 | 2025-03-22 23:54:50.000000+0000 |       10
+      prod10 | 2025-04-17 09:19:02.000000+0000 |        6
+      prod16 | 2025-04-17 09:19:02.000000+0000 |        9
+      prod16 | 2025-03-22 23:54:50.000000+0000 |        1
+       prod9 | 2025-04-29 09:24:21.000000+0000 |        4
+       prod9 | 2025-04-03 00:39:28.000000+0000 |        5
+       prod9 | 2025-02-27 19:07:10.000000+0000 |       10
+       prod9 | 2025-01-08 05:56:06.000000+0000 |       10
+       prod1 | 2025-04-03 00:39:28.000000+0000 |        5
+       prod1 | 2025-02-01 21:23:13.000000+0000 |        8
+       prod1 | 2025-01-12 23:46:40.000000+0000 |        2
+      prod15 | 2025-04-17 09:19:02.000000+0000 |        5
+      prod15 | 2025-03-22 23:54:50.000000+0000 |        1
+      prod15 | 2025-01-08 05:56:06.000000+0000 |        8
+      prod11 | 2025-03-12 13:38:51.000000+0000 |        9
+       prod7 | 2025-02-03 23:17:52.000000+0000 |        9
+       prod7 | 2025-01-14 01:34:49.000000+0000 |        3
+       prod7 | 2025-01-08 05:56:06.000000+0000 |        2
+       prod5 | 2025-01-14 01:34:49.000000+0000 |        6
+       prod5 | 2025-01-12 23:46:40.000000+0000 |        8
+       prod4 | 2025-04-29 09:24:21.000000+0000 |        7
+       prod2 | 2025-04-03 00:39:28.000000+0000 |        6
+       prod2 | 2025-01-18 06:30:41.000000+0000 |        3
+      prod17 | 2025-04-17 09:19:02.000000+0000 |        5
+      prod12 | 2025-04-17 09:19:02.000000+0000 |        1
+      prod12 | 2025-04-03 00:39:28.000000+0000 |        5
+      prod12 | 2025-02-03 23:17:52.000000+0000 |        1
+      prod12 | 2025-01-14 01:34:49.000000+0000 |        5
+      prod20 | 2025-03-22 23:54:50.000000+0000 |        1
+
+(31 rows)
+
+Tracing session: 42a50e30-259a-11f0-9fdc-254df6d06161
+
+ activity                                                                                                                                              | timestamp                  | source    | source_elapsed | client
+-------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                                                                                                    Execute CQL3 query | 2025-04-30 04:08:12.179000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing SELECT producto_id, fecha_compra, cantidad\nFROM pedidos_app.compras_por_producto\nWHERE cliente = 'JuanPerez'; [Native-Transport-Requests-1] | 2025-04-30 04:08:12.179001 | 127.0.0.1 |            303 | 127.0.0.1
+                                                                                                     Preparing statement [Native-Transport-Requests-1] | 2025-04-30 04:08:12.180000 | 127.0.0.1 |            504 | 127.0.0.1
+                                 Index mean cardinalities are idx_compras_cliente:24. Scanning with idx_compras_cliente. [Native-Transport-Requests-1] | 2025-04-30 04:08:12.180001 | 127.0.0.1 |           1192 | 127.0.0.1
+                                                                                               Computing ranges to query [Native-Transport-Requests-1] | 2025-04-30 04:08:12.180002 | 127.0.0.1 |           1335 | 127.0.0.1
+                          Submitting range requests on 17 ranges with a concurrency of 17 (1.35 rows per range expected) [Native-Transport-Requests-1] | 2025-04-30 04:08:12.181000 | 127.0.0.1 |           1653 | 127.0.0.1
+                                                                                   Submitted 1 concurrent range requests [Native-Transport-Requests-1] | 2025-04-30 04:08:12.181001 | 127.0.0.1 |           1841 | 127.0.0.1
+                                                      Executing read on pedidos_app.compras_por_producto using index idx_compras_cliente [ReadStage-3] | 2025-04-30 04:08:12.181002 | 127.0.0.1 |           2247 | 127.0.0.1
+                                                            Executing single-partition query on compras_por_producto.idx_compras_cliente [ReadStage-3] | 2025-04-30 04:08:12.182000 | 127.0.0.1 |           2471 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.182001 | 127.0.0.1 |           2501 | 127.0.0.1
+                                                               Skipped 0/1 non-slice-intersecting sstables, included 0 due to tombstones [ReadStage-3] | 2025-04-30 04:08:12.182002 | 127.0.0.1 |           2560 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.182003 | 127.0.0.1 |           2755 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.182004 | 127.0.0.1 |           2999 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.182005 | 127.0.0.1 |           3050 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.182006 | 127.0.0.1 |           3085 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.182007 | 127.0.0.1 |           3149 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.183000 | 127.0.0.1 |           3458 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.183001 | 127.0.0.1 |           3547 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.183002 | 127.0.0.1 |           3576 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.183003 | 127.0.0.1 |           3622 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.183004 | 127.0.0.1 |           3751 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.183005 | 127.0.0.1 |           3768 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.183006 | 127.0.0.1 |           3781 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.183007 | 127.0.0.1 |           3806 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.183008 | 127.0.0.1 |           3867 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.183009 | 127.0.0.1 |           3878 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.183010 | 127.0.0.1 |           3889 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.183011 | 127.0.0.1 |           3907 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.183012 | 127.0.0.1 |           4056 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.183013 | 127.0.0.1 |           4076 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.183014 | 127.0.0.1 |           4090 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.183015 | 127.0.0.1 |           4117 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.183016 | 127.0.0.1 |           4185 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.183017 | 127.0.0.1 |           4197 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.183018 | 127.0.0.1 |           4208 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.183019 | 127.0.0.1 |           4228 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.183020 | 127.0.0.1 |           4303 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.183021 | 127.0.0.1 |           4314 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.183022 | 127.0.0.1 |           4324 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.183023 | 127.0.0.1 |           4350 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.183024 | 127.0.0.1 |           4396 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.183025 | 127.0.0.1 |           4407 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.183026 | 127.0.0.1 |           4418 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.184000 | 127.0.0.1 |           4434 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.184001 | 127.0.0.1 |           4474 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.184002 | 127.0.0.1 |           4485 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.184003 | 127.0.0.1 |           4496 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.184004 | 127.0.0.1 |           4513 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.184005 | 127.0.0.1 |           4562 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.184006 | 127.0.0.1 |           4573 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.184007 | 127.0.0.1 |           4584 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.184008 | 127.0.0.1 |           4720 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.184009 | 127.0.0.1 |           4901 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.184010 | 127.0.0.1 |           4939 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.184011 | 127.0.0.1 |           4959 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.184012 | 127.0.0.1 |           5044 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.184013 | 127.0.0.1 |           5137 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.184014 | 127.0.0.1 |           5154 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.184015 | 127.0.0.1 |           5167 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.184016 | 127.0.0.1 |           5193 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.184017 | 127.0.0.1 |           5277 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.184018 | 127.0.0.1 |           5358 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.184019 | 127.0.0.1 |           5379 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.184020 | 127.0.0.1 |           5414 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.185000 | 127.0.0.1 |           5495 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.185001 | 127.0.0.1 |           5508 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.185002 | 127.0.0.1 |           5520 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.185003 | 127.0.0.1 |           5541 | 127.0.0.1
+                                                                                Executing single-partition query on compras_por_producto [ReadStage-3] | 2025-04-30 04:08:12.185004 | 127.0.0.1 |           5599 | 127.0.0.1
+                                                                                                            Acquiring sstable references [ReadStage-3] | 2025-04-30 04:08:12.185005 | 127.0.0.1 |           5610 | 127.0.0.1
+                                                                                                               Merging memtable contents [ReadStage-3] | 2025-04-30 04:08:12.185006 | 127.0.0.1 |           5629 | 127.0.0.1
+                                                                                                             Key cache hit for sstable 1 [ReadStage-3] | 2025-04-30 04:08:12.185007 | 127.0.0.1 |           5645 | 127.0.0.1
+                                                                                                 Read 31 live rows and 0 tombstone cells [ReadStage-3] | 2025-04-30 04:08:12.185008 | 127.0.0.1 |           5692 | 127.0.0.1
+                                                                                               Merged data from memtables and 1 sstables [ReadStage-3] | 2025-04-30 04:08:12.185009 | 127.0.0.1 |           5764 | 127.0.0.1
+                                                                                                                                      Request complete | 2025-04-30 04:08:12.186079 | 127.0.0.1 |           7079 | 127.0.0.1
+
+
+cqlsh>
+cqlsh> -- optimizacion 2 (optimizacion de recomendacion 2):
+cqlsh> SELECT producto_id, fecha_compra, cantidad FROM pedidos_app.compras_por_cliente WHERE cliente = 'JuanPerez'   AND fecha_compra >= '2025-01-01'   AND fecha_compra <= '2025-04-30';
+
+ producto_id | fecha_compra                    | cantidad
+-------------+---------------------------------+----------
+       prod4 | 2025-04-29 09:24:21.000000+0000 |        7
+       prod9 | 2025-04-29 09:24:21.000000+0000 |        4
+      prod10 | 2025-04-17 09:19:02.000000+0000 |        6
+      prod12 | 2025-04-17 09:19:02.000000+0000 |        1
+      prod15 | 2025-04-17 09:19:02.000000+0000 |        5
+      prod16 | 2025-04-17 09:19:02.000000+0000 |        9
+      prod17 | 2025-04-17 09:19:02.000000+0000 |        5
+       prod1 | 2025-04-03 00:39:28.000000+0000 |        5
+      prod12 | 2025-04-03 00:39:28.000000+0000 |        5
+       prod2 | 2025-04-03 00:39:28.000000+0000 |        6
+       prod9 | 2025-04-03 00:39:28.000000+0000 |        5
+      prod15 | 2025-03-22 23:54:50.000000+0000 |        1
+      prod16 | 2025-03-22 23:54:50.000000+0000 |        1
+      prod19 | 2025-03-22 23:54:50.000000+0000 |        9
+      prod20 | 2025-03-22 23:54:50.000000+0000 |        1
+       prod6 | 2025-03-22 23:54:50.000000+0000 |       10
+      prod11 | 2025-03-12 13:38:51.000000+0000 |        9
+       prod9 | 2025-02-27 19:07:10.000000+0000 |       10
+      prod12 | 2025-02-03 23:17:52.000000+0000 |        1
+       prod7 | 2025-02-03 23:17:52.000000+0000 |        9
+       prod1 | 2025-02-01 21:23:13.000000+0000 |        8
+       prod2 | 2025-01-18 06:30:41.000000+0000 |        3
+      prod12 | 2025-01-14 01:34:49.000000+0000 |        5
+       prod5 | 2025-01-14 01:34:49.000000+0000 |        6
+       prod7 | 2025-01-14 01:34:49.000000+0000 |        3
+       prod1 | 2025-01-12 23:46:40.000000+0000 |        2
+       prod5 | 2025-01-12 23:46:40.000000+0000 |        8
+      prod15 | 2025-01-08 05:56:06.000000+0000 |        8
+      prod19 | 2025-01-08 05:56:06.000000+0000 |       10
+       prod7 | 2025-01-08 05:56:06.000000+0000 |        2
+       prod9 | 2025-01-08 05:56:06.000000+0000 |       10
+
+(31 rows)
+
+Tracing session: 5ff57b00-259a-11f0-9fdc-254df6d06161
+
+ activity                                                                                                                                                                                                                 | timestamp                  | source    | source_elapsed | client
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------+-----------+----------------+-----------
+                                                                                                                                                                                                       Execute CQL3 query | 2025-04-30 04:09:01.360000 | 127.0.0.1 |              0 | 127.0.0.1
+ Parsing SELECT producto_id, fecha_compra, cantidad FROM pedidos_app.compras_por_cliente WHERE cliente = 'JuanPerez'   AND fecha_compra >= '2025-01-01'   AND fecha_compra <= '2025-04-30'; [Native-Transport-Requests-1] | 2025-04-30 04:09:01.360001 | 127.0.0.1 |            217 | 127.0.0.1
+                                                                                                                                                                        Preparing statement [Native-Transport-Requests-1] | 2025-04-30 04:09:01.360002 | 127.0.0.1 |            388 | 127.0.0.1
+                                                                                                                                                    Executing single-partition query on compras_por_cliente [ReadStage-2] | 2025-04-30 04:09:01.361000 | 127.0.0.1 |           1607 | 127.0.0.1
+                                                                                                                                                                               Acquiring sstable references [ReadStage-2] | 2025-04-30 04:09:01.361001 | 127.0.0.1 |           1686 | 127.0.0.1
+                                                                                                                                  Skipped 0/0 non-slice-intersecting sstables, included 0 due to tombstones [ReadStage-2] | 2025-04-30 04:09:01.361002 | 127.0.0.1 |           1754 | 127.0.0.1
+                                                                                                                                                                  Merged data from memtables and 0 sstables [ReadStage-2] | 2025-04-30 04:09:01.362000 | 127.0.0.1 |           1883 | 127.0.0.1
+                                                                                                                                                                    Read 31 live rows and 0 tombstone cells [ReadStage-2] | 2025-04-30 04:09:01.362001 | 127.0.0.1 |           1918 | 127.0.0.1
+                                                                                                                                                                                                         Request complete | 2025-04-30 04:09:01.362161 | 127.0.0.1 |           2161 | 127.0.0.1
+
+
+cqlsh>
