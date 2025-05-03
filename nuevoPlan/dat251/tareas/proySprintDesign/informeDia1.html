@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Informe D&iacute;a 1&colon; Sistema de Registro de Votos Electorales</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="informe-día-1-sistema-de-registro-de-votos-electorales">Informe Día 1: Sistema de Registro de Votos Electorales</h1>
+<h2 id="1-introducción">1. Introducción</h2>
+<h3 id="11-contexto-y-problemática">1.1. Contexto y Problemática</h3>
+<p><em>Redactado por Integrante 1: Líder de Investigación y Problemática</em></p>
+<!-- El sistema electoral boliviano, gestionado por el Órgano Electoral Plurinacional (OEP), enfrenta desafíos estructurales que afectan la confianza ciudadana. Con aproximadamente 7.2 millones de votantes distribuidos en 35,000 mesas electorales, el proceso depende de boletas físicas contadas manualmente por jurados. Aunque el conteo es eficiente, las actas físicas deben trasladarse a centros de cómputo para su consolidación, lo que genera demoras de horas o días, especialmente en áreas rurales con limitada conectividad. En las elecciones de 2020, los resultados oficiales tardaron tres días, y la crisis de 2019, con la interrupción del TREP, exacerbó la desconfianza. Esta opacidad alimenta sospechas de fraude. Un sistema que permita a los jurados registrar votos directamente en una base de datos y publique resultados en tiempo real podría aumentar la transparencia y legitimidad del proceso. -->
+<p>El sistema electoral boliviano, gestionado por el Órgano Electoral Plurinacional (OEP), enfrenta desafíos estructurales que afectan la confianza ciudadana en los resultados de los procesos democráticos. En Bolivia, las elecciones generales involucran aproximadamente 7.2 millones de votantes distribuidos en unas 35,000 mesas electorales, organizadas en los nueve departamentos del país. El proceso actual depende de boletas físicas que los votantes depositan en urnas, las cuales son contadas manualmente por jurados de mesa al cierre de la jornada electoral. Estos jurados registran los totales en actas físicas que luego se trasladan, ya sea físicamente o mediante escaneo, a centros de cómputo departamentales y nacionales para su procesamiento y publicación oficial por parte del OEP.</p>
+<p>Sin embargo, este procedimiento presenta un problema crítico: la centralización de las actas y la publicación de los resultados suelen tomar horas o incluso días, especialmente en regiones rurales donde la conectividad y la logística son limitadas. Por ejemplo, en las elecciones generales de 2020, aunque el conteo rápido (TREP) fue reemplazado por un sistema de difusión de actas, los resultados oficiales completos tardaron hasta tres días en publicarse, dejando a los ciudadanos sin información inmediata durante las primeras horas críticas. Esta demora, agravada por antecedentes como la crisis de 2019 —donde la interrupción del TREP desató acusaciones de fraude y protestas masivas—, genera una percepción de opacidad que erosiona la legitimidad del proceso electoral. La falta de un mecanismo que permita reportar y visualizar los resultados en tiempo real desde las mesas de votación es el principal cuello de botella, ya que los ciudadanos y observadores no tienen acceso directo a los datos parciales mientras se realiza el cómputo oficial.</p>
+<p>Esta problemática no solo afecta la confianza en el sistema democrático, sino que también limita la capacidad del OEP para responder a las demandas de transparencia de una población cada vez más conectada digitalmente. Un sistema que facilite el reporte inmediato de los totales por mesa y su difusión pública podría mitigar estas tensiones, asegurando que los datos estén disponibles para todos los actores involucrados desde el momento en que las mesas cierran.</p>
+<!-- [Añadir un mapa de Bolivia destacando regiones urbanas y rurales para ilustrar desafíos logísticos] -->
+<h3 id="12-objetivos-del-sistema">1.2. Objetivos del Sistema</h3>
+<p><em>Redactado por Integrante 1: Líder de Investigación y Problemática</em></p>
+<!-- **Objetivo General**:  
+Desarrollar un sistema web basado en una base de datos NoSQL y Redis que permita a los jurados registrar votos directamente y a los ciudadanos visualizar resultados en tiempo real, promoviendo transparencia en las elecciones bolivianas.
+
+**Objetivos Específicos**:  
+1. Diseñar una interfaz para registrar votos por mesa en menos de 5 segundos.  
+2. Implementar un dashboard público con resultados parciales, mapas y gráficos en tiempo real.  
+3. Garantizar consultas con latencia inferior a 500 ms bajo alta carga.  
+4. Validar la usabilidad del prototipo con usuarios simulados.
+
+[Añadir una tabla resumen de objetivos general y específicos] -->
+<p>El proyecto tiene como propósito diseñar una solución tecnológica que aborde los retrasos y la desconfianza en el sistema electoral boliviano, utilizando herramientas modernas de desarrollo web y bases de datos no relacionales. Los objetivos se dividen en:</p>
+<ul>
+<li>
+<p><strong>Objetivo General</strong>: Desarrollar un sistema web basado en una base de datos NoSQL y Redis que permita a los jurados registrar votos directamente y a los ciudadanos visualizar resultados en tiempo real, promoviendo transparencia en las elecciones bolivianas.</p>
+</li>
+<li>
+<p><strong>Objetivos Específicos</strong>:</p>
+<ul>
+<li>Diseñar una interfaz CRUD accesible para que los jurados registren los totales de votos por candidato en cada mesa de manera rápida y eficiente.</li>
+<li>Implementar un dashboard público con resultados parciales, mapas y gráficos en tiempo real.</li>
+<li>Garantizar consultas a la base de datos con latencia inferior a 500 ms bajo alta carga.</li>
+<li>Validar la usabilidad del prototipo mediante pruebas con usuarios simulados, asegurando que tanto jurados como ciudadanos encuentren la solución intuitiva y confiable.</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-justificación-del-uso-de-nosql">1.3. Justificación del Uso de NoSQL</h3>
+<p><em>Redactado por Integrante 2: Especialista en NoSQL y Justificación Técnica</em></p>
+<!-- La combinación de una base de datos NoSQL y Redis es ideal para el sistema electoral por:  
+- **Escalabilidad**: NoSQL (ej. MongoDB, Cassandra, Firestore) maneja miles de registros simultáneos mediante sharding. Redis, como caché, reduce la carga en consultas frecuentes.  
+- **Flexibilidad**: NoSQL permite esquemas dinámicos para datos como votos, regiones y timestamps. Redis almacena resultados parciales clave-valor.  
+- **Rendimiento**: NoSQL optimiza consultas agregadas con índices, y Redis ofrece latencias sub-milisegundo.  
+- **Teorema CAP**: La base NoSQL debe priorizar CP (Consistencia y Tolerancia a Particiones) para datos confiables, mientras Redis prioriza AP para consultas rápidas. Opciones como MongoDB (CP), Cassandra (AP) y Firestore (CP) están bajo evaluación.
+
+Comparado con SQL, NoSQL y Redis reducen la complejidad de relaciones y mejoran la escritura intensiva, esenciales para registrar 35,000 mesas en tiempo real.
+
+[Añadir un diagrama del teorema CAP comparando MongoDB, Cassandra, Firestore y Redis] -->
+<p>La elección de una base de datos NoSQL y Redis para este proyecto se fundamenta en sus características técnicas, que se alinean directamente con las necesidades del sistema electoral propuesto, ofreciendo las siguientes ventajas:</p>
+<ul>
+<li><strong>Escalabilidad</strong>: NoSQL (ej. MongoDB, Cassandra, Firestore) maneja miles de registros simultáneos mediante sharding. Redis, como caché, reduce la carga en consultas frecuentes.</li>
+<li><strong>Flexibilidad</strong>: NoSQL permite esquemas dinámicos para datos como votos, regiones y timestamps. Redis almacena resultados parciales clave-valor.</li>
+<li><strong>Rendimiento en consultas</strong>: NoSQL optimiza consultas agregadas con índices, y Redis ofrece latencias sub-milisegundo.
+<strong>Teorema CAP</strong>: Dado el contexto electoral, donde la publicación en tiempo real y la operatividad en áreas con conectividad limitada son críticas, la base de datos NoSQL debe priorizar AP (Disponibilidad y Tolerancia a Particiones) para garantizar que los jurados puedan registrar votos y los ciudadanos consultar resultados incluso durante particiones de red, mientras Redis prioriza AP para consultas rápidas. Estamos evaluando opciones como Cassandra y DynamoDB (AP) frente a MongoDB y Firestore (CP).</li>
+</ul>
+<p>Comparado con SQL, NoSQL y Redis reducen la complejidad de relaciones y mejoran la escritura intensiva, esenciales para registrar 35,000 mesas en tiempo real.</p>
+<h3 id="14-herramientas-de-google-utilizadas">1.4. Herramientas de Google Utilizadas</h3>
+<p><em>Redactado por Integrante 2: Especialista en NoSQL y Justificación Técnica</em></p>
+<!-- - **Firestore**: Base de datos NoSQL para datos flexibles (opción a evaluar).  
+- **Bigtable**: Alternativa para alta escalabilidad.  
+- **Firebase Auth**: Autenticación de jurados.  
+- **Google Cloud Functions**: Procesamiento backend.  
+- **Google Meet, Docs, Sheets, Drive**: Colaboración y documentación.
+
+La elección entre Firestore y Bigtable se definirá tras análisis técnico.
+
+[Añadir una tabla de herramientas de Google con descripción y uso previsto] -->
+<h3 id="15-alcance-del-design-sprint">1.5. Alcance del Design Sprint</h3>
+<p><em>Redactado por Integrante 5: Coordinador y Documentador</em></p>
+<p>El proyecto sigue la metodología Google Design Sprint de cinco días:</p>
+<ul>
+<li><strong>Día 1</strong>: Entender el problema electoral, analizar usuarios, definir foco.</li>
+<li><strong>Día 2</strong>: Priorizar funcionalidades (registro de votos, dashboard).</li>
+<li><strong>Día 3</strong>: Diseñar arquitectura y esquemas de datos.</li>
+<li><strong>Día 4</strong>: Crear prototipo con NoSQL y Redis.</li>
+<li><strong>Día 5</strong>: Probar prototipo y medir rendimiento.</li>
+</ul>
+<p>El resultado será un prototipo académico que demuestre viabilidad técnica, no una implementación real.</p>
+<p>[Añadir un cronograma visual del sprint de 5 días]</p>
+<h2 id="2-análisis">2. Análisis</h2>
+<h3 id="21-proceso-electoral-boliviano-y-entidad">2.1. Proceso Electoral Boliviano y Entidad</h3>
+<p><em>Redactado por Integrante 1: Líder de Investigación y Problemática</em></p>
+<p>El proceso electoral boliviano involucra 7.2 millones de votantes y 35,000 mesas gestionadas por el OEP. Los votantes marcan boletas físicas, jurados cuentan manualmente y registran resultados en actas. Estas se trasladan a centros de cómputo, un proceso que puede tomar días, especialmente en áreas rurales. La consolidación y publicación oficial (hasta 3 días en 2020) genera desconfianza, agravada por la crisis de 2019. <strong>Actores</strong>: votantes, jurados, OEP, ciudadanos. El sistema propuesto elimina el traslado físico mediante registro directo en una base de datos NoSQL con Redis para consultas rápidas.</p>
+<p>[Añadir un diagrama de flujo del proceso electoral actual vs. propuesto]</p>
+<h3 id="22-casos-de-uso-del-sistema">2.2. Casos de Uso del Sistema</h3>
+<h4 id="221-diagrama-de-casos-de-uso">2.2.1. Diagrama de Casos de Uso</h4>
+<p><em>Redactado por Integrante 3: Analista de Casos de Uso</em></p>
+<p>Muestra interacciones entre actores (jurados, ciudadanos, administradores OEP) y el sistema: registrar votos, consultar resultados, gestionar mesas. Cada interacción se describe brevemente.</p>
+<p>[Añadir un diagrama de casos de uso creado en Lucidchart o <a href="http://Draw.io">Draw.io</a>]</p>
+<h4 id="222-listado-de-casos-de-uso-prioritarios">2.2.2. Listado de Casos de Uso Prioritarios</h4>
+<p><em>Redactado por Integrante 3: Analista de Casos de Uso</em></p>
+<ol>
+<li><strong>Registrar votos por mesa</strong> (Jurados, Alta): Ingresar totales de votos por candidato.</li>
+<li><strong>Consultar resultados parciales</strong> (Ciudadanos, Alta): Ver votos en tiempo real.</li>
+<li><strong>Visualizar mapas y gráficos</strong> (Ciudadanos, Media): Mostrar tendencias por región.</li>
+<li><strong>Gestionar autenticación de jurados</strong> (Administradores, Alta): Verificar identidad.</li>
+<li><strong>Generar reportes agregados</strong> (OEP, Media): Resumen por región.</li>
+</ol>
+<p>[Añadir una tabla de casos de uso: caso, descripción, actor, prioridad]</p>
+<h3 id="23-requisitos-del-sistema">2.3. Requisitos del Sistema</h3>
+<h4 id="231-requisitos-funcionales-rf">2.3.1. Requisitos Funcionales (RF)</h4>
+<p><em>Redactado por Integrante 4: Analista de Requisitos</em></p>
+<ul>
+<li><strong>RF1</strong>: Registrar votos por mesa en &lt;5 segundos.</li>
+<li><strong>RF2</strong>: Mostrar resultados parciales en dashboard público en tiempo real.</li>
+<li><strong>RF3</strong>: Generar gráficos y mapas interactivos por región.</li>
+<li><strong>RF4</strong>: Autenticar jurados con Firebase Auth.</li>
+</ul>
+<p>[Añadir una tabla de RF: ID, descripción, prioridad]</p>
+<h4 id="232-requisitos-no-funcionales-rnf">2.3.2. Requisitos No Funcionales (RNF)</h4>
+<p><em>Redactado por Integrante 4: Analista de Requisitos</em></p>
+<ul>
+<li><strong>RNF1</strong>: Latencia de consultas &lt;500 ms con 10,000 usuarios simultáneos.</li>
+<li><strong>RNF2</strong>: Disponibilidad del 99.9% para el dashboard.</li>
+<li><strong>RNF3</strong>: Seguridad mediante autenticación y cifrado.</li>
+<li><strong>RNF4</strong>: Escalabilidad para 35,000 registros.</li>
+</ul>
+<p>[Añadir una tabla de RNF: ID, descripción, métrica]</p>
+<h3 id="24-benchmarking-de-proyectos-similares">2.4. Benchmarking de Proyectos Similares</h3>
+<p><em>Redactado por Integrante 4: Analista de Requisitos</em></p>
+<ul>
+<li><strong>Estonia e-Voting</strong>: Usa NoSQL para rapidez en registro de votos electrónicos.</li>
+<li><strong>Google Election Hub</strong>: Emplea Bigtable para análisis en tiempo real.</li>
+<li><strong>IoT Monitoring</strong>: Combina Redis y Cassandra para datos en tiempo real.</li>
+</ul>
+<p>Estos proyectos inspiran el uso de Redis para caché y NoSQL para datos flexibles.</p>
+<p>[Añadir una tabla comparativa: nombre, tecnología, ventaja, relevancia]</p>
+<h2 id="3-desarrollo-del-día-1-fase-de-entender-google-design-sprint">3. Desarrollo del Día 1: Fase de Entender (Google Design Sprint)</h2>
+<h3 id="31-preparación-del-entorno">3.1. Preparación del Entorno</h3>
+<p><em>Redactado por Integrante 5: Coordinador y Documentador</em></p>
+<p>Configuramos un tablero en Miro, una carpeta en Google Drive, y un tablero Trello para tareas. Realizamos una reunión inicial en Google Meet (15 min) para alinear roles. Cronograma: 1h investigación, 30 min meta, 1h mapeo, 40 min preguntas, 30 min foco.</p>
+<p>[Añadir captura del tablero de Miro o Trello]</p>
+<h3 id="32-investigación-del-contexto">3.2. Investigación del Contexto</h3>
+<p><em>Redactado por Integrante 5: Coordinador y Documentador</em></p>
+<p>Consultamos fuentes (OEP, OEA, noticias 2019-2020) y confirmamos que los retrasos en traslado de actas y la desconfianza son problemas clave. Discutimos hallazgos en Google Meet (30 min) para validar la problemática y objetivos.</p>
+<p>[Añadir captura de notas en Google Docs o enlaces a fuentes]</p>
+<h3 id="33-definición-de-la-meta-a-largo-plazo">3.3. Definición de la Meta a Largo Plazo</h3>
+<p><em>Redactado por Integrante 5: Coordinador y Documentador</em></p>
+<p>Acordamos: &quot;Garantizar confianza en las elecciones bolivianas mediante un sistema web que publique resultados en tiempo real, accesible para todos&quot;. Surgió de brainstorming en Miro y discusión en Google Meet, priorizando rapidez y transparencia.</p>
+<p>[Añadir captura de la meta en el tablero de Miro]</p>
+<h3 id="34-mapeo-del-proceso-electoral">3.4. Mapeo del Proceso Electoral</h3>
+<p><em>Redactado por Integrante 5: Coordinador y Documentador</em></p>
+<p>Creamos un diagrama en Miro del flujo electoral: votación, conteo, traslado, publicación. Marcamos cuellos de botella (traslado, consolidación) y actores (votantes, jurados, OEP, ciudadanos). Identificamos problemas como conectividad rural.</p>
+<p>[Añadir captura del diagrama de flujo en Miro]</p>
+<h3 id="35-identificación-de-preguntas-clave">3.5. Identificación de Preguntas Clave</h3>
+<p><em>Redactado por Integrante 5: Coordinador y Documentador</em></p>
+<p>Generamos preguntas: &quot;¿Cómo agilizamos el reporte de votos?&quot;, &quot;¿Qué datos mostrar en el dashboard?&quot;. Priorizamos dos mediante votación en Miro tras discusión grupal, guiando el enfoque del sprint.</p>
+<p>[Añadir captura de las preguntas en Miro]</p>
+<h3 id="36-selección-del-foco-del-sprint">3.6. Selección del Foco del Sprint</h3>
+<p><em>Redactado por Integrante 5: Coordinador y Documentador</em></p>
+<p>Definimos el foco: &quot;Crear una página web con NoSQL y Redis donde los jurados suban votos y los ciudadanos vean resultados en tiempo real&quot;. Decidido en Google Meet, considerando viabilidad técnica y transparencia.</p>
+<p>[Añadir captura del foco resaltado en el tablero de Miro]</p>
+
+            
+            
+        </body>
+        </html>
