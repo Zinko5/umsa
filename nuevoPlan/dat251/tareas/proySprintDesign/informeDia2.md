@@ -1,4 +1,4 @@
-# Informe Día 1: Entender - Investigación y Contexto
+# Informe Día 2: Entender - Enfocar el problema
 
 ## 1. Introducción
 
@@ -207,3 +207,68 @@ Dashboard accesible desde dispositivos móviles (responsive design).
   - Limitaciones: Problemas de transparencia en Suiza (2019).
   - Relevancia: Su infraestructura en la nube y experiencia práctica guían la gestión de datos electorales.
   - [Documentación: https://www.scytl.com/]
+
+## 3. Planificación del Producto Mínimo Viable (VPM)
+
+### 3.1. Metodología
+
+Siguiendo la metodología de Google Sprint, el equipo revisó los casos de uso y requisitos identificados el día 1 para priorizar las funcionalidades clave del Producto Mínimo Viable (VPM) y establecer métricas de éxito para el prototipo del sistema electoral. 
+
+Las métricas de éxito se definieron enfocándose en latencia, escalabilidad, disponibilidad y usabilidad, asegurando que fueran medibles durante las pruebas del día 5. Este proceso se realizó buscando alinear las decisiones con el objetivo de eliminar retrasos en la publicación de resultados y aumentar la confianza ciudadana en las elecciones.
+
+### 3.2. Prototipo
+El Producto Mínimo Viable (VPM) se centra en un sistema web que permite a los jurados registrar votos directamente en una base de datos NoSQL, a los ciudadanos visualizar resultados en tiempo real a través de un dashboard público, a los administradores del OEP tener acceso total al CRUD de datos e iniciar sesión como administrador o jurado; se usó Redis como caché para optimizar consultas.
+
+Se priorizaron tres funcionalidades clave debido a su impacto en la eliminación del traslado físico de actas y la transparencia electoral:
+
+- Registro de votos por mesa
+- Visualización de resultados en un dashboard
+- Autenticación de jurados y administradores del OEP
+
+Las siguientes gráficas muestran el prototipo pensado para la página web:
+
+<!-- Diagrama del prototipo de las secciones de la pagina web -->
+
+El prototipo fue pensado para evitar cualquier intento de fraude, dando un acceso limitado al CRUD para los jurados electorales, que solo podrán controlar el acta de su mesa electoral correspondiente, mientras que los administradores del OEP, podrán supervisar todos los datos con un CRUD completo. La página de inicio de sesión incluye un código de seguridad, que será único para cada usuario, aparte de la contraseña, la autenticación del inicio de sesión se realizará mediante Firebase Auth. El ciudadano podrá filtrar el dashboard según el departamento, o elegir ver el resultado preliminar en todo el país. Cuando un jurado electoral termine de registrar su acta correspondiente y verificar que lo hizo bien, tendrá que cerrar sesión y ya no podrá abrirla de nuevo, para minimizar casos de fraude.
+
+Las métricas de éxito definidas son:
+
+- Latencia: Consultas al dashboard deben responder en <500 ms bajo una carga de 10,000 usuarios simultáneos.
+- Escalabilidad: Soporte para registrar y consultar datos de 35,000 mesas electorales sin degradación.
+- Disponibilidad: 99.9% de uptime durante las horas críticas de operación.
+- Usabilidad: Interfaz para jurados con un tiempo de aprendizaje <5 minutos.
+
+### 3.3. Funcionalidades
+
+#### Funcionalidad 1: Registro de Votos por Mesa (CRUD)
+
+- Objetivo: Permitir a los jurados ingresar, editar (solo durante la jornada) y visualizar los votos de su mesa.
+- Detalles técnicos:
+  - Frontend: Formulario con validación en tiempo real (ej. suma de votos ≤ padrón).
+  - Backend: API REST en Flask que escribe en Cassandra y actualiza Redis.
+
+#### Funcionalidad 2: Dashboard Público
+
+- Objetivo: Mostrar resultados agregados en tiempo real con gráficos y mapa geográfico.
+- Detalles técnicos:
+  - Tecnología: Flask + D3.js + Google Maps Heatmap Layer + Firebase Auth.
+  - Fuente de datos: Redis (caché de resultados) + Cassandra (datos crudos).
+
+### 3.4. Consideraciones Técnicas
+
+El stack técnico para el prototipo incluye:  
+
+ - Lenguaje de Programación: Python, por su simplicidad, amplia comunidad y compatibilidad con NoSQL y Redis.  
+ - Framework: Flask, para un backend ligero que facilite operaciones CRUD rápidas.  
+ - Base de Datos NoSQL: Cassandra para almacenar datos flexibles de votos; Redis para caché de resultados parciales y consultas rápidas.  
+ - Sistema Operativo: Windows con WSL o una distribución Linux basada en Debian (ej. Ubuntu, Mint, PopOS, Debian) para pruebas locales.
+ - Python y Flask se seleccionaron por su facilidad de desarrollo en un sprint corto. Cassandra ofrece escalabilidad y disponibilidad, mientras Redis garantiza latencias sub-milisegundo para el dashboard.
+
+### 3.5. Requisitos de Hardware
+Los requisitos de hardware para el prototipo son:  
+ - Procesador: Mínimo 4 núcleos (ej. Intel i5 o equivalente) para pruebas locales.
+ - Memoria RAM: 8 GB para servidor local.
+ - Almacenamiento: 50 GB SSD para base de datos local.
+ - Conexión a Internet: 10 MBps para una conexión a internet estable, necesaria para la autenticación de inicio de sesión mediante firebase auth.
+ 
+Estos requisitos aseguran que el prototipo pueda manejar una carga simulada de 35,000 mesas electorales, con Redis optimizando consultas y NoSQL escalando datos.
