@@ -384,3 +384,4 @@ A partir de las ecuaciones paramétricas, se pueden formar las ecuaciones simét
    $],
    [Donde $p=(p_1, p_2, p_3)$ es el punto que atraviesa, y $v=vec(v_1,v_2,v_3)$ es el vector director ]
 )
+

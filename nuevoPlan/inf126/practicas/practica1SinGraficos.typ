@@ -405,6 +405,63 @@
      x=-4+0t\
      y=5+t\
      z=2+0t
-
    $]
 )
+
+=== 52. Hallar un conjunto de ecuaciones paramétricas de la recta que pasa por el punto $(5,-3,-4)$ y es paralela $v=5i-j$.
+#ejercicio(
+  $
+    p=(5,-3,-4)\
+    r=p +v t\
+    v=5i-j=vec(5,-1,0)\
+    (5,-3,-4)+vec(5,-1,0)t\
+    x=5+5t\
+    y=-3-1t\
+    z=-4 qed
+  $
+)
+
+=== 53. Hallar un conjunto de ecuaciones paramétricas de la recta que pasa por el punto $(2,1,2)$ y es paralela a la recta $x=-t, y=1+t, z=-2+t$.
+#ejercicio(
+  [$
+     p=(2,1,2)\
+     r_0=(0,1,-2)+vec(-1,1,1)t\
+     r=(2,1,2)+vec(-1,1,1)t\
+     x=2-t\
+     y=1+t\
+     z=2+t qed
+   $]
+)
+
+=== 54. Determinar si algunas de las rectas son paralelas o idénticas.
+#ejercicio(
+  [$
+     L_1: x=6-3t, y=-2+2t, z=5+4t\
+     L_2: x=6t, y=2-4t, z=13-8t\
+     L_3: x=10-6t, y=3+4t, z=13+8t\
+     L_4: x=-4 + 6t, y=3+4t, z=5-6t\
+     "Si los vectores directores son proporcionales, las rectas son paralelas y pueden ser idénticas."\
+     v_1=vec(-3,2,4)\
+     v_2=vec(6,-4,-8)\
+     v_3=vec(-6,4,8)\
+     v_4=vec(6,4,-6)\
+     v_2=-2v_1\
+     v_3=2v_2\
+     L_1", "L_2" y "L_3" son paralelas".\
+     "Si se pueden encontrar dos puntos en común en dos rectas paralelas, son idénticas."\
+     p_1=(6, -2, 5)\
+     p_2=(0, 2, 13)\
+     p_3=(10, 3, 13)\
+     "Para "p_1" y "p_2:\
+     6t=0 arrow t=0\
+     -2(0)=0 eq.not 2\
+     L_1" y "L_2" no son idénticas."\
+     "Para "p_1" y "p_3:\
+     6t=10 arrow t=5/3\
+     -2(5/3)=-10/3 eq.not 3\
+     L_1" y "L_3" no son idénticas."\
+     L_1", "L_2" y "L_3" son paralelas, pero no idénticas. "L_4" no es paralela a ninguna." qed
+   $]
+)
+
+=== 55.
