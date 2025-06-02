@@ -71,4 +71,4 @@
 ]
 ]
 
-
+#set par(justify: true)
