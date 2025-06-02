@@ -119,10 +119,18 @@ materias_datos = [
 ]
 
 # Materias ya aprobadas
+# materias_aprobadas = [
+#     "INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117",
+#     "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-126",
+#     "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245", "INF-134", "DAT-251"
+# ]
+
 materias_aprobadas = [
     "INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117",
-    "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-126",
-    "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245", "INF-134"
+    "INF-121", "INF-122", "INF-123", "INF-124", "INF-125",
+    "INF-131", "INF-132", "INF-133", "INF-134", "TRA-136",
+    "DAT-242", "DAT-245"
+    # "DAT-251"
 ]
 
 # Simular la planificación
