@@ -36,3 +36,4 @@
 - Probabilidad y estadística para ingeniería y administración - Williams H. Hines & Douglas C. Montgomery (capítulos 9, 10, 11 y 5) - 3ra edición
 - Tópicos de inferencia estadística - Máximo Mitac
 - Statistical Inference - George Casella, Roger Berger
+
