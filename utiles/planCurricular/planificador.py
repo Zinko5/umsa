@@ -38,8 +38,8 @@ def simular_semestres(materias, aprobadas_iniciales, semestre_inicial, anio_inic
         # Ordenar materias por semestre sugerido para seguir el "camino principal"
         materias_disponibles.sort(key=lambda x: x.semestre)
         
-        # Seleccionar un máximo de 7 materias
-        materias_tomar = materias_disponibles[:7]
+        # Seleccionar un máximo de 6 materias
+        materias_tomar = materias_disponibles[:6]
         
         # Registrar el semestre actual en el historial
         historial.append({
@@ -128,7 +128,23 @@ materias_datos = [
 
 # materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245", "INF-134", "DAT-135"]
 
-materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245", "INF-134", "DAT-135", "INF-126", "INF-134"]
+# materias_aprobadas = ["INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117", "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-131", "INF-132", "INF-133", "TRA-136", "DAT-242", "DAT-245", "INF-134", "DAT-135", "INF-126", "INF-134", "DAT-251"]
+
+# materias_aprobadas = [
+#     "INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117",
+#     "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-126",
+#     "INF-131", "INF-132", "INF-133", "INF-134", "TRA-136",
+#     "DAT-242", "DAT-245",
+#     "DAT-251"
+# ]
+
+materias_aprobadas = [
+    "INF-111", "INF-112", "INF-113", "INF-114", "INF-115", "INF-117",
+    "INF-121", "INF-122", "INF-123", "INF-124", "INF-125", "INF-126", 
+    "INF-131", "INF-132", "INF-133", "INF-134", "TRA-136",
+    "DAT-242", "DAT-245",
+    "DAT-251"
+]
 
 # Iniciar simulación desde el semestre 1-2025
 resultado = simular_semestres(materias_datos, materias_aprobadas, semestre_inicial=2, anio_inicial=2025)
