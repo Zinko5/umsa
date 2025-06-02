@@ -46,7 +46,11 @@
 
   block(width: 100%, breakable: false, [
     #if enunciado != none {
-      align(left)[#h(1em)#enunciado]
+      align(left)[
+        #par(leading: 1.4em)[
+          #enunciado
+        ]
+      ]
     }
     #align(center)[#resolucion]
     #if conclusion != none {
@@ -464,4 +468,57 @@
    $]
 )
 
-=== 55.
+=== 55. Determinar si las rectas se cortan, y si es así, hallar el punto de intersección y el coseno del ángulo de intersección.
+#ejercicio(
+  [
+    *a)* $x/3=(y-2)/(-1) =z+1, (x-1)/4=y+2=(z+3)/(-3)$
+  ],
+  [$
+     "Valores para recta 1":\
+     r_1:x/3= (y-2)/(-1)=z+1=t\
+     x=3t\
+     y-2=-t arrow y=-t+2\
+     z=t-1\
+     "Valores para recta 2":\
+     x-1=4s arrow x=4s+1\
+     y=s-2\
+     z+3=-3s arrow z=-3s-3\
+     "Para que las rectas se corten:"\
+     cases(
+      3t=4s+1,
+      -t+2=s-2,
+      t-1=-3s-3
+     )
+     arrow.long cases(
+      3t-4s-1=0,
+      -t-s+4=0,
+      t+3s+2=0
+     )\
+     (#grid(inset: 3pt, columns: (auto,auto,auto),
+        [3],[-4],[-1],
+        [-1],[-1],[4],
+        [1],[3],[2]
+      ))
+    R_3 arrow R_2 + R_2 =
+    (#grid(inset: 3pt, columns: (auto,auto,auto),
+        [3],[-4],[-1],
+        [-1],[-1],[4],
+        [0],[2],[6]
+    )) R_2arrow R_2+R_1/3=
+    (#grid(inset: 4pt, columns: (auto,auto,auto),
+        [3],[-4],[-1],
+        [0],[$-7/3$],[$-1/3$],
+        [0],[2],[6]
+    )) R_3 arrow R_3+6/7R_2=\
+    (#grid(inset: 5pt, columns: (auto,auto,auto),
+        [3],[-4],[-1],
+        [0],[$-7/3$],[$-1/3$],
+        [0],[0],[$40/7$]
+    )) arrow.long cases(
+      3t-4s-1=0,
+      -7/3s-1/3=0,
+      40/7=0
+    )\
+    "Como "40 eq.not 0", no existe ningun punto en el que las rectas se corten."quad qed
+   $]
+)
