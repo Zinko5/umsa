@@ -60,7 +60,8 @@
       *Dupla:*
     ]
     #text(size: 14pt)[ #pad(left: 20pt, top: -5pt)[
-23    ]]
+      23
+    ]]
   ]
   #pad(top: 15pt)[
     #text(size: 16pt)[
