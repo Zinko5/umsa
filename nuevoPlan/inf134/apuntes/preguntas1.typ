@@ -414,9 +414,9 @@ $
 #pagebreak()
 
 // Aparece en:
-//  p1sol2 - exam2 - question 1
-//  p1sol3 - exam 3 - question 1
-=== Sea (X,Y) va continuas definidas ambas para los reales positivos, con función de densidad:
+//  p1sol2 - exam2 - question 1d
+//  p1sol3 - exam3 - question 1
+=== Sea (X,Y) v.a. continuas definidas ambas para los reales positivos, con función de densidad:
 $
   f(x,y)=1/4(x+y)x y e^(-x-y)
 $
@@ -450,11 +450,14 @@ $
   f_X (x)=1/4 x e ^(-x) (x+2)=(x (x+2))/4 e^ (-x)=(x^2 +2x)/4 e^(-x)
 $
 
-*Marcar b.*
+*Marcar c.*
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 2
+// Aparece en:
+// p1sol2 - exam2 - question 2
+// Similar: 
+// p1sol4 - exam4 - question 2
 === Para la siguiente tabla de probabilidad conjunta, calcule la esperanza de X
 
 #grid(
@@ -497,7 +500,11 @@ $
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 3
+// Aparece en:
+// p1sol2 - exam2 - question 3
+// Similar: 
+// p1sol3 - exam3 - question 3
+// p1sol4 - exam4 - question 3
 === Sean dos variables aleatorias $X, Y$, con $E[X]= 7$, $E[Y]= 6$, $E[X,Y]= 45$, la covarianza es:
 
 - a. 87
@@ -516,7 +523,11 @@ $
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 4
+// Aparece en:
+// p1sol2 - exam2 - question 4
+// p1sol3 - exam3 - question 4
+// Similar: 
+// p1sol4 - exam4 - question 5
 === Si:
 $
   f(x,y)=1/8(6-x-y) quad  0 lt.eq x lt.eq 2 quad 2 lt.eq y lt.eq 6
@@ -542,7 +553,9 @@ Como la función toma valores negativos, entonces no es una densidad de probabil
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 5
+// Aparece en:
+// p1sol2 - exam2 - question 5
+// p1sol3 - exam3 - question 5
 === Sea X una variable aleatoria con varianza finita. Encuentre la correlación entre X y X
 
 - a. $rho =-1$
@@ -572,7 +585,12 @@ $
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 6
+// Aparece en:
+// p1sol2 - exam2 - question 6
+// p1sol3 - exam3 - question 6
+// p1sol4 - exam4 - question 6
+
+
 === Sea X una va tal que $X ~ U(a,b)$, Se toma una muestra aleatoria de tamaño $n$, encontrar la función de densidad conjunta de la muestra.
 
 - a. $f(x)=1/(b-a)$
@@ -593,7 +611,11 @@ $
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 7
+// Aparece en:
+// p1sol2 - exam2 - question 7
+// Similar:
+// p1sol3 - exam3 - question 7
+// p1sol4 - exam4 - question 7
 === Se toma una muestra aleatoria de tamaño 7 de una población finita de tamaño 79, Calcular para el estimador de la media muestral, su varianza. Los datos son: $0, -6, 51, 46, -6, 14, 1$
 
 - a. Ninguna
@@ -627,14 +649,42 @@ $
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 8
-=== La cantidad de tiempo que le toma al cajero de un banco con servicio en el automóvil atender a un cliente es una variable aleatoria con una media $mu= 5.28$ minutos y una desviación estándar $sigma= 5.38$ minutos. Si se observa una muestra aleatoria de 58 clientes, calcule la probabilidad de que el tiempo medio que el cliente pasa en la ventanilla del cajero sea más de 8.7 minutos;
+// Aparece en:
+// p1sol2 - exam2 - question 8
+// Similar:
+// p1sol3 - exam3 - question 8
+// p1sol4 - exam4 - question 8
+=== La cantidad de tiempo que le toma al cajero de un banco con servicio en el automóvil atender a un cliente es una variable aleatoria con una media $mu= 5.28$ minutos y una desviación estándar $sigma= 5.38$ minutos. Si se observa una muestra aleatoria de $58$ clientes, calcule la probabilidad de que el tiempo medio que el cliente pasa en la ventanilla del cajero sea más de $8.7$ minutos;
 
 - a. Información insuficiente
 - b. $6.4511315 times 10^(-7)$
 - c. Ninguna
 - d. $0$
 - e. $0.9999994$
+
+*Respuesta:*\
+Obtener el error estándar $sigma_overline(x)$:
+$
+  sigma_overline(x)=sigma/sqrt(n)=5.38/sqrt(58)approx 0.7067
+$
+Obtener el Z-score:
+$
+  Z=(X-mu)/sigma_overline(x)=(8.7-5.28)/0.7067approx 4.838d
+$
+Calcular $P(Z gt 4.838)$ buscando en la tabla Z (en el área de la derecha) el valor 4.838 (cuando $Z gt 3$, las probabilidades son cercanas a $0$). 
+$
+  P(Z gt 4.838)approx 6.45 times 10^(-7)
+$
+En una calculadora de DA normal (probabilidad de distribución acumulada normal), se pueden ingresar los parámetros: 
+- Límite inferior: X=8.7
+- Límite superior: 1000 (cualquier valor alto)
+- $mu=5.28$
+- $sigma_overline(x)=0.7067$
+$
+  D A(8.7,1000,5.28,0.7067)approx 6.511 times 10^(-7)
+$
+
+*Marcar b.*
 
 #pagebreak()
 
@@ -647,10 +697,21 @@ $
 - d. $overline(X)~ N( 9, sigma_overline(x)= 0.58)$
 - e. $overline(X)~ N( 9, sigma_overline(x)= 0.0768229)$
 
+*Respuesta:*\
+Obtener el error estándar $sigma_overline(x)$:
+$
+  sigma_overline(x)=sigma/sqrt(n)\
+  0.58/sqrt(57)approx 0.0768
+$
+
+*Marcar e.*
 
 #pagebreak()
 
-// Aparece en p1sol2 - exam2 - question 10
+// Aparece en:
+// p1sol2 - exam2 - question 10
+// Similar:
+// p1sol3 - exam3 - question 10
 === Sea $overline(X)$ una v.a. tal que $X~chi^2(v= 14)$. Calcular la probabilidad que X se encuentren entre 6 y 13 (puede usar la aproximación normal)
 
 - a. Falta información
@@ -658,3 +719,87 @@ $
 - c. 0.4899288
 - d. Ninguna
 - e. 0.0335085
+
+*Respuesta:*\
+Se pide $P(6 lt X lt 13)$\
+Usar la tabla chi-cuadrado para encontrar:
+- $F(6) approx 1-0.95=0.05$
+- $F(13) approx 1-0.5=0.5$
+Calcular la probabilidad:
+$
+  P(6 lt X lt 13)=F(13)-F(6)=0.5-0.005=0.45
+$
+En la tabla chi cuadrado, hay que buscar los valores que más se aproximen al valor deseado (en este caso, 6 y 13) en la fila de grados de libertad (14) y fijarse en el valor de la cabecera de la columna, después sacar su complemento
+
+*Marcar d.*
+
+#pagebreak()
+
+// Aparece en:
+// p1sol3 - exam3 - question 9
+// Similar:
+// p1sol4 - exam4 - question 9
+=== Suponga que se toman dos muestras aleatorias independientes de tamaño $n_1$ y $n_2$ de dos poblaciones normales con medias $mu_1$ y $mu_2$ y varianzas $sigma_1^2$ y $sigma_2^2$, respectivamente. Si $overline(X)_1$ y $overline(X)_2$ son las medias de muestra, encuentre la distribución de muestreo de la estadística:
+
+$
+  (overline(X)_1-overline(X)_2-(mu_1 -mu_2))/sqrt((sigma_1^2 \/n_1)+(sigma_2^2 \/n_2))
+$
+
+- a. $N(0,1)$
+- b. $N(mu_1+mu_2,1)$
+- c. Falta información
+- d. $N(0,sigma_1+sigma_2)$
+- e. Ninguna o la información dada es incorrecta
+
+*Respuesta:*\
+Siempre que las poblaciones sean normales, las muestras sean independientes y las varianzas sean conocidas, entonces la expresión siempre sigue una distribución normal estándar
+$
+  N(0,1)
+$
+
+*Marcar a*
+
+#pagebreak()
+
+// Aparece en:
+// p1sol4 - exam4 - question 1
+=== Sean dos variables aleatorias $X, Y$ independientes, con E[X]= 3 , E[Y]= 3, E[X,Y]= 14, la covarianza es:
+
+- a. Falta información
+- b. Ninguna o la información dada es incorrecta
+- c. 23
+- d. -5
+- e. 9
+
+*Respuesta:*\
+Si las variables aleatorias son independientes, entonces la covarianza es siempre 0.
+
+*Marcar b.*
+
+#pagebreak()
+
+// Aparece en:
+// p1sol4 - exam4 - question 4
+=== Si:
+$
+  f(x,y)=x+y quad 0 lt x lt 1 quad 0 lt y lt 1
+$
+=== Obtenga $E[X]$
+- a. $2/3$
+
+- b. Ninguna o la información dada es incorrecta
+- c. $7/12$
+- d. Falta información
+- e. $5/12$
+
+#pagebreak()
+
+// Aparece en:
+// p1sol4 - exam4 - question 10
+=== La distribución de alturas de cierta raza de perros terrier tiene una media de $70.43$ centímetros y una desviación estándar de $13.81$ centímetros; en tanto que la distribución de alturas de cierta raza de poodles tiene una media de $41.28$ centímetros con una desviación estándar de $10.1$ centímetros. Calcule la probabilidad de que la media muestral de una muestra aleatoria de alturas de $67$ terriers exceda la media muestral para una muestra aleatoria de alturas de $42$ poodles a lo sumo $29.55$ centímetros.
+
+- a. Ninguna
+- b. $0.5691281$
+- c. $0.4308719$
+- d. $1.1382563$
+- e. Información insuficiente
