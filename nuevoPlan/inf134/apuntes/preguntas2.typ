@@ -20,7 +20,6 @@
 
 // Aparece en:
 // p2sol1 - exam1 - question 1
-// Similar:
 // p2sol4 - exam4 - question 1
 === Entre los métodos de momentos y máxima verosimilitud cúal de ellos emplea un proceso de optimización para en encontrar la estimación
 
@@ -30,11 +29,15 @@
 - d. Maxima Verosimilitud
 - e. Ambos
 
+*Respuesta:*\
+El método de máxima verosimilitud.
+
+*Marcar d.*
+
 #pagebreak()
 
 // Aparece en:
 // p2sol1 - exam1 - question 2
-// Similar:
 // p2sol3 - exam3 - question 2
 === Entre los métodos de momentos y máxima verosimilitud cúal de ellos emplea un proceso basada en comparar las esperanzas con sus equivalentes de la muestra según sus potencias, para en encontrar la estimación
 
@@ -43,6 +46,11 @@
 - c. Ambos
 - d. Depende
 - e. Maxima Verosimilitud
+
+*Respuesta:*\
+El método de momentos.
+
+*Marcar a.*
 
 #pagebreak()
 
@@ -58,6 +66,11 @@
 - c. Un estimador insesgado de la media poblacional
 - d. Un estimador sesgado de la media poblacional
 - e. Un estimador insesgado de la media muestral
+
+*Respuesta:*\
+Un estimador insesgado de la media poblacional.
+
+*Marcar c.*
 
 #pagebreak()
 
@@ -75,6 +88,42 @@
 - d. $602.4813469, 606.0986531$
 - e. Ninguna
 
+*Respuesta:*\
+Obtener la desviación estándar muestral:
+$
+  s=sqrt(hat(S)^2)\
+  s=sqrt(68.11)approx 8.2528
+$
+Obtener el error estándar:
+$
+  sigma_(overline(X))=s/sqrt(n)\
+  sigma_(overline(X))=8.2528/sqrt(56)=1.1028
+$
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.99)/2=0.005
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.005", "z approx 2.575
+$
+
+Obtener el margen de error:
+$
+  "Margen de error"=z times "error estándar"\
+  2.575 times 1.1028=2.83971
+$
+Obtener el límite inferior y superior sumando y restando la media poblacional $overline(X)$ al margen de error:
+$
+  "Margen inferior"=604.29-2.83971=601.45029\
+  "Margen superior"=604.29+2.83971=607.12971
+$
+
+*Marcar b.*
+
 #pagebreak()
 
 // Aparece en:
@@ -84,12 +133,28 @@
 // p2sol3 - exam3 - question 5
 // p2sol4 - exam4 - question 5
 === Se extraen muestras aleatorias de tamaños $n_1=n_2= 63$ de dos poblaciones normales independientes. Las varianzas muestrales son $hat(S)_1^2= 13.75$ y $hat(S)_2^2= 50.09$. Construye un intervalo de confianza de dos lados del 95% respecto al cociente de las varianzas de las poblaciones $sigma_1^2\/sigma_2^2$. Use como $F_(1-alpha \/2, n_2-1, n_1-1)=0.6050539$ y $F_(alpha \/2, n_2-1, n_1-1)=1.6527452$
-
+\
 - a. $0.1660909, 0.4536883$
 - b. Ninguna
 - c. $0.0332182, 0.0907377$
 - d. $0.3660909, 0.6536883$
 - e. Falta información
+
+Dividir las varianzas muestrales:
+$
+  hat(S)^2_1/hat(S)^2_2=13.75/50.09approx 0.2745
+$
+Dividir el resultado obtenido por los valores dados de $F_(1-alpha \/2, n_2-1, n_1-1)=0.6050539$ y $F_(alpha \/2, n_2-1, n_1-1)=1.6527452$:
+- Por $F_(alpha \/2, n_2-1, n_1-1)$: 
+$
+  0.2745/1.6527452approx 0.166087
+$
+- Por $F_(1-alpha \/2, n_2-1, n_1-1)$: 
+$
+  0.2745/0.6050539approx 0.453678
+$
+
+*Marcar a.*
 
 #pagebreak()
 
@@ -104,6 +169,25 @@
 - c. $196$
 - d. $24$
 - e. $340$
+
+*Respuesta:*\
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.95)/2=0.025
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.025", "z approx 1.96
+$
+Obtener el tamaño de la muestra usando la fórmula con el error máximo permitido $E=0.07$:
+$
+  n=(z^2 dot 0.5 dot 0.5)/E^2\
+  n=(1.96^2 dot 0.025)/0.07^2=196
+$
+*Marcar c.*
 
 #pagebreak()
 
@@ -120,6 +204,40 @@
 - c. Falta información
 - d. Ninguna
 - e. $0.0375894, 0.5624106$
+
+*Respuesta:*\
+Obtener la diferencia de las medias:
+$
+  overline(X)_1-overline(X)_2=10.7-10.4=0.3
+$
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.95)/2=0.025
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.025", "z approx 1.96
+$
+Obtener el error estándar $"SE"$ con la fórmula:
+$
+  "SE"=sqrt((sigma^2_1+sigma^2_2)/n)\
+  "SE"=sqrt((0.2+0.1)/29)approx\ 0.101709
+$
+Obtener el margen de error $"ME"$ con la fórmula:
+$
+  "ME"=z times "SE"\
+  "ME"=1.96 times 0.101709approx 0.199349
+$
+Obtener el límite inferior y superior sumando y restando la diferencia de las medias poblacionales ($0.3$) al margen de error:
+$
+  "Margen inferior"=0.3-0.199349=0.10065036\
+  "Margen superior"=0.3+0.199349=0.49934964
+$
+
+*Marcar a.*
 
 #pagebreak()
 
@@ -151,6 +269,36 @@
 - d. Falta información
 - e. Se rechaza $H 0$
 
+*Respuesta:*\
+Obtener la media de los datos $overline(x)$:
+$
+  overline(x)=(sum x_i)/n approx 90.31166
+$
+
+Si la media muestral $overline(X)$ es mayor que el valor de prueba (90%), y la hipótesis pregunta si es "menor", automáticamente no se rechaza $H 0$\
+Como $90.31166 gt 90$, entonces no se rechaza $H 0$
+
+*Marcar c.*
+
+En otros casos:\
+Obtener  $z$ directamente con la fórmula:
+$
+  z=(overline(x)-mu_0)/(sigma \/sqrt(n))\
+  (90.31166-90)/(sqrt(5)\/sqrt(6))approx 0.341406
+$
+(Donde $mu$ es el valor del porcentaje y $sigma$ es la raiz de la varianza $5$)\
+Como se indica que el error es del 1%, obtener el valor crítico para 0.01 buscando el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.01", "z approx 2.325
+$
+
+Multiplicar el valor crítico  por -1 y comparar con el $z$ obtenido en la fórmula, si $z$ es mayor que el punto crítico, $H 0$ no se rechaza
+$
+  0.341406 gt -2.325
+$
+Si $z$ fuera menor que el punto crítico, $H 0$ se rechazaría
+
 #pagebreak()
 
 // Aparece en:
@@ -180,7 +328,7 @@ Rendimientos
 
 === Suponer igualdad de varianzas, encontrar el valor de t0
 
-- a. Falta información
+- a. Falta in formación
 - b. Ninguna
 - c. 2.7872598
 - d. 2.5085338
@@ -219,6 +367,11 @@ $
 - d. Falta información
 - e. $hat(theta)_2$
 
+*Respuesta:*\
+$hat(theta)_1$ es más pequeño.
+
+*Marcar b.*
+
 #pagebreak()
 
 // Aparece en:
@@ -237,6 +390,11 @@ Sea $X_1,X_2,dots,X_n$ un muestra aleatoria de tamaño n. Obtenga el estimador d
 - c. Ninguno
 - d. $hat(gamma)=-1-n/(sum_(i=1)^n ln X_i)$
 - e. No es una función de probabilidad
+
+*Respuesta:*\
+No es una función de probabilidad.
+
+*Marcar e.*
 
 #pagebreak()
 
