@@ -29,7 +29,7 @@
 - d. Maxima Verosimilitud
 - e. Ambos
 
-*Respuesta:*\
+=== Respuesta:
 El método de máxima verosimilitud.
 
 *Marcar d.*
@@ -47,7 +47,7 @@ El método de máxima verosimilitud.
 - d. Depende
 - e. Maxima Verosimilitud
 
-*Respuesta:*\
+=== Respuesta:
 El método de momentos.
 
 *Marcar a.*
@@ -67,7 +67,7 @@ El método de momentos.
 - d. Un estimador sesgado de la media poblacional
 - e. Un estimador insesgado de la media muestral
 
-*Respuesta:*\
+=== Respuesta:
 Un estimador insesgado de la media poblacional.
 
 *Marcar c.*
@@ -88,7 +88,7 @@ Un estimador insesgado de la media poblacional.
 - d. $602.4813469, 606.0986531$
 - e. Ninguna
 
-*Respuesta:*\
+=== Respuesta:
 Obtener la desviación estándar muestral:
 $
   s=sqrt(hat(S)^2)\
@@ -170,7 +170,7 @@ $
 - d. $24$
 - e. $340$
 
-*Respuesta:*\
+=== Respuesta:
 Obtener el valor crítico $z$ para el porcentaje de confianza:
 - Obtener el valor que buscar en las tablas:
 $
@@ -205,10 +205,15 @@ $
 - d. Ninguna
 - e. $0.0375894, 0.5624106$
 
-*Respuesta:*\
+=== Respuesta:
 Obtener la diferencia de las medias:
 $
   overline(X)_1-overline(X)_2=10.7-10.4=0.3
+$
+Obtener el error estándar $"SE"$ con la fórmula:
+$
+  "SE"=sqrt((sigma^2_1+sigma^2_2)/n)\
+  "SE"=sqrt((0.2+0.1)/29)approx\ 0.101709
 $
 Obtener el valor crítico $z$ para el porcentaje de confianza:
 - Obtener el valor que buscar en las tablas:
@@ -220,11 +225,6 @@ $
 
 $
   "Para "0.025", "z approx 1.96
-$
-Obtener el error estándar $"SE"$ con la fórmula:
-$
-  "SE"=sqrt((sigma^2_1+sigma^2_2)/n)\
-  "SE"=sqrt((0.2+0.1)/29)approx\ 0.101709
 $
 Obtener el margen de error $"ME"$ con la fórmula:
 $
@@ -265,18 +265,18 @@ $
 
 - a. Ejercicio mal planteado
 - b. Ninguna
-- c. No se rechaza $H 0$
+- c. No se rechaza $H_0$
 - d. Falta información
-- e. Se rechaza $H 0$
+- e. Se rechaza $H_0$
 
-*Respuesta:*\
+=== Respuesta:
 Obtener la media de los datos $overline(x)$:
 $
   overline(x)=(sum x_i)/n approx 90.31166
 $
 
-Si la media muestral $overline(X)$ es mayor que el valor de prueba (90%), y la hipótesis pregunta si es "menor", automáticamente no se rechaza $H 0$\
-Como $90.31166 gt 90$, entonces no se rechaza $H 0$
+Si la media muestral $overline(X)$ es mayor que el valor de prueba (90%), y la hipótesis pregunta si es "menor", automáticamente no se rechaza $H_0$\
+Como $90.31166 gt 90$, entonces no se rechaza $H_0$
 
 *Marcar c.*
 
@@ -293,11 +293,13 @@ $
   "Para "0.01", "z approx 2.325
 $
 
-Multiplicar el valor crítico  por -1 y comparar con el $z$ obtenido en la fórmula, si $z$ es mayor que el punto crítico, $H 0$ no se rechaza
+Multiplicar el valor crítico  por -1 y comparar con el $z$ obtenido en la fórmula, si $z$ es mayor que el punto crítico, $H_0$ no se rechaza
 $
   0.341406 gt -2.325
 $
-Si $z$ fuera menor que el punto crítico, $H 0$ se rechazaría
+Si $z$ fuera menor que el punto crítico, $H_0$ se rechazaría
+
+_*En general, marcar siempre que $H_0$ no se rechazarespuesta numérica que esté entre las otras dos*_
 
 #pagebreak()
 
@@ -312,7 +314,7 @@ Rendimientos
     columns: (auto, auto),
     inset: 0.5em,
     stroke: 0.1em + black,
-    [*x1*], [*x2*],
+    [$x_1$], [$x_2$],
     [23], [22],
     [27], [25],
     [24], [24],
@@ -326,13 +328,52 @@ Rendimientos
     [24], [22]
 )
 
-=== Suponer igualdad de varianzas, encontrar el valor de t0
+=== Suponer igualdad de varianzas, encontrar el valor de $t_0$
 
 - a. Falta in formación
 - b. Ninguna
 - c. 2.7872598
 - d. 2.5085338
 - e. 3.7872598
+
+=== Respuesta:
+Calcular la media para cada $x$:
+- Para $x_1$:
+$
+  overline(x)_1=(sum x_1_i)/n=273/11approx 24.81818
+$
+- Para $x_2$:
+$
+  overline(x)_12=(sum x_2_i)/n=256/11approx 23.27272
+$
+Calcular la varianza muestral $s^2$ para cada $x$:
+- Para $x_1$:
+$
+  s^2_1=(sum (x_1_i-overline(x)_1)^2)/(n-1)approx 1.76363
+$
+- Para $x_2$:
+$
+  s^2_1=(sum (x_1_i-overline(x)_1)^2)/(n-1)approx 1.61818
+$
+Calcular la raiz de la varianza agrupada $sqrt(s^2_p)$:
+$
+  s^2_p=((n_1-1)s_1^2+(n_2-1)s_2^2)/(n_1+n_2-2)\
+  =(10 dot 1.76363 + 10 dot 1.61818)/20= 33.8181/20approx 1.690905\
+  sqrt(s^2_2)=sqrt(1.680905)approx 1.300348
+$
+Calcular el error estándar:
+$
+  "SE"=s_p dot sqrt(1/n_1+1/n_2)\
+  =1.300348 dot sqrt(2/11)approx 0.55447
+$
+Calcular $t_0$:
+$
+  t_0=(overline(x)_1-overline(x)_2)/"SE"\
+  =(24.81818-23.27272)/0.55447approx 2.787274
+$
+
+*Marcar c.*\
+_*En general, siempre marcar la respuesta numérica que esté entre las otras dos*_
 
 #pagebreak()
 
@@ -351,8 +392,13 @@ $
 - a. Falta información
 - b. Ninguna
 - c. Ejercicio mal planteado
-- d. Se rechaza H0
-- e. No se rechaza H0
+- d. Se rechaza $H_0$
+- e. No se rechaza $H_0$
+
+=== Respuesta:
+No se rechaza $H_0$.
+
+*Marcar e.*
 
 #pagebreak()
 
@@ -367,8 +413,8 @@ $
 - d. Falta información
 - e. $hat(theta)_2$
 
-*Respuesta:*\
-$hat(theta)_1$ es más pequeño.
+=== Respuesta:
+Ya que $E[hat(theta_2)]=theta\/2$, entonces $hat(theta)_1$ es más pequeño.
 
 *Marcar b.*
 
@@ -391,8 +437,13 @@ Sea $X_1,X_2,dots,X_n$ un muestra aleatoria de tamaño n. Obtenga el estimador d
 - d. $hat(gamma)=-1-n/(sum_(i=1)^n ln X_i)$
 - e. No es una función de probabilidad
 
-*Respuesta:*\
-No es una función de probabilidad.
+=== Respuesta:
+Integrar de 0 a 1:
+$
+  
+  integral_0^1(gamma +2)X^gamma d x=(gamma + 2)integral_0^1X^gamma d x =(gamma+2) dot lr(x^(gamma+1)/(gamma+1)|)_0^1 =(gamma+2)dot 1/(gamma+1)=(gamma+2)/(gamma+1)
+$
+Como $(gamma+2)/(gamma+1) eq.not 1$, la función no es una función de probabilidad.
 
 *Marcar e.*
 
@@ -409,6 +460,25 @@ No es una función de probabilidad.
 - c. Ninguna
 - d. $811$
 - e. $751$
+
+=== Respuesta:
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.95)/2=0.025
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.025", "z approx 1.96
+$
+Obtener el tamaño de la muestra usando la fórmula con el error máximo permitido $E=0.04$:
+$
+  n=(z^2dot 0.5 dot 0.5)/E^2\
+  n=(1.96^2dot 0.5 dot 0.5)/0.04^2 approx 600.25\
+$
+*Marcar b.*
 
 #pagebreak()
 
@@ -437,8 +507,13 @@ No es una función de probabilidad.
 
 === Pruebe la hipótesis de que la desviación lateral media de estos proyectiles de mortero es cero. Suponer que los datos son normales. El valor de tablas corresponde a $t_(alpha\/2,n-1)= 2.1788128$
 
-- a. No se rechaza $H 0$
+- a. No se rechaza $H_0$
 - b. Ejercicio mal planteado
 - c. Falta información
 - d. Ninguna
-- e. Se rechaza $H 0$
+- e. Se rechaza $H_0$
+
+=== Respuesta:
+No se rechaza $H_0$.
+
+*Marcar e.*
