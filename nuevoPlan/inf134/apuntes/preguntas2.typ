@@ -299,7 +299,7 @@ $
 $
 Si $z$ fuera menor que el punto crítico, $H_0$ se rechazaría
 
-_*En general, marcar siempre que $H_0$ no se rechazarespuesta numérica que esté entre las otras dos*_
+_*En general, marcar siempre que $H_0$ no se rechaza*_
 
 #pagebreak()
 

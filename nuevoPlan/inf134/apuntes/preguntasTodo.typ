@@ -21,11 +21,11 @@
 // Aparece en p1sol1 - exam1 - question 1
 === Para los números 12, 17, 15, 10, 10, 10, 8, 10. Marque en caso de que la afirmación sea verdadera
 
-- a. La media es 4.5\
-- b. La mediana es 10\
-- c. La media es 11.5
-- d. La desviación estándar es 0.2629318
-- e. La desviación estándar es 3.0237158
+- a) La media es 4.5\
+- b) La mediana es 10\
+- c) La media es 11.5
+- d) La desviación estándar es 0.2629318
+- e) La desviación estándar es 3.0237158
 
 === Respuesta:
 La media $overline(x)$ es la suma de todos los números $x_i$ dividida entre la cantidad de números $n$.
@@ -41,7 +41,7 @@ $
   s=sqrt((sum (x_i-overline(x))^2)/(n-1)) = sqrt(64/7) approx 3.0237158
 $
 
-*Marcar: b. c. y e.*
+*Marcar: b), c) y e)*
 
 #pagebreak()
 
@@ -80,11 +80,11 @@ Grupo 3: n= 4
 
 === Si se decide hacer un incremento para el $t+1$ de 400Bs a todos y además incrementar al salario $t$ en 22.39 %. ¿Cuál es el promedio esperado para $t+1$ de estos 20 trabajadores?
 
-- a. 4495.4
-- b. 5012.36006
-- c. 4095.4
-- d. 5412.36006
-- e. 20
+- a) 4495.4
+- b) 5012.36006
+- c) 4095.4
+- d) 5412.36006
+- e) 20
 
 === Respuesta:
 Se saca la media $overline(x)$ de todos los salarios.
@@ -100,49 +100,18 @@ $
   5012.36006+400=5412.36006
 $
 
-*Marcar d.*
-
-#line(length: 100%)
-_Caso alterno:_
-
-=== En una empresa donde los salarios tienen un promedio de 3434 Bs. al mes y una desviación estándar 584, el sindicato solicita un incremento del 50% al salario junto con un bono mensual de 300 Bs. \ \ El director acepta parcialmente la petición rebajando un 27% la propuesta total del sindicato. A partir del nuevo salario, la media y desviación estándar son:
-
-- a. $overline(y)= 3979.23, S_y= 639.48$
-- b. $overline(y)= 4775.076, S_y= 0$
-- c. $overline(y)= 1989.615, S_y= 319.74$
-- d. $overline(y)= 3979.23, S_y= 767.376$
-- e. $overline(y)= 3581.307, S_y= 639.48$
-
-=== Respuesta:
-Se incrementa la media (promedio) en $50%$:
-$
-  overline(y)_i dot 1.5=3434 dot 1.5=5151
-$
-Se incrementan los 300 Bs:
-$
-  5151+300=5451
-$
-Se reduce un 27%:
-$
-  overline(y)=5451 dot (1-0.27)=3979.23
-$
-Calcular la desviación multiplicando la desviación estándar inicial por los porcentajes:
-$
-  S_y=(584)(1.5)(1-0.27)=639.48
-$
-
-*Marcar a.*
+*Marcar d)*
 
 #pagebreak()
 
 // Aparece en p1sol1 - exam1 - question 3
 === Una urna A contiene 4 bolas rojas y 3 negras, mientras que en la urna B contiene 4 bolas rojas y 6 negras. Si una bola es extraida aleatoriamente de cada urna, ¿cuál es la probabilidad de que las bolas sean del mismo color?
 
-- a. 12/70
-- b. 28/70
-- c. 4/10
-- d. 1/2
-- e. 1/5
+- a) 12/70
+- b) 28/70
+- c) 4/10
+- d) 1/2
+- e) 1/5
 
 === Respuesta:
 Calcular total de bolas en la urna A: $4+3=7$.\
@@ -157,7 +126,7 @@ $
 $
 Sumas las probabilidades: $16/70+18/70=34/70=17/35$\
 El inciso que más se acerca a la respuesta es b) $28/70 approx 34/70$\
-*Marcar b.*
+*Marcar b)*
 
 #pagebreak()
 
@@ -389,7 +358,7 @@ $
 // Aparece en p1sol1 - exam1 - question 5
 === Sea X una v.a. con función de distribución acumulada:
 $
-  F(x)=x/(x+1); quad x gt.eq 0
+  F(x)=x/(x+1); x gt.eq 0
 $
 === La función de densidad es:
 - a. $1/(x+1)^2$
@@ -549,9 +518,6 @@ $
 // p1sol3 - exam3 - question 3
 // p1sol4 - exam4 - question 3
 // p1sol5 - exam5 - question 3
-// p1sol4 - exam4 - question 1
-// p1sol5 - exam5 - question 1
-// p1sol13 - exam13 - question 1
 === Sean dos variables aleatorias $X, Y$, con $E[X]= 7$, $E[Y]= 6$, $E[X,Y]= 45$, la covarianza es:
 
 - a. 87
@@ -568,24 +534,7 @@ $
 
 *Marcar e.*
 
-#line(length: 100%)
-_Caso alterno:_
-
-=== Sean dos variables aleatorias $X, Y$ independientes, con E[X]= 3 , E[Y]= 3, E[X,Y]= 14, la covarianza es:
-
-- a. Falta información
-- b. Ninguna o la información dada es incorrecta
-- c. 23
-- d. -5
-- e. 9
-
-=== Respuesta:
-Si las variables aleatorias son independientes, entonces la covarianza es siempre 0.
-
-*Marcar b.*
-
 #pagebreak()
-
 
 // Aparece en:
 // p1sol2 - exam2 - question 4
@@ -619,10 +568,7 @@ $
 Como la función toma valores negativos, entonces no es una densidad de probabilidad.
 
 *Marcar c.*
-
-#line(length: 100%)
-_Caso alterno:_
-
+#line()
 === Si:
 $
   f(x,y)=1/8(6-x-y); quad 0<x<2, quad 2<y<4
@@ -636,35 +582,7 @@ $
 - c. $f(x\/y)=(6-x-y)/(6-2x)$
 - d. $f(x\/y)=3/4-x/4$
 - e. $f(x\/y)=5/4-y/4$
-
-=== Respuesta:
-Calcular la marginal de y $(f_Y (y))$ integrando respecto a $x$ de 0 a 2:
-$
-  f_Y (y)=integral_0^2 1/8(6-x-y)d x\
-  f_Y (y)=1/8 [6x-x^2/2- x y]^(x=2)_(x=0)=1/8(12-2-2y)=1/8(10-2y)=1/4 (5-y)
-$
-Calcular $f(x \/y)$:
-$
-  f(x\/y)=(f(x,y))/(f_Y (y))=(1/8 (6-x-y))/(1/4 (5-y))=(6-x-y)/(2(5-y))=(6-x-y)/(10-2y)
-$
-*Marcar a.*
-
-#line(length: 100%)
-_Caso alterno:_
-
 === Obtenga $f(y\/x)$
-
-=== Respuesta:
-Calcular la marginal de x $(f_X (x))$ integrando respecto a $y$ de 2 a 4:
-$
-  f_X (x)=integral_2^4 1/8(6-x-y)d y\
-  f_X (x)=1/8 [6y-x y-  y^2/2]^(y=4)_(y=2)=1/8(24-4x-8-12+2x+2)=1/8 (6-2x)=1/4(3-x)
-$
-Calcular $f(y \/x)$:
-$
-  f(x\/y)=(f(x,y))/(f_X (x))=(1/8 (6-x-y))/(1/4(3-x))=(6-x-y)/(2(3-x))=(6-x-y)/(6-2x)
-$
-*Marcar c.*
 
 #pagebreak()
 
@@ -700,23 +618,6 @@ $
 $
 
 *Marcar e.*
-
-#line(length: 100%)
-_Caso alterno:_
-
-=== Sea X una variable aleatoria con varianza finita. Encuentre la correlación entre X y -X
-
-=== Respuesta:
-
-Se sabe que: 
-- $"Cov"(X,-X)=-"Var"(X)$\
-- $sigma_X dot sigma_X="Var"(X)$\
-Entonces:
-$
-  rho _(X,X)=("Cov"(X,-X))/(sigma_X sigma_X)=(- "Var"(x))/"Var"(x)=-1
-$
-
-*Marcar a.*
 
 #pagebreak()
 
@@ -820,9 +721,6 @@ Calcular $P(Z gt 4.838)$ buscando en la tabla Z (en el área de la derecha) el v
 $
   P(Z gt 4.838)approx 6.45 times 10^(-7)
 $
-
-*Marcar b.*
-
 En una calculadora de DA normal (probabilidad de distribución acumulada normal), se pueden ingresar los parámetros: 
 - Límite inferior: X=8.7
 - Límite superior: 1000 (cualquier valor alto)
@@ -831,6 +729,8 @@ En una calculadora de DA normal (probabilidad de distribución acumulada normal)
 $
   D A(8.7,1000,5.28,0.7067)approx 6.511 times 10^(-7)
 $
+
+*Marcar b.*
 
 #pagebreak()
 
@@ -907,7 +807,27 @@ $
   N(0,1)
 $
 
-*Marcar a.*
+*Marcar a*
+
+#pagebreak()
+
+// Aparece en:
+// p1sol4 - exam4 - question 1
+// Similar:
+// p1sol5 - exam5 - question 1
+// p1sol13 - exam13 - question 1
+=== Sean dos variables aleatorias $X, Y$ independientes, con E[X]= 3 , E[Y]= 3, E[X,Y]= 14, la covarianza es:
+
+- a. Falta información
+- b. Ninguna o la información dada es incorrecta
+- c. 23
+- d. -5
+- e. 9
+
+=== Respuesta:
+Si las variables aleatorias son independientes, entonces la covarianza es siempre 0.
+
+*Marcar b.*
 
 #pagebreak()
 
@@ -925,55 +845,15 @@ $
   f(x,y)=x+y quad 0 lt x lt 1 quad 0 lt y lt 1
 $
 === Obtenga $E[X]$
-
-- a. $1/3$
+- a. $2/3$
 
 - b. Ninguna o la información dada es incorrecta
 - c. $7/12$
 - d. Falta información
 - e. $5/12$
 
-=== Respuesta:
-Se sabe que la marginal de $f(x,y)$ es:
-$
-  f_X (x)=x+1/2
-$
-Calcular la esperanza $E[X]$ integrando el producto de $x$ por la marginal:
-$
-  E[X]=integral_0^1x(x+1/2) d x=[x^3/3+1/2 dot x^2/2]_0^1=1/3+1/4=7/12
-$
-
-*Marcar la c.*
-
-#line(length: 100%)
-_Caso alterno:_
-
 === Obtenga $E[X^2]$
-
-=== Respuesta:
-Se sabe que la marginal de $f(x,y)$ es:
-$
-  f_X (x)=x+1/2
-$
-Calcular la esperanza $E[X^2]$ integrando el producto de $x^2$ por la marginal:
-$
-  E[X]=integral_0^1x^2(x+1/2) d x=[x^4/4+1/2 dot x^
-  3/3]_0^1=1/4+1/6=5/12
-$
-
-*Marcar la e.*
-
-#line(length: 100%)
-_Caso alterno:_
-
 === Obtenga $E[X Y]$
-
-=== Respuesta:
-$
-  E[X Y]=integral_(x=0)^1 integral_(y=0)^1x y(x+y)d y d x=integral_(0)^1(x^2/2+x/3)d x=2/6=1/3
-$
-
-*Marcar la a.*
 
 #pagebreak()
 
@@ -989,37 +869,6 @@ $
 - c. $0.4308719$
 - d. $1.1382563$
 - e. Información insuficiente
-
-=== Respuesta:
-Obtener el error estándar $sigma_overline(x)$:
-$
-  sigma_overline(x)=sqrt(sigma^2_1/n_1+sigma^2_2/n_2)=sqrt(13.81^2/67+10.1^2/42)approx 2.2970
-$
-Obtener la diferencia de la media $mu$:
-$
-  mu=mu_1-mu_2=70.43-41.28=29.15
-$
-Obtener el Z-score:
-$
-  Z=(X-mu)/sigma_overline(x)=(29.55-29.15)/2.2970approx 0.1742
-$
-Calcular $P(Z gt 0.1742)$ buscando en la tabla Z (en el área de la derecha) 0.1742:
-$
-  P(Z gt 0.1742)approx 0.433 arrow 1-0.433=0.567
-$
-
-*Marcar b.*
-
-En una calculadora de DA normal (probabilidad de distribución acumulada normal), se pueden ingresar los parámetros: 
-- Límite inferior: -1000 (cualquier valor bajo)
-- Límite superior: X= 29.55
-- $mu=29.15$
-- $sigma_overline(x)=2.2970$
-$
-  D A(-1000,29.55,29.15,2.2970)approx 0.569122
-$
-
-
 
 #pagebreak()
 
@@ -1088,27 +937,6 @@ $
 - d. 0.3186
 - e. 0.6372
 
-=== Respuesta:
-Multiplicar los porcentajes de cada grupo que lo apoya:
-- Académicos:
-$
-  0.11 times 0.37=0.0407
-$
-- Políticos:
-$
-  0.45 times 0.07=0.0315
-$
-- Resto:
-$
-  0.44 times 0.56=0.2464
-$
-Sumar todos los resultados:
-$
-  0.0407 + 0.0315 + 0.2464 = 0.3186
-$
-
-*Marcar d.*
-
 #pagebreak()
 
 // Aparece en:
@@ -1122,56 +950,17 @@ $
 - d. $"Var"[X]=E[X^2]-(E[X])^2$
 - e. $"Var"[a X-b]=a^2"Var"[X]$
 
-=== Respuesta:
-Por propiedades:
-$
-  "Var"[X]=E[X^2]-(E[X])^2\
-  "Var"[a X-b]=a^2"Var"[X]\
-  "Si "a=0", entonces "E[a]=0
-$
-En desigualdades, el denominador debe ser $k^2$, no solo $k$.\
-Sobre la esperanza, $E[a^2X]eq a^2 E[X]$, no $a E[X]$
-
-*Marcar b. d. y e.*
-
 #pagebreak()
 
 // Aparece en:
 // p1sol10 - exam10 - question 1
-=== De la siguiente serie de números: $11, 10, 12, 14, 9, 10$. Determine el coeficiente de asimetria de Fisher.
+=== De la siguiente serie de números: $1, 10, 12, 14, 9, 10$. Determine el coeficiente de asimetria de Fisher.
 
 - a. 11
 - b. 1.0481569
 - c. 0.2746582
 - d. 0.5240784
 - e. 1.7888544
-
-=== Respuesta:
-Encontrar la media de los números:
-$
-  overline(x)=(sum x_i)/n=66/6=11
-$
-Calcular las desviaciones y sumar al cubo y al cuadrado:
-- $11 - 11 = 0$
-- $10 - 11 = -1$
-- $12 - 11 = 1$
-- $14 - 11 = 3$
-- $9 - 11 = -2$
-- $10 - 11 = -1$
-$
-  "Suma de cubos"=0^3 -1^3+ 1^3+ 3^3 -2^3 -1^3=18\
-  "Suma de cuadrados"=0^2 -1^2+ 1^2+ 3^2 -2^2 -1^2=16
-$
-Calcular el cubo de la desviación estándar $(s^3)$: 
-$
-  s^3approx 1.78885^3approx 5.72429
-$
-Aplicar la fórmula del coeficiente de Fisher:
-$
-  "Coeficiente de Fisher"="Suma de cubos"/(n dot s^3)=18/(6 dot 5.72429) approx 0.524082
-$
-
-*Marcar d.*
 
 #pagebreak()
 
@@ -1184,18 +973,6 @@ $
 - c. 6
 - d. Ninguno
 - e. 12.25
-
-=== Respuesta:
-Sumar la esperanza de lanzar un dado:
-$
-  E[X]=1/6+2/6+3/6+4/6+5/6+6/6=7/2
-$
-Como son dos dados, multiplicar la esperanza por dos:
-$
-  7/2 times 2=14/2=7
-$
-
-*Marcar b.*
 
 #pagebreak()
 
@@ -1225,3 +1002,504 @@ $
 - c. Para el caso discreto si la variable $X$ toma 3 valores y la variable $Y$ toma 10 valores, entonces su distribución conjunta tiene 31 combinaciones
 - d. Si dos variables aleatorias $X, Y$ son independientes, entonces $"cov"(x,y)=0$
 - e. Para el caso continuo $integral_("Rx")f(x,y)d x=f(x)$
+
+
+// Aparece en:
+// p2sol1 - exam1 - question 1
+// p2sol4 - exam4 - question 1
+=== Entre los métodos de momentos y máxima verosimilitud cúal de ellos emplea un proceso de optimización para en encontrar la estimación
+
+- a. Momentos
+- b. Depende
+- c. Ninguno
+- d. Maxima Verosimilitud
+- e. Ambos
+
+=== Respuesta:
+El método de máxima verosimilitud.
+
+*Marcar d.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 2
+// p2sol3 - exam3 - question 2
+=== Entre los métodos de momentos y máxima verosimilitud cúal de ellos emplea un proceso basada en comparar las esperanzas con sus equivalentes de la muestra según sus potencias, para en encontrar la estimación
+
+- a. Momentos
+- b. Ninguno
+- c. Ambos
+- d. Depende
+- e. Maxima Verosimilitud
+
+=== Respuesta:
+El método de momentos.
+
+*Marcar a.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 3
+// p2sol2 - exam2 - question 3
+// p2sol3 - exam3 - question 3
+// p2sol4 - exam4 - question 3
+=== La media muestral de una muestra tomada de una población normal con desviación estándar de 29, siempre es: (Seleccione una o más de una)
+
+- a. Todas
+- b. Un estimador sesgado de la media muestral
+- c. Un estimador insesgado de la media poblacional
+- d. Un estimador sesgado de la media poblacional
+- e. Un estimador insesgado de la media muestral
+
+=== Respuesta:
+Un estimador insesgado de la media poblacional.
+
+*Marcar c.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 4
+// Similar:
+// p2sol2 - exam2 - question 4
+// p2sol3 - exam3 - question 4
+// p2sol4 - exam4 - question 4
+=== Una muestra aleatoria de tamaño $56$ de una población normal tiene media $overline(X)= 604.29$ y una varianza muestral de $hat(S)^2= 68.11$. Encuentre un intervalo de confianza al 99% de confiabilidad
+
+- a. $602.128439, 606.451561$
+- b. $601.4446799, 607.1353201$
+- c. Falta información
+- d. $602.4813469, 606.0986531$
+- e. Ninguna
+
+=== Respuesta:
+Obtener la desviación estándar muestral:
+$
+  s=sqrt(hat(S)^2)\
+  s=sqrt(68.11)approx 8.2528
+$
+Obtener el error estándar:
+$
+  sigma_(overline(X))=s/sqrt(n)\
+  sigma_(overline(X))=8.2528/sqrt(56)=1.1028
+$
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.99)/2=0.005
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.005", "z approx 2.575
+$
+
+Obtener el margen de error:
+$
+  "Margen de error"=z times "error estándar"\
+  2.575 times 1.1028=2.83971
+$
+Obtener el límite inferior y superior sumando y restando la media poblacional $overline(X)$ al margen de error:
+$
+  "Margen inferior"=604.29-2.83971=601.45029\
+  "Margen superior"=604.29+2.83971=607.12971
+$
+
+*Marcar b.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 5
+// Similar:
+// p2sol2 - exam2 - question 5
+// p2sol3 - exam3 - question 5
+// p2sol4 - exam4 - question 5
+=== Se extraen muestras aleatorias de tamaños $n_1=n_2= 63$ de dos poblaciones normales independientes. Las varianzas muestrales son $hat(S)_1^2= 13.75$ y $hat(S)_2^2= 50.09$. Construye un intervalo de confianza de dos lados del 95% respecto al cociente de las varianzas de las poblaciones $sigma_1^2\/sigma_2^2$. Use como $F_(1-alpha \/2, n_2-1, n_1-1)=0.6050539$ y $F_(alpha \/2, n_2-1, n_1-1)=1.6527452$
+\
+- a. $0.1660909, 0.4536883$
+- b. Ninguna
+- c. $0.0332182, 0.0907377$
+- d. $0.3660909, 0.6536883$
+- e. Falta información
+
+Dividir las varianzas muestrales:
+$
+  hat(S)^2_1/hat(S)^2_2=13.75/50.09approx 0.2745
+$
+Dividir el resultado obtenido por los valores dados de $F_(1-alpha \/2, n_2-1, n_1-1)=0.6050539$ y $F_(alpha \/2, n_2-1, n_1-1)=1.6527452$:
+- Por $F_(alpha \/2, n_2-1, n_1-1)$: 
+$
+  0.2745/1.6527452approx 0.166087
+$
+- Por $F_(1-alpha \/2, n_2-1, n_1-1)$: 
+$
+  0.2745/0.6050539approx 0.453678
+$
+
+*Marcar a.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 6
+// Similar:
+// p2sol4 - exam4 - question 6
+=== Se lleva a cabo un estudio para determinar el porcentaje de propietarios de casa que poseen al menos dos aparatos de televisión. ¿Qué tan grande debe ser la muestra si se desea tener una confianza del 95% de que el error al estimar está cantidad sea menor que 0.07? (asuma máxima varianza)
+
+- a. Falta información
+- b. $16577$
+- c. $196$
+- d. $24$
+- e. $340$
+
+=== Respuesta:
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.95)/2=0.025
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.025", "z approx 1.96
+$
+Obtener el tamaño de la muestra usando la fórmula con el error máximo permitido $E=0.07$:
+$
+  n=(z^2 dot 0.5 dot 0.5)/E^2\
+  n=(1.96^2 dot 0.025)/0.07^2=196
+$
+*Marcar c.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 7
+// Similar:
+// p2sol2 - exam2 - question 7
+// p2sol3 - exam3 - question 7
+// p2sol4 - exam4 - question 7
+=== El voltaje de salida de dos tipos diferentes de transformadores se está investigando. 29 transformadores de cada tipo se seleccionan al azar y se mide el voltaje. Las medias de muestras son 10.7 y 10.4 volts respectivamente. Sabemos que las varianzas del voltaje de salida para los dos tipos de transformadores son 0.2 y 0.1 respectivamente, Construya un intervalo de confianza de dos lados del 95% respecto la diferencia en el voltaje medio.
+
+- a. $0.1006493, 0.4993507$
+- b. $0.1331964, 0.4668036$
+- c. Falta información
+- d. Ninguna
+- e. $0.0375894, 0.5624106$
+
+=== Respuesta:
+Obtener la diferencia de las medias:
+$
+  overline(X)_1-overline(X)_2=10.7-10.4=0.3
+$
+Obtener el error estándar $"SE"$ con la fórmula:
+$
+  "SE"=sqrt((sigma^2_1+sigma^2_2)/n)\
+  "SE"=sqrt((0.2+0.1)/29)approx\ 0.101709
+$
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.95)/2=0.025
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.025", "z approx 1.96
+$
+Obtener el margen de error $"ME"$ con la fórmula:
+$
+  "ME"=z times "SE"\
+  "ME"=1.96 times 0.101709approx 0.199349
+$
+Obtener el límite inferior y superior sumando y restando la diferencia de las medias poblacionales ($0.3$) al margen de error:
+$
+  "Margen inferior"=0.3-0.199349=0.10065036\
+  "Margen superior"=0.3+0.199349=0.49934964
+$
+
+*Marcar a.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 8
+// Similar:
+// p2sol2 - exam2 - question 8
+// p2sol3 - exam3 - question 8
+// p2sol4 - exam4 - question 8
+=== Se está estudiando el rendimiento de un proceso químico. De la experiencia previa se sabe que la varianza del rendimiento con este proceso es 5. Los últimos seis días de operación de la planta han dado como resultado los siguientes rendimientos (en porcentajes):
+#grid(
+    columns: (auto),
+    inset: 0.5em,
+    stroke: 0.1em + black,
+    [x],
+    [89.49],
+    [88.43],
+    [90.25],
+    [89.35],
+    [93.09],
+    [91.26]
+)
+
+=== ¿Hay razón para creer que el rendimiento es menor al 90%? (asuma un error de tipo I del 1%)
+
+- a. Ejercicio mal planteado
+- b. Ninguna
+- c. No se rechaza $H_0$
+- d. Falta información
+- e. Se rechaza $H_0$
+
+=== Respuesta:
+Obtener la media de los datos $overline(x)$:
+$
+  overline(x)=(sum x_i)/n approx 90.31166
+$
+
+Si la media muestral $overline(X)$ es mayor que el valor de prueba (90%), y la hipótesis pregunta si es "menor", automáticamente no se rechaza $H_0$\
+Como $90.31166 gt 90$, entonces no se rechaza $H_0$
+
+*Marcar c.*
+
+En otros casos:\
+Obtener  $z$ directamente con la fórmula:
+$
+  z=(overline(x)-mu_0)/(sigma \/sqrt(n))\
+  (90.31166-90)/(sqrt(5)\/sqrt(6))approx 0.341406
+$
+(Donde $mu$ es el valor del porcentaje y $sigma$ es la raiz de la varianza $5$)\
+Como se indica que el error es del 1%, obtener el valor crítico para 0.01 buscando el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.01", "z approx 2.325
+$
+
+Multiplicar el valor crítico  por -1 y comparar con el $z$ obtenido en la fórmula, si $z$ es mayor que el punto crítico, $H_0$ no se rechaza
+$
+  0.341406 gt -2.325
+$
+Si $z$ fuera menor que el punto crítico, $H_0$ se rechazaría
+
+_*En general, marcar siempre que $H_0$ no se rechazarespuesta numérica que esté entre las otras dos*_
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 9
+// Similar:
+// p2sol2 - exam2 - question 9
+// p2sol4 - exam4 - question 9
+=== Se están investigando dos métodos para producir gasolina a partir de petróleo crudo. Se supone que el rendimiento de ambos procesos se distribuye normalmente, los siguientes datos se han obtenido de la planta piloto:
+Rendimientos
+#grid(
+    columns: (auto, auto),
+    inset: 0.5em,
+    stroke: 0.1em + black,
+    [$x_1$], [$x_2$],
+    [23], [22],
+    [27], [25],
+    [24], [24],
+    [23], [25],
+    [25], [23],
+    [26], [23],
+    [24], [24],
+    [26], [24],
+    [26], [23],
+    [25], [21],
+    [24], [22]
+)
+
+=== Suponer igualdad de varianzas, encontrar el valor de $t_0$
+
+- a. Falta in formación
+- b. Ninguna
+- c. 2.7872598
+- d. 2.5085338
+- e. 3.7872598
+
+=== Respuesta:
+Calcular la media para cada $x$:
+- Para $x_1$:
+$
+  overline(x)_1=(sum x_1_i)/n=273/11approx 24.81818
+$
+- Para $x_2$:
+$
+  overline(x)_12=(sum x_2_i)/n=256/11approx 23.27272
+$
+Calcular la varianza muestral $s^2$ para cada $x$:
+- Para $x_1$:
+$
+  s^2_1=(sum (x_1_i-overline(x)_1)^2)/(n-1)approx 1.76363
+$
+- Para $x_2$:
+$
+  s^2_1=(sum (x_1_i-overline(x)_1)^2)/(n-1)approx 1.61818
+$
+Calcular la raiz de la varianza agrupada $sqrt(s^2_p)$:
+$
+  s^2_p=((n_1-1)s_1^2+(n_2-1)s_2^2)/(n_1+n_2-2)\
+  =(10 dot 1.76363 + 10 dot 1.61818)/20= 33.8181/20approx 1.690905\
+  sqrt(s^2_2)=sqrt(1.680905)approx 1.300348
+$
+Calcular el error estándar:
+$
+  "SE"=s_p dot sqrt(1/n_1+1/n_2)\
+  =1.300348 dot sqrt(2/11)approx 0.55447
+$
+Calcular $t_0$:
+$
+  t_0=(overline(x)_1-overline(x)_2)/"SE"\
+  =(24.81818-23.27272)/0.55447approx 2.787274
+$
+
+*Marcar c.*\
+_*En general, siempre marcar la respuesta numérica que esté entre las otras dos*_
+
+#pagebreak()
+
+// Aparece en:
+// p2sol1 - exam1 - question 10
+// Similar:
+// p2sol2 - exam2 - question 10
+// p2sol3 - exam3 - question 10
+// p2sol4 - exam4 - question 10
+=== Se está estudiando el rendimiento de un proceso químico. De la experiencia previa se sabe que la varianza del rendimiento con este proceso es 5. Los últimos diez días de operación de la planta han dado como resultado los siguientes rendimientos (en porcentajes):
+$
+  86.58, 86.18, 90.49, 91.28, 86.14, 90.39, 89.65, 90.68, 90.62, 90.37, 86.8, 90.09
+$
+=== ¿Hay razón para creer que el rendimiento es menor al 89%? (asuma un error de tipo I del 1%). Trabaje con el estadístico $z_0$.
+
+- a. Falta información
+- b. Ninguna
+- c. Ejercicio mal planteado
+- d. Se rechaza $H_0$
+- e. No se rechaza $H_0$
+
+=== Respuesta:
+No se rechaza $H_0$.
+
+*Marcar e.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol2 - exam2 - question 1
+// p2sol3 - exam3 - question 1
+=== Suponga que $hat(theta)_1$ y $hat(theta)_2$ son estimadores de $theta$. Se sabe que $hat(theta)_1$ es insesgado y que $E[hat(theta)_2]=theta \/2$, suponiendo que $V(hat(theta)_1)=V(hat(theta)_2)$, que estimador logra un menor error cuadrático medio.
+
+- a. Ambos
+- b. $hat(theta)_1$
+- c. Ninguna
+- d. Falta información
+- e. $hat(theta)_2$
+
+=== Respuesta:
+Ya que $E[hat(theta_2)]=theta\/2$, entonces $hat(theta)_1$ es más pequeño.
+
+*Marcar b.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol2 - exam2 - question 2
+// p2sol4 - exam4 - question 2
+=== Supongase que la variable aleatoria X tiene la distribución de probabilidad
+$
+  f(x)=(gamma +2)X^gamma quad 0 lt X lt 1
+$
+
+Sea $X_1,X_2,dots,X_n$ un muestra aleatoria de tamaño n. Obtenga el estimador de máxima verosimilitud de $gamma$
+
+- a. $hat(gamma)=overline(X)$
+
+- b. $hat(gamma)=-1+n/(sum_(i=1)^n ln X_i)$
+- c. Ninguno
+- d. $hat(gamma)=-1-n/(sum_(i=1)^n ln X_i)$
+- e. No es una función de probabilidad
+
+=== Respuesta:
+Integrar de 0 a 1:
+$
+  
+  integral_0^1(gamma +2)X^gamma d x=(gamma + 2)integral_0^1X^gamma d x =(gamma+2) dot lr(x^(gamma+1)/(gamma+1)|)_0^1 =(gamma+2)dot 1/(gamma+1)=(gamma+2)/(gamma+1)
+$
+Como $(gamma+2)/(gamma+1) eq.not 1$, la función no es una función de probabilidad.
+
+*Marcar e.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol2 - exam2 - question 6
+// Similar:
+// p2sol3 - exam3 - question 6
+=== Una carrera en la universidad esta a punto de elegir a sus autoridades, se busca hacer una encuesta de intención de votos en los estudiantes para el candidato “Z”, se quiere un nivel de confianza del 95%, y no errar en $plus.minus 0.04%$. Calcular el tamaño de muestra, suponiendo “n” máxima.
+
+- a. Falta información
+- b. $601$
+- c. Ninguna
+- d. $811$
+- e. $751$
+
+=== Respuesta:
+Obtener el valor crítico $z$ para el porcentaje de confianza:
+- Obtener el valor que buscar en las tablas:
+$
+  (1- "Porcentaje de confianza")/2\
+  (1- 0.95)/2=0.025
+$
+- Buscar el valor más cercano en la tabla de distribución normal
+
+$
+  "Para "0.025", "z approx 1.96
+$
+Obtener el tamaño de la muestra usando la fórmula con el error máximo permitido $E=0.04$:
+$
+  n=(z^2dot 0.5 dot 0.5)/E^2\
+  n=(1.96^2dot 0.5 dot 0.5)/0.04^2 approx 600.25\
+$
+*Marcar b.*
+
+#pagebreak()
+
+// Aparece en:
+// p2sol3 - exam3 - question 9
+=== Un fabricante de propulsores está investigando la desviación lateral en yardas de cierto tipo de proyectil mortero. Se han observado los siguientes datos:
+#grid(
+    columns: (auto),
+    inset: 0.5em,
+    stroke: 0.1em + black,
+    [x],
+    [-1.673025],
+    [-4.885796],
+    [-2.698088],
+    [10.352116],
+    [0.947634],
+    [-6.135548],
+    [2.923138],
+    [-9.472094],
+    [7.109478],
+    [9.717690],
+    [4.470182],
+    [10.325810],
+    [-7.648696]
+)
+
+=== Pruebe la hipótesis de que la desviación lateral media de estos proyectiles de mortero es cero. Suponer que los datos son normales. El valor de tablas corresponde a $t_(alpha\/2,n-1)= 2.1788128$
+
+- a. No se rechaza $H_0$
+- b. Ejercicio mal planteado
+- c. Falta información
+- d. Ninguna
+- e. Se rechaza $H_0$
+
+=== Respuesta:
+No se rechaza $H_0$.
+
+*Marcar e.*
