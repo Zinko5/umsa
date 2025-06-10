@@ -1212,6 +1212,14 @@ $
 - d. 0.3464831
 - e. 0.5038458
 
+=== Respuesta:
+Obtener el error estándar $sigma_overline(x)$:
+$
+  sigma_overline(x)=sqrt(sigma^2_1/n_1+sigma^2_2/n_2)=sqrt(2.37^2/27+1.42^2/44)approx 0.5038458
+$
+
+*Marcar e.*
+
 #pagebreak()
 
 // Aparece en:
@@ -1225,3 +1233,9 @@ $
 - c. Para el caso discreto si la variable $X$ toma 3 valores y la variable $Y$ toma 10 valores, entonces su distribución conjunta tiene 31 combinaciones
 - d. Si dos variables aleatorias $X, Y$ son independientes, entonces $"cov"(x,y)=0$
 - e. Para el caso continuo $integral_("Rx")f(x,y)d x=f(x)$
+
+=== Respuesta:
+Para el caso continuo $integral_("Rx")f(x,y)d x=f(y)$.\  
+Si dos variables aleatorias $X, Y$ son independientes, entonces $"cov"(x,y)=0$.
+
+*Marcar a. y d.*
