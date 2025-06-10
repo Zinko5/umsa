@@ -39,6 +39,7 @@ El método de máxima verosimilitud.
 // Aparece en:
 // p2sol1 - exam1 - question 2
 // p2sol3 - exam3 - question 2
+// p2sol5 - exam5 - question 2
 === Entre los métodos de momentos y máxima verosimilitud cúal de ellos emplea un proceso basada en comparar las esperanzas con sus equivalentes de la muestra según sus potencias, para en encontrar la estimación
 
 - a. Momentos
@@ -59,6 +60,7 @@ El método de momentos.
 // p2sol2 - exam2 - question 3
 // p2sol3 - exam3 - question 3
 // p2sol4 - exam4 - question 3
+// p2sol5 - exam5 - question 3
 === La media muestral de una muestra tomada de una población normal con desviación estándar de 29, siempre es: (Seleccione una o más de una)
 
 - a. Todas
@@ -80,6 +82,7 @@ Un estimador insesgado de la media poblacional.
 // p2sol2 - exam2 - question 4
 // p2sol3 - exam3 - question 4
 // p2sol4 - exam4 - question 4
+// p2sol5 - exam5 - question 4
 === Una muestra aleatoria de tamaño $56$ de una población normal tiene media $overline(X)= 604.29$ y una varianza muestral de $hat(S)^2= 68.11$. Encuentre un intervalo de confianza al 99% de confiabilidad
 
 - a. $602.128439, 606.451561$
@@ -132,6 +135,7 @@ $
 // p2sol2 - exam2 - question 5
 // p2sol3 - exam3 - question 5
 // p2sol4 - exam4 - question 5
+// p2sol5 - exam5 - question 5
 === Se extraen muestras aleatorias de tamaños $n_1=n_2= 63$ de dos poblaciones normales independientes. Las varianzas muestrales son $hat(S)_1^2= 13.75$ y $hat(S)_2^2= 50.09$. Construye un intervalo de confianza de dos lados del 95% respecto al cociente de las varianzas de las poblaciones $sigma_1^2\/sigma_2^2$. Use como $F_(1-alpha \/2, n_2-1, n_1-1)=0.6050539$ y $F_(alpha \/2, n_2-1, n_1-1)=1.6527452$
 \
 - a. $0.1660909, 0.4536883$
@@ -162,6 +166,7 @@ $
 // p2sol1 - exam1 - question 6
 // Similar:
 // p2sol4 - exam4 - question 6
+// p2sol5 - exam5 - question 6
 === Se lleva a cabo un estudio para determinar el porcentaje de propietarios de casa que poseen al menos dos aparatos de televisión. ¿Qué tan grande debe ser la muestra si se desea tener una confianza del 95% de que el error al estimar está cantidad sea menor que 0.07? (asuma máxima varianza)
 
 - a. Falta información
@@ -197,6 +202,7 @@ $
 // p2sol2 - exam2 - question 7
 // p2sol3 - exam3 - question 7
 // p2sol4 - exam4 - question 7
+// p2sol5 - exam5 - question 7
 === El voltaje de salida de dos tipos diferentes de transformadores se está investigando. 29 transformadores de cada tipo se seleccionan al azar y se mide el voltaje. Las medias de muestras son 10.7 y 10.4 volts respectivamente. Sabemos que las varianzas del voltaje de salida para los dos tipos de transformadores son 0.2 y 0.1 respectivamente, Construya un intervalo de confianza de dos lados del 95% respecto la diferencia en el voltaje medio.
 
 - a. $0.1006493, 0.4993507$
@@ -247,6 +253,11 @@ $
 // p2sol2 - exam2 - question 8
 // p2sol3 - exam3 - question 8
 // p2sol4 - exam4 - question 8
+// p2sol5 - exam5 - question 8
+// p2sol1 - exam1 - question 10
+// p2sol2 - exam2 - question 10
+// p2sol3 - exam3 - question 10
+// p2sol4 - exam4 - question 10
 === Se está estudiando el rendimiento de un proceso químico. De la experiencia previa se sabe que la varianza del rendimiento con este proceso es 5. Los últimos seis días de operación de la planta han dado como resultado los siguientes rendimientos (en porcentajes):
 #grid(
     columns: (auto),
@@ -301,6 +312,20 @@ Si $z$ fuera menor que el punto crítico, $H_0$ se rechazaría
 
 _*En general, marcar siempre que $H_0$ no se rechaza*_
 
+#line(length: 100%)
+_Caso alterno:_
+
+=== Se está estudiando el rendimiento de un proceso químico. De la experiencia previa se sabe que la varianza del rendimiento con este proceso es 5. Los últimos diez días de operación de la planta han dado como resultado los siguientes rendimientos (en porcentajes):
+$
+  86.58, 86.18, 90.49, 91.28, 86.14, 90.39, 89.65, 90.68, 90.62, 90.37, 86.8, 90.09
+$
+=== ¿Hay razón para creer que el rendimiento es menor al 89%? (asuma un error de tipo I del 1%). Trabaje con el estadístico $z_0$.
+
+=== Respuesta:
+No se rechaza $H_0$.
+
+*Marcar c.*
+
 #pagebreak()
 
 // Aparece en:
@@ -308,6 +333,7 @@ _*En general, marcar siempre que $H_0$ no se rechaza*_
 // Similar:
 // p2sol2 - exam2 - question 9
 // p2sol4 - exam4 - question 9
+// p2sol5 - exam5 - question 9
 === Se están investigando dos métodos para producir gasolina a partir de petróleo crudo. Se supone que el rendimiento de ambos procesos se distribuye normalmente, los siguientes datos se han obtenido de la planta piloto:
 Rendimientos
 #grid(
@@ -378,33 +404,9 @@ _*En general, siempre marcar la respuesta numérica que esté entre las otras do
 #pagebreak()
 
 // Aparece en:
-// p2sol1 - exam1 - question 10
-// Similar:
-// p2sol2 - exam2 - question 10
-// p2sol3 - exam3 - question 10
-// p2sol4 - exam4 - question 10
-=== Se está estudiando el rendimiento de un proceso químico. De la experiencia previa se sabe que la varianza del rendimiento con este proceso es 5. Los últimos diez días de operación de la planta han dado como resultado los siguientes rendimientos (en porcentajes):
-$
-  86.58, 86.18, 90.49, 91.28, 86.14, 90.39, 89.65, 90.68, 90.62, 90.37, 86.8, 90.09
-$
-=== ¿Hay razón para creer que el rendimiento es menor al 89%? (asuma un error de tipo I del 1%). Trabaje con el estadístico $z_0$.
-
-- a. Falta información
-- b. Ninguna
-- c. Ejercicio mal planteado
-- d. Se rechaza $H_0$
-- e. No se rechaza $H_0$
-
-=== Respuesta:
-No se rechaza $H_0$.
-
-*Marcar e.*
-
-#pagebreak()
-
-// Aparece en:
 // p2sol2 - exam2 - question 1
 // p2sol3 - exam3 - question 1
+// p2sol5 - exam5 - question 1
 === Suponga que $hat(theta)_1$ y $hat(theta)_2$ son estimadores de $theta$. Se sabe que $hat(theta)_1$ es insesgado y que $E[hat(theta)_2]=theta \/2$, suponiendo que $V(hat(theta)_1)=V(hat(theta)_2)$, que estimador logra un menor error cuadrático medio.
 
 - a. Ambos
@@ -517,3 +519,21 @@ $
 No se rechaza $H_0$.
 
 *Marcar e.*
+
+#pagebreak()
+
+// p2sol5 - exam5 - question 10
+=== Seleccione los supuestos correctos para la prueba de hipótesis de igualdad de dos varianzas
+
+- a. La estadística de prueba se distribuye como una F de Fisher
+- b. El tamaño de muestra de ambas poblaciones son iguales
+- c. Las variables de las dos poblaciones se distribuyen como t student
+- d. Las variables de las dos poblaciones se distribuyen como normal
+- e. Las variables de las dos poblaciones se distribuyen como chi cuadrado
+
+=== Respuesta:
+La estadística de prueba se distribuye como una F de Fisher\
+Las variables de las dos poblaciones se distribuyen como normal
+
+*Marcar a. y d.*
+
