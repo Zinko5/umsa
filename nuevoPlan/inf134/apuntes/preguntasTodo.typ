@@ -1781,7 +1781,7 @@ $
 == Respuesta:
 No se rechaza $H_0$.
 
-*Marcar e.*
+*Marcar a.*
 
 #pagebreak()
 
