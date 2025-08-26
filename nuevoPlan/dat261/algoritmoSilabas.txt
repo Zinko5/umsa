@@ -1,0 +1,20 @@
+atrapa consonantes
+atrapa vocales
+
+if (termina en dlnmrsyz y no sigue áéíóú){
+	atrapa letra
+}
+
+if (choque de consonantes){
+	 if (choque de ch | cl | cr | ll | tl | tr | dr | br | bl | rr){
+	 	
+	 } else {
+	 	if (choque de ns | bs) {
+	 		atrapa dos letras
+	 	} else {
+	 		atrapa letra
+	 	}
+	 }
+}
+
+[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*[aeiouyAEIOUYáéíóüúÁÉÍÓÚ]+(?(?=[dlnmrsyz]\b[^áéíóú])\w|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|cl|cr|ll|tl|tr|dr|br|bl|rr)|(?(?=ns|bs)\w\w|\w))|)

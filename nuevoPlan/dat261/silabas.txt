@@ -1,0 +1,28 @@
+ver1: //[^aeiou]*[aeiou]+(?:(?=[aeiou])|(?=[^aeiou]+))
+ver2: [^aeiou]*[aeiou]+(?(?=[^aeiou][aeiou]))(?(?=[^aeiou]{2,}))
+ver3: [^aeiou]*[aeiou]+(?(?![^aeiou][aeiou])\w|)*
+ver4: [^aeiou]*[aeiou]+(?(?=[^aeiou]{2,})\w|)
+ver5: [^aeiou\s]*[aeiou]*(?(?=[^aeiou\s]{2,})\S|)
+ver6: [^aeiou\s]*[aeiou]*(?(?=[^aeiou\s]{2,})\S|)
+ver7: [^aeiou\s]*[aeiou]*(?(?=[^aeiou]{2,})\w|)
+ver8: [^aeiou\s]*[aeiou]+(?(?=[^aeiou\s]{2,})\w|)
+ver8-2: [^aeiou\s]*[aeiou]+(?(?=[cblt][hlr])|\w)
+
+
+terminación de las palabras:
+(?(?=[lnrsyz]\b)\w|)
+
+# lnrsyz pero no terminan:
+# (?(?=[lnrsyz][^aeiou])\w|)
+
+# junte de consonantes:
+# (?(?=[^aeiou\s]{2,})\w|)
+
+junte de consonantes version 2 (ch, ll, rr, cr, tr, etc):
+(?(?=[^aeioutlrc\s]{2,})\w|)
+
+junte de consonantes version 3:
+(?(?=[^aeiou\s]{2,})(?(?=ch|cl|cr|ll)|\w)|)
+
+junte de consonantes version 4:
+(?(?=[^aeiou\s]{2,})(?(?=ch|cl|cr|ll|tl|tr|dr|br|bl)|\w)|)
