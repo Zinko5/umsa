@@ -1,8 +1,11 @@
 atrapa consonantes
 atrapa vocales
 
-if (termina en dlnmrsyz y no sigue áéíóú){
-	atrapa letra
+if (termina en dlnmrsyz){
+	if (al terminar hay áéíóú){
+		
+	} else {
+		atrapa letra	
 }
 
 if (choque de consonantes){
@@ -18,3 +21,6 @@ if (choque de consonantes){
 }
 
 [^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*[aeiouyAEIOUYáéíóüúÁÉÍÓÚ]+(?(?=[dlnmrsyz]\b[^áéíóú])\w|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|cl|cr|ll|tl|tr|dr|br|bl|rr)|(?(?=ns|bs)\w\w|\w))|)
+
+v2:
+[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*[aeiouyAEIOUYáéíóüúÁÉÍÓÚ]+(?(?=[dlnmrsyz]\b)(?(?=.\b[áéíóú])|.)|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|cl|cr|ll|tl|tr|dr|br|bl|rr)|(?(?=ns|bs)\w\w|\w))|)
