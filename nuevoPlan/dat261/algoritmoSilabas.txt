@@ -1,5 +1,14 @@
-atrapa consonantes
-atrapa vocales
+atrapa consonantes seguidas
+
+if ([íú][aeo]) {
+	atrapa vocal
+} else if ([aeo]{2}){
+	atrapa vocal
+} else if (hay una y sola){
+	atrapa y
+} else {
+	atrapa todas las vocales seguidas
+}
 
 if (termina en dlnmrsyz){
 	if (al terminar hay áéíóú){
@@ -8,11 +17,11 @@ if (termina en dlnmrsyz){
 		atrapa letra	
 }
 
-if (choque de consonantes){
-	 if (choque de ch | cl | cr | ll | tl | tr | dr | br | bl | rr){
+if (choque de dos o más consonantes){
+	 if (choque de ch | ll | rr | pr | br | tr | tl | dr | cr | kr | gr | fr | pl | bl | cl | kl | gl | fl){
 	 	
 	 } else {
-	 	if (choque de ns | bs) {
+	 	if (choque de cuatro consonantes) {
 	 		atrapa dos letras
 	 	} else {
 	 		atrapa letra
@@ -24,3 +33,9 @@ if (choque de consonantes){
 
 v2:
 [^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*[aeiouyAEIOUYáéíóüúÁÉÍÓÚ]+(?(?=[dlnmrsyz]\b)(?(?=.\b[áéíóú])|.)|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|cl|cr|ll|tl|tr|dr|br|bl|rr)|(?(?=ns|bs)\w\w|\w))|)
+
+v3:
+[^()'"‘’¿¡aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*[aeiouyAEIOUYáéíóüúÁÉÍÓÚ]+(?(?=[dhlnmrsyz]\b)(?(?=.\b[áéíóú])|.)|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|cl|cr|ll|tl|tr|dr|br|bl|rr|pl|pr)|(?(?=ns|bs)\w\w|\w))|)
+
+v4:
+[^()'"‘’¿¡aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*(?(?=[íú][aeo])[aeiouAEIOUáéíóüúÁÉÍÓÚ]|(?(?=[aeo]{2})[aeiouAEIOUáéíóüúÁÉÍÓÚ]|(?(?=y)y|[aeiouAEIOUáéíóüúÁÉÍÓÚ]+)))(?(?=[dhlnmrsyz]\b)(?(?=.\b[áéíóú])|\w)|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|ll|rr|pr|br|tr|tl|dr|cr|kr|gr|fr|pl|bl|cl|kl|gl|fl)|(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{4})\w\w|\w))|)

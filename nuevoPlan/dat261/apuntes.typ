@@ -181,10 +181,10 @@ Diversidad léxica: tipos / tokens.
 Los tipos son los tokens sin repeticiones.
 
 Práctica #3:
-1. Considera el texto: Rosa blanca: Los alemanes que intentaron derrocar a Hitler disponible en: www.bbc.com/news/magazine-21521050
+1. Considera el texto: Rosa blanca: Los alemanes que intentaron derrocar a Hitler disponible en: www.bbc.com/news/magazine-21521060
 2. Tokenizar las palabras con NLTK
 3. Tokenizar las palabras con spaCy
 4. Determinar la diversidad léxica
-5. Comparación: Analiza las diferencias. ¿Cómo maneja NLTK y SpaCy?
+5. Comparación: Analiza las diferencias. ¿Cómo operan NLTK y SpaCy?
 
 Un corpus es una base de datos de textos que nos dará datos linguísticos.
