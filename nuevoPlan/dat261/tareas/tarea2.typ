@@ -7,73 +7,219 @@
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
 #set par(justify: true)
 #show raw: set text(size: 1.2em)
+// #show raw: it => block(
+//   stroke: black,
+//   radius: 5pt,
+//   inset: 5pt,
+//   fill: rgb("#bdbdbd5e")
+// )[#it]
+// #let mono(content) = raw(content)
+#let cajaCodigo(contenido) = {
+  block(
+    stroke: black,
+    radius: 5pt,
+    inset: 5pt,
+    fill: rgb("#bdbdbd5e"),
+    // Verificar si el contenido es de tipo content y un bloque raw
+    if type(contenido) == content and contenido.func() == raw {
+      contenido
+    } else {
+      raw(str(contenido))
+    }
+  )
+}
 
 Nombre: Gabriel Muñoz Marcelo Callisaya\
 CI: 9873103\
 = DAT 261 - Procesamiento del lenguaje natural
-= Tarea 1.
+= Tarea 2.
 
-*1. Encontrar una forma de tokenizar una frase sílaba por sílaba*.
+1. Considera el texto: Rosa blanca: Los alemanes que intentaron derrocar a Hitler disponible en: https://www.bbc.com/news/magazine-21521060
+2. Tokenizar las palabras con NLTK
+3. Tokenizar las palabras con spaCy
+4. Determinar la diversidad léxica
+5. Comparación: Analiza las diferencias. ¿Cómo operan NLTK y SpaCy?
 
-#box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
+*Tokenización con NLTK*:
+
+Para la tokenización por palabras con NLTK, se importa la función `word_tokenize` de `nltk.tokenize`. Para manejar mejor el texto, se lo almacena en un archivo `textoBBC.txt` el cual se leerá en el programa de python.
+
+#cajaCodigo("from nltk.tokenize import word_tokenize
+
+with open('textoBBC.txt', 'r', encoding='utf-8') as archivo:
+    texto = archivo.read()
+
+palabras = word_tokenize(texto)
+print(palabras)")
+
+La ejecución parcial del programa es:
+
+#block(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
 ```regex
-[^()'"‘’¿¡aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*(?(?=[íú][aeo])[aeiouAEIOUáéíóüúÁÉÍÓÚ]|(?(?=[aeo]{2})[aeiouAEIOUáéíóüúÁÉÍÓÚ]|(?(?=y)y|[aeiouAEIOUáéíóüúÁÉÍÓÚ]+)))(?(?=[dhlnmrsyz]\b)(?(?=.\b[áéíóú])|\w)|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|ll|rr|pr|br|tr|tl|dr|cr|kr|gr|fr|pl|bl|cl|kl|gl|fl)|(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{4})\w\w|\w))|)
+['Seventy', 'years', 'ago', 'today', ',', 'three', 'German', 'students', 'were', 'executed', 'in', 'Munich', 'for', 'leading', 'a', 'resistance', 'movement', 'against', 'Hitler', '.', 'Since', 'then', ',', 'the', 'members', 'of', 
+
+...
+
+'up', 'to', 'the', 'age', 'of', '86', '.', 'Her', 'friend', 'Alexander', 'Schmorell', 'was', 'made', 'a', 'saint', 'by', 'the', 'Russian', 'Orthodox', 'church', 'in', '2012', '.', 'He', 'would', 'have', 'laughed', 'out', 'loud', 'if', 'he', "'d", 'known', ',', 'says', 'Furst-Ramdohr', '.', 'He', 'was', "n't", 'a', 'saint', '-', 'he', 'was', 'just', 'a', 'normal', 'person', '.']
 ```
 ]
 
-En pseudocódigo:
+Como se puede ver, la función `word_tokenize` también tokeniza símbolos como comas, puntos y guiones, aunque cuando un guión no está separado por espacios, se toma en cuenta como parte de la palabra; también toma por separado las contracciones (wasn't)
 
-#box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
+*Tokenización con SpaCy*:
+
+Para la tokenización con SpaCy, se usa un modelo "blank" en inglés, se lee el mismo archivo `textoBBC.txt`.
+
+#block(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
 ```regex
-atrapa consonantes seguidas
-if ([íú][aeo]) {
-	atrapa vocal
-} else if ([aeo]{2}){
-	atrapa vocal
-} else if (hay una y sola){
-	atrapa y
-} else {
-	atrapa todas las vocales seguidas
-}
+import spacy
+nlp = spacy.blank("en")
 
-if (termina en dlnmrsyz){
-	if (al terminar hay áéíóú){
-		
-	} else {
-		atrapa letra	
-}
+with open('textoBBC.txt', 'r', encoding='utf-8') as archivo:
+    texto = archivo.read()
 
-if (choque de dos o más consonantes){
-	 if (choque de ch | ll | rr | pr | br | tr | tl | dr | cr | kr | gr | fr | pl | bl | cl | kl | gl | fl){
-	 	
-	 } else {
-	 	if (choque de cuatro consonantes) {
-	 		atrapa dos letras
-	 	} else {
-	 		atrapa letra
-	 	}
-	 }
-}
+doc = nlp(texto)
+
+for token in doc:
+    print(token)
 ```
 ]
 
-*Explicación*:
+La ejecución parcial del programa es:
 
-Para separar por sílabas, primero se analiza cómo se construyen las palabras, se deben agarrar las consonantes con las vocales que les sigan, esto ya sirve para tokenizar palabras como `llave, palabra, pala`, se toma en cuenta que una palabra puede empezar por vocal, así que se usa el cuantificador `*` para indicar que las consonantes pueden aparecer cero o más veces #box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*`].
-
-Siguiendo las reglas de la RAE para los diptongos, se manejan todos los casos en los que se debe atrapar una o más vocales, esto se logra gracias a usa una función que replica el comportamiento de un `if`: #box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`(?(?=condición)then|else)`]  Con esto, se añaden palabras como `ala, aloja, emana`. 
-
-Cuando una palabra termina en una consonante (en español solo pasa con `dlnmrsyz`), esa consonante se añade a la silaba final, para comprobar si una palabra termina en una consonante. Así, se logra atrapar la consonante final como parte de la ultima sílaba, ya que regex no considera las palabras con tilde como parte de una palabra, el posicionador `\b` no las toma en cuenta, así que para evitar atrapar letras que se deberían juntar con una vocal con tilde al final para formar la sílaba, se añade la condición de que no debe seguir ningún `áéíóú`: #box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*[aeiouyAEIOUYáéíóüúÁÉÍÓÚ]+(?(?=[dlnmrsyz]\b[^áéíóú])\w|)`].
-
-Las situaciones en las que las sílabas no se dividen de forma `consonante - vocal` es cuando hay un choque de dos consonantes o más, en ese caso, también pueden tener la forma `vocal - consonante` o `vocal - consonante - vocal` (men-te, a-lam-bre, am-pa-ro), pero esta regla tiene excepciones con los choques de consonantes `ch, cl, cr, ll, tl, tr, dr, br, bl, rr`, en cuyo caso se corta la sílaba para añadir ambas consonantes a la siguiente sílaba; por eso, y usando las estructuras de if, cuando hay un choque de consonantes #box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})then|else)`] dentro del then se hace otro `if` para excluir los casos especiales #box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`(?(?=ch|cl|cr|ll|tl|tr|dr|br|bl|rr)|else)`].
-
-Una vez exluidos los casos especiales, hay otra observación antes de capturar la consonante extra para la estructura `consonante? - vocal - consonante`, en las pocas palabras del español que tienen cuatro consonantes seguidas (abstracto, abstraer, transplantar, instrumento, etc.) se sigue la estructura `vocal - consonante - consonante`, para tratar estos casos específicos, se valida que el choque de consonantes no sea `ns` ni `bs`, si lo es, atrapa las dos consonantes para cumplir la estructura de la sílaba especial: #box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`(?(?=ns|bs)\w\w|else))`]. Finalmente, por parte del `else`, solo queda el caso en el que sí se siga la estructura `consonante? - vocal - consonante`, para la cual solo se tiene que capturar la consonante extra: 
-#box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`\w`].
-
-Juntando todas las validaciones según la sintaxis de #box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[`(?(?=condición)then|else)`], se da con el código final:
-
-#box(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
+#block(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
 ```regex
-[^()'"‘’¿¡aeiouAEIOUáéíóúüÁÉÍÓÚ\s]*(?(?=[íú][aeo])[aeiouAEIOUáéíóüúÁÉÍÓÚ]|(?(?=[aeo]{2})[aeiouAEIOUáéíóüúÁÉÍÓÚ]|(?(?=y)y|[aeiouAEIOUáéíóüúÁÉÍÓÚ]+)))(?(?=[dhlnmrsyz]\b)(?(?=.\b[áéíóú])|\w)|)(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{2,})(?(?=ch|ll|rr|pr|br|tr|tl|dr|cr|kr|gr|fr|pl|bl|cl|kl|gl|fl)|(?(?=[^aeiouAEIOUáéíóúüÁÉÍÓÚ\s]{4})\w\w|\w))|)
+Seventy
+years
+ago
+today
+,
+three
+German
+students
+were
+executed
+in
+Munich
+for
+
+...
+
+Ramdohr
+.
+He
+was
+n't
+a
+saint
+-
+he
+was
+just
+a
+normal
+person
+.
 ```
-] $qed$
+]
+
+`SpaCy` imrpime los tokens en líneas separadas, pero esta es una diferencia únicamente visual. Como con `NLTK`, `SpaCy` reconoce símbolos como comas, puntos y guiones.
+
+*Diversidad léxica*:
+
+Para encontrar la diversidad léxica, se sigue la fórmula:
+$
+  "Diversidad léxica" = "Tipos" / "Tokens"
+$
+
+Donde los tipos son como los tokens pero sin repeticiones y la cantidad de tokens no puede ser cero.
+
+Se usaron programas de python para determinar la cantidad de tipos, tanto con NLTK como con SpaCY.
+
+En NLTK:
+
+#block(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
+```regex
+import nltk
+from nltk.tokenize import word_tokenize
+
+with open('textoBBC.txt', 'r', encoding='utf-8') as archivo:
+    texto = archivo.read()
+
+Tokens = word_tokenize(texto.lower())
+
+tipos = set(Tokens)
+
+tokens = len(Tokens)
+
+ttr = len(tipos) / tokens if tokens > 0 else 0
+
+print(f"Tipos: {len(tipos)}")
+print(f"Tokens: {tokens}")
+print(f"Diversidad léxica: {ttr:.4f}")
+```
+]
+
+Corrida:
+
+#block(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
+```regex
+Tipos: 410
+Tokens: 1062
+Diversidad léxica: 0.3861
+```
+]
+ 
+En SpaCy:
+
+#block(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
+```regex
+import spacy
+
+nlp = spacy.blank("en")
+
+with open('textoBBC.txt', 'r', encoding='utf-8') as archivo:
+    texto = archivo.read()
+
+doc = nlp(texto.lower())
+
+Tokens = [token.text for token in doc if not token.is_space]
+
+tipos = set(Tokens)
+
+tokens = len(Tokens)
+ttr = len(tipos) / tokens if tokens > 0 else 0
+
+print(f"Tipos: {len(tipos)}")
+print(f"Tokens: {tokens}")
+print(f"Diversidad léxica: {ttr:.4f}")
+```
+]
+
+Corrida:
+
+#block(stroke: black, radius: 5pt ,inset: 5pt, fill: rgb("#bdbdbd5e"))[
+```regex
+Tipos: 412
+Tokens: 1098
+Diversidad léxica: 0.3752
+```
+]
+
+En porcentajes, los resultados son:
+- `NLTK`: 38.61%
+- `SpaCy`: 37.52%
+
+*Comparación*:
+
+Aunque ambas librerías mostraron resultados similares, hubieron algunas diferencias pequeñas en la cantidad de tipos y tokens, lo cual afecto minimamente a la diversidad léxica.
+
+Las diferencias se deben a la forma de tokenizar los textos por parte de cada librería. En el texto, se habla de Liselotte Furst-Ramdohr, cuyo apellido lleva un guión, en `NLTK`, se considera a su apellido como un solo token, mientras que en `SpaCy`, se consideran como tres ('Furst', '-', 'Ramdohr'). Cuando un guión está rodeado por espacios, ambas librerías lo tratan igual, como un token aparte, pero si no está con espacios, se genera la diferencia entre librerías.
+
+En el texto aparecen otros guiones sin espacios, como `99-year-old`, `best-known` u `Oscar-nominated`. Estos casos son los responsables de la discrepancia entre la cantidad encontrada de tipos y tokens entre ambas librerías.
+
+En conclusión, ambas librerías manejan la tokenización de una forma muy similar, aunque con pequeñas diferencias con casos especiales como con los guiones, los resultados al calcular la diversidad léxica son prácticamente iguales.
+
+\
+
+El código usado para tokenizar fue adaptado de https://www.geeksforgeeks.org/nlp/tokenization-using-spacy-library/ y https://www.geeksforgeeks.org/nlp/spacy-for-natural-language-processing/
