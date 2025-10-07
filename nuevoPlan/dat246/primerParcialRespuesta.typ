@@ -110,81 +110,9 @@ El muestreo consiste en 30 observaciones de cables de cobre comunes, donde se mi
 
 == Intervalos y Representación de Clases
 
-Para analizar la distribución de los datos, se calcularon los intervalos de las variables independientes $x_1$ (longitud, en cm) y $x_2$ (diámetro, en cm). 
-
-=== Longitud ($x_1$)
-
-La longitud varía entre 10 cm y 300 cm. Se definieron 5 intervalos de amplitud 58 cm:
-
-#grid(
-  inset: 5pt,
-  stroke: black,
-  columns: (auto, auto),
-  [Intervalo (cm)], [Frecuencia],
-  [$[10, 68)$], [15],
-  [$[68, 126)$], [13],
-  [$[126, 184)$], [3],
-  [$[184, 242)$], [0],
-  [$[242, 300]$], [1],
-)
-
-=== Diámetro ($x_2$)
-
-El diámetro presenta valores discretos: 0.001 cm, 0.0129 cm, 0.0163 cm y 0.0326 cm. Las frecuencias son:
-
-#grid(
-  inset: 5pt,
-  stroke: black,
-  columns: (auto, auto),
-  [Valor (cm)], [Frecuencia],
-  [0.001], [2],
-  [0.0129], [15],
-  [0.0163], [6],
-  [0.0326], [7],
-)
-
-Se observa que $x_1$ tiene mayor variabilidad, pero $x_2$ está concentrado en pocos valores, especialmente 0.0129 cm y 0.0326 cm. Además, se detectaron valores repetidos en $y$ (por ejemplo, $y=2.0$ en 7 observaciones) y $x_1$ (por ejemplo, 50 cm en 3 observaciones). La observación 1 ($x_1=300$, $y=5.8$) podría ser un valor atípico. No se modificaron los datos en esta etapa, ya que la linealidad y la necesidad de ajustes se verificarán en los cálculos posteriores (modelo de regresión y análisis de residuos).
-
 == Gráfica de los puntos en tres dimensiones
 
 Se grafican los 30 puntos de la muestra en un espacio tridimensional, con $x_1$ (longitud, en cm) en el eje $X$, $x_2$ (diámetro, en cm) en el eje $Z$, y $y$ (resistencia, en ohmios) en el eje $Y$. Los puntos son:
-
-#grid(
-  inset: 5pt,
-  stroke: black,
-  columns: (auto, auto, auto, auto),
-  [Número], [$y$ (ohmios)], [$x_1$ (cm)], [$x_2$ (cm)],
-  [1], [5.8], [300], [0.0163],
-  [2], [2.9], [50], [0.0163],
-  [3], [2.8], [40], [0.0163],
-  [4], [2.4], [30], [0.0163],
-  [5], [2.5], [20], [0.0163],
-  [6], [4.2], [10], [0.0163],
-  [7], [3.2], [100], [0.0326],
-  [8], [2.6], [90], [0.0326],
-  [9], [2.2], [80], [0.0326],
-  [10], [2.0], [70], [0.0326],
-  [11], [2.0], [60], [0.0326],
-  [12], [2.0], [50], [0.0326],
-  [13], [2.6], [10], [0.0326],
-  [14], [2.1], [150], [0.0129],
-  [15], [2.2], [140], [0.0129],
-  [16], [2.0], [130], [0.0129],
-  [17], [2.1], [120], [0.0129],
-  [18], [2.0], [110], [0.0129],
-  [19], [2.0], [100], [0.0129],
-  [20], [2.1], [90], [0.0129],
-  [21], [2.4], [80], [0.0129],
-  [22], [2.0], [70], [0.0129],
-  [23], [2.1], [60], [0.0129],
-  [24], [2.0], [50], [0.0129],
-  [25], [2.2], [40], [0.0129],
-  [26], [2.4], [30], [0.0129],
-  [27], [2.6], [20], [0.0129],
-  [28], [2.7], [10], [0.0129],
-  [29], [2.4], [20], [0.001],
-  [30], [2.4], [10], [0.001],
-)
 
 Para graficar manualmente, se recomienda escalar los ejes: por ejemplo, 1 cm en papel = 50 cm para $x_1$, 1 cm = 1 ohmio para $y$, y 1 cm = 0.01 cm para $x_2$. Los puntos se trazan en un sistema de coordenadas 3D, usando proyección isométrica.
 
@@ -194,44 +122,7 @@ Se grafican los puntos de la muestra para analizar la relación de la resistenci
 
 === Resistencia vs. Longitud ($y = f(x_1)$)
 
-Los puntos $(x_(i 1), y_i)$ se grafican en un plano 2D, con $x_1$ (longitud, en cm) en el eje $X$ y $y$ (resistencia, en ohmios) en el eje $Y$. Se distinguen los puntos según el valor de $x_2$:
-
-#grid(
-  inset: 5pt,
-  stroke: black,
-  columns: (auto, auto, auto, auto),
-  [Número], [$y$ (ohmios)], [$x_1$ (cm)], [$x_2$ (cm)],
-  [1], [5.8], [300], [0.0163],
-  [2], [2.9], [50], [0.0163],
-  [3], [2.8], [40], [0.0163],
-  [4], [2.4], [30], [0.0163],
-  [5], [2.5], [20], [0.0163],
-  [6], [4.2], [10], [0.0163],
-  [7], [3.2], [100], [0.0326],
-  [8], [2.6], [90], [0.0326],
-  [9], [2.2], [80], [0.0326],
-  [10], [2.0], [70], [0.0326],
-  [11], [2.0], [60], [0.0326],
-  [12], [2.0], [50], [0.0326],
-  [13], [2.6], [10], [0.0326],
-  [14], [2.1], [150], [0.0129],
-  [15], [2.2], [140], [0.0129],
-  [16], [2.0], [130], [0.0129],
-  [17], [2.1], [120], [0.0129],
-  [18], [2.0], [110], [0.0129],
-  [19], [2.0], [100], [0.0129],
-  [20], [2.1], [90], [0.0129],
-  [21], [2.4], [80], [0.0129],
-  [22], [2.0], [70], [0.0129],
-  [23], [2.1], [60], [0.0129],
-  [24], [2.0], [50], [0.0129],
-  [25], [2.2], [40], [0.0129],
-  [26], [2.4], [30], [0.0129],
-  [27], [2.6], [20], [0.0129],
-  [28], [2.7], [10], [0.0129],
-  [29], [2.4], [20], [0.001],
-  [30], [2.4], [10], [0.001],
-)
+Los puntos $(x_(i 1), y_i)$ se grafican en un plano 2D, con $x_1$ (longitud, en cm) en el eje $x$ y $y$ (resistencia, en ohmios) en el eje $Y$. Se distinguen los puntos según el valor de $x_2$.
 
 Para graficar manualmente, usa una escala de 1 cm = 50 cm para $x_1$ y 1 cm = 1 ohmio para $y$. Usa símbolos distintos (por ejemplo, círculos para $x_2 = 0.0163$, cruces para $x_2 = 0.0326$, triángulos para $x_2 = 0.0129$, cuadrados para $x_2 = 0.001$).
 
@@ -239,288 +130,296 @@ Para graficar manualmente, usa una escala de 1 cm = 50 cm para $x_1$ y 1 cm = 1 
 
 Los puntos $(x_(i 2), y_i)$ se grafican en un plano 2D, con $x_2$ (diámetro, en cm) en el eje $X$ y $y$ (resistencia, en ohmios) en el eje $Y$. Se distinguen los puntos según rangos de $x_1$:
 
-#grid(
-  inset: 5pt,
-  stroke: black,
-  columns: (auto, auto, auto, auto),
-  [Número], [$y$ (ohmios)], [$x_2$ (cm)], [$x_1$ (cm)],
-  [1], [5.8], [0.0163], [300],
-  [2], [2.9], [0.0163], [50],
-  [3], [2.8], [0.0163], [40],
-  [4], [2.4], [0.0163], [30],
-  [5], [2.5], [0.0163], [20],
-  [6], [4.2], [0.0163], [10],
-  [7], [3.2], [0.0326], [100],
-  [8], [2.6], [0.0326], [90],
-  [9], [2.2], [0.0326], [80],
-  [10], [2.0], [0.0326], [70],
-  [11], [2.0], [0.0326], [60],
-  [12], [2.0], [0.0326], [50],
-  [13], [2.6], [0.0326], [10],
-  [14], [2.1], [0.0129], [150],
-  [15], [2.2], [0.0129], [140],
-  [16], [2.0], [0.0129], [130],
-  [17], [2.1], [0.0129], [120],
-  [18], [2.0], [0.0129], [110],
-  [19], [2.0], [0.0129], [100],
-  [20], [2.1], [0.0129], [90],
-  [21], [2.4], [0.0129], [80],
-  [22], [2.0], [0.0129], [70],
-  [23], [2.1], [0.0129], [60],
-  [24], [2.0], [0.0129], [50],
-  [25], [2.2], [0.0129], [40],
-  [26], [2.4], [0.0129], [30],
-  [27], [2.6], [0.0129], [20],
-  [28], [2.7], [0.0129], [10],
-  [29], [2.4], [0.001], [20],
-  [30], [2.4], [0.001], [10],
-)
-
 Para graficar manualmente, usa una escala de 1 cm = 0.01 cm para $x_2$ y 1 cm = 1 ohmio para $y$. Usa símbolos distintos para rangos de $x_1$ (por ejemplo, $[10, 68)$, $[68, 126)$, $[126, 184)$, $[184, 242)$, $[242, 300]$).
 
-==
+== Hiperplanos
 
 == Método de Mínimos Cuadrados
 
-El método de mínimos cuadrados se utiliza para estimar los coeficientes del modelo de regresión lineal múltiple, dado por:
+Se usará el método de mínimos cuadrados. Este método minimiza la suma de los cuadrados de los residuos, asegurando un ajuste óptimo del modelo a los datos.
 
-$ y_i = beta_0 + beta_1 x_(i 1) + beta_2 x_(i 2) + epsilon_i, quad i = 1, dots, 30 $
+El modelo de regresión lineal múltiple es:
 
-donde $y_i$ es la resistencia eléctrica (en ohmios), $x_(i 1)$ es la longitud (en cm), $x_(i 2)$ es el diámetro (en cm), $beta_0$ es el intercepto, $beta_1$ y $beta_2$ son los coeficientes de las variables independientes, y $epsilon_i$ es el error aleatorio, que se asume con media cero y varianza constante ($sigma^2$).
+$
+y_i = beta_0 + beta_1 x_(i 1) + beta_2 x_(i 2) + epsilon_i, quad i = 1, dots, n
+$
 
-El objetivo es encontrar los coeficientes $hat(beta)_0$, $hat(beta)_1$, $hat(beta)_2$ que minimicen la suma de los cuadrados de los errores:
+donde $beta_0$ es el intercepto, $beta_1$ y $beta_2$ son los coeficientes parciales que indican el cambio en $y$ por unidad de $x_1$ o $x_2$, manteniendo la otra variable constante, y $epsilon_i$ es el error con media cero.
 
-$ S = sum_(i=1)^n (y_i - hat(y)_i)^2 = sum_(i=1)^n (y_i - (hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2)))^2 $
+Se minimiza la función:
 
-donde $hat(y)_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2)$ es el valor predicho para la observación $i$, y $n = 30$ es el tamaño de la muestra.
+$
+L = sum_(i=1)^n (y_i - beta_0 - beta_1 x_(i 1) - beta_2 x_(i 2))^2
+$
 
-En notación matricial, el modelo se expresa como:
+Derivando $L$ respecto a $beta_0$, $beta_1$ y $beta_2$ e igualando a cero, se obtienen los estimadores $hat(beta)_0$, $hat(beta)_1$, $hat(beta)_2$. El método es adecuado por su simplicidad y capacidad para modelar múltiples variables, ajustándose a la relación lineal asumida entre resistencia, longitud y diámetro.
 
-$ Y = X beta + epsilon $
+== Cálculos
 
-donde:
-- $Y$ es el vector de respuestas ($n times 1$): $Y = (y_1, y_2, dots, y_n)^T$.
-- $X$ es la matriz de diseño ($n times 3$):
-  $ X = mat(
-      1, x_(1 1), x_(1 2);
-      1, x_(2 1), x_(2 2);
-      dots.v, dots.v, dots.v;
-      1, x_(n 1), x_(n 2)
-    ) $
-- $beta$ es el vector de coeficientes ($3 times 1$): $beta = (beta_0, beta_1, beta_2)^T$.
-- $epsilon$ es el vector de errores ($n times 1$): $epsilon = (epsilon_1, epsilon_2, dots, epsilon_n)^T$.
+Se plantea el modelo de regresión lineal múltiple para la resistencia eléctrica $y_i$ en función de la longitud $x_(i 1)$ y el diámetro $x_(i 2)$ de los cables, dado por:
 
-La solución de mínimos cuadrados se obtiene minimizando $S = ||Y - X beta||^2$. Derivando con respecto a $beta$ e igualando a cero, se obtiene la ecuación normal:
+$ y_i = beta_0 + beta_1 x_(i 1) + beta_2 x_(i 2) + epsilon_i $
 
-$ X^T X hat(beta) = X^T Y $
+La función de mínimos cuadrados a minimizar es:
 
-Resolviendo para $hat(beta)$:
+$ L = sum (y_i - beta_0 - beta_1 x_(i 1) - beta_2 x_(i 2))^2 $
 
-$ hat(beta) = (X^T X)^(-1) X^T Y $
+Derivando parcialmente con respecto a $beta_0$, $beta_1$ y $beta_2$, se obtienen las ecuaciones normales:
 
-Esta solución proporciona los coeficientes estimados $hat(beta)_0$, $hat(beta)_1$, $hat(beta)_2$. El modelo ajustado es:
+$ 
+(diff L)/(diff beta_0) = -2 sum (y_i - hat(beta)_0 - hat(beta)_1 x_(i 1) - hat(beta)_2 x_(i 2)) = 0 \
+(diff L)/(diff beta_1) = -2 sum (y_i - hat(beta)_0 - hat(beta)_1 x_(i 1) - hat(beta)_2 x_(i 2)) x_(i 1) = 0 \
+(diff L)/(diff beta_2) = -2 sum (y_i - hat(beta)_0 - hat(beta)_1 x_(i 1) - hat(beta)_2 x_(i 2)) x_(i 2) = 0 
+$
 
-$ hat(y)_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2) $
+Simplificando:
 
-El método asume que:
-- La relación entre $y$ y $(x_1, x_2)$ es lineal.
-- Los errores $epsilon_i$ son independientes, con media cero y varianza constante ($sigma^2$).
-- Los errores siguen una distribución normal (para pruebas de hipótesis).
-- La matriz $X^T X$ es invertible (sin multicolinealidad perfecta).
+$ 
+sum y_i = n hat(beta)_0 + hat(beta)_1 sum x_(i 1) + hat(beta)_2 sum x_(i 2) \
+sum y_i x_(i 1) = hat(beta)_0 sum x_(i 1) + hat(beta)_1 sum x_(i 1)^2 + hat(beta)_2 sum x_(i 1) x_(i 2) \
+sum y_i x_(i 2) = hat(beta)_0 sum x_(i 2) + hat(beta)_1 sum x_(i 1) x_(i 2) + hat(beta)_2 sum x_(i 2)^2 
+$
 
-En los siguientes apartados, se calcularán los coeficientes y se verificarán estos supuestos utilizando los datos de la muestra.
+Se procede a calcular las sumatorias necesarias con los datos proporcionados ($n = 30$, $k = 2$, $p = k + 1 = 3$):
 
-== Cálculos del Modelo de Regresión
+#let nObs = 30
+#let sumY = calc.round(5.8 + 2.9 + 2.8 + 2.4 + 2.5 + 4.2 + 3.2 + 2.6 + 2.2 + 2 + 2 + 2 + 2.6 + 2.1 + 2.2 + 2 + 2.1 + 2 + 2.1 + 2.4 + 2 + 2.1 + 2 + 2.2 + 2.4 + 2.6 + 2.7 + 2.4 + 2.4 + 2.4, digits: 3)
+#let sumX1 = calc.round(300 + 50 + 40 + 30 + 20 + 10 + 100 + 90 + 80 + 70 + 60 + 50 + 10 + 150 + 140 + 130 + 120 + 110 + 100 + 90 + 80 + 70 + 60 + 50 + 40 + 30 + 20 + 10 + 20 + 10, digits: 3)
+#let sumX2 = calc.round(0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.001 + 0.001, digits: 3)
 
-A continuación, se realizan los cálculos paso a paso para estimar los coeficientes del modelo de regresión lineal múltiple utilizando el método de mínimos cuadrados, con redondeo a tres decimales.
+$ 
+sum y_i = #sumY \
+sum x_(i 1) = #sumX1 \
+sum x_(i 2) = #sumX2 
+$
 
-=== Matriz de diseño $X$ y vector $Y$
+#let sumX1Square = calc.round(300*300 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 10*10 + 150*150 + 140*140 + 130*130 + 120*120 + 110*110 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 20*20 + 10*10, digits: 3)
+#let sumX2Square = calc.round(0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.001*0.001 + 0.001*0.001, digits: 3)
+#let sumX1X2 = calc.round(300*0.0163 + 50*0.0163 + 40*0.0163 + 30*0.0163 + 20*0.0163 + 10*0.0163 + 100*0.0326 + 90*0.0326 + 80*0.0326 + 70*0.0326 + 60*0.0326 + 50*0.0326 + 10*0.0326 + 150*0.0129 + 140*0.0129 + 130*0.0129 + 120*0.0129 + 110*0.0129 + 100*0.0129 + 90*0.0129 + 80*0.0129 + 70*0.0129 + 60*0.0129 + 50*0.0129 + 40*0.0129 + 30*0.0129 + 20*0.0129 + 10*0.0129 + 20*0.001 + 10*0.001, digits: 3)
+#let sumYx1 = calc.round(5.8*300 + 2.9*50 + 2.8*40 + 2.4*30 + 2.5*20 + 4.2*10 + 3.2*100 + 2.6*90 + 2.2*80 + 2*70 + 2*60 + 2*50 + 2.6*10 + 2.1*150 + 2.2*140 + 2*130 + 2.1*120 + 2*110 + 2*100 + 2.1*90 + 2.4*80 + 2*70 + 2.1*60 + 2*50 + 2.2*40 + 2.4*30 + 2.6*20 + 2.7*10 + 2.4*20 + 2.4*10, digits: 3)
+#let sumYx2 = calc.round(5.8*0.0163 + 2.9*0.0163 + 2.8*0.0163 + 2.4*0.0163 + 2.5*0.0163 + 4.2*0.0163 + 3.2*0.0326 + 2.6*0.0326 + 2.2*0.0326 + 2*0.0326 + 2*0.0326 + 2*0.0326 + 2.6*0.0326 + 2.1*0.0129 + 2.2*0.0129 + 2*0.0129 + 2.1*0.0129 + 2*0.0129 + 2*0.0129 + 2.1*0.0129 + 2.4*0.0129 + 2*0.0129 + 2.1*0.0129 + 2*0.0129 + 2.2*0.0129 + 2.4*0.0129 + 2.6*0.0129 + 2.7*0.0129 + 2.4*0.001 + 2.4*0.001, digits: 3)
 
-La matriz de diseño $X$ ($30 times 3$) contiene una columna de 1’s (para el intercepto $beta_0$), una columna con los valores de $x_(i 1)$ (longitud), y una columna con los valores de $x_(i 2)$ (diámetro). El vector $Y$ ($30 times 1$) contiene los valores de $y_i$ (resistencia). Los datos son:
+$ 
+sum x_(i 1)^2 = #sumX1Square \
+sum x_(i 2)^2 = #sumX2Square \
+sum x_(i 1) x_(i 2) = #sumX1X2 \
+sum y_i x_(i 1) = #sumYx1 \
+sum y_i x_(i 2) = #sumYx2 
+$
 
-#let Data = (
-  (Y: 5.8, X1: 300.0, X2: 0.0163),
-  (Y: 2.9, X1: 50.0, X2: 0.0163),
-  (Y: 2.8, X1: 40.0, X2: 0.0163),
-  (Y: 2.4, X1: 30.0, X2: 0.0163),
-  (Y: 2.5, X1: 20.0, X2: 0.0163),
-  (Y: 4.2, X1: 10.0, X2: 0.0163),
-  (Y: 3.2, X1: 100.0, X2: 0.0326),
-  (Y: 2.6, X1: 90.0, X2: 0.0326),
-  (Y: 2.2, X1: 80.0, X2: 0.0326),
-  (Y: 2.0, X1: 70.0, X2: 0.0326),
-  (Y: 2.0, X1: 60.0, X2: 0.0326),
-  (Y: 2.0, X1: 50.0, X2: 0.0326),
-  (Y: 2.6, X1: 10.0, X2: 0.0326),
-  (Y: 2.1, X1: 150.0, X2: 0.0129),
-  (Y: 2.2, X1: 140.0, X2: 0.0129),
-  (Y: 2.0, X1: 130.0, X2: 0.0129),
-  (Y: 2.1, X1: 120.0, X2: 0.0129),
-  (Y: 2.0, X1: 110.0, X2: 0.0129),
-  (Y: 2.0, X1: 100.0, X2: 0.0129),
-  (Y: 2.1, X1: 90.0, X2: 0.0129),
-  (Y: 2.4, X1: 80.0, X2: 0.0129),
-  (Y: 2.0, X1: 70.0, X2: 0.0129),
-  (Y: 2.1, X1: 60.0, X2: 0.0129),
-  (Y: 2.0, X1: 50.0, X2: 0.0129),
-  (Y: 2.2, X1: 40.0, X2: 0.0129),
-  (Y: 2.4, X1: 30.0, X2: 0.0129),
-  (Y: 2.6, X1: 20.0, X2: 0.0129),
-  (Y: 2.7, X1: 10.0, X2: 0.0129),
-  (Y: 2.4, X1: 20.0, X2: 0.0010),
-  (Y: 2.4, X1: 10.0, X2: 0.0010),
-)
+La solución matricial para los estimadores de mínimos cuadrados se obtiene como:
 
-#let N = Data.len() // N = 30
+$ hat(beta) = (X' X)^(-1) X' y $
 
-La matriz $X$ y el vector $Y$ se definen como:
+Se construye la matriz $X$ incluyendo la columna de unos para el término independiente $beta_0$:
 
-$ X = mat(
-  1, x_(1 1), x_(1 2);
-  1, x_(2 1), x_(2 2);
-  dots.v, dots.v, dots.v;
-  1, x_(30 1), x_(30 2)
-), quad Y = vec(y_1, y_2, dots.v, y_30)^T $
+$ 
+X = [#grid(
+  inset: 5pt,
+  columns: (auto, auto, auto),
+  [$1$], [$300$], [$0.0163$],
+  [$1$], [$50$], [$0.0163$],
+  [$1$], [$40$], [$0.0163$],
+  [$1$], [$30$], [$0.0163$],
+  [$1$], [$20$], [$0.0163$],
+  [$1$], [$10$], [$0.0163$],
+  [$1$], [$100$], [$0.0326$],
+  [$1$], [$90$], [$0.0326$],
+  [$1$], [$80$], [$0.0326$],
+  [$1$], [$70$], [$0.0326$],
+  [$1$], [$60$], [$0.0326$],
+  [$1$], [$50$], [$0.0326$],
+  [$1$], [$10$], [$0.0326$],
+  [$1$], [$150$], [$0.0129$],
+  [$1$], [$140$], [$0.0129$],
+  [$1$], [$130$], [$0.0129$],
+  [$1$], [$120$], [$0.0129$],
+  [$1$], [$110$], [$0.0129$],
+  [$1$], [$100$], [$0.0129$],
+  [$1$], [$90$], [$0.0129$],
+  [$1$], [$80$], [$0.0129$],
+  [$1$], [$70$], [$0.0129$],
+  [$1$], [$60$], [$0.0129$],
+  [$1$], [$50$], [$0.0129$],
+  [$1$], [$40$], [$0.0129$],
+  [$1$], [$30$], [$0.0129$],
+  [$1$], [$20$], [$0.0129$],
+  [$1$], [$10$], [$0.0129$],
+  [$1$], [$20$], [$0.001$],
+  [$1$], [$10$], [$0.001$],
+)]
+$
 
-=== Cálculo de $X^T X$
+Se calcula $X' X$:
 
-La matriz $X^T X$ ($3 times 3$) se calcula como:
+$ 
+X' X = [#grid(
+  inset: 5pt,
+  columns: (auto, auto, auto),
+  [#nObs], [#sumX1], [#sumX2],
+  [#sumX1], [#sumX1Square], [#sumX1X2],
+  [#sumX2], [#sumX1X2], [#sumX2Square],
+)]
+$
 
-$ X^T X = mat(
-  sum_(i=1)^n 1, sum_(i=1)^n x_(i 1), sum_(i=1)^n x_(i 2);
-  sum_(i=1)^n x_(i 1), sum_(i=1)^n x_(i 1)^2, sum_(i=1)^n x_(i 1) x_(i 2);
-  sum_(i=1)^n x_(i 2), sum_(i=1)^n x_(i 1) x_(i 2), sum_(i=1)^n x_(i 2)^2
-) $
+Se calcula $X' y$:
 
-Calculamos cada elemento:
+$ 
+X' y = [#grid(
+  inset: 5pt,
+  columns: (auto),
+  [#sumY],
+  [#sumYx1],
+  [#sumYx2],
+)]
+$
 
-#let SumOnes = calc.round(N, digits: 3) // sum 1 = N
-#let SumX1 = calc.round(Data.map(d => d.X1).sum(), digits: 3)
-#let SumX2 = calc.round(Data.map(d => d.X2).sum(), digits: 3)
-#let SumX1Sq = calc.round(Data.map(d => d.X1 * d.X1).sum(), digits: 3)
-#let SumX2Sq = calc.round(Data.map(d => d.X2 * d.X2).sum(), digits: 3)
-#let SumX1X2 = calc.round(Data.map(d => d.X1 * d.X2).sum(), digits: 3)
+Para resolver $hat(beta)$, se necesita $(X' X)^(-1)$. Se define la matriz $X' X$:
 
-- $sum_(i=1)^n 1 = SumOnes$
-- $sum_(i=1)^n x_(i 1) = SumX1$
-- $sum_(i=1)^n x_(i 2) = SumX2$
-- $sum_(i=1)^n x_(i 1)^2 = SumX1Sq$
-- $sum_(i=1)^n x_(i 2)^2 = SumX2Sq$
-- $sum_(i=1)^n x_(i 1) x_(i 2) = SumX1X2$
+#let detXtx = calc.round((nObs * sumX1Square * sumX2Square + 2 * sumX1 * sumX2 * sumX1X2) - (sumX1Square * sumX2 * sumX2 + sumX2Square * sumX1 * sumX1 + nObs * sumX1X2 * sumX1X2), digits: 3)
+#let invXtx11 = calc.round((sumX1Square * sumX2Square - sumX1X2 * sumX1X2) / detXtx, digits: 3)
+#let invXtx12 = calc.round((sumX1X2 * sumX2 - sumX1 * sumX2Square) / detXtx, digits: 3)
+#let invXtx13 = calc.round((sumX1 * sumX1X2 - sumX2 * sumX1Square) / detXtx, digits: 3)
+#let invXtx21 = calc.round((sumX1X2 * sumX2 - sumX1 * sumX2Square) / detXtx, digits: 3)
+#let invXtx22 = calc.round((nObs * sumX2Square - sumX2 * sumX2) / detXtx, digits: 3)
+#let invXtx23 = calc.round((sumX2 * sumX1 - nObs * sumX1X2) / detXtx, digits: 3)
+#let invXtx31 = calc.round((sumX1 * sumX1X2 - sumX2 * sumX1Square) / detXtx, digits: 3)
+#let invXtx32 = calc.round((sumX2 * sumX1 - nObs * sumX1X2) / detXtx, digits: 3)
+#let invXtx33 = calc.round((nObs * sumX1Square - sumX1 * sumX1) / detXtx, digits: 3)
 
-Sustituyendo:
+$ 
+(X' X)^(-1) = [#grid(
+  inset: 5pt,
+  columns: (auto, auto, auto),
+  [#invXtx11], [#invXtx12], [#invXtx13],
+  [#invXtx21], [#invXtx22], [#invXtx23],
+  [#invXtx31], [#invXtx32], [#invXtx33],
+)]
+$
 
-$ X^T X = mat(
-  30, 2370, 0.525;
-  2370, 267300, 46.209;
-  0.525, 46.209, 0.013
-) $
+Se calcula $hat(beta) = (X' X)^(-1) X' y$:
 
-=== Inversa de $X^T X$
+#let beta0 = calc.round(invXtx11 * sumY + invXtx12 * sumYx1 + invXtx13 * sumYx2, digits: 3)
+#let beta1 = calc.round(invXtx21 * sumY + invXtx22 * sumYx1 + invXtx23 * sumYx2, digits: 3)
+#let beta2 = calc.round(invXtx31 * sumY + invXtx32 * sumYx1 + invXtx33 * sumYx2, digits: 3)
 
-La inversa $(X^T X)^{-1}$ se calcula para la matriz:
+$ 
+hat(beta) = [#grid(
+  inset: 5pt,
+  columns: (auto),
+  [#beta0],
+  [#beta1],
+  [#beta2],
+)]
+$
 
-$ X^T X = mat(
-  a, b, c;
-  b, d, e;
-  c, e, f
-) $
+El modelo de regresión estimado es:
 
-donde $a = 30$, $b = 2370$, $c = 0.525$, $d = 267300$, $e = 46.209$, $f = 0.013$. El determinante es:
+$ 
+hat(y_i) = #beta0 + #beta1 x_(i 1) + #beta2 x_(i 2)
+$
 
-$ det(X^T X) = a(d f - e^2) - b(b f - c e) + c(b e - c d) $
+Se calculan los valores estimados $hat(y)_i$ para cada observación utilizando el modelo de regresión:
 
-#let DetA = calc.round(30 * (267300 * 0.013 - 46.209 * 46.209) - 2370 * (2370 * 0.013 - 0.525 * 46.209) + 0.525 * (2370 * 46.209 - 0.525 * 267300), digits: 3)
+$ hat(y)_i = #beta0 + #beta1 x_(i 1) + #beta2 x_(i 2) $
 
-$ det(X^T X) = DetA $
+#let yHat1 = calc.round(beta0 + beta1 * 300 + beta2 * 0.0163, digits: 3)
+#let yHat2 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0163, digits: 3)
+#let yHat3 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0163, digits: 3)
+#let yHat4 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0163, digits: 3)
+#let yHat5 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0163, digits: 3)
+#let yHat6 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0163, digits: 3)
+#let yHat7 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0326, digits: 3)
+#let yHat8 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0326, digits: 3)
+#let yHat9 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0326, digits: 3)
+#let yHat10 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0326, digits: 3)
+#let yHat11 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0326, digits: 3)
+#let yHat12 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0326, digits: 3)
+#let yHat13 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0326, digits: 3)
+#let yHat14 = calc.round(beta0 + beta1 * 150 + beta2 * 0.0129, digits: 3)
+#let yHat15 = calc.round(beta0 + beta1 * 140 + beta2 * 0.0129, digits: 3)
+#let yHat16 = calc.round(beta0 + beta1 * 130 + beta2 * 0.0129, digits: 3)
+#let yHat17 = calc.round(beta0 + beta1 * 120 + beta2 * 0.0129, digits: 3)
+#let yHat18 = calc.round(beta0 + beta1 * 110 + beta2 * 0.0129, digits: 3)
+#let yHat19 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0129, digits: 3)
+#let yHat20 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0129, digits: 3)
+#let yHat21 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0129, digits: 3)
+#let yHat22 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0129, digits: 3)
+#let yHat23 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0129, digits: 3)
+#let yHat24 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0129, digits: 3)
+#let yHat25 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0129, digits: 3)
+#let yHat26 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0129, digits: 3)
+#let yHat27 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0129, digits: 3)
+#let yHat28 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0129, digits: 3)
+#let yHat29 = calc.round(beta0 + beta1 * 20 + beta2 * 0.001, digits: 3)
+#let yHat30 = calc.round(beta0 + beta1 * 10 + beta2 * 0.001, digits: 3)
 
-La matriz inversa es:
+#let e1 = calc.round(5.8 - yHat1, digits: 3)
+#let e2 = calc.round(2.9 - yHat2, digits: 3)
+#let e3 = calc.round(2.8 - yHat3, digits: 3)
+#let e4 = calc.round(2.4 - yHat4, digits: 3)
+#let e5 = calc.round(2.5 - yHat5, digits: 3)
+#let e6 = calc.round(4.2 - yHat6, digits: 3)
+#let e7 = calc.round(3.2 - yHat7, digits: 3)
+#let e8 = calc.round(2.6 - yHat8, digits: 3)
+#let e9 = calc.round(2.2 - yHat9, digits: 3)
+#let e10 = calc.round(2 - yHat10, digits: 3)
+#let e11 = calc.round(2 - yHat11, digits: 3)
+#let e12 = calc.round(2 - yHat12, digits: 3)
+#let e13 = calc.round(2.6 - yHat13, digits: 3)
+#let e14 = calc.round(2.1 - yHat14, digits: 3)
+#let e15 = calc.round(2.2 - yHat15, digits: 3)
+#let e16 = calc.round(2 - yHat16, digits: 3)
+#let e17 = calc.round(2.1 - yHat17, digits: 3)
+#let e18 = calc.round(2 - yHat18, digits: 3)
+#let e19 = calc.round(2 - yHat19, digits: 3)
+#let e20 = calc.round(2.1 - yHat20, digits: 3)
+#let e21 = calc.round(2.4 - yHat21, digits: 3)
+#let e22 = calc.round(2 - yHat22, digits: 3)
+#let e23 = calc.round(2.1 - yHat23, digits: 3)
+#let e24 = calc.round(2 - yHat24, digits: 3)
+#let e25 = calc.round(2.2 - yHat25, digits: 3)
+#let e26 = calc.round(2.4 - yHat26, digits: 3)
+#let e27 = calc.round(2.6 - yHat27, digits: 3)
+#let e28 = calc.round(2.7 - yHat28, digits: 3)
+#let e29 = calc.round(2.4 - yHat29, digits: 3)
+#let e30 = calc.round(2.4 - yHat30, digits: 3)
 
-$ (X^T X)^(-1) = 1 / det(X^T X) dot mat(
-  d f - e^2, -(b f - c e), b e - c d;
-  -(b f - c e), a f - c^2, -(a e - c b);
-  b e - c d, -(a e - c b), a d - b^2
-) $
-
-Calculando cada elemento:
-
-#let InvA11 = calc.round((267300 * 0.013 - 46.209 * 46.209) / DetA, digits: 3)
-#let InvA12 = calc.round(-(2370 * 0.013 - 0.525 * 46.209) / DetA, digits: 3)
-#let InvA13 = calc.round((2370 * 46.209 - 0.525 * 267300) / DetA, digits: 3)
-#let InvA22 = calc.round((30 * 0.013 - 0.525 * 0.525) / DetA, digits: 3)
-#let InvA23 = calc.round(-(30 * 46.209 - 0.525 * 2370) / DetA, digits: 3)
-#let InvA33 = calc.round((30 * 267300 - 2370 * 2370) / DetA, digits: 3)
-
-$ (X^T X)^(-1) = mat(
-  InvA11, InvA12, InvA13;
-  InvA12, InvA22, InvA23;
-  InvA13, InvA23, InvA33
-) $
-
-=== Cálculo de $X^T Y$
-
-El vector $X^T Y$ ($3 times 1$) es:
-
-$ X^T Y = vec(
-  sum_(i=1)^n y_i,
-  sum_(i=1)^n x_(i 1) y_i,
-  sum_(i=1)^n x_(i 2) y_i
-) $
-
-#let SumY = calc.round(Data.map(d => d.Y).sum(), digits: 3)
-#let SumX1Y = calc.round(Data.map(d => d.X1 * d.Y).sum(), digits: 3)
-#let SumX2Y = calc.round(Data.map(d => d.X2 * d.Y).sum(), digits: 3)
-
-- $sum_(i=1)^n y_i = SumY$
-- $sum_(i=1)^n x_(i 1) y_i = SumX1Y$
-- $sum_(i=1)^n x_(i 2) y_i = SumX2Y$
-
-$ X^T Y = (SumY, SumX1Y, SumX2Y) $
-
-=== Coeficientes $hat(beta)$
-
-Los coeficientes se calculan como:
-
-$ hat(beta) = (X^T X)^(-1) X^T Y $
-
-#let Beta0 = calc.round(InvA11 * SumY + InvA12 * SumX1Y + InvA13 * SumX2Y, digits: 3)
-#let Beta1 = calc.round(InvA12 * SumY + InvA22 * SumX1Y + InvA23 * SumX2Y, digits: 3)
-#let Beta2 = calc.round(InvA13 * SumY + InvA23 * SumX1Y + InvA33 * SumX2Y, digits: 3)
-
-$ hat(beta) = vec(hat(beta)_0, hat(beta)_1, hat(beta)_2) = (Beta0, Beta1, Beta2) $
-
-El modelo ajustado es:
-
-$ hat(y)_i = Beta0 + Beta1 x_(i 1) + Beta2 x_(i 2) $
-
-=== Valores predichos y residuos
-
-Calculamos los valores predichos $hat(y)_i$ y los residuos $e_i = y_i - hat(y)_i$ para cada observación:
-
-#let PredictedY = Data.map(d => calc.round(Beta0 + Beta1 * d.X1 + Beta2 * d.X2, digits: 3))
-#let Residuals = Data.enumerate().map(((i, d)) => calc.round(d.Y - PredictedY.at(i), digits: 3))
+Se presentan los valores estimados $hat(y)_i$ y los residuos $epsilon_i = y_i - hat(y)_i$:
 
 #grid(
   inset: 5pt,
   stroke: black,
   columns: (auto, auto, auto, auto, auto, auto),
-  [Número], [$y_i$], [$x_(i 1)$], [$x_(i 2)$], [$hat(y)_i$], [$e_i$],
-  ..Data.enumerate().map(((i, d)) => (str(i + 1), str(d.Y), str(d.X1), str(d.X2), str(PredictedY.at(i)), str(Residuals.at(i)))).flatten()
+  [$i$], [$y_i$], [$x_(i 1)$], [$x_(i 2)$], [$hat(y)_i$], [$epsilon_i$],
+  [$1$], [$5.8$], [$300$], [$0.0163$], [#yHat1], [#e1],
+  [$2$], [$2.9$], [$50$], [$0.0163$], [#yHat2], [#e2],
+  [$3$], [$2.8$], [$40$], [$0.0163$], [#yHat3], [#e3],
+  [$4$], [$2.4$], [$30$], [$0.0163$], [#yHat4], [#e4],
+  [$5$], [$2.5$], [$20$], [$0.0163$], [#yHat5], [#e5],
+  [$6$], [$4.2$], [$10$], [$0.0163$], [#yHat6], [#e6],
+  [$7$], [$3.2$], [$100$], [$0.0326$], [#yHat7], [#e7],
+  [$8$], [$2.6$], [$90$], [$0.0326$], [#yHat8], [#e8],
+  [$9$], [$2.2$], [$80$], [$0.0326$], [#yHat9], [#e9],
+  [$10$], [$2$], [$70$], [$0.0326$], [#yHat10], [#e10],
+  [$11$], [$2$], [$60$], [$0.0326$], [#yHat11], [#e11],
+  [$12$], [$2$], [$50$], [$0.0326$], [#yHat12], [#e12],
+  [$13$], [$2.6$], [$10$], [$0.0326$], [#yHat13], [#e13],
+  [$14$], [$2.1$], [$150$], [$0.0129$], [#yHat14], [#e14],
+  [$15$], [$2.2$], [$140$], [$0.0129$], [#yHat15], [#e15],
+  [$16$], [$2$], [$130$], [$0.0129$], [#yHat16], [#e16],
+  [$17$], [$2.1$], [$120$], [$0.0129$], [#yHat17], [#e17],
+  [$18$], [$2$], [$110$], [$0.0129$], [#yHat18], [#e18],
+  [$19$], [$2$], [$100$], [$0.0129$], [#yHat19], [#e19],
+  [$20$], [$2.1$], [$90$], [$0.0129$], [#yHat20], [#e20],
+  [$21$], [$2.4$], [$80$], [$0.0129$], [#yHat21], [#e21],
+  [$22$], [$2$], [$70$], [$0.0129$], [#yHat22], [#e22],
+  [$23$], [$2.1$], [$60$], [$0.0129$], [#yHat23], [#e23],
+  [$24$], [$2$], [$50$], [$0.0129$], [#yHat24], [#e24],
+  [$25$], [$2.2$], [$40$], [$0.0129$], [#yHat25], [#e25],
+  [$26$], [$2.4$], [$30$], [$0.0129$], [#yHat26], [#e26],
+  [$27$], [$2.6$], [$20$], [$0.0129$], [#yHat27], [#e27],
+  [$28$], [$2.7$], [$10$], [$0.0129$], [#yHat28], [#e28],
+  [$29$], [$2.4$], [$20$], [$0.001$], [#yHat29], [#e29],
+  [$30$], [$2.4$], [$10$], [$0.001$], [#yHat30], [#e30],
 )
-
-=== Suma de cuadrados y $R^2$
-
-La suma de cuadrados total (SST), de la regresión (SSR) y del error (SSE) se calculan como:
-
-#let MeanY = calc.round(SumY / N, digits: 3)
-#let SST = calc.round(Data.map(d => (d.Y - MeanY) * (d.Y - MeanY)).sum(), digits: 3)
-#let SSE = calc.round(Residuals.map(e => e * e).sum(), digits: 3)
-#let SSR = calc.round(SST - SSE, digits: 3)
-#let RSquared = calc.round(SSR / SST, digits: 3)
-
-- $SST = sum_(i=1)^n (y_i - overline(y))^2 = SST$
-- $SSE = sum_(i=1)^n (y_i - hat(y)_i)^2 = SSE$
-- $SSR = SST - SSE = SSR$
-- $R^2 = SSR / SST = RSquared$
-
-El coeficiente de determinación $R^2$ indica la proporción de la variabilidad de $y$ explicada por el modelo.
