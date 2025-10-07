@@ -1,0 +1,120 @@
+```typ
+== Repaso de la recta.
+
+La recta se define mediante ecuaciones:
+$
+  a x + d y + c = 0\
+  y - y_1 = m (x - x_1)\
+  y = m x + b\
+  (y - y_1) / (x - x_1) = (y_2 - y_1) / (x_2 - x_1)\
+  x / a + y / b = 1
+$
+
+Ejemplo: Sean los puntos $p_1 = (2, 3)$ y $p_2 = (5, 7)$.
+$
+  (y - 3) / (x - 2) = (7 - 3) / (5 - 2)\
+  y = 4/3 (x - 2) + 3\
+  y = (4 x)/3 + 1/3\
+  m = tan theta\
+  tan theta = 4/3\
+  arctan (4/3) = 0.927\
+  theta = 0.927 dot 180/pi = 53.18 degree.
+$
+
+*Práctica nr4: graficar la recta de arriba.*
+= Regresión lineal y estimación de parámetros.
+El modelo estadístico 'regresión lineal' se puede escribir de dos formas:
+
+a) La variable respuesta o dependiente $y$ se expresa como suma de $beta_0 + delta_1 x_i$ y un error aleatorio $epsilon_i$ que tiene una distribución normal con una media cero y una varianza $sigma^2$. Por lo tanto, el modelo se escribe $y_i = beta_0 + beta_1 x_i + epsilon_i : epsilon ~ N(0, sigma^2)$.
+
+b) La variable respuesta o dependiente $y$ tiene una distribución normal con media que cambia en función de la variable $bar(x)$ pero con varianza constante. Entonces, el modelo se expresa como:
+$
+  y_i ~ N (mu_i, sigma^2)\
+  mu_i = beta_0 + beta_i x_i\
+  sigma^2 = "Constante"
+$
+
+// Hasta el día jueves, tener los grupos. 
+// El lunes, tema con dos varaibles, lineal, ejemplo: tomates. varaibles: precio, zona.
+
+En cualquiera de las dos formas, el vector de parámetros del modelo es: $theta = (beta_0, beta_1, sigma)^T$.
+
+Ejemplo:
+
+#image("Proyecto nuevo.png")
+$
+  hat(x)_i = a + b t\
+  beta_0 + beta_i T\
+  b = 27,8\
+  a = 452,6\
+  hat(x)_1 = 452,6 + 27,8 T\
+  hat(x)_2 = 452,6 + 27,8 (8)\
+  hat(x)_3 = 675
+$
+
+De acuerdo con nuestras suposiciones sobre la curva normal de $x_8$, tiene el valor de $700$, es un valor proveniente de una distribución normal, con media de $675$.
+
+$
+  x_8 ~ N(675, 36)\
+  sigma = 36\
+$
+#image("2Proyecto nuevo.png")
+
+Ejemplo:
+#grid(
+  inset:5pt,
+  stroke: black,
+  columns: (auto, auto, auto),
+  [Estud.], [Estatura], [Peso],
+  [], [x], [y],
+  [1], [154], [53],
+  [2], [158], [45],
+  [3], [162], [56],
+  [4], [166], [73],
+  [5], [170], [65],
+  [6], [174], [88],
+  [7], [178], [89],
+  [8], [182], [75],
+  [9], [190], [90],
+  [10], [], [],
+)
+
+$
+  "Peso" ~ N (mu_i, sigma^2)\
+  mu_i = beta_0 + beta_1 "estatura"_i\
+  sigma^2 = "constante"\
+  \
+  hat("Peso")_i ~ N (hat(mu)_i, hat(sigma)^2)\
+  hat(mu)_i = -138,0091 + 1,2227 "estatura"_i
+$ 
+
+== La recta de regresión.
+Una recta de regresión es una línea recta que se ajusta a un conjunto de datos para mostrar la relación entre dos variables. En estadística, se utiliza conmunmente para predecir el valor de una variable en función de otra variable.
+
+Sea una distribución bidimensional $(x, y)$ y una serie de valores observados $(x_i, y_i)$ con una correlación lineal que se representa en plano mediante una nube de puntos; se busca la recta que mejor se ajuste a la nube de puntos y esta recta recibe el nombre de recta de regresión o recta de regresión lineal. Para ello se utiliza el método de mínimos cuadrados que consiste en que la recta cumpla "la suma de los cuadrados de las distancias de todos los puntos a la recta sea mínimos".
+
+#image("MinimosCuadrados_02.png")
+
+La recta de regresión de $y$ sobre $x$ está representado por la ecuación
+$
+  y = overline(y) + (S_(x y))/(S_x^2) (x - overline(x))
+$
+Esta es la ecuación de la recta en forma punto-pendiente. La ecuación representa un modelo para encontrar la recta de regresión.
+
+$
+  m = m x y = (S_(x y))/(S_x^2)
+$
+
+$S(x y)$ es la covarianza, $S$ es la muestra, $S_x^2$ es la varianza y $sigma$ es la población, $S_x$ es la desviación estándar.
+
+Encontrar el coeficiente re correlación $r$ para saber si es una regresión lineal.
+
+$
+  -1 lt.eq r lt.eq 1\
+  r = (S_(x y))/(S_x S_y)
+$
+
+$r$ es para una variable, $R$ (mayúscula) es para dos variables.
+```
+
+esta es parte de mis apuntes de modelación estadística, algo no tiene sentido o está mal? lo copie de la pizarra y lo que dictó el docente, pero pude haberme equivocado o no haber poder copiar algo, dime todo lo que tenga que corregir, quitar, añadir o completar

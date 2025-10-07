@@ -47,8 +47,16 @@
 DAT 244 - Investigación Operativa.
 
 = Bibliografía.
-Handy carl (carlham?) - investigación de operaciones
+Hamdy Taha - investigación de operaciones\
+
 winston
+
+= Ponderación.
+- Primer parcial: 36 puntos.
+- Segundo parcial: 36 puntos.
+- Examen final: 28 puntos.
+- 10 puntos extras por prácticas y preguntas.
+La mejor nota se repite.
 
 #pagebreak()
 #set heading(numbering: "1.")
@@ -147,7 +155,7 @@ En la combinación lineal, solo es necesario que los escalares existan.
 
 No todas las combinaciones lineales son convexas.
 
-===== Ejemplo:
+*Ejemplo:*
 $
   1/2 (6, 10) + 1/2 (8, 4) = (7, 7)
 $
@@ -192,11 +200,11 @@ Un punto es frontera de una región $phi$ si es que este se encuentra en el cont
 
 Un punto extremo es un punto frontera, pero un punto frontera no necesariamente es un punto extremo.
 
-== Modelos matemáticos.
+= Modelos matemáticos.
 En la programación no linal, la solución óptima puede estar en cualquier parte de la región del conjunto solución.
 
-=== Modelo de programación matemática.
-==== Definición.
+== Modelo de programación matemática.
+=== Definición.
 
 Un modelo de programación matemática general se define como optimizar $z = f(x_1, x_2, dots, x_n)$
 $
@@ -217,8 +225,8 @@ La región de factibilidad es el conjunto solución (del modelo), y está delimi
 
 Donde tanto la función objetivo como las restricciones son funciones matemáticas continuas, lineales o no lineales.
 
-=== Modelo de programación lineal.
-==== Definición.
+== Modelo de programación lineal.
+=== Definición.
 Un modelo de programación lineal se define como: optimizar Z,
 $
   "opt"(z) = c_1 x_1, c_2 x_2, dots, c_n x_n\
@@ -245,7 +253,7 @@ Un modelo de programación lineal:
 + Contiene restricciones definidas por funciones matematicas lineales.
 + Contiene variables y parámetros.
 
-==== Formas de equivalencia.
+=== Formas de equivalencia.
 Cualquier ejercicio dado, primero debe ser estandarizado para ser resuelto.
 
 Existen cinco leyes de equivalencia que sirven para estandarizar un modelo.
@@ -470,3 +478,275 @@ $
   5x_1 + 8x_2 + 4x_3 + S_2 = 18\
   2x_1 + x_2 + 2x_3 - S_3 + R_3 = 100\
 $
+
+En forma similar a la técnica en M, resuelve el modelo de programación lineal con cualquier tipo de restricción, haciendo uso de varias artificales $R$s, esto se debe a que no se tiene una base canónica completa; para aplicar esta técnica se deben realizar las siguientes fases:
+
+// 1. Crearse un nuevo modelo de programación lineal cuya función objetivo es de tipo minimización de sumatoria de cvaraibles artificales a utilizar. 
+
+=== Primera fase.
+Crearse un nuevo modelo de programación lineal, cuya función objetivo es de tipo minimización de sumatoria de variables artificiales a utilizar, sujeta a las restricciones de la técnica en M. Dicho modelo se introduce normalmente a una tabla tipo simplex, se repone la base canónica de forma inmediata y aplicar los siguientes pasos del simplex normalmente.
+// Si no se puede encontrar la base canónica, no se puede resolver.
+
+A la reestructuración de un sistema se le llama reingeniería.
+
+El valor óptimo de la función objetivo, el mínimo de $Z^*$, debería ser cero $0$ para que el modelo original tenga solución y se pueda realizar la segunda fase.
+
+Si en la primera fase el óptimo no es cero, el modelo original no tiene solución y no se debe seguir con la segunda fase, solo se puede ir a la segunda fase si da exactamente cero.
+$
+  "Min" Z^* = sum R_i = 0
+$
+
+=== Segunda fase.
+Se debe eliminar de la tabla óptima todas las columnas de las variables artificiales; así, quedará una tabla más pequeña en la cual se debe ingresar la cabeza de forma normal (con signo cambiado).
+
+Reemplazar la función objetivo en el modelo original con signo cambiado. con la tabla pequeña, aplicar lo que diga el modelo original.
+
+De la tabla óptima de la primera fase, eliminar todas las columnas correspondientes a las varaibles artificales $R$. Así, quedará una tabla más pequeña a la cual se le debe introducir la cabeza con signo cambiado.
+
+Reponer la base canónica en forma inmediata mediante operaciones elementales y aplicar los siguientes pasos del simplex normalmente, si el modelo original es del tipo maximización, en la segunda fase se maximiza. Si el modelo orignial fuese de tipo minimización, la tabla reducida se minimiza.
+
+= Importancia de variables de entrada.
+En entrada, se da prioridad a variables de desición $x_j$, $S$ y $R$ en ese orden de importancia. Si tiene que entrar una variable, entran primero las más importantes. Empates entre variables con importancia equivalente, romper arbitrariamente.
+
+// Superfluo significa por demás.
+
+En el caso de salida, se hace el procedimiento al revés, deben salir con prioridad las variables menos importantes. Es decir, la prioridad de salida es: $R_i$, $S_i$ y $x_j$. Empates entre variables con importancia equivalente, romper arbitrariamente.
+
+= Problema de ejemplo:
+Una fábrica produce carteras para damas de uso diario y de fiesta, una cartera de uso diario tiene un precio de 250 bolivianos y un costo de fabricación de 130 bolivianos. En cambio, una cartera de fiesta tiene un precio de 450 bolivianos y un costo de fabricación de 200 bolivianos.
+
+La fábrica tiene experiencias en la demanda de carteras, la demanda mínima de carteras de uso diario por mes es de 500 unidades y la demanda de carteras de fiesta se encuentra en un rango de 200 a 800 unidades al mes. La empresa tiene recursos limitados humanos y tecnológicos, capaces de producir hasta 1500 carteras de uso diario, pero también se sabe que producir una cartera de fiesta requiere del doble de tiempo y recursos con relación a una cartera de uso diario.
+
+Formula el modelo de programación lineal.
+
+$x_1$ = número de carteras de uso diario a producir por mes.
+
+$x_2$ = número de carteras de fiesta a producir por mes.
+
+// es necesario especificar la cobertura temporal
+
+Se busca maximizar la utilidad (ganancias netas, precio - costo).
+$
+  "max" Z = 120x_1 + 250x_2 \
+  "sa:"\
+  x_1 lt.eq 500\
+  200 lt.eq x_2 lt.eq 800\
+  x_1 + 2 x_2 lt.eq 1500
+  // x gt.eq 0
+$
+
+Dichos productos, estimados en 25 bolivianos por hora de trabajo.
+
+Se tiene una ganancia del $10%$ total.
+
+Un refrigerador tiene un precio de 8600 bolivianos, y requiere de dos horas de trabajo aproximadamente; en entrega, instalación, capacitación y manejo. La probabilidad de hacer una venta a un cliente interesado es de $0.5$.
+
+Una cocina tiene un precio de 3400 bolivianos y requiere de 50 minutos de trabajo en entrega, capacitación y enseñanza. La probabilidad de hacer una venta es de $0.8$.
+
+El trabajador le dedica a esta actividad hasta 100 horas al mes, ya que desempeña otras actividades ajenas a esta.
+
+EL gerente de la empresa obliga al trabajador a vender mayor o igual número de cocinas que refrigeradores; por el otro lado, también se sabe que la demanda de refrigeradores se encuentra en un rango de 10 a 30 unidades por mes.
+
+Formule el modelo de programación linel.
+
+$x_1$: Número de refrigeradores a vender por mes 
+
+// las probabilidades son a posteriori casi siempre, es decir, con conocimiento de causa
+
+$x_2$: Número de ofrecimientos/visitas a realizar a clientes de cocinas por mes
+
+#grid(
+  stroke: black,
+  inset: 6pt,
+  columns: (auto, auto, auto, auto),
+  [Variable], [Horas de trabajo], [Unidades vendidas], [Ingresos],
+  [$x_1$], [$2x_1$], [$0.5 x_1$], [$8600 "Bs" (0.5x_1) = 4300x_1$],
+  [$x_2$], [$5/6x_2$], [$0.8 x_2$], [$3400 "Bs" (0.8x_2) = 2720x_2$],
+)
+
+Ingreso total: $4300 x_1 + 2720 x_2$.
+
+$"Max" Z = "porcentaje recibido" - "gastos" = "utilidades"$
+
+$(4300x_1 + 2720 x_2) 0.1 = 430x_1 + 272x_2$\
+$"Gastos" ("horas de trabajo") = (2x_1 + 7 x_2) 25 "Bs" = 50 x_1 + 20.833 x_2$
+
+// Tarea 2: Hacer 100 planteos para el examen (tarea 1: medidas de conversion) para el dia del examen
+
+// sacar planteos del libro de jiaom/xiaom/chiaom/xaio - richard brondson
+
+// otro libro: raford lecard? de peru, cuatro libros - operativa 1, programación lineal
+
+
+
+#separador()
+
+Una fábrica produce repuestos de computadoras, los cuales son entregados al finalizar el día a empresas ensambladoras de computadoras, la demanda mínima de repuestos por todas las empresas ensambladoras es de al menos 80000 unidades por día.
+
+El departamento de control de calidad de dicha empresa va a contratar personal revisor de artículos terminados, especializados y técnicos.
+
+De experiencias anteriores se sabe que un personal especializado gana 400 bolivianos por día y realiza su labor a una taza de intensidad de 120 repuestos por hora, con un rendimiento efectivo de un 98%.
+
+Un personal técnico gana 250 bolivianos por día, y realiza su trabajo a una taza de intensidad de 80 repuestos por hora, con un rendimiento efectivo de un 95% de confiabilidad.
+
+Las empresas ensambladoras aplican una multa de 20 bolivianos por daños y perjuicios por la entrega de un repuesto defectuoso.
+
+Si se sabe que la jornada diaria de trabajo es de 8 horas. En el departamento de control de calidad el gerente de la empresa obliga al jefe de personal a contratar especialistas mayor o igual al número de técnicos como política de la empresa.
+
+Formule el modelo de programación lineal.
+
+// las tazas usadas son quasonianas por lo general
+
+$x_1$: Número de especialistas contratados por día\
+$x_2$: Número técnicos contratados por día\
+$"Min" Z = ("Salarios") + ("Multas")$\
+$"Salarios" = 400 x_1 + 250 x_2$\
+$"Multas" = 120 (8) x_1 + 80 (8) x_2$
+
+#separador()
+
+Un molino agrícola produce alimentos para ganado vacuno, porcino y pollos, estos productos se componen de tres ingredientes que son: Maíz, afrecho y harina de pescar. Los ingredientes tienen dos tipos de nutrientes que son proteínas y calcio.
+
+En la siguiente tabla se dan los contenidos de nutrientes por libra en porcentajes de cada ingrediente.
+
+#grid(
+  inset:6pt,
+  stroke: black,
+  columns: (auto, auto, auto, auto),
+  [],
+  grid.cell(
+    colspan: 3,
+    [Ingredientes]
+  ),
+  [Nutriente], [Maíz], [Afrecho], [Harina de Pescar],
+  [Proteína], [10], [15], [55],
+  [Calcio], [35], [10], [40],
+)
+
+Según un experto en zootecnia, el contenido de proteína y de calcio en el alimento para ganado vacuno, debe estar entre 20 a un 30 porciento y al menos 20% respectivamente.
+
+El contenido de proteína y calcio en el alimento para ganado porcino debe estar en los rangos de 20 a 25 % y de 6 a 10 %.
+
+El contenido de proteínas y calcio en el alimento para pollos debe estar en un rango de 20 a 25 % y de 4 a 8 %.
+
+#grid(
+  inset: 6pt,
+  stroke: black,
+  columns: (auto, auto, auto),
+  [], [Proteína], [Calcio],
+  [Ganado vacuno], [$20 % - 30 %$], [$gt.eq 20 %$],
+  [Ganado porcino], [$20 % - 25 %$], [$6 % - 10 %$],
+  [Pollos], [$20 % - 25 %$], [$4 % - 8 %$],
+)
+
+Suponga que se dispone de 38 000, 20 000 y 12 000 libras de maiz, afrecho y harina de pescado, y supóngase también que se requiere producir al menos 18 000, al menos 15 000 y a lo sumo 10 000 libras de cada alimento respectivamente.
+
+// Como dice se dispone, significa que es una ecuacion, con simbolo de igual. al menos sifnifica mayor o igual.  A lo sumo significa menor o igual
+
+Los costos de adquisición o de compra de los ingredientes por libra de maíz, afrecho y harina de pescado son de 5 bolivianos, 10 bolivianos y 20 bolivianos respectivamente.
+
+Hallar el modelo de programación lineal.
+
+#grid(
+  inset: 6pt,
+  stroke: black,
+  columns: (auto, auto),
+  [1. Maíz], [1. Ganado vacuno],
+  [2. Afrecho], [2. Ganado porcino],
+  [3. Harina de pescado], [3. Pollos],
+)
+
+$x_(i j) quad quad i = 1, 2, 3 quad quad j = 1, 2, 3$
+
+$
+  "Min" Z = 5 (x_11 + x_12 + x_13) + 10 (x_21 + x_22 + x_23) + 20 (x_31 + x_32 + x_33)\
+  x_11 + x_12 + x_13 = 38 000\
+  x_21 + x_22 + x_23 = 20 000\
+  x_31 + x_32 + x_33 = 12 000\
+  \
+  x_11 + x_21 + x_31 gt.eq 18 000\
+  x_12 + x_22 + x_32 gt.eq 15 000\
+  x_13 + x_23 + x_32 lt.eq 10 000\
+  \
+  0.20 lt.eq (0.10 x_11 + 0.25 x_21 + 0.55 x_31)/(x_11 + x_21 + x_31) lt.eq 0.30\
+$
+
+#separador()
+
+Un inversionista desea invertir 10 000 000 de dólares en tres proyectos, $A, B, C$.
+
+El proyecto $A$ es de menor riesgo y tiene un interés anual de un cinco por ciento del capital invertido.
+
+El proyecto $B$ es un poco más riesgoso pero tiene un interés de un ocho por ciento.
+
+El proyecto $C$ es el más riesgoso de todos, pero arroja un interés de un doce por ciento anual
+
+// rendimiento academico con horas de estudio, tiene una correlación directa?
+
+Según un experto en economía, se recomienda que la inversión en acciones de $A$ debe ser al menos un 20 % de las otras inversiones, y las inversiones en $B$ debe ser al menos un 25 % del capital invertido, y que la razón de inversiones de $C$ a $A$ debe estar entre los $2/3$ y los $4/5$
+
+$x_1$: Cantidad de dinero a invertir en $A$\
+$x_2$: Cantidad de dinero a invertir en $B$\
+$x_3$: Cantidad de dinero a invertir en $C$\
+
+$
+  "Max" Z = 0.05 x_1 + 0.08 x_2 + 0.12 x_3\
+  x_1 + x_2 + x_3 lt.eq 10 000 000\
+  x_1 gt.eq x_2 + x_3\
+  x_2 gt.eq 2 000 000
+$
+
+#separador()
+
+Una fábrica de muebles es especialista en la producción de dos tipos de comedores $A$ y $B$, si estos para su fabricación tienen que pasar por dos departamentos de construcción y pintado; los requerimientos y capacidades de producción diaria se detallan a continuación. El precio de un comedor de tipo $A$ es de 450 dólares y el costo de producción es de 450 dólares. El precio de un comedor de tipo $B$ es de 500 dólares y el costo de producción es de 260 dólares.
+
+#grid(
+  stroke: black,
+  inset: 6pt,
+  columns: (auto, auto, auto, auto),
+  [Recursos requeridos para producir una unidad], [A], [B], [Recursos disponibles (capacidad diaria)],
+  [Departamento de construcción (Tiempo de construcción en horas)], [6], [12], [120],
+  [Departamento de pintado (tiempo de pintado en horas)], [8], [4], [64],
+  [Utilidad diaria], [200 dólares], [240 dólares], [],
+)
+
+1. Formule el modelo de programación lineal.
+
+$
+  "Max" Z = 200 x_1 + 240 x_2\
+  6x_1 + 12x_2 lt.eq 120\
+  8x_1 + 4x_2 lt.eq 64\
+  x gt.eq 0
+$
+
+#separador()
+
+2. Resuelva por el método gráfico.
+
+$30x + 4x y = 24$
+
+Se debe asignar un valor arbitrario a $Z$, pero lo más práctico es usar un valor que permita graficar.
+
+$
+  Z = 200x_1 + 240x_2 arrow 1200 = 200x_1 + 240x_2
+$
+
+Los teoremas fundamentales de la programación lineal son:
+
++ La región de factibilidad de todo modelo de programación lineal soluble (con solución) es un conjunto convexo.
++ La solucion óptima de todo modelo de programación lineal soluble siempre se encuentra en un punto extremo de la región de factibilidad, es un punto extremo, un vértice.
+
+$
+  "Max" Z = 200 (4) + 240 (8)\
+  "Max" Z = 2720 "dólares" qed
+$
+
+#separador()
+
+3. Resolver por el método simplex.
+
+Ambas restricciones son primarias y activas.
+
+Una solucion basica de generar cumple $a dot b gt.eq x: x gt.eq 0$
+
+Resolver en la notación de Handy Taha
