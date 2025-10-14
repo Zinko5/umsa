@@ -1,0 +1,5 @@
+gcc -o programa programa.c
+
+gcc -fopenmp -o programa programa.c
+
+gcc -pthread -o programa programa.c

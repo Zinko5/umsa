@@ -1438,4 +1438,590 @@ Esta técnica funciona solo para espacios vectoriales linealmente separables.
 
 $2/(||w||)$
 
-*Tarea*: Ver reseñas del debate, clasificarlas, crear el modelo y determinar si fue positivo o negativo
+*Tarea*: Ver reseñas del debate, clasificarlas, crear el modelo y determinar si fue positivo o negativo.
+
+== Algoritmo de Naive Bayes
+
+Basado en la probabilidad, es otro algoritmo para clasificar documentos. Para aplicarlo, primero se debe tener un corpus sobre el cual se aplicará una serie de pasos.
+
+*Pasos para aplicar el algoritmo de Naive Bayes*.
+
++ Identificar las clases.
++ Calcular las probabilidades de las clases.
++ Aplicar el preprocesamiento para obtener el vocabulario estandarizado.
++ Contar la frecuencia de palabras por clase.
++ Calcular probabilidad con suavizado de Laplace.
++ Calcular la probabilidad de clasificación de nuevos mensajes fuera del corpus.
++ Normalizar los valores de las probabilidades.
+
+=== Ejemplo
+
+Corpus:
+```txt
+gana dinero fácil
+oferta exclusiva dinero
+estudio de probabilidad
+reunión con profesor
+```
+
+1. Identificar las clases.
+
+#grid(
+  inset: 5pt,
+  stroke: black,
+  columns: (auto, auto),
+  [Mensaje], [Clasificación],
+  [gana dinero fácil], [spam],
+  [oferta exclusiva dinero], [spam],
+  [estudio de probabilidad], [no spam],
+  [reunión con profesor], [no spam],
+)
+
+2. Calcular las probabilidades de las clases.
+
+$P("spam") = 2/4$
+
+$P("no spam") = 2/4$
+
+3. Aplicar el preprocesamiento para obtener el vocabulario estandarizado.
+
+Corpus:
+```txt
+gana dinero facil oferta exclusiva estudio probabilidad reunion profesor
+```
+
+4. Contar la frecuencia de palabras por clase.
+
+#grid(
+  inset: 5pt,
+  stroke: black,
+  columns: (auto, auto, auto),
+  [Palabra], [Spam], [No spam], 
+  [gana], [1], [0],
+  [dinero], [2], [0],
+  [facil], [1], [0],
+  [oferta], [1], [0],
+  [exclusiva], [1], [0],
+  [estudio], [0], [1],
+  [probabilidad], [0], [1],
+  [reunion], [0], [1],
+  [profesor], [0], [1],
+)
+
+5. Calcular probabilidad con suavizado de Laplace.
+
+$P(w\/c) = ("frec"(w, c) + 1)/("total de palabras" (c) + |v|)$
+
+$P("dinero"\/"spam") = ("frec"("dinero", "spam") + 1)/("total de palabras" ("spam") + |v|) = (2 + 1)/(6 + 9) = 3/15 qed$
+
+6. Calcular la probabilidad de clasificación de nuevos mensajes fuera del corpus.
+
+#let probDineroFacilSpam = calc.round(0.5 * 0.2 * 0.1333 ,digits: 5)
+#let probDineroFacilNoSpam = calc.round((2 / 4) * (1 / 13) * (1 / 13), digits: 5)
+
+Nuevo mensaje: `dinero fácil`.
+
+$P("spam"\/"dinero facil") prop P("spam") dot P("dinero"\/"spam") dot P("facil"\/"spam")\
+P("spam"\/"dinero facil") = 0.5 dot 0.2 dot 0.1333 = #probDineroFacilSpam$
+
+#separador()
+
+$P("no spam"\/"dinero facil") prop P("no spam") dot P("dinero"\/"no spam") dot P("facil"\/"no spam")\
+P("no spam"\/"dinero facil") = #calc.round(2 / 4, digits: 3) dot #calc.round(1 / 13, digits: 4) dot #calc.round(1 / 13, digits: 4) = probDineroFacilNoSpam)$
+
+7. Normalizar los valores de las probabilidades.
+
+#let sumaProporcional = calc.round(probDineroFacilNoSpam + probDineroFacilSpam, digits: 5)
+
+Suma proporcional: $#probDineroFacilSpam + #probDineroFacilNoSpam = #sumaProporcional$
+
+$P("spam"\/"dinero facil") = probDineroFacilSpam/sumaProporcional = #calc.round(probDineroFacilSpam/sumaProporcional * 100, digits: 2) %$
+
+$P("no spam"\/"dinero facil") = probDineroFacilNoSpam/sumaProporcional = #calc.round(probDineroFacilNoSpam/sumaProporcional * 100, digits: 2) %$
+
+==== Otro nuevo mensaje
+
+6. Calcular la probabilidad de clasificación de nuevos mensajes fuera del corpus.
+
+#let probOfertaDineroSpam = calc.round((2/4) * (2/15) * (3/15), digits: 5)
+#let probOfertaDineroNoSpam = calc.round((2/4) * (1/13) * (1/13), digits: 5)
+
+Nuevo mensaje: `oferta dinero`.
+
+$P("spam"\/"oferta dinero") prop P("spam") dot P("oferta"\/"spam") dot P("dinero"\/"spam")\
+P("spam"\/"oferta dinero") = #calc.round(2/4, digits: 3) dot #calc.round(2/15, digits: 4) dot #calc.round(3/15, digits: 4) = #probOfertaDineroSpam$
+
+#separador()
+
+$P("no spam"\/"oferta dinero") prop P("no spam") dot P("oferta"\/"no spam") dot P("dinero"\/"no spam")\
+P("no spam"\/"oferta dinero") = #calc.round(2/4, digits: 3) dot #calc.round(1/13, digits: 4) dot #calc.round(1/13, digits: 4) = #probOfertaDineroNoSpam$
+
+7. Normalizar los valores de las probabilidades.
+
+#let sumaProporcional = calc.round(probOfertaDineroSpam + probOfertaDineroNoSpam, digits: 5)
+
+Suma proporcional: $#probOfertaDineroSpam + #probOfertaDineroNoSpam = #sumaProporcional$
+
+$P("spam"\/"oferta dinero") = probOfertaDineroSpam/sumaProporcional = #calc.round(probOfertaDineroSpam/sumaProporcional * 100, digits: 2) %$
+
+$P("no spam"\/"oferta dinero") = probOfertaDineroNoSpam/sumaProporcional = #calc.round(probOfertaDineroNoSpam/sumaProporcional * 100, digits: 2) %$
+
+=== Ejemplo
+
+Corpus:
+```txt
+excelente película, me encantó
+pésima actuación, horrible
+increíble dirección y guión
+aburrida y sin sentido
+```
+
+1. Identificar las clases.
+
+#grid(
+  inset: 5pt,
+  stroke: black,
+  columns: (auto, auto),
+  [Reseña], [Clasificación],
+  [excelente película, me encantó], [positiva],
+  [pésima actuación, horrible], [negativa],
+  [increíble dirección y guión], [positiva],
+  [aburrida y sin sentido], [negativa],
+)
+
+2. Calcular las probabilidades de las clases.
+
+#let probPositiva = calc.round(2/4, digits: 3)
+#let probNegativa = calc.round(2/4, digits: 3)
+
+$P("positiva") = #probPositiva$
+
+$P("negativa") = #probNegativa$
+
+3. Aplicar el preprocesamiento para obtener el vocabulario estandarizado.
+
+Corpus:
+```txt
+excelente pelicula encantó pésima actuación horrible increíble dirección guión aburrida sin sentido
+```
+
+4. Contar la frecuencia de palabras por clase.
+
+#let vocabSize = 12
+
+#grid(
+  inset: 5pt,
+  stroke: black,
+  columns: (auto, auto, auto),
+  [Palabra], [Positiva], [Negativa],
+  [excelente], [1], [0],
+  [pelicula], [1], [0],
+  [encantó], [1], [0],
+  [pésima], [0], [1],
+  [actuación], [0], [1],
+  [horrible], [0], [1],
+  [increíble], [1], [0],
+  [dirección], [1], [0],
+  [guión], [1], [0],
+  [aburrida], [0], [1],
+  [sin], [0], [1],
+  [sentido], [0], [1],
+)
+
+5. Calcular probabilidad con suavizado de Laplace.
+
+#let totalPalabrasPositiva = 6
+#let totalPalabrasNegativa = 6
+
+$P(w\/c) = ("frec"(w, c) + 1)/("total de palabras" (c) + |v|)$
+
+#let probExcelentePositiva = calc.round((1 + 1)/(totalPalabrasPositiva + vocabSize), digits: 4)
+#let probExcelenteNegativa = calc.round((0 + 1)/(totalPalabrasNegativa + vocabSize), digits: 4)
+#let probGuiónPositiva = calc.round((1 + 1)/(totalPalabrasPositiva + vocabSize), digits: 4)
+#let probGuiónNegativa = calc.round((0 + 1)/(totalPalabrasNegativa + vocabSize), digits: 4)
+#let probActuaciónPositiva = calc.round((0 + 1)/(totalPalabrasPositiva + vocabSize), digits: 4)
+#let probActuaciónNegativa = calc.round((1 + 1)/(totalPalabrasNegativa + vocabSize), digits: 4)
+
+$P("excelente"\/"positiva") = (1 + 1)/(#totalPalabrasPositiva + #vocabSize) = #probExcelentePositiva$
+
+$P("excelente"\/"negativa") = (0 + 1)/(#totalPalabrasNegativa + #vocabSize) = #probExcelenteNegativa$
+
+$P("guión"\/"positiva") = (1 + 1)/(#totalPalabrasPositiva + #vocabSize) = #probGuiónPositiva$
+
+$P("guión"\/"negativa") = (0 + 1)/(#totalPalabrasNegativa + #vocabSize) = #probGuiónNegativa$
+
+$P("actuación"\/"positiva") = (0 + 1)/(#totalPalabrasPositiva + #vocabSize) = #probActuaciónPositiva$
+
+$P("actuación"\/"negativa") = (1 + 1)/(#totalPalabrasNegativa + #vocabSize) = #probActuaciónNegativa$
+
+6. Calcular la probabilidad de clasificación de nuevos mensajes fuera del corpus.
+
+#let probExcelenteGuiónPositiva = calc.round(probPositiva * probExcelentePositiva * probGuiónPositiva, digits: 5)
+#let probExcelenteGuiónNegativa = calc.round(probNegativa * probExcelenteNegativa * probGuiónNegativa, digits: 5)
+
+Nuevo mensaje: `Excelente guión`.
+
+$P("positiva"\/"excelente guión") prop P("positiva") dot P("excelente"\/"positiva") dot P("guión"\/"positiva")$
+
+$P("positiva"\/"excelente guión") = #probPositiva dot #probExcelentePositiva dot #probGuiónPositiva = #probExcelenteGuiónPositiva$
+
+#separador()
+
+$P("negativa"\/"excelente guión") prop P("negativa") dot P("excelente"\/"negativa") dot P("guión"\/"negativa")$
+
+$P("negativa"\/"excelente guión") = #probNegativa dot #probExcelenteNegativa dot #probGuiónNegativa = #probExcelenteGuiónNegativa$
+
+#let probExcelenteActuaciónPositiva = calc.round(probPositiva * probExcelentePositiva * probActuaciónPositiva, digits: 5)
+#let probExcelenteActuaciónNegativa = calc.round(probNegativa * probExcelenteNegativa * probActuaciónNegativa, digits: 5)
+
+6.1. Otro nuevo mensaje: `Excelente actuación`.
+
+$P("positiva"\/"excelente actuación") prop P("positiva") dot P("excelente"\/"positiva") dot P("actuación"\/"positiva")$
+
+$P("positiva"\/"excelente actuación") = #probPositiva dot #probExcelentePositiva dot #probActuaciónPositiva = #probExcelenteActuaciónPositiva$
+
+#separador()
+
+$P("negativa"\/"excelente actuación") prop P("negativa") dot P("excelente"\/"negativa") dot P("actuación"\/"negativa")$
+
+$P("negativa"\/"excelente actuación") = #probNegativa dot #probExcelenteNegativa dot #probActuaciónNegativa = #probExcelenteActuaciónNegativa$
+
+7. Normalizar los valores de las probabilidades.
+
+#let sumaProporcionalExcelenteGuión = calc.round(probExcelenteGuiónPositiva + probExcelenteGuiónNegativa, digits: 5)
+
+Suma proporcional: $#probExcelenteGuiónPositiva + #probExcelenteGuiónNegativa = #sumaProporcionalExcelenteGuión$
+
+$P("positiva"\/"excelente guión") = probExcelenteGuiónPositiva/sumaProporcionalExcelenteGuión = #calc.round(probExcelenteGuiónPositiva/sumaProporcionalExcelenteGuión * 100, digits: 2) %$
+
+$P("negativa"\/"excelente guión") = probExcelenteGuiónNegativa/sumaProporcionalExcelenteGuión = #calc.round(probExcelenteGuiónNegativa/sumaProporcionalExcelenteGuión * 100, digits: 2) %$
+
+#separador()
+
+#let sumaProporcionalExcelenteActuación = calc.round(probExcelenteActuaciónPositiva + probExcelenteActuaciónNegativa, digits: 5)
+
+Suma proporcional: $#probExcelenteActuaciónPositiva + #probExcelenteActuaciónNegativa = #sumaProporcionalExcelenteActuación$
+
+$P("positiva"\/"excelente actuación") = probExcelenteActuaciónPositiva/sumaProporcionalExcelenteActuación = #calc.round(probExcelenteActuaciónPositiva/sumaProporcionalExcelenteActuación * 100, digits: 2) %$
+
+$P("negativa"\/"excelente actuación") = probExcelenteActuaciónNegativa/sumaProporcionalExcelenteActuación = #calc.round(probExcelenteActuaciónNegativa/sumaProporcionalExcelenteActuación * 100, digits: 2) %$
+
+// = Redes neuronales
+
+= Modelación de secuencias
+
+== Redes neuronales
+
+=== Ejemplo
+
+yo soy feliz
+
+- `yo` #sym.arrow inicio de la frase.
+- `soy` #sym.arrow relación sujeto-verbo.
+- `feliz` #sym.arrow relación emocional.
+
+#let v = (`yo`, `soy`, `feliz`)
+
+Representación BoW:
+
+- `yo` [1, 0, 0]
+- `soy` [0, 1, 0]
+- `feliz` [0, 0, 1]
+
+$
+  h_t = tanh(w_x x_t + w_h h_(t - 1))\
+  y_t = w_y h_t
+$
+
+- $x_t$ #sym.arrow vector BoW.
+- $h_t$ #sym.arrow vector estado oculto.
+- $w_x$ #sym.arrow matriz de pesos que transforma la palabra actual.
+- $w_h$ #sym.arrow transforma la memoria anterior.
+- $w_y$ #sym.arrow genera la salida.
+- $h_0$ #sym.arrow estado inicial.
+
+#let wX = (
+  (0.5, 0.1, 0.2),
+  (0.4, 0.3, 0.7),
+  (0.6, 0.2, 0.5),
+)
+#let wH = (
+  (0.8, 0.1, 0.2),
+  (0.2, 0.9, 0.1),
+  (0.3, 0.4, 0.7),
+)
+#let wY = (1.0, 0.5, 0.2)
+
+$
+  w_x
+  [#grid(
+    inset: 4pt,
+    columns: (auto, auto, auto),
+    [0.5], [0.1], [0.2],
+    [0.4], [0.3], [0.7],
+    [0.6], [0.2], [0.5],
+  )]
+  w_h
+  [#grid(
+    inset: 4pt,
+    columns: (auto, auto, auto),
+    [0.8], [0.1], [0.2],
+    [0.2], [0.9], [0.1],
+    [0.3], [0.4], [0.7],
+  )]
+  w_y
+  [#grid(
+    inset: 4pt,
+    columns: (auto, auto, auto),
+    [1.0], [0.5], [0.2],
+  )]
+$
+
+#let x1 = (1, 0, 0)
+#let h0 = (0, 0, 0)
+
+$x_1 = [1, 0, 0]$
+
+$h_0 = [0, 0, 0]$
+
+$h_1 = tanh(w_x x_1)$
+
+$
+  w_x x_1
+  [#grid(
+    inset: 5pt,
+    columns: (auto, auto, auto),
+    [$0.5 dot 1$], [$0.1 dot 0$], [$0.2 dot 0$],
+    [$0.4 dot 1$], [$0.3 dot 0$], [$0.7 dot 0$],
+    [$0.6 dot 1$], [$0.2 dot 0$], [$0.5 dot 0$],
+  )]
+  =
+  [#grid(
+    inset: 5pt,
+    columns: (auto,),
+    [$0.5$],
+    [$0.4$],
+    [$0.6$],
+  )]
+$
+
+#let wxX1 = (
+  calc.round(wX.at(0).at(0) * x1.at(0), digits: 4),
+  calc.round(wX.at(1).at(0) * x1.at(0), digits: 4),
+  calc.round(wX.at(2).at(0) * x1.at(0), digits: 4),
+)
+
+#let h1 = (
+  calc.round(calc.tanh(wxX1.at(0)), digits: 4),
+  calc.round(calc.tanh(wxX1.at(1)), digits: 4),
+  calc.round(calc.tanh(wxX1.at(2)), digits: 4),
+)
+
+$
+  h_1 =
+  [#grid(
+    inset: 4pt,
+    columns: (auto, auto, auto),
+    [$#h1.at(0)$], [$#h1.at(1)$], [$#h1.at(2)$],
+  )]
+$
+
+#let x2 = (0, 1, 0)
+
+$x_2 = [0, 1, 0]$
+
+$h_2 = tanh(w_x x_2 + w_h h_1)$
+
+$
+  w_x x_2
+  [#grid(
+    inset: 5pt,
+    columns: (auto, auto, auto),
+    [$0.5 dot 0$], [$0.1 dot 1$], [$0.2 dot 0$],
+    [$0.4 dot 0$], [$0.3 dot 1$], [$0.7 dot 0$],
+    [$0.6 dot 0$], [$0.2 dot 1$], [$0.5 dot 0$],
+  )]
+  =
+  [#grid(
+    inset: 5pt,
+    columns: (auto,),
+    [$0.1$],
+    [$0.3$],
+    [$0.2$],
+  )]
+$
+
+#let wxX2 = (
+  calc.round(wX.at(0).at(1) * x2.at(1), digits: 4),
+  calc.round(wX.at(1).at(1) * x2.at(1), digits: 4),
+  calc.round(wX.at(2).at(1) * x2.at(1), digits: 4),
+)
+
+$
+  w_h h_1
+  [#grid(
+    inset: 5pt,
+    columns: (auto, auto, auto),
+    [$0.8 dot #h1.at(0)$], [$0.1 dot #h1.at(1)$], [$0.2 dot #h1.at(2)$],
+    [$0.2 dot #h1.at(0)$], [$0.9 dot #h1.at(1)$], [$0.1 dot #h1.at(2)$],
+    [$0.3 dot #h1.at(0)$], [$0.4 dot #h1.at(1)$], [$0.7 dot #h1.at(2)$],
+  )]
+$
+
+#let whH1 = (
+  calc.round(wH.at(0).at(0) * h1.at(0) + wH.at(0).at(1) * h1.at(1) + wH.at(0).at(2) * h1.at(2), digits: 4),
+  calc.round(wH.at(1).at(0) * h1.at(0) + wH.at(1).at(1) * h1.at(1) + wH.at(1).at(2) * h1.at(2), digits: 4),
+  calc.round(wH.at(2).at(0) * h1.at(0) + wH.at(2).at(1) * h1.at(1) + wH.at(2).at(2) * h1.at(2), digits: 4),
+)
+
+$
+  =
+  [#grid(
+    inset: 5pt,
+    columns: (auto,),
+    [$#whH1.at(0)$],
+    [$#whH1.at(1)$],
+    [$#whH1.at(2)$],
+  )]
+$
+
+#let wxX2PlusWhH1 = (
+  calc.round(wxX2.at(0) + whH1.at(0), digits: 4),
+  calc.round(wxX2.at(1) + whH1.at(1), digits: 4),
+  calc.round(wxX2.at(2) + whH1.at(2), digits: 4),
+)
+
+$
+  w_x x_2 + w_h h_1 =
+  [#grid(
+    inset: 5pt,
+    columns: (auto,),
+    [$#wxX2PlusWhH1.at(0)$],
+    [$#wxX2PlusWhH1.at(1)$],
+    [$#wxX2PlusWhH1.at(2)$],
+  )]
+$
+
+#let h2 = (
+  calc.round(calc.tanh(wxX2PlusWhH1.at(0)), digits: 4),
+  calc.round(calc.tanh(wxX2PlusWhH1.at(1)), digits: 4),
+  calc.round(calc.tanh(wxX2PlusWhH1.at(2)), digits: 4),
+)
+
+$
+  h_2 =
+  [#grid(
+    inset: 4pt,
+    columns: (auto, auto, auto),
+    [$#h2.at(0)$], [$#h2.at(1)$], [$#h2.at(2)$],
+  )]
+$
+
+#let y2 = calc.round(wY.at(0) * h2.at(0) + wY.at(1) * h2.at(1) + wY.at(2) * h2.at(2), digits: 4)
+
+$
+  y_2 = w_y h_2 = #y2
+$
+
+#let x3 = (0, 0, 1)
+
+$x_3 = [0, 0, 1]$
+
+$h_3 = tanh(w_x x_3 + w_h h_2)$
+
+$
+  w_x x_3
+  [#grid(
+    inset: 5pt,
+    columns: (auto, auto, auto),
+    [$0.5 dot 0$], [$0.1 dot 0$], [$0.2 dot 1$],
+    [$0.4 dot 0$], [$0.3 dot 0$], [$0.7 dot 1$],
+    [$0.6 dot 0$], [$0.2 dot 0$], [$0.5 dot 1$],
+  )]
+  =
+  [#grid(
+    inset: 5pt,
+    columns: (auto,),
+    [$0.2$],
+    [$0.7$],
+    [$0.5$],
+  )]
+$
+
+#let wxX3 = (
+  calc.round(wX.at(0).at(2) * x3.at(2), digits: 4),
+  calc.round(wX.at(1).at(2) * x3.at(2), digits: 4),
+  calc.round(wX.at(2).at(2) * x3.at(2), digits: 4),
+)
+
+$
+  w_h h_2
+  [#grid(
+    inset: 5pt,
+    columns: (auto, auto, auto),
+    [$0.8 dot #h2.at(0)$], [$0.1 dot #h2.at(1)$], [$0.2 dot #h2.at(2)$],
+    [$0.2 dot #h2.at(0)$], [$0.9 dot #h2.at(1)$], [$0.1 dot #h2.at(2)$],
+    [$0.3 dot #h2.at(0)$], [$0.4 dot #h2.at(1)$], [$0.7 dot #h2.at(2)$],
+  )]
+$
+
+#let whH2 = (
+  calc.round(wH.at(0).at(0) * h2.at(0) + wH.at(0).at(1) * h2.at(1) + wH.at(0).at(2) * h2.at(2), digits: 4),
+  calc.round(wH.at(1).at(0) * h2.at(0) + wH.at(1).at(1) * h2.at(1) + wH.at(1).at(2) * h2.at(2), digits: 4),
+  calc.round(wH.at(2).at(0) * h2.at(0) + wH.at(2).at(1) * h2.at(1) + wH.at(2).at(2) * h2.at(2), digits: 4),
+)
+
+$
+  =
+  [#grid(
+    inset: 5pt,
+    columns: (auto,),
+    [$#whH2.at(0)$],
+    [$#whH2.at(1)$],
+    [$#whH2.at(2)$],
+  )]
+$
+
+#let wxX3PlusWhH2 = (
+  calc.round(wxX3.at(0) + whH2.at(0), digits: 4),
+  calc.round(wxX3.at(1) + whH2.at(1), digits: 4),
+  calc.round(wxX3.at(2) + whH2.at(2), digits: 4),
+)
+
+$
+  w_x x_3 + w_h h_2 =
+  [#grid(
+    inset: 5pt,
+    columns: (auto,),
+    [$#wxX3PlusWhH2.at(0)$],
+    [$#wxX3PlusWhH2.at(1)$],
+    [$#wxX3PlusWhH2.at(2)$],
+  )]
+$
+
+#let h3 = (
+  calc.round(calc.tanh(wxX3PlusWhH2.at(0)), digits: 4),
+  calc.round(calc.tanh(wxX3PlusWhH2.at(1)), digits: 4),
+  calc.round(calc.tanh(wxX3PlusWhH2.at(2)), digits: 4),
+)
+
+$
+  h_3 =
+  [#grid(
+    inset: 4pt,
+    columns: (auto, auto, auto),
+    [$#h3.at(0)$], [$#h3.at(1)$], [$#h3.at(2)$],
+  )]
+$
+
+#let y3 = calc.round(wY.at(0) * h3.at(0) + wY.at(1) * h3.at(1) + wY.at(2) * h3.at(2), digits: 4)
+
+$
+  y_3 = w_y h_3 = #y3
+$
+
+// y_3 = 1.29
+
+// segundo parcial: tensorflow, entrenar queras (keras?) con un conjunto de cuentos para producir un cuento propio, producir palabras a traves de un conjunto de palabras con una red neuronal 
+
+// no necesariamente cuentos, texto en general

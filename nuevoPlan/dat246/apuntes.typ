@@ -737,13 +737,13 @@ $
 Se llama suma de errores al cuadrado, error cuadrático medio o media cuadrática.
 
 $
-  M S_E = (S S_E)/(n - p)
+  M S E = (S S E)/(n - p)
 $
 
 Donde $n - p$ son los grados de libertad.
 
 $
-  hat(sigma)^2 = M S_E
+  hat(sigma)^2 = M S E
 $
 
 $
@@ -1350,22 +1350,22 @@ Es necesario estimar la varianza $sigma^2$ . Para desarrollar este estimador se 
 Suma de los errores al cuadrado:
 
 $
-  sum (y_i - overline(y))^2 = sum epsilon_i^2 = epsilon' epsilon = "SS"_E
+  sum (y_i - overline(y))^2 = sum epsilon_i^2 = epsilon' epsilon = "SSE"
 $
 
 $
   hat(y) = x hat(beta)\
   epsilon = y - hat(y) = y - x hat(beta)\
-  "SS"_E = (y - x hat(beta))' (y - x hat(beta))\
+  "SSE" = (y - x hat(beta))' (y - x hat(beta))\
   = y' y - y' x hat(beta) - hat(beta) ' x' y + hat(beta)' x' \
   = y' y - 2 hat(beta)' x' y + hat(beta)' x' x hat(beta)\
   = y' y - 2 hat(beta)' x' y + beta' x' y
 $
 
-La media cuadrática es:
+El error cuadrático medio es:
 
 $
-  M S_E = (S S_E)/(n - p) = sigma^2
+  M S E = (S S_E)/(n - p) = sigma^2
 $
 
 #separador()
@@ -1483,7 +1483,7 @@ $
 Error estándar:
 
 $
-  S_(y, 1, 2, 3, dots, k) = sqrt(("SS"_E)/(n - (k + 1)))
+  S_(y, 1, 2, 3, dots, k) = sqrt(("SSE")/(n - (k + 1)))
 $
 
 === Coeficiente de determinación múltiple.
@@ -1586,9 +1586,73 @@ $
   E(epsilon_i) = 0
 $
 
-= Máxima Verosimilitud. 
-== Estimación de parámetros.
+= Máxima Verosimilitud
+
+== Estimación de parámetros
+
+La inferencia estadística es la utilización de los datos obtenidos para obtener conclusiones acerca de la población sobre la que se seleccionó la muestra.
+
+Las tecnicas de la inferencia estadistica pueden dividirse en dos:
+- Estimación de parámetros
+- La prueba de hipótesis
+
+Sean las siguientes distribuciones de probabilidad:
+- Binomial: $P_x (x) = P(X = x) = binom(n, x) p^x (1 - p)^(n - x)$. Parámetro: $p$.
+
+- Normal: $P(x) = 1/(sigma sqrt(2 pi)) e^(-1/2 ((x - mu)/(sigma))^2)$
+
+// Se llaman parámetros o características de la población.
+
+La estimación estadística es el proceso mediante el cual se aproxima el valor del parámetro de la población a partir de la información de una muestra.
+
+La estimación de un parámetro puede adoptar la forma de un solo punto, es decir, la estimación de un solo valor del parámetro de interés; o de un intérvalo, es decir, la estimación de un rango de valores dentro del cual se espera el valor del parámetro.
+
+=== Estimación por puntos o puntual
+
+Es una selección única para el valor de un parámetro desconocido.
+
+Si $x$ es una variable aleatoria con distribución de probabilidad $f(x)$ caracterizada el parámetro desconocido $theta$, y si $x_1, x_2, dots, x_n$ es una muestra aleatoria de tamaño $n$ de $x$, entonces la estadística $hat(theta) = h(x_1, x_2, dots, x_n)$ correspondientes a $theta$.
+
+La estimación $hat(theta)$ es una variable aleatoria porque está en función de los datos. Donde $hat(theta)$ toma un valor numérico particular llamado estimación por puntos o puntual de $theta$.
+
+=== Ejemplo
+
+Suponemos que la variable aleatoria $x$ está normalmente distribuida con media $mu$ desconocida y varianza $sigma$ conocida. La media de la muestra $overline(x)$ es un estimador puntual de la media desconocida $mu$.
+
+$x_1 = 4.5$
+$x_2 = 3$
+$x_3 = 2.5$
+$x_4 = 1.2$
+
+Entonces, la estimación puntual de $mu$ es $#calc.round((4.5+3+2.5+1.2) / 4, digits: 3)$.
+
+El estimador puntual de la varianza $sigma^2 = s^2$ es $s^2 = 1.85$.
+
+=== Propiedades de los estimadores
+
+Una propiedad deseable de un estimador es que debe estar cerca en cierto sentido al valor verdadero del parámetro desconocido. Formalmente se dice que $hat(theta)$ es un estimador neutral del parámetro $theta$ si la esperanza de $hat(theta) = theta$. Esto es $hat(theta)$ es un estimador neutral de $theta$ si en promedio sus valores son iguales a $theta$, esto equivale a requerir que la media de la distribución de la muestra de $hat(theta)$ sea igual a $theta$.
+
+=== Ejemplo
+
+Suponemos que la variable aleatoria $x$ está normalmente distribuida con media $mu$ desconocida y varianza $sigma^2$ y sea $x_1, x_2, dots, x_n$ una muestra de tamaño $n_x$, demostrar que la media de muestra es $overline(x)$ y la varianza de la muestra es $s^2$ y que son estimadores neutrales de $mu$ y $sigma^2$.
+
+La verosimilitud se puede ver como dada una muestra obtener la función de densidad o los valores de los parámetros de la función de denisdad que son más verosímiles según esa muestra; es decir, que maximice la función de verosimilitud.
+
+Por tanto, podemos representar una función de verosimilitud cono la función que relaciona el parámetro $mu$ poblacional que puede ser la media poblacional con la verosimilitud asociada de una muestra.
+
 == Estimación de máxima verosimilitud.
+
+=== Método de máxima verosimilitud
+
+El principio de máxima verosimilitud, en su aplicación a la obtención de estimadores puntuales consiste en seleccionar aquel estimador que maximice la probabilidad de obtener la muestra realmente observada.
+
+
+*Definición* Sea $x$ una variable aleatoria cuya función de probabilidad sea $f(x; theta)$ depende del parámetro $theta$. 
+
+Sea $X_1, X_2, dots, X_n$ una muestra aleatoria de $x$ y sean $x_1, x_2, dots, x_n$ los valores observados de la muestra (independientes). La función de verosimilitud de la muestra se define como $f(x_1, x_2, dots, x_n; theta) = f(x_1; theta) f(x_2; theta) dots f(x_n; theta)$
+
+El método de máxima verosimilitud consiste en tomar como valor estimado $theta$ el valor que hace máxima de la función $v(theta)$.
+
 = Estadística bayesiana.
 == Repaso del teorema de Bayes.
 == Descripción a priori y a posteriori.
@@ -1610,56 +1674,56 @@ Mas cualquier libro de estadística.
 // #align(center)[Piensa como un bayesiano, preocúpare como un frecuentista.]
 // - Beadley Efron.
 
-\
+// \
 
-#quote(attribution: [Beadley Efron])[
-  Piensa como un bayesiano, preocúpate como un frecuentista.
-]
+// #quote(attribution: [Beadley Efron])[
+//   Piensa como un bayesiano, preocúpate como un frecuentista.
+// ]
 
-#separador()
+// #separador()
 
-#grid(
-  inset: 5pt,
-  stroke: black,
-  columns: (auto, auto),
-  [Primer parcial.], [30 puntos.],
-  [Segundo parcial.], [25 puntos.],
-  [Examen Final.], [30 puntos.],
-  [Prácticas y participación en clases.], [15 puntos.],
-  [Asistencia.], [5 puntos extra.],
-)
+// #grid(
+//   inset: 5pt,
+//   stroke: black,
+//   columns: (auto, auto),
+//   [Primer parcial.], [30 puntos.],
+//   [Segundo parcial.], [25 puntos.],
+//   [Examen Final.], [30 puntos.],
+//   [Prácticas y participación en clases.], [15 puntos.],
+//   [Asistencia.], [5 puntos extra.],
+// )
 
-// Formación de grupos hasta la siguiente semana, prerparación del tema hasta la subsiguiente.
+// // Formación de grupos hasta la siguiente semana, prerparación del tema hasta la subsiguiente.
 
-Para las prácticas en clase se hará una tarjeta de 12 cm #sym.times 10 cm con:
+// Para las prácticas en clase se hará una tarjeta de 12 cm #sym.times 10 cm con:
 
-#align(center)[#block[
-  // DAT 246 II/2025
-// Paterno, Materno, Nombres.
-#grid(
-  inset: 5pt,
-  stroke: black,
-  columns: (auto, auto, 20pt, 50pt, 50pt),
-  grid.cell(
-    colspan: 5,
-    [Dat 246 II/2025]
-  ),
-  grid.cell(
-    colspan: 5,
-    [Paterno, materno, nombres.]
-  ),
-  [Fecha.], [Firma.], [ ], [ ], [ ],
-  [ ], [ ], [ ], [ ], [ ],
-  [ ], [ ], [ ], [ ], [ ],
-  [ ], [ ], [ ], [ ], [ ],
-  [ ], [ ], [ ], [ ], [ ],
-  [ ], [ ], [ ], [ ], [ ],
-  )
-]]
+// #align(center)[#block[
+//   // DAT 246 II/2025
+// // Paterno, Materno, Nombres.
+// #grid(
+//   inset: 5pt,
+//   stroke: black,
+//   columns: (auto, auto, 20pt, 50pt, 50pt),
+//   grid.cell(
+//     colspan: 5,
+//     [Dat 246 II/2025]
+//   ),
+//   grid.cell(
+//     colspan: 5,
+//     [Paterno, materno, nombres.]
+//   ),
+//   [Fecha.], [Firma.], [ ], [ ], [ ],
+//   [ ], [ ], [ ], [ ], [ ],
+//   [ ], [ ], [ ], [ ], [ ],
+//   [ ], [ ], [ ], [ ], [ ],
+//   [ ], [ ], [ ], [ ], [ ],
+//   [ ], [ ], [ ], [ ], [ ],
+//   )
+// ]]
 
-Práctica 1: Plan de trabajo.
+// Práctica 1: Plan de trabajo.
 
-Práctica 2: Frase de motivación.
+// Práctica 2: Frase de motivación.
 
-Práctica 3: Carátula donde cada uno se compromete a aprobar la materia.
+// Práctica 3: Carátula donde cada uno se compromete a aprobar la materia.
 

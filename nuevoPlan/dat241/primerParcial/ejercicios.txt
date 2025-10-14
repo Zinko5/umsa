@@ -1,0 +1,4 @@
+1. En openmp muestre el n-esimo término de la serie fibonacci usando shared, private y reduction
+2. Usar C con thread mostrando los primeros n términos de la serie de fibonacci.
+3. Usar python con multiprocessing mostrando los primeros n términos de la serie de fibonacci.
+4. En visual studio realice una calculadora (suma, resta, multiplicacion y division) utilizando bibliotecas de clases.

@@ -183,9 +183,9 @@ $
 Se procede a calcular las sumatorias necesarias con los datos proporcionados ($n = 30$, $k = 2$, $p = k + 1 = 3$):
 
 #let nObs = 30
-#let sumY = calc.round(5.8 + 2.9 + 2.8 + 2.4 + 2.5 + 4.2 + 3.2 + 2.6 + 2.2 + 2 + 2 + 2 + 2.6 + 2.1 + 2.2 + 2 + 2.1 + 2 + 2.1 + 2.4 + 2 + 2.1 + 2 + 2.2 + 2.4 + 2.6 + 2.7 + 2.4 + 2.4 + 2.4, digits: 3)
-#let sumX1 = calc.round(300 + 50 + 40 + 30 + 20 + 10 + 100 + 90 + 80 + 70 + 60 + 50 + 10 + 150 + 140 + 130 + 120 + 110 + 100 + 90 + 80 + 70 + 60 + 50 + 40 + 30 + 20 + 10 + 20 + 10, digits: 3)
-#let sumX2 = calc.round(0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.001 + 0.001, digits: 3)
+#let sumY = calc.round(5.8 + 2.9 + 2.8 + 2.4 + 2.5 + 4.2 + 3.2 + 2.6 + 2.2 + 2.0 + 2.0 + 2.0 + 2.6 + 2.1 + 2.2 + 2.0 + 2.1 + 2.0 + 2.0 + 2.1 + 2.4 + 2.0 + 2.1 + 2.0 + 2.2 + 2.4 + 2.6 + 2.7 + 2.4 + 2.4, digits: 10)
+#let sumX1 = calc.round(300 + 50 + 40 + 30 + 20 + 10 + 100 + 90 + 80 + 70 + 60 + 50 + 10 + 150 + 140 + 130 + 120 + 110 + 100 + 90 + 80 + 70 + 60 + 50 + 40 + 30 + 20 + 10 + 20 + 10, digits: 10)
+#let sumX2 = calc.round(0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.001 + 0.001, digits: 10)
 
 $ 
 sum y_i = #sumY \
@@ -193,11 +193,11 @@ sum x_(i 1) = #sumX1 \
 sum x_(i 2) = #sumX2 
 $
 
-#let sumX1Square = calc.round(300*300 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 10*10 + 150*150 + 140*140 + 130*130 + 120*120 + 110*110 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 20*20 + 10*10, digits: 3)
-#let sumX2Square = calc.round(0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.001*0.001 + 0.001*0.001, digits: 3)
-#let sumX1X2 = calc.round(300*0.0163 + 50*0.0163 + 40*0.0163 + 30*0.0163 + 20*0.0163 + 10*0.0163 + 100*0.0326 + 90*0.0326 + 80*0.0326 + 70*0.0326 + 60*0.0326 + 50*0.0326 + 10*0.0326 + 150*0.0129 + 140*0.0129 + 130*0.0129 + 120*0.0129 + 110*0.0129 + 100*0.0129 + 90*0.0129 + 80*0.0129 + 70*0.0129 + 60*0.0129 + 50*0.0129 + 40*0.0129 + 30*0.0129 + 20*0.0129 + 10*0.0129 + 20*0.001 + 10*0.001, digits: 3)
-#let sumYx1 = calc.round(5.8*300 + 2.9*50 + 2.8*40 + 2.4*30 + 2.5*20 + 4.2*10 + 3.2*100 + 2.6*90 + 2.2*80 + 2*70 + 2*60 + 2*50 + 2.6*10 + 2.1*150 + 2.2*140 + 2*130 + 2.1*120 + 2*110 + 2*100 + 2.1*90 + 2.4*80 + 2*70 + 2.1*60 + 2*50 + 2.2*40 + 2.4*30 + 2.6*20 + 2.7*10 + 2.4*20 + 2.4*10, digits: 3)
-#let sumYx2 = calc.round(5.8*0.0163 + 2.9*0.0163 + 2.8*0.0163 + 2.4*0.0163 + 2.5*0.0163 + 4.2*0.0163 + 3.2*0.0326 + 2.6*0.0326 + 2.2*0.0326 + 2*0.0326 + 2*0.0326 + 2*0.0326 + 2.6*0.0326 + 2.1*0.0129 + 2.2*0.0129 + 2*0.0129 + 2.1*0.0129 + 2*0.0129 + 2*0.0129 + 2.1*0.0129 + 2.4*0.0129 + 2*0.0129 + 2.1*0.0129 + 2*0.0129 + 2.2*0.0129 + 2.4*0.0129 + 2.6*0.0129 + 2.7*0.0129 + 2.4*0.001 + 2.4*0.001, digits: 3)
+#let sumX1Square = calc.round(300*300 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 10*10 + 150*150 + 140*140 + 130*130 + 120*120 + 110*110 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 20*20 + 10*10, digits: 10)
+#let sumX2Square = calc.round(0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.001*0.001 + 0.001*0.001, digits: 10)
+#let sumX1X2 = calc.round(300*0.0163 + 50*0.0163 + 40*0.0163 + 30*0.0163 + 20*0.0163 + 10*0.0163 + 100*0.0326 + 90*0.0326 + 80*0.0326 + 70*0.0326 + 60*0.0326 + 50*0.0326 + 10*0.0326 + 150*0.0129 + 140*0.0129 + 130*0.0129 + 120*0.0129 + 110*0.0129 + 100*0.0129 + 90*0.0129 + 80*0.0129 + 70*0.0129 + 60*0.0129 + 50*0.0129 + 40*0.0129 + 30*0.0129 + 20*0.0129 + 10*0.0129 + 20*0.001 + 10*0.001, digits: 10)
+#let sumYx1 = calc.round(5.8*300 + 2.9*50 + 2.8*40 + 2.4*30 + 2.5*20 + 4.2*10 + 3.2*100 + 2.6*90 + 2.2*80 + 2.0*70 + 2.0*60 + 2.0*50 + 2.6*10 + 2.1*150 + 2.2*140 + 2.0*130 + 2.1*120 + 2.0*110 + 2.0*100 + 2.1*90 + 2.4*80 + 2.0*70 + 2.1*60 + 2.0*50 + 2.2*40 + 2.4*30 + 2.6*20 + 2.7*10 + 2.4*20 + 2.4*10, digits: 10)
+#let sumYx2 = calc.round(5.8*0.0163 + 2.9*0.0163 + 2.8*0.0163 + 2.4*0.0163 + 2.5*0.0163 + 4.2*0.0163 + 3.2*0.0326 + 2.6*0.0326 + 2.2*0.0326 + 2.0*0.0326 + 2.0*0.0326 + 2.0*0.0326 + 2.6*0.0326 + 2.1*0.0129 + 2.2*0.0129 + 2.0*0.0129 + 2.1*0.0129 + 2.0*0.0129 + 2.0*0.0129 + 2.1*0.0129 + 2.4*0.0129 + 2.0*0.0129 + 2.1*0.0129 + 2.0*0.0129 + 2.2*0.0129 + 2.4*0.0129 + 2.6*0.0129 + 2.7*0.0129 + 2.4*0.001 + 2.4*0.001, digits: 10)
 
 $ 
 sum x_(i 1)^2 = #sumX1Square \
@@ -207,6 +207,8 @@ sum y_i x_(i 1) = #sumYx1 \
 sum y_i x_(i 2) = #sumYx2 
 $
 
+// hasta aqui respuesta
+
 La solución matricial para los estimadores de mínimos cuadrados se obtiene como:
 
 $ hat(beta) = (X' X)^(-1) X' y $
@@ -214,6 +216,41 @@ $ hat(beta) = (X' X)^(-1) X' y $
 Se construye la matriz $X$ incluyendo la columna de unos para el término independiente $beta_0$:
 
 $ 
+y = [#grid(
+  inset: 5pt,
+  columns: (auto),
+  [$5.8$],
+  [$2.9$],
+  [$2.8$],
+  [$2.4$],
+  [$2.5$],
+  [$4.2$],
+  [$3.2$],
+  [$2.6$],
+  [$2.2$],
+  [$2$],
+  [$2$],
+  [$2$],
+  [$2.6$],
+  [$2.1$],
+  [$2.2$],
+  [$2$],
+  [$2.1$],
+  [$2$],
+  [$2$],
+  [$2.1$],
+  [$2.4$],
+  [$2$],
+  [$2.1$],
+  [$2$],
+  [$2.2$],
+  [$2.4$],
+  [$2.6$],
+  [$2.7$],
+  [$2.4$],
+  [$2.4$],
+)] 
+quad 
 X = [#grid(
   inset: 5pt,
   columns: (auto, auto, auto),
@@ -247,8 +284,10 @@ X = [#grid(
   [$1$], [$10$], [$0.0129$],
   [$1$], [$20$], [$0.001$],
   [$1$], [$10$], [$0.001$],
-)]
+)] 
 $
+
+
 
 Se calcula $X' X$:
 
@@ -276,16 +315,16 @@ $
 
 Para resolver $hat(beta)$, se necesita $(X' X)^(-1)$. Se define la matriz $X' X$:
 
-#let detXtx = calc.round((nObs * sumX1Square * sumX2Square + 2 * sumX1 * sumX2 * sumX1X2) - (sumX1Square * sumX2 * sumX2 + sumX2Square * sumX1 * sumX1 + nObs * sumX1X2 * sumX1X2), digits: 3)
-#let invXtx11 = calc.round((sumX1Square * sumX2Square - sumX1X2 * sumX1X2) / detXtx, digits: 3)
-#let invXtx12 = calc.round((sumX1X2 * sumX2 - sumX1 * sumX2Square) / detXtx, digits: 3)
-#let invXtx13 = calc.round((sumX1 * sumX1X2 - sumX2 * sumX1Square) / detXtx, digits: 3)
-#let invXtx21 = calc.round((sumX1X2 * sumX2 - sumX1 * sumX2Square) / detXtx, digits: 3)
-#let invXtx22 = calc.round((nObs * sumX2Square - sumX2 * sumX2) / detXtx, digits: 3)
-#let invXtx23 = calc.round((sumX2 * sumX1 - nObs * sumX1X2) / detXtx, digits: 3)
-#let invXtx31 = calc.round((sumX1 * sumX1X2 - sumX2 * sumX1Square) / detXtx, digits: 3)
-#let invXtx32 = calc.round((sumX2 * sumX1 - nObs * sumX1X2) / detXtx, digits: 3)
-#let invXtx33 = calc.round((nObs * sumX1Square - sumX1 * sumX1) / detXtx, digits: 3)
+#let detXtx = calc.round((nObs * sumX1Square * sumX2Square + 2 * sumX1 * sumX2 * sumX1X2) - (sumX1Square * sumX2 * sumX2 + sumX2Square * sumX1 * sumX1 + nObs * sumX1X2 * sumX1X2), digits: 10)
+#let invXtx11 = calc.round((sumX1Square * sumX2Square - sumX1X2 * sumX1X2) / detXtx, digits: 10)
+#let invXtx12 = calc.round((sumX1X2 * sumX2 - sumX1 * sumX2Square) / detXtx, digits: 10)
+#let invXtx13 = calc.round((sumX1 * sumX1X2 - sumX2 * sumX1Square) / detXtx, digits: 10)
+#let invXtx21 = calc.round((sumX1X2 * sumX2 - sumX1 * sumX2Square) / detXtx, digits: 10)
+#let invXtx22 = calc.round((nObs * sumX2Square - sumX2 * sumX2) / detXtx, digits: 10)
+#let invXtx23 = calc.round((sumX2 * sumX1 - nObs * sumX1X2) / detXtx, digits: 10)
+#let invXtx31 = calc.round((sumX1 * sumX1X2 - sumX2 * sumX1Square) / detXtx, digits: 10)
+#let invXtx32 = calc.round((sumX2 * sumX1 - nObs * sumX1X2) / detXtx, digits: 10)
+#let invXtx33 = calc.round((nObs * sumX1Square - sumX1 * sumX1) / detXtx, digits: 10)
 
 $ 
 (X' X)^(-1) = [#grid(
@@ -299,9 +338,9 @@ $
 
 Se calcula $hat(beta) = (X' X)^(-1) X' y$:
 
-#let beta0 = calc.round(invXtx11 * sumY + invXtx12 * sumYx1 + invXtx13 * sumYx2, digits: 3)
-#let beta1 = calc.round(invXtx21 * sumY + invXtx22 * sumYx1 + invXtx23 * sumYx2, digits: 3)
-#let beta2 = calc.round(invXtx31 * sumY + invXtx32 * sumYx1 + invXtx33 * sumYx2, digits: 3)
+#let beta0 = calc.round(invXtx11 * sumY + invXtx12 * sumYx1 + invXtx13 * sumYx2, digits: 10)
+#let beta1 = calc.round(invXtx21 * sumY + invXtx22 * sumYx1 + invXtx23 * sumYx2, digits: 10)
+#let beta2 = calc.round(invXtx31 * sumY + invXtx32 * sumYx1 + invXtx33 * sumYx2, digits: 10)
 
 $ 
 hat(beta) = [#grid(
@@ -319,107 +358,143 @@ $
 hat(y_i) = #beta0 + #beta1 x_(i 1) + #beta2 x_(i 2)
 $
 
-Se calculan los valores estimados $hat(y)_i$ para cada observación utilizando el modelo de regresión:
+Se calculan los valores estimados $hat(y)_i$ para cada observación utilizando el modelo $hat(y)_i = #beta0 + #beta1 x_(i 1) + #beta2 x_(i 2)$:
 
-$ hat(y)_i = #beta0 + #beta1 x_(i 1) + #beta2 x_(i 2) $
+#let yHat1 = calc.round(beta0 + beta1 * 300 + beta2 * 0.0163, digits: 10)
+#let yHat2 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0163, digits: 10)
+#let yHat3 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0163, digits: 10)
+#let yHat4 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0163, digits: 10)
+#let yHat5 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0163, digits: 10)
+#let yHat6 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0163, digits: 10)
+#let yHat7 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0326, digits: 10)
+#let yHat8 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0326, digits: 10)
+#let yHat9 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0326, digits: 10)
+#let yHat10 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0326, digits: 10)
+#let yHat11 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0326, digits: 10)
+#let yHat12 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0326, digits: 10)
+#let yHat13 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0326, digits: 10)
+#let yHat14 = calc.round(beta0 + beta1 * 150 + beta2 * 0.0129, digits: 10)
+#let yHat15 = calc.round(beta0 + beta1 * 140 + beta2 * 0.0129, digits: 10)
+#let yHat16 = calc.round(beta0 + beta1 * 130 + beta2 * 0.0129, digits: 10)
+#let yHat17 = calc.round(beta0 + beta1 * 120 + beta2 * 0.0129, digits: 10)
+#let yHat18 = calc.round(beta0 + beta1 * 110 + beta2 * 0.0129, digits: 10)
+#let yHat19 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0129, digits: 10)
+#let yHat20 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0129, digits: 10)
+#let yHat21 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0129, digits: 10)
+#let yHat22 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0129, digits: 10)
+#let yHat23 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0129, digits: 10)
+#let yHat24 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0129, digits: 10)
+#let yHat25 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0129, digits: 10)
+#let yHat26 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0129, digits: 10)
+#let yHat27 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0129, digits: 10)
+#let yHat28 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0129, digits: 10)
+#let yHat29 = calc.round(beta0 + beta1 * 20 + beta2 * 0.001, digits: 10)
+#let yHat30 = calc.round(beta0 + beta1 * 10 + beta2 * 0.001, digits: 10)
 
-#let yHat1 = calc.round(beta0 + beta1 * 300 + beta2 * 0.0163, digits: 3)
-#let yHat2 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0163, digits: 3)
-#let yHat3 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0163, digits: 3)
-#let yHat4 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0163, digits: 3)
-#let yHat5 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0163, digits: 3)
-#let yHat6 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0163, digits: 3)
-#let yHat7 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0326, digits: 3)
-#let yHat8 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0326, digits: 3)
-#let yHat9 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0326, digits: 3)
-#let yHat10 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0326, digits: 3)
-#let yHat11 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0326, digits: 3)
-#let yHat12 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0326, digits: 3)
-#let yHat13 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0326, digits: 3)
-#let yHat14 = calc.round(beta0 + beta1 * 150 + beta2 * 0.0129, digits: 3)
-#let yHat15 = calc.round(beta0 + beta1 * 140 + beta2 * 0.0129, digits: 3)
-#let yHat16 = calc.round(beta0 + beta1 * 130 + beta2 * 0.0129, digits: 3)
-#let yHat17 = calc.round(beta0 + beta1 * 120 + beta2 * 0.0129, digits: 3)
-#let yHat18 = calc.round(beta0 + beta1 * 110 + beta2 * 0.0129, digits: 3)
-#let yHat19 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0129, digits: 3)
-#let yHat20 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0129, digits: 3)
-#let yHat21 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0129, digits: 3)
-#let yHat22 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0129, digits: 3)
-#let yHat23 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0129, digits: 3)
-#let yHat24 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0129, digits: 3)
-#let yHat25 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0129, digits: 3)
-#let yHat26 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0129, digits: 3)
-#let yHat27 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0129, digits: 3)
-#let yHat28 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0129, digits: 3)
-#let yHat29 = calc.round(beta0 + beta1 * 20 + beta2 * 0.001, digits: 3)
-#let yHat30 = calc.round(beta0 + beta1 * 10 + beta2 * 0.001, digits: 3)
+#let error1 = calc.round(5.8 - yHat1, digits: 10)
+#let error2 = calc.round(2.9 - yHat2, digits: 10)
+#let error3 = calc.round(2.8 - yHat3, digits: 10)
+#let error4 = calc.round(2.4 - yHat4, digits: 10)
+#let error5 = calc.round(2.5 - yHat5, digits: 10)
+#let error6 = calc.round(4.2 - yHat6, digits: 10)
+#let error7 = calc.round(3.2 - yHat7, digits: 10)
+#let error8 = calc.round(2.6 - yHat8, digits: 10)
+#let error9 = calc.round(2.2 - yHat9, digits: 10)
+#let error10 = calc.round(2 - yHat10, digits: 10)
+#let error11 = calc.round(2 - yHat11, digits: 10)
+#let error12 = calc.round(2 - yHat12, digits: 10)
+#let error13 = calc.round(2.6 - yHat13, digits: 10)
+#let error14 = calc.round(2.1 - yHat14, digits: 10)
+#let error15 = calc.round(2.2 - yHat15, digits: 10)
+#let error16 = calc.round(2 - yHat16, digits: 10)
+#let error17 = calc.round(2.1 - yHat17, digits: 10)
+#let error18 = calc.round(2 - yHat18, digits: 10)
+#let error19 = calc.round(2 - yHat19, digits: 10)
+#let error20 = calc.round(2.1 - yHat20, digits: 10)
+#let error21 = calc.round(2.4 - yHat21, digits: 10)
+#let error22 = calc.round(2 - yHat22, digits: 10)
+#let error23 = calc.round(2.1 - yHat23, digits: 10)
+#let error24 = calc.round(2 - yHat24, digits: 10)
+#let error25 = calc.round(2.2 - yHat25, digits: 10)
+#let error26 = calc.round(2.4 - yHat26, digits: 10)
+#let error27 = calc.round(2.6 - yHat27, digits: 10)
+#let error28 = calc.round(2.7 - yHat28, digits: 10)
+#let error29 = calc.round(2.4 - yHat29, digits: 10)
+#let error30 = calc.round(2.4 - yHat30, digits: 10)
 
-#let e1 = calc.round(5.8 - yHat1, digits: 3)
-#let e2 = calc.round(2.9 - yHat2, digits: 3)
-#let e3 = calc.round(2.8 - yHat3, digits: 3)
-#let e4 = calc.round(2.4 - yHat4, digits: 3)
-#let e5 = calc.round(2.5 - yHat5, digits: 3)
-#let e6 = calc.round(4.2 - yHat6, digits: 3)
-#let e7 = calc.round(3.2 - yHat7, digits: 3)
-#let e8 = calc.round(2.6 - yHat8, digits: 3)
-#let e9 = calc.round(2.2 - yHat9, digits: 3)
-#let e10 = calc.round(2 - yHat10, digits: 3)
-#let e11 = calc.round(2 - yHat11, digits: 3)
-#let e12 = calc.round(2 - yHat12, digits: 3)
-#let e13 = calc.round(2.6 - yHat13, digits: 3)
-#let e14 = calc.round(2.1 - yHat14, digits: 3)
-#let e15 = calc.round(2.2 - yHat15, digits: 3)
-#let e16 = calc.round(2 - yHat16, digits: 3)
-#let e17 = calc.round(2.1 - yHat17, digits: 3)
-#let e18 = calc.round(2 - yHat18, digits: 3)
-#let e19 = calc.round(2 - yHat19, digits: 3)
-#let e20 = calc.round(2.1 - yHat20, digits: 3)
-#let e21 = calc.round(2.4 - yHat21, digits: 3)
-#let e22 = calc.round(2 - yHat22, digits: 3)
-#let e23 = calc.round(2.1 - yHat23, digits: 3)
-#let e24 = calc.round(2 - yHat24, digits: 3)
-#let e25 = calc.round(2.2 - yHat25, digits: 3)
-#let e26 = calc.round(2.4 - yHat26, digits: 3)
-#let e27 = calc.round(2.6 - yHat27, digits: 3)
-#let e28 = calc.round(2.7 - yHat28, digits: 3)
-#let e29 = calc.round(2.4 - yHat29, digits: 3)
-#let e30 = calc.round(2.4 - yHat30, digits: 3)
+// $ hat(y)_1 = #beta0 + #beta1 dot 300 + #beta2 dot 0.0163 = #yHat1 quad quad epsilon_1 = 5.8 - #yHat1 = #error1 $
+// $ hat(y)_2 = #beta0 + #beta1 dot 50 + #beta2 dot 0.0163 = #yHat2 quad quad epsilon_2 = 2.9 - #yHat2 = #error2 $
+// $ hat(y)_3 = #beta0 + #beta1 dot 40 + #beta2 dot 0.0163 = #yHat3 quad quad epsilon_3 = 2.8 - #yHat3 = #error3 $
+// $ hat(y)_4 = #beta0 + #beta1 dot 30 + #beta2 dot 0.0163 = #yHat4 quad quad epsilon_4 = 2.4 - #yHat4 = #error4 $
+// $ hat(y)_5 = #beta0 + #beta1 dot 20 + #beta2 dot 0.0163 = #yHat5 quad quad epsilon_5 = 2.5 - #yHat5 = #error5 $
+// $ hat(y)_6 = #beta0 + #beta1 dot 10 + #beta2 dot 0.0163 = #yHat6 quad quad epsilon_6 = 4.2 - #yHat6 = #error6 $
+// $ hat(y)_7 = #beta0 + #beta1 dot 100 + #beta2 dot 0.0326 = #yHat7 quad quad epsilon_7 = 3.2 - #yHat7 = #error7 $
+// $ hat(y)_8 = #beta0 + #beta1 dot 90 + #beta2 dot 0.0326 = #yHat8 quad quad epsilon_8 = 2.6 - #yHat8 = #error8 $
+// $ hat(y)_9 = #beta0 + #beta1 dot 80 + #beta2 dot 0.0326 = #yHat9 quad quad epsilon_9 = 2.2 - #yHat9 = #error9 $
+// $ hat(y)_10 = #beta0 + #beta1 dot 70 + #beta2 dot 0.0326 = #yHat10 quad quad epsilon_10 = 2 - #yHat10 = #error10 $
+// $ hat(y)_11 = #beta0 + #beta1 dot 60 + #beta2 dot 0.0326 = #yHat11 quad quad epsilon_11 = 2 - #yHat11 = #error11 $
+// $ hat(y)_12 = #beta0 + #beta1 dot 50 + #beta2 dot 0.0326 = #yHat12 quad quad epsilon_12 = 2 - #yHat12 = #error12 $
+// $ hat(y)_13 = #beta0 + #beta1 dot 10 + #beta2 dot 0.0326 = #yHat13 quad quad epsilon_13 = 2.6 - #yHat13 = #error13 $
+// $ hat(y)_14 = #beta0 + #beta1 dot 150 + #beta2 dot 0.0129 = #yHat14 quad quad epsilon_14 = 2.1 - #yHat14 = #error14 $
+// $ hat(y)_15 = #beta0 + #beta1 dot 140 + #beta2 dot 0.0129 = #yHat15 quad quad epsilon_15 = 2.2 - #yHat15 = #error15 $
+// $ hat(y)_16 = #beta0 + #beta1 dot 130 + #beta2 dot 0.0129 = #yHat16 quad quad epsilon_16 = 2 - #yHat16 = #error16 $
+// $ hat(y)_17 = #beta0 + #beta1 dot 120 + #beta2 dot 0.0129 = #yHat17 quad quad epsilon_17 = 2.1 - #yHat17 = #error17 $
+// $ hat(y)_18 = #beta0 + #beta1 dot 110 + #beta2 dot 0.0129 = #yHat18 quad quad epsilon_18 = 2 - #yHat18 = #error18 $
+// $ hat(y)_19 = #beta0 + #beta1 dot 100 + #beta2 dot 0.0129 = #yHat19 quad quad epsilon_19 = 2 - #yHat19 = #error19 $
+// $ hat(y)_20 = #beta0 + #beta1 dot 90 + #beta2 dot 0.0129 = #yHat20 quad quad epsilon_20 = 2.1 - #yHat20 = #error20 $
+// $ hat(y)_21 = #beta0 + #beta1 dot 80 + #beta2 dot 0.0129 = #yHat21 quad quad epsilon_21 = 2.4 - #yHat21 = #error21 $
+// $ hat(y)_22 = #beta0 + #beta1 dot 70 + #beta2 dot 0.0129 = #yHat22 quad quad epsilon_22 = 2 - #yHat22 = #error22 $
+// $ hat(y)_23 = #beta0 + #beta1 dot 60 + #beta2 dot 0.0129 = #yHat23 quad quad epsilon_23 = 2.1 - #yHat23 = #error23 $
+// $ hat(y)_24 = #beta0 + #beta1 dot 50 + #beta2 dot 0.0129 = #yHat24 quad quad epsilon_24 = 2 - #yHat24 = #error24 $
+// $ hat(y)_25 = #beta0 + #beta1 dot 40 + #beta2 dot 0.0129 = #yHat25 quad quad epsilon_25 = 2.2 - #yHat25 = #error25 $
+// $ hat(y)_26 = #beta0 + #beta1 dot 30 + #beta2 dot 0.0129 = #yHat26 quad quad epsilon_26 = 2.4 - #yHat26 = #error26 $
+// $ hat(y)_27 = #beta0 + #beta1 dot 20 + #beta2 dot 0.0129 = #yHat27 quad quad epsilon_27 = 2.6 - #yHat27 = #error27 $
+// $ hat(y)_28 = #beta0 + #beta1 dot 10 + #beta2 dot 0.0129 = #yHat28 quad quad epsilon_28 = 2.7 - #yHat28 = #error28 $
+// $ hat(y)_29 = #beta0 + #beta1 dot 20 + #beta2 dot 0.001 = #yHat29 quad quad epsilon_29 = 2.4 - #yHat29 = #error29 $
+// $ hat(y)_30 = #beta0 + #beta1 dot 10 + #beta2 dot 0.001 = #yHat30 quad quad epsilon_30 = 2.4 - #yHat30 = #error30 $
 
-Se presentan los valores estimados $hat(y)_i$ y los residuos $epsilon_i = y_i - hat(y)_i$:
+Se presentan los valores observados, estimados y los errores:
 
 #grid(
+  columns: (auto, auto, auto, auto, auto, auto),
   inset: 5pt,
   stroke: black,
-  columns: (auto, auto, auto, auto, auto, auto),
-  [$i$], [$y_i$], [$x_(i 1)$], [$x_(i 2)$], [$hat(y)_i$], [$epsilon_i$],
-  [$1$], [$5.8$], [$300$], [$0.0163$], [#yHat1], [#e1],
-  [$2$], [$2.9$], [$50$], [$0.0163$], [#yHat2], [#e2],
-  [$3$], [$2.8$], [$40$], [$0.0163$], [#yHat3], [#e3],
-  [$4$], [$2.4$], [$30$], [$0.0163$], [#yHat4], [#e4],
-  [$5$], [$2.5$], [$20$], [$0.0163$], [#yHat5], [#e5],
-  [$6$], [$4.2$], [$10$], [$0.0163$], [#yHat6], [#e6],
-  [$7$], [$3.2$], [$100$], [$0.0326$], [#yHat7], [#e7],
-  [$8$], [$2.6$], [$90$], [$0.0326$], [#yHat8], [#e8],
-  [$9$], [$2.2$], [$80$], [$0.0326$], [#yHat9], [#e9],
-  [$10$], [$2$], [$70$], [$0.0326$], [#yHat10], [#e10],
-  [$11$], [$2$], [$60$], [$0.0326$], [#yHat11], [#e11],
-  [$12$], [$2$], [$50$], [$0.0326$], [#yHat12], [#e12],
-  [$13$], [$2.6$], [$10$], [$0.0326$], [#yHat13], [#e13],
-  [$14$], [$2.1$], [$150$], [$0.0129$], [#yHat14], [#e14],
-  [$15$], [$2.2$], [$140$], [$0.0129$], [#yHat15], [#e15],
-  [$16$], [$2$], [$130$], [$0.0129$], [#yHat16], [#e16],
-  [$17$], [$2.1$], [$120$], [$0.0129$], [#yHat17], [#e17],
-  [$18$], [$2$], [$110$], [$0.0129$], [#yHat18], [#e18],
-  [$19$], [$2$], [$100$], [$0.0129$], [#yHat19], [#e19],
-  [$20$], [$2.1$], [$90$], [$0.0129$], [#yHat20], [#e20],
-  [$21$], [$2.4$], [$80$], [$0.0129$], [#yHat21], [#e21],
-  [$22$], [$2$], [$70$], [$0.0129$], [#yHat22], [#e22],
-  [$23$], [$2.1$], [$60$], [$0.0129$], [#yHat23], [#e23],
-  [$24$], [$2$], [$50$], [$0.0129$], [#yHat24], [#e24],
-  [$25$], [$2.2$], [$40$], [$0.0129$], [#yHat25], [#e25],
-  [$26$], [$2.4$], [$30$], [$0.0129$], [#yHat26], [#e26],
-  [$27$], [$2.6$], [$20$], [$0.0129$], [#yHat27], [#e27],
-  [$28$], [$2.7$], [$10$], [$0.0129$], [#yHat28], [#e28],
-  [$29$], [$2.4$], [$20$], [$0.001$], [#yHat29], [#e29],
-  [$30$], [$2.4$], [$10$], [$0.001$], [#yHat30], [#e30],
+  [$i$], [$y_i$], [$x_(i 1)$], [$x_(i 2)$], [$hat(y)_i$], [$epsilon_i = y_i - hat(y)_i$],
+  [$1$], [$5.8$], [$300$], [$0.0163$], [#yHat1], [#error1],
+  [$2$], [$2.9$], [$50$], [$0.0163$], [#yHat2], [#error2],
+  [$3$], [$2.8$], [$40$], [$0.0163$], [#yHat3], [#error3],
+  [$4$], [$2.4$], [$30$], [$0.0163$], [#yHat4], [#error4],
+  [$5$], [$2.5$], [$20$], [$0.0163$], [#yHat5], [#error5],
+  [$6$], [$4.2$], [$10$], [$0.0163$], [#yHat6], [#error6],
+  [$7$], [$3.2$], [$100$], [$0.0326$], [#yHat7], [#error7],
+  [$8$], [$2.6$], [$90$], [$0.0326$], [#yHat8], [#error8],
+  [$9$], [$2.2$], [$80$], [$0.0326$], [#yHat9], [#error9],
+  [$10$], [$2$], [$70$], [$0.0326$], [#yHat10], [#error10],
+  [$11$], [$2$], [$60$], [$0.0326$], [#yHat11], [#error11],
+  [$12$], [$2$], [$50$], [$0.0326$], [#yHat12], [#error12],
+  [$13$], [$2.6$], [$10$], [$0.0326$], [#yHat13], [#error13],
+  [$14$], [$2.1$], [$150$], [$0.0129$], [#yHat14], [#error14],
+  [$15$], [$2.2$], [$140$], [$0.0129$], [#yHat15], [#error15],
+  [$16$], [$2$], [$130$], [$0.0129$], [#yHat16], [#error16],
+  [$17$], [$2.1$], [$120$], [$0.0129$], [#yHat17], [#error17],
+  [$18$], [$2$], [$110$], [$0.0129$], [#yHat18], [#error18],
+  [$19$], [$2$], [$100$], [$0.0129$], [#yHat19], [#error19],
+  [$20$], [$2.1$], [$90$], [$0.0129$], [#yHat20], [#error20],
+  [$21$], [$2.4$], [$80$], [$0.0129$], [#yHat21], [#error21],
+  [$22$], [$2$], [$70$], [$0.0129$], [#yHat22], [#error22],
+  [$23$], [$2.1$], [$60$], [$0.0129$], [#yHat23], [#error23],
+  [$24$], [$2$], [$50$], [$0.0129$], [#yHat24], [#error24],
+  [$25$], [$2.2$], [$40$], [$0.0129$], [#yHat25], [#error25],
+  [$26$], [$2.4$], [$30$], [$0.0129$], [#yHat26], [#error26],
+  [$27$], [$2.6$], [$20$], [$0.0129$], [#yHat27], [#error27],
+  [$28$], [$2.7$], [$10$], [$0.0129$], [#yHat28], [#error28],
+  [$29$], [$2.4$], [$20$], [$0.001$], [#yHat29], [#error29],
+  [$30$], [$2.4$], [$10$], [$0.001$], [#yHat30], [#error30],
 )
+
+Se verifica que la suma de los errores $sum epsilon_i$ sea aproximadamente cero:
+
+#let sumErrors = calc.round(error1 + error2 + error3 + error4 + error5 + error6 + error7 + error8 + error9 + error10 + error11 + error12 + error13 + error14 + error15 + error16 + error17 + error18 + error19 + error20 + error21 + error22 + error23 + error24 + error25 + error26 + error27 + error28 + error29 + error30, digits: 10)
+
+$ sum_(i=1)^30 epsilon_i = #sumErrors approx 0 $
+
