@@ -1,0 +1,11 @@
+ro = (1 + sqrt(5))/2
+
+f_n = (e - (-e ^(-1))^(-n))/(sqrt(5))
+
+Bajo esa premisa:
+
+1. Sin usar funciones (sin una funcion llamada fibo() o algo así), Usando  openmp, obtener la serie fibonacci hasta n. Utilizando privated, shared, reduction, pragma
+
+2. Con hilos en C, obtener la serie fibonacci hasta n
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34

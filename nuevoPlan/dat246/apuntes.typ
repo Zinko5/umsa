@@ -1653,8 +1653,211 @@ Sea $X_1, X_2, dots, X_n$ una muestra aleatoria de $x$ y sean $x_1, x_2, dots, x
 
 El método de máxima verosimilitud consiste en tomar como valor estimado $theta$ el valor que hace máxima de la función $v(theta)$.
 
+$v(theta) = f(x_1, x_2, dots, x_n; theta) = f(x_1; theta) f(x_2; theta) dot f(x_n; theta)$
+
+$ln v(theta) = sum ln f(x_i; theta)$
+
+$(diff sum ln f(x_i; theta))/(diff theta) = 0$
+
+==== Ejemplo
+
+Obtener el estimador de máxima verosimilitud de la probabilidad de éxito para una variable aleatoria $x$ de Bernoulli.
+
+*Respuesta*: Como $x$ es una variable aleatoria de Bernoulli, entonces la función de distribución de $x$ está dada por $P(x, p) = p^x (1 - p)^(1 - x)$ con $x = 0, 1; 0 lt p lt 1$.
+
+Sea $x_1, x_2, dots, x_n$ una muestra aleatoria de $x$ cuyos valores son $x_1, x_2, dots, x_n$ (es una secuencia de ceros y unos) entonces la probabilidad o la función de probabilidad representada para cada uno es:
+
+$
+  P(x_i, p) = p^(x_i) (1 - p)^(1 - x_i) quad; i = 1, n
+$
+
+En la función de verosimilitud:
+$
+  v(p) = P(x_1, x_2, dots, x_n; p) = P(x_1, x_2, dots, x_n; p) = P(x_1; p) P(x_2; p) dot P(x_n; p)\
+
+  v(p) = P^(x_1) (1 - p)^(1 - x_1) P^(x_2) (1 - p)^(1 - x_2 ) dots P^(x_n) (1 - p)^(1 - x_n)\
+
+  v(p) = product_(i = i)^n = product_(i = i)^n p^(x_i) (1 - p)^(1 - x_i)\
+
+  v(p) = p^(sum x_i) (1 - p)^(sum (1 - x_i))\
+
+  ln(v(p)) = ln p^(sum x_i) + ln((1 - p)^(n - sum (x_i)))\
+$
+
+Derivando $ln(v(p))$ respecto a $p$:
+
+$
+  d/(d p) ln(v(p)) = (sum x_i)/p - (n - sum x_i)/(1 - p) = 0 \
+
+  (sum x_i)/(p) = (n - sum x_i)/(1 - p)\ 
+
+  (sum x_i) (1 - p) = (n - sum x_i) p\ 
+
+  sum x_i - p sum x_i = n p - p sum x_i\ 
+
+  sum x_i = n p\ 
+
+  p = (sum x_i)/n = overline(x)
+$
+
+Por lo tanto, el estimador de máxima verosimilitud de $p$ es:
+
+$
+  hat(p) = (sum x_i)/n = overline(x)
+$
+
+$
+  E(hat(p)) = E((sum x_i)/n)\
+
+  = 1/n sum E(x_i)\
+
+  E(x_i) = 0 dot (P(x_i = 0)) + 1 dot (P(x_i = 1))\
+
+  = 0 dot (1 - p) + 1 dot p\
+  
+  = 0 + p = p\
+
+  E(hat(p)) = 1/n sum p = 1/n dot n dot p = p\
+
+  E(hat(p)) = p
+$
+
+==== Ejemplo
+
+Se considera una muestra aleatoria de doce naranjas con pesos $x_1, x_2, dots, x_12$, donde $sum_(i=1)^12 x_i = 180$ y $sum_(i=1)^12 x_i^2 = 2799$. Se asume que los pesos siguen una distribución normal con parámetros $mu$ y $sigma^2$. La densidad de probabilidad es:
+
+$
+  f(x; mu, sigma^2) = 1/(sigma sqrt(2 pi)) e^(-(x - mu)^2/(2 sigma^2))
+$
+
+La función de verosimilitud para la muestra es:
+
+$
+  v(mu, sigma^2) = product_(i=1)^12 1/(sigma sqrt(2 pi)) e^(-(x_i - mu)^2/(2 sigma^2))
+$
+
+$
+  v(mu, sigma^2) = (1/(sigma sqrt(2 pi)))^12 e^(-sum_(i=1)^12 (x_i - mu)^2/(2 sigma^2))
+$
+
+El logaritmo de la verosimilitud es:
+
+$
+  ln(v(mu, sigma^2)) = -12 ln(sigma) - 12/2 ln(2 pi) - 1/(2 sigma^2) sum_(i=1)^12 (x_i - mu)^2
+$
+
+Derivando con respecto a $mu$:
+
+$
+  d/(d mu) ln(v(mu, sigma^2)) = 1/sigma^2 sum_(i=1)^12 (x_i - mu) = 0
+$
+
+$
+  sum_(i=1)^12 x_i - 12 mu = 0
+$
+
+$
+  mu = (sum_(i=1)^12 x_i)/12
+$
+
+Derivando con respecto a $sigma^2$:
+
+$
+  d/(d sigma^2) ln(v(mu, sigma^2)) = -12/(2 sigma^2) + 1/(2 (sigma^2)^2) sum_(i=1)^12 (x_i - mu)^2 = 0
+$
+
+$
+  -12 sigma^2 + sum_(i=1)^12 (x_i - mu)^2 = 0
+$
+
+// hat(sigma^2) = (n - 1)/n s^2, por qué?
+
+$
+  sigma^2 = (sum_(i=1)^12 (x_i - mu)^2)/12
+$
+
+#let sumXi = 180
+#let sumXiSquared = 2799
+#let n = 12
+#let muHat = calc.round(sumXi / n, digits: 3)
+
+Sustituyendo $sum_(i=1)^12 x_i = 180$ y $n = 12$:
+
+$
+  hat(mu) = sumXi/n = #muHat
+$
+
+Para $sigma^2$, se calcula $sum_(i=1)^12 (x_i - mu)^2$:
+
+$
+  sum_(i=1)^12 (x_i - mu)^2 = sum_(i=1)^12 x_i^2 - 2 mu sum_(i=1)^12 x_i + 12 mu^2
+$
+
+#let term1 = sumXiSquared
+#let term2 = calc.round(2 * muHat * sumXi, digits: 3)
+#let term3 = calc.round(n * muHat * muHat, digits: 3)
+#let sumDiffSquared = calc.round(term1 - term2 + term3, digits: 3)
+
+$
+  sum_(i=1)^12 (x_i - mu)^2 = #term1 - #term2 + #term3 = #sumDiffSquared
+$
+
+#let sigmaHatSquared = calc.round(sumDiffSquared / n, digits: 3)
+
+$
+  hat(sigma^2) = #sumDiffSquared/n = #sigmaHatSquared
+$
+
+$
+  x tilde (muHat, sigmaHatSquared)
+$
+
 = Estadística bayesiana.
+
 == Repaso del teorema de Bayes.
+
+$
+  overline(A) = v - A\
+
+  |overline(A_i)| = |A| - |A_i|\
+  |A| = |A_1 union A_2| + overline(|A_1 union A_2|)\
+  overline(|A_1 inter A_2|) = |A| - |A_1| - |A_2| + ||A_1 inter A_2
+$
+
+=== Evento
+
+Un evento o suceso es un subconjunto de un espacio muestral. Por ejemplo $A_1$ está asociado al espacio muestral del experimento. El espacio muestral se considera el conjunto universal.
+
+=== Definición de probabilidad
+
+Se define como una función de conjuntos y los elementos del rango son número reales.
+
+Si el evento $A$ es un elemento en el dominio de esta función, entonces la notación funcional es $P(A)$
+
+Si un experimento $E$ tiene un espacio muestral $omega$ y un evento $A$ que está definido en $omega$, entonces $P(A)in RR$ que se denomina la probabilidad del evento $A$
+
+=== Probabilidad condicional
+
+Sea un evento $b$ con $P(b) gt 0$, la probabilidad condicional de que ocurra el evento $a$ se define como:
+
+$
+  P(a \/ b) = P(a inter b)/P(b)
+$
+
+=== Regla de la multiplicación
+
+De la división de probabilidad condicional, se obtiene una fórmula para encontrar la probabilidad de la intersección o producto de los eventos $a$ y $b$
+
+$
+  P(a\/b) = P(a inter b)/P(b); P(b) gt 0\
+  P(b\/a) = P(b inter a)/P(a); P(a) gt 0\
+$
+
+$
+  p(a inter b) = p(b) p(a\/b) = p(a b)\
+  p(b inter a) = p(a) p(b\/a) = p(a b)\
+$
+
 == Descripción a priori y a posteriori.
 == Inferencia bayesiana.
 == Clasificador bayesiano ingenuo. // pregunta del segundo parcial.

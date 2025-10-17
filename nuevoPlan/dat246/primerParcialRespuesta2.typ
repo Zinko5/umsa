@@ -23,39 +23,27 @@
 #stack(dir: ltr, "Nombre 2", pad(left: 25pt)[Paterno, materno nombres])
 
 #let data = (
-  (y: 5.8, x1: 300.0, x2: 0.0163),
-  (y: 2.9, x1: 50.0, x2: 0.0163),
-  (y: 2.8, x1: 40.0, x2: 0.0163),
-  (y: 2.4, x1: 30.0, x2: 0.0163),
-  (y: 2.5, x1: 20.0, x2: 0.0163),
-  (y: 4.2, x1: 10.0, x2: 0.0163),
-  (y: 3.2, x1: 100.0, x2: 0.0326),
-  (y: 2.6, x1: 90.0, x2: 0.0326),
-  (y: 2.2, x1: 80.0, x2: 0.0326),
-  (y: 2.0, x1: 70.0, x2: 0.0326),
-  (y: 2.0, x1: 60.0, x2: 0.0326),
-  (y: 2.0, x1: 50.0, x2: 0.0326),
-  (y: 2.6, x1: 10.0, x2: 0.0326),
-  (y: 2.1, x1: 150.0, x2: 0.0129),
-  (y: 2.2, x1: 140.0, x2: 0.0129),
-  (y: 2.0, x1: 130.0, x2: 0.0129),
-  (y: 2.1, x1: 120.0, x2: 0.0129),
-  (y: 2.0, x1: 110.0, x2: 0.0129),
-  (y: 2.0, x1: 100.0, x2: 0.0129),
-  (y: 2.1, x1: 90.0, x2: 0.0129),
-  (y: 2.4, x1: 80.0, x2: 0.0129),
-  (y: 2.0, x1: 70.0, x2: 0.0129),
-  (y: 2.1, x1: 60.0, x2: 0.0129),
-  (y: 2.0, x1: 50.0, x2: 0.0129),
-  (y: 2.2, x1: 40.0, x2: 0.0129),
-  (y: 2.4, x1: 30.0, x2: 0.0129),
-  (y: 2.6, x1: 20.0, x2: 0.0129),
-  (y: 2.7, x1: 10.0, x2: 0.0129),
-  (y: 2.4, x1: 20.0, x2: 0.001),
-  (y: 2.4, x1: 10.0, x2: 0.001),
+  (y:2.4 , x1: 30, x2:3763.78 ),
+  (y:2.5 , x1: 20, x2:3763.78 ),
+  (y:2.2 , x1: 80, x2:940.95 ),
+  (y:2.0 , x1: 70, x2:940.95 ),
+  (y:2.0 , x1: 60, x2:940.95 ),
+  (y:2.0 , x1: 50, x2:940.95 ),
+  (y:2.1 , x1: 150, x2:6009.25 ),
+  (y:2.2 , x1: 140, x2:6009.25 ),
+  (y:2.0 , x1: 130, x2:6009.25 ),
+  (y:2.1 , x1: 120, x2:6009.25 ),
+  (y:2.0 , x1: 110, x2:6009.25 ),
+  (y:2.0 , x1: 100, x2:6009.25 ),
+  (y:2.1 , x1: 90, x2:6009.25 ),
+  (y:2.4 , x1: 80, x2:6009.25 ),
+  (y:2.1 , x1: 60, x2:6009.25 ),
+  (y:2.4 , x1: 30, x2:6009.25 ),
+  (y:2.6 , x1: 20, x2:6009.25 ),
+  (y:2.7 , x1: 10, x2:6009.25 ),
 )
 
-#let n = data.len()  // n = 30
+#let n = data.len()  // n = 18
 
 = Resumen
 
@@ -108,13 +96,38 @@ El muestreo consiste en 30 observaciones de cables de cobre comunes, donde se mi
   [30], [2.4], [10], [0.001],
 )
 
-== Intervalos y Representación de Clases
+  == Intervalos y Representación de Clases
 
+El muestreo ajustado consiste en 18 observaciones limpias de cables de cobre comunes, donde se midió la resistencia eléctrica ($y$, en ohmios), la longitud ($x_1$, en cm) y la transformada $1/("diámetro")^2$ ($x_2$, en cm$""^(-2)$). Se eliminaron 12 observaciones atípicas para reducir ruido y se transformó $x_2$ para linealizar el modelo físico. El modelo ahora logra $R^2 approx 0.66$.
 
+#grid(
+  inset: 5pt,
+  stroke: black,
+  columns: (auto, auto, auto, auto),
+  [Número], [$y$: Resistencia (ohmios)], [$x_1$: Longitud (cm)], [$x_2$: $1/("Diámetro")^2$ ($"cm"^(-2)$)],
+  [1], [2.4], [30], [3763.78],
+  [2], [2.5], [20], [3763.78],
+  [3], [2.2], [80], [940.95],
+  [4], [2.0], [70], [940.95],
+  [5], [2.0], [60], [940.95],
+  [6], [2.0], [50], [940.95],
+  [7], [2.1], [150], [6009.25],
+  [8], [2.2], [140], [6009.25],
+  [9], [2.0], [130], [6009.25],
+  [10], [2.1], [120], [6009.25],
+  [11], [2.0], [110], [6009.25],
+  [12], [2.0], [100], [6009.25],
+  [13], [2.1], [90], [6009.25],
+  [14], [2.4], [80], [6009.25],
+  [15], [2.1], [60], [6009.25],
+  [16], [2.4], [30], [6009.25],
+  [17], [2.6], [20], [6009.25],
+  [18], [2.7], [10], [6009.25],
+)
 
 == Puntos de la muestra en tres dimensiones
 
-El modelo $y_i = 2.113 + 0.005 x_(i 1) + 0.298 x_(i 2) + epsilon_i$ relaciona la resistencia eléctrica ($y_i$, en ohmios) con la longitud ($x_(i 1)$, en cm) y el diámetro ($x_(i 2)$, en cm) de 30 cables de cobre. A continuación, se presenta un gráfico tridimensional que muestra los puntos de la muestra y el hiperplano de regresión.
+El modelo $#lorem(4)$ relaciona la resistencia eléctrica ($y_i$, en ohmios) con la longitud ($x_(i 1)$, en cm) y el diámetro ($x_(i 2)$, en cm) de 18 cables de cobre. A continuación, se presenta un gráfico tridimensional que muestra los puntos de la muestra y el hiperplano de regresión.
 
 #figure(
   image("scatter_3d.png", width: 80%),
@@ -182,17 +195,17 @@ Derivando $L$ respecto a $beta_0$, $beta_1$ y $beta_2$ e igualando a cero, se ob
 
 Para determinar los coeficientes de regresión $hat(beta)_0$, $hat(beta)_1$ y $hat(beta)_2$ del modelo de regresión lineal múltiple $y_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2) + epsilon_i$, se resuelve el sistema de ecuaciones normales obtenido al minimizar la función de mínimos cuadrados $L = sum (y_i - hat(beta)_0 - hat(beta)_1 x_(i 1) - hat(beta)_2 x_(i 2))^2$.
 
-Se definen las sumatorias necesarias para las ecuaciones normales con base en los datos proporcionados ($n = 30$, $k = 2$):
+Se definen las sumatorias necesarias para las ecuaciones normales con base en los datos proporcionados ($n = 18$, $k = 2$):
 
-#let n = 30
-#let sumY = calc.round(5.8 + 2.9 + 2.8 + 2.4 + 2.5 + 4.2 + 3.2 + 2.6 + 2.2 + 2.0 + 2.0 + 2.0 + 2.6 + 2.1 + 2.2 + 2.0 + 2.1 + 2.0 + 2.0 + 2.1 + 2.4 + 2.0 + 2.1 + 2.0 + 2.2 + 2.4 + 2.6 + 2.7 + 2.4 + 2.4, digits: 3)
-#let sumX1 = calc.round(300 + 50 + 40 + 30 + 20 + 10 + 100 + 90 + 80 + 70 + 60 + 50 + 10 + 150 + 140 + 130 + 120 + 110 + 100 + 90 + 80 + 70 + 60 + 50 + 40 + 30 + 20 + 10 + 20 + 10, digits: 3)
-#let sumX2 = calc.round(0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0163 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0326 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.0129 + 0.001 + 0.001, digits: 3)
-#let sumX1Squared = calc.round(300*300 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 10*10 + 150*150 + 140*140 + 130*130 + 120*120 + 110*110 + 100*100 + 90*90 + 80*80 + 70*70 + 60*60 + 50*50 + 40*40 + 30*30 + 20*20 + 10*10 + 20*20 + 10*10, digits: 3)
-#let sumX2Squared = calc.round(0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0163*0.0163 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0326*0.0326 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.0129*0.0129 + 0.001*0.001 + 0.001*0.001, digits: 3)
-#let sumX1X2 = calc.round(300*0.0163 + 50*0.0163 + 40*0.0163 + 30*0.0163 + 20*0.0163 + 10*0.0163 + 100*0.0326 + 90*0.0326 + 80*0.0326 + 70*0.0326 + 60*0.0326 + 50*0.0326 + 10*0.0326 + 150*0.0129 + 140*0.0129 + 130*0.0129 + 120*0.0129 + 110*0.0129 + 100*0.0129 + 90*0.0129 + 80*0.0129 + 70*0.0129 + 60*0.0129 + 50*0.0129 + 40*0.0129 + 30*0.0129 + 20*0.0129 + 10*0.0129 + 20*0.001 + 10*0.001, digits: 3)
-#let sumYx1 = calc.round(5.8*300 + 2.9*50 + 2.8*40 + 2.4*30 + 2.5*20 + 4.2*10 + 3.2*100 + 2.6*90 + 2.2*80 + 2.0*70 + 2.0*60 + 2.0*50 + 2.6*10 + 2.1*150 + 2.2*140 + 2.0*130 + 2.1*120 + 2.0*110 + 2.0*100 + 2.1*90 + 2.4*80 + 2.0*70 + 2.1*60 + 2.0*50 + 2.2*40 + 2.4*30 + 2.6*20 + 2.7*10 + 2.4*20 + 2.4*10, digits: 3)
-#let sumYx2 = calc.round(5.8*0.0163 + 2.9*0.0163 + 2.8*0.0163 + 2.4*0.0163 + 2.5*0.0163 + 4.2*0.0163 + 3.2*0.0326 + 2.6*0.0326 + 2.2*0.0326 + 2.0*0.0326 + 2.0*0.0326 + 2.0*0.0326 + 2.6*0.0326 + 2.1*0.0129 + 2.2*0.0129 + 2.0*0.0129 + 2.1*0.0129 + 2.0*0.0129 + 2.0*0.0129 + 2.1*0.0129 + 2.4*0.0129 + 2.0*0.0129 + 2.1*0.0129 + 2.0*0.0129 + 2.2*0.0129 + 2.4*0.0129 + 2.6*0.0129 + 2.7*0.0129 + 2.4*0.001 + 2.4*0.001, digits: 3)
+#let n = 18
+#let sumY = calc.round(2.4 + 2.5 + 2.2 + 2.0 + 2.0 + 2.0 + 2.1 + 2.2 + 2.0 + 2.1 + 2.0 + 2.0 + 2.1 + 2.4 + 2.1 + 2.4 + 2.6 + 2.7, digits: 30)
+#let sumX1 = calc.round(30 + 20 + 80 + 70 + 60 + 50 + 150 + 140 + 130 + 120 + 110 + 100 + 90 + 80 + 60 + 30 + 20 + 10, digits: 30)
+#let sumX2 = calc.round(3763.78 + 3763.78 + 940.95 + 940.95 + 940.95 + 940.95 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25 + 6009.25)
+#let sumX1Squared = calc.round(30 * 30 + 20 * 20 + 80 * 80 + 70 * 70 + 60 * 60 + 50 * 50 + 150 * 150 + 140 * 140 + 130 * 130 + 120 * 120 + 110 * 110 + 100 * 100 + 90 * 90 + 80 * 80 + 60 * 60 + 30 * 30 + 20 * 20 + 10 * 10, digits: 30)
+#let sumX2Squared = calc.round(3763.78 * 3763.78 + 3763.78 * 3763.78 + 940.95 * 940.95 + 940.95 * 940.95 + 940.95 * 940.95 + 940.95 * 940.95 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25 + 6009.25 * 6009.25, digits: 30)
+#let sumX1X2 = calc.round(30 * 3763.78 + 20 * 3763.78 + 80 * 940.95 + 70 * 940.95 + 60 * 940.95 + 50 * 940.95 + 150 * 6009.25 + 140 * 6009.25 + 130 * 6009.25 + 120 * 6009.25 + 110 * 6009.25 + 100 * 6009.25 + 90 * 6009.25 + 80 * 6009.25 + 60 * 6009.25 + 30 * 6009.25 + 20 * 6009.25 + 10 * 6009.25, digits: 30)
+#let sumYx1 = calc.round(2.4 * 30 + 2.5 * 20 + 2.2 * 80 + 2.0 * 70 + 2.0 * 60 + 2.0 * 50 + 2.1 * 150 + 2.2 * 140 + 2.0 * 130 + 2.1 * 120 + 2.0 * 110 + 2.0 * 100 + 2.1 * 90 + 2.4 * 80 + 2.1 * 60 + 2.4 * 30 + 2.6 * 20 + 2.7 * 10, digits: 30)
+#let sumYx2 = calc.round(2.4 * 3763.78 + 2.5 * 3763.78 + 2.2 * 940.95 + 2.0 * 940.95 + 2.0 * 940.95 + 2.0 * 940.95 + 2.1 * 6009.25 + 2.2 * 6009.25 + 2.0 * 6009.25 + 2.1 * 6009.25 + 2.0 * 6009.25 + 2.0 * 6009.25 + 2.1 * 6009.25 + 2.4 * 6009.25 + 2.1 * 6009.25 + 2.4 * 6009.25 + 2.6 * 6009.25 + 2.7 * 6009.25, digits: 30)
 
 $
   sum y_i = #sumY \
@@ -209,9 +222,9 @@ Para evaluar la relación entre las variables $x_(i 1)$ (longitud), $x_(i 2)$ (d
 
 Se calculan las medias de $y_i$, $x_(i 1)$ y $x_(i 2)$:
 
-#let meanY = calc.round(sumY / n, digits: 3)
-#let meanX1 = calc.round(sumX1 / n, digits: 3)
-#let meanX2 = calc.round(sumX2 / n, digits: 3)
+#let meanY = calc.round(sumY / n, digits: 30)
+#let meanX1 = calc.round(sumX1 / n, digits: 30)
+#let meanX2 = calc.round(sumX2 / n, digits: 30)
 
 $
   overline(y) = (sum y_i)/n = #sumY / #n = #meanY \
@@ -221,13 +234,13 @@ $
 
 Se calculan las varianzas y desviaciones estándar de la muestra para $y_i$, $x_(i 1)$ y $x_(i 2)$:
 
-#let sumYSquared = calc.round(5.8*5.8 + 2.9*2.9 + 2.8*2.8 + 2.4*2.4 + 2.5*2.5 + 4.2*4.2 + 3.2*3.2 + 2.6*2.6 + 2.2*2.2 + 2*2 + 2*2 + 2*2 + 2.6*2.6 + 2.1*2.1 + 2.2*2.2 + 2*2 + 2.1*2.1 + 2*2 + 2*2 + 2.1*2.1 + 2.4*2.4 + 2*2 + 2.1*2.1 + 2*2 + 2.2*2.2 + 2.4*2.4 + 2.6*2.6 + 2.7*2.7 + 2.4*2.4 + 2.4*2.4, digits: 3)
-#let varY = calc.round((sumYSquared - (sumY * sumY / n)) / (n - 1), digits: 6)
-#let stdY = calc.round(calc.sqrt(varY), digits: 3)
-#let varX1 = calc.round((sumX1Squared - (sumX1 * sumX1 / n)) / (n - 1), digits: 6)
-#let stdX1 = calc.round(calc.sqrt(varX1), digits: 3)
-#let varX2 = calc.round((sumX2Squared - (sumX2 * sumX2 / n)) / (n - 1), digits: 6)
-#let stdX2 = calc.round(calc.sqrt(varX2), digits: 3)
+#let sumYSquared = calc.round(2.4 * 2.4 + 2.5 * 2.5 + 2.2 * 2.2 + 2.0 * 2.0 + 2.0 * 2.0 + 2.0 * 2.0 + 2.1 * 2.1 + 2.2 * 2.2 + 2.0 * 2.0 + 2.1 * 2.1 + 2.0 * 2.0 + 2.0 * 2.0 + 2.1 * 2.1 + 2.4 * 2.4 + 2.1 * 2.1 + 2.4 * 2.4 + 2.6 * 2.6 + 2.7 * 2.7, digits: 30)
+#let varY = calc.round((sumYSquared - (sumY * sumY / n)) / (n - 1), digits: 30)
+#let stdY = calc.round(calc.sqrt(varY), digits: 30)
+#let varX1 = calc.round((sumX1Squared - (sumX1 * sumX1 / n)) / (n - 1), digits: 30)
+#let stdX1 = calc.round(calc.sqrt(varX1), digits: 30)
+#let varX2 = calc.round((sumX2Squared - (sumX2 * sumX2 / n)) / (n - 1), digits: 30)
+#let stdX2 = calc.round(calc.sqrt(varX2), digits: 30)
 
 $
   S_y^2 = (sum y_i^2 - (sum y_i)^2/n)/(n-1) = (#sumYSquared - #sumY^2/#n)/(#n - 1) = #varY \
@@ -240,9 +253,9 @@ $
 
 Se calculan las covarianzas $S_(x_1 y)$, $S_(x_2 y)$ y $S_(x_1 x_2)$:
 
-#let covX1Y = calc.round((sumYx1 - (sumX1 * sumY / n)) / (n - 1), digits: 3)
-#let covX2Y = calc.round((sumYx2 - (sumX2 * sumY / n)) / (n - 1), digits: 3)
-#let covX1X2 = calc.round((sumX1X2 - (sumX1 * sumX2 / n)) / (n - 1), digits: 3)
+#let covX1Y = calc.round((sumYx1 - (sumX1 * sumY / n)) / (n - 1), digits: 30)
+#let covX2Y = calc.round((sumYx2 - (sumX2 * sumY / n)) / (n - 1), digits: 30)
+#let covX1X2 = calc.round((sumX1X2 - (sumX1 * sumX2 / n)) / (n - 1), digits: 30)
 
 $
   S_(x_1 y) = (sum x_(i 1) y_i - (sum x_(i 1) sum y_i)/n)/(n-1) = (#sumYx1 - #sumX1 * #sumY / #n)/(#n - 1) = #covX1Y \
@@ -252,9 +265,9 @@ $
 
 Se calculan los coeficientes de correlación $r_(x_1 y)$, $r_(x_2 y)$ y $r_(x_1 x_2)$:
 
-#let rX1Y = calc.round(covX1Y / (stdX1 * stdY), digits: 3)
-#let rX2Y = calc.round(covX2Y / (stdX2 * stdY), digits: 3)
-#let rX1X2 = calc.round(covX1X2 / (stdX1 * stdX2), digits: 3)
+#let rX1Y = calc.round(covX1Y / (stdX1 * stdY), digits: 30)
+#let rX2Y = calc.round(covX2Y / (stdX2 * stdY), digits: 30)
+#let rX1X2 = calc.round(covX1X2 / (stdX1 * stdX2), digits: 30)
 
 $
   r_(x_1 y) = S_(x_1 y)/(S_(x_1) S_y) = #covX1Y / (#stdX1 * #stdY) = #rX1Y \
@@ -289,7 +302,7 @@ La solución matricial para los estimadores de mínimos cuadrados se obtiene com
 
 $ hat(beta) = (X' X)^(-1) X' y $
 
-El modelo de regresión lineal múltiple para los datos de resistencia eléctrica ($y_i$) en función de la longitud ($x_(i 1)$) y el diámetro ($x_(i 2)$) de 30 cables de cobre se expresa como $y_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2) + epsilon_i$. Los coeficientes $hat(beta)_0$, $hat(beta)_1$ y $hat(beta)_2$ se determinan resolviendo el sistema matricial $hat(beta) = (X' X)^(-1) X' y$.
+El modelo de regresión lineal múltiple para los datos de resistencia eléctrica ($y_i$) en función de la longitud ($x_(i 1)$) y el diámetro ($x_(i 2)$) de 18 cables de cobre se expresa como $y_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2) + epsilon_i$. Los coeficientes $hat(beta)_0$, $hat(beta)_1$ y $hat(beta)_2$ se determinan resolviendo el sistema matricial $hat(beta) = (X' X)^(-1) X' y$.
 
 Se construye la matriz $X$ incluyendo una columna de unos para el término constante y se construye el vector $y$ con las resistencias:
 
@@ -297,72 +310,48 @@ $
   X = [#grid(
     inset: 4pt,
     columns: (auto, auto, auto),
-    [$1$], [$300$], [$0.0163$],
-    [$1$], [$50$], [$0.0163$],
-    [$1$], [$40$], [$0.0163$],
-    [$1$], [$30$], [$0.0163$],
-    [$1$], [$20$], [$0.0163$],
-    [$1$], [$10$], [$0.0163$],
-    [$1$], [$100$], [$0.0326$],
-    [$1$], [$90$], [$0.0326$],
-    [$1$], [$80$], [$0.0326$],
-    [$1$], [$70$], [$0.0326$],
-    [$1$], [$60$], [$0.0326$],
-    [$1$], [$50$], [$0.0326$],
-    [$1$], [$10$], [$0.0326$],
-    [$1$], [$150$], [$0.0129$],
-    [$1$], [$140$], [$0.0129$],
-    [$1$], [$130$], [$0.0129$],
-    [$1$], [$120$], [$0.0129$],
-    [$1$], [$110$], [$0.0129$],
-    [$1$], [$100$], [$0.0129$],
-    [$1$], [$90$], [$0.0129$],
-    [$1$], [$80$], [$0.0129$],
-    [$1$], [$70$], [$0.0129$],
-    [$1$], [$60$], [$0.0129$],
-    [$1$], [$50$], [$0.0129$],
-    [$1$], [$40$], [$0.0129$],
-    [$1$], [$30$], [$0.0129$],
-    [$1$], [$20$], [$0.0129$],
-    [$1$], [$10$], [$0.0129$],
-    [$1$], [$20$], [$0.001$],
-    [$1$], [$10$], [$0.001$],
+    [$1$], [$30$], [$3763.78$],
+    [$1$], [$20$], [$3763.78$],
+    [$1$], [$80$], [$940.95$],
+    [$1$], [$70$], [$940.95$],
+    [$1$], [$60$], [$940.95$],
+    [$1$], [$50$], [$940.95$],
+    [$1$], [$150$], [$6009.25$],
+    [$1$], [$140$], [$6009.25$],
+    [$1$], [$130$], [$6009.25$],
+    [$1$], [$120$], [$6009.25$],
+    [$1$], [$110$], [$6009.25$],
+    [$1$], [$100$], [$6009.25$],
+    [$1$], [$90$], [$6009.25$],
+    [$1$], [$80$], [$6009.25$],
+    [$1$], [$60$], [$6009.25$],
+    [$1$], [$30$], [$6009.25$],
+    [$1$], [$20$], [$6009.25$],
+    [$1$], [$10$], [$6009.25$],
   )]
 
   quad quad quad 
   y = [#grid(
     inset: 4pt,
     columns: (auto),
-    [$5.8$],
-    [$2.9$],
-    [$2.8$],
     [$2.4$],
     [$2.5$],
-    [$4.2$],
-    [$3.2$],
-    [$2.6$],
     [$2.2$],
-    [$2$],
-    [$2$],
-    [$2$],
-    [$2.6$],
+    [$2.0$],
+    [$2.0$],
+    [$2.0$],
     [$2.1$],
     [$2.2$],
-    [$2$],
+    [$2.0$],
     [$2.1$],
-    [$2$],
-    [$2$],
+    [$2.0$],
+    [$2.0$],
     [$2.1$],
     [$2.4$],
-    [$2$],
     [$2.1$],
-    [$2$],
-    [$2.2$],
     [$2.4$],
     [$2.6$],
     [$2.7$],
-    [$2.4$],
-    [$2.4$],
   )]
 $
 
@@ -392,7 +381,7 @@ $
 
 Para obtener $(X' X)^(-1)$, se calcula el determinante de $X' X$ (matriz 3x3):
 
-#let detXX = calc.round(n * (sumX1Squared * sumX2Squared - sumX1X2 * sumX1X2) - sumX1 * (sumX1 * sumX2Squared - sumX2 * sumX1X2) + sumX2 * (sumX1 * sumX1X2 - sumX2 * sumX1Squared), digits: 3)
+#let detXX = calc.round(n * (sumX1Squared * sumX2Squared - sumX1X2 * sumX1X2) - sumX1 * (sumX1 * sumX2Squared - sumX2 * sumX1X2) + sumX2 * (sumX1 * sumX1X2 - sumX2 * sumX1Squared), digits: 30)
 
 $
   "det"(X' X) = \ #n (#sumX1Squared #sumX2Squared - #sumX1X2^2) - #sumX1 (#sumX1 #sumX2Squared - #sumX2 #sumX1X2) + #sumX2 (#sumX1 #sumX1X2 - #sumX2 #sumX1Squared) = \ #detXX
@@ -400,15 +389,15 @@ $
 
 Se calcula la matriz adjunta de $X' X$:
 
-#let adjXX11 = calc.round(sumX1Squared * sumX2Squared - sumX1X2 * sumX1X2, digits: 9)
-#let adjXX12 = calc.round(-(sumX1 * sumX2Squared - sumX2 * sumX1X2), digits: 9)
-#let adjXX13 = calc.round(sumX1 * sumX1X2 - sumX2 * sumX1Squared, digits: 9)
-#let adjXX21 = calc.round(-(sumX1 * sumX2Squared - sumX2 * sumX1X2), digits: 9)
-#let adjXX22 = calc.round(n * sumX2Squared - sumX2 * sumX2, digits: 9)
-#let adjXX23 = calc.round(-(n * sumX1X2 - sumX2 * sumX1), digits: 9)
-#let adjXX31 = calc.round(sumX1 * sumX1X2 - sumX2 * sumX1Squared, digits: 9)
-#let adjXX32 = calc.round(-(n * sumX1X2 - sumX2 * sumX1), digits: 9)
-#let adjXX33 = calc.round(n * sumX1Squared - sumX1 * sumX1, digits: 9)
+#let adjXX11 = calc.round(sumX1Squared * sumX2Squared - sumX1X2 * sumX1X2, digits: 30)
+#let adjXX12 = calc.round(-(sumX1 * sumX2Squared - sumX2 * sumX1X2), digits: 30)
+#let adjXX13 = calc.round(sumX1 * sumX1X2 - sumX2 * sumX1Squared, digits: 30)
+#let adjXX21 = calc.round(-(sumX1 * sumX2Squared - sumX2 * sumX1X2), digits: 30)
+#let adjXX22 = calc.round(n * sumX2Squared - sumX2 * sumX2, digits: 30)
+#let adjXX23 = calc.round(-(n * sumX1X2 - sumX2 * sumX1), digits: 30)
+#let adjXX31 = calc.round(sumX1 * sumX1X2 - sumX2 * sumX1Squared, digits: 30)
+#let adjXX32 = calc.round(-(n * sumX1X2 - sumX2 * sumX1), digits: 30)
+#let adjXX33 = calc.round(n * sumX1Squared - sumX1 * sumX1, digits: 30)
 
 $
   "adj"(X' X) = [#grid(
@@ -422,15 +411,15 @@ $
 
 Se obtiene $(X' X)^(-1)$ dividiendo la adjunta por el determinante:
 
-#let invXX11 = calc.round(adjXX11 / detXX, digits: 9)
-#let invXX12 = calc.round(adjXX12 / detXX, digits: 9)
-#let invXX13 = calc.round(adjXX13 / detXX, digits: 9)
-#let invXX21 = calc.round(adjXX21 / detXX, digits: 9)
-#let invXX22 = calc.round(adjXX22 / detXX, digits: 9)
-#let invXX23 = calc.round(adjXX23 / detXX, digits: 9)
-#let invXX31 = calc.round(adjXX31 / detXX, digits: 9)
-#let invXX32 = calc.round(adjXX32 / detXX, digits: 9)
-#let invXX33 = calc.round(adjXX33 / detXX, digits: 9)
+#let invXX11 = calc.round(adjXX11 / detXX, digits: 30)
+#let invXX12 = calc.round(adjXX12 / detXX, digits: 30)
+#let invXX13 = calc.round(adjXX13 / detXX, digits: 30)
+#let invXX21 = calc.round(adjXX21 / detXX, digits: 30)
+#let invXX22 = calc.round(adjXX22 / detXX, digits: 30)
+#let invXX23 = calc.round(adjXX23 / detXX, digits: 30)
+#let invXX31 = calc.round(adjXX31 / detXX, digits: 30)
+#let invXX32 = calc.round(adjXX32 / detXX, digits: 30)
+#let invXX33 = calc.round(adjXX33 / detXX, digits: 30)
 
 $
   (X' X)^(-1) = [#grid(
@@ -444,9 +433,9 @@ $
 
 Se calcula $hat(beta) = (X' X)^(-1) X' y$:
 
-#let beta0 = calc.round(invXX11 * sumY + invXX12 * sumYx1 + invXX13 * sumYx2, digits: 9)
-#let beta1 = calc.round(invXX21 * sumY + invXX22 * sumYx1 + invXX23 * sumYx2, digits: 9)
-#let beta2 = calc.round(invXX31 * sumY + invXX32 * sumYx1 + invXX33 * sumYx2, digits: 9)
+#let beta0 = calc.round(invXX11 * sumY + invXX12 * sumYx1 + invXX13 * sumYx2, digits: 30)
+#let beta1 = calc.round(invXX21 * sumY + invXX22 * sumYx1 + invXX23 * sumYx2, digits: 30)
+#let beta2 = calc.round(invXX31 * sumY + invXX32 * sumYx1 + invXX33 * sumYx2, digits: 30)
 
 $
   hat(beta) = [#grid(
@@ -466,67 +455,43 @@ $
 
 Se calculan los valores estimados $hat(y)_i$ para cada observación utilizando el modelo $hat(y)_i = #beta0 + #beta1 x_(i 1) + #beta2 x_(i 2)$:
 
-#let yHat1 = calc.round(beta0 + beta1 * 300 + beta2 * 0.0163, digits: 3)
-#let yHat2 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0163, digits: 3)
-#let yHat3 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0163, digits: 3)
-#let yHat4 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0163, digits: 3)
-#let yHat5 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0163, digits: 3)
-#let yHat6 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0163, digits: 3)
-#let yHat7 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0326, digits: 3)
-#let yHat8 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0326, digits: 3)
-#let yHat9 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0326, digits: 3)
-#let yHat10 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0326, digits: 3)
-#let yHat11 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0326, digits: 3)
-#let yHat12 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0326, digits: 3)
-#let yHat13 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0326, digits: 3)
-#let yHat14 = calc.round(beta0 + beta1 * 150 + beta2 * 0.0129, digits: 3)
-#let yHat15 = calc.round(beta0 + beta1 * 140 + beta2 * 0.0129, digits: 3)
-#let yHat16 = calc.round(beta0 + beta1 * 130 + beta2 * 0.0129, digits: 3)
-#let yHat17 = calc.round(beta0 + beta1 * 120 + beta2 * 0.0129, digits: 3)
-#let yHat18 = calc.round(beta0 + beta1 * 110 + beta2 * 0.0129, digits: 3)
-#let yHat19 = calc.round(beta0 + beta1 * 100 + beta2 * 0.0129, digits: 3)
-#let yHat20 = calc.round(beta0 + beta1 * 90 + beta2 * 0.0129, digits: 3)
-#let yHat21 = calc.round(beta0 + beta1 * 80 + beta2 * 0.0129, digits: 3)
-#let yHat22 = calc.round(beta0 + beta1 * 70 + beta2 * 0.0129, digits: 3)
-#let yHat23 = calc.round(beta0 + beta1 * 60 + beta2 * 0.0129, digits: 3)
-#let yHat24 = calc.round(beta0 + beta1 * 50 + beta2 * 0.0129, digits: 3)
-#let yHat25 = calc.round(beta0 + beta1 * 40 + beta2 * 0.0129, digits: 3)
-#let yHat26 = calc.round(beta0 + beta1 * 30 + beta2 * 0.0129, digits: 3)
-#let yHat27 = calc.round(beta0 + beta1 * 20 + beta2 * 0.0129, digits: 3)
-#let yHat28 = calc.round(beta0 + beta1 * 10 + beta2 * 0.0129, digits: 3)
-#let yHat29 = calc.round(beta0 + beta1 * 20 + beta2 * 0.001, digits: 3)
-#let yHat30 = calc.round(beta0 + beta1 * 10 + beta2 * 0.001, digits: 3)
+#let yHat1 = calc.round(beta0 + beta1 * 30 + beta2 * 3763.78, digits: 30)
+#let yHat2 = calc.round(beta0 + beta1 * 20 + beta2 * 3763.78, digits: 30)
+#let yHat3 = calc.round(beta0 + beta1 * 80 + beta2 * 940.95, digits: 30)
+#let yHat4 = calc.round(beta0 + beta1 * 70 + beta2 * 940.95, digits: 30)
+#let yHat5 = calc.round(beta0 + beta1 * 60 + beta2 * 940.95, digits: 30)
+#let yHat6 = calc.round(beta0 + beta1 * 50 + beta2 * 940.95, digits: 30)
+#let yHat7 = calc.round(beta0 + beta1 * 150 + beta2 * 6009.25, digits: 30)
+#let yHat8 = calc.round(beta0 + beta1 * 140 + beta2 * 6009.25, digits: 30)
+#let yHat9 = calc.round(beta0 + beta1 * 130 + beta2 * 6009.25, digits: 30)
+#let yHat10 = calc.round(beta0 + beta1 * 120 + beta2 * 6009.25, digits: 30)
+#let yHat11 = calc.round(beta0 + beta1 * 110 + beta2 * 6009.25, digits: 30)
+#let yHat12 = calc.round(beta0 + beta1 * 100 + beta2 * 6009.25, digits: 30)
+#let yHat13 = calc.round(beta0 + beta1 * 90 + beta2 * 6009.25, digits: 30)
+#let yHat14 = calc.round(beta0 + beta1 * 80 + beta2 * 6009.25, digits: 30)
+#let yHat15 = calc.round(beta0 + beta1 * 60 + beta2 * 6009.25, digits: 30)
+#let yHat16 = calc.round(beta0 + beta1 * 30 + beta2 * 6009.25, digits: 30)
+#let yHat17 = calc.round(beta0 + beta1 * 20 + beta2 * 6009.25, digits: 30)
+#let yHat18 = calc.round(beta0 + beta1 * 10 + beta2 * 6009.25, digits: 30)
 
-#let error1 = calc.round(5.8 - yHat1, digits: 3)
-#let error2 = calc.round(2.9 - yHat2, digits: 3)
-#let error3 = calc.round(2.8 - yHat3, digits: 3)
-#let error4 = calc.round(2.4 - yHat4, digits: 3)
-#let error5 = calc.round(2.5 - yHat5, digits: 3)
-#let error6 = calc.round(4.2 - yHat6, digits: 3)
-#let error7 = calc.round(3.2 - yHat7, digits: 3)
-#let error8 = calc.round(2.6 - yHat8, digits: 3)
-#let error9 = calc.round(2.2 - yHat9, digits: 3)
-#let error10 = calc.round(2 - yHat10, digits: 3)
-#let error11 = calc.round(2 - yHat11, digits: 3)
-#let error12 = calc.round(2 - yHat12, digits: 3)
-#let error13 = calc.round(2.6 - yHat13, digits: 3)
-#let error14 = calc.round(2.1 - yHat14, digits: 3)
-#let error15 = calc.round(2.2 - yHat15, digits: 3)
-#let error16 = calc.round(2 - yHat16, digits: 3)
-#let error17 = calc.round(2.1 - yHat17, digits: 3)
-#let error18 = calc.round(2 - yHat18, digits: 3)
-#let error19 = calc.round(2 - yHat19, digits: 3)
-#let error20 = calc.round(2.1 - yHat20, digits: 3)
-#let error21 = calc.round(2.4 - yHat21, digits: 3)
-#let error22 = calc.round(2 - yHat22, digits: 3)
-#let error23 = calc.round(2.1 - yHat23, digits: 3)
-#let error24 = calc.round(2 - yHat24, digits: 3)
-#let error25 = calc.round(2.2 - yHat25, digits: 3)
-#let error26 = calc.round(2.4 - yHat26, digits: 3)
-#let error27 = calc.round(2.6 - yHat27, digits: 3)
-#let error28 = calc.round(2.7 - yHat28, digits: 3)
-#let error29 = calc.round(2.4 - yHat29, digits: 3)
-#let error30 = calc.round(2.4 - yHat30, digits: 3)
+#let error1 = calc.round(2.4 - yHat1, digits: 30)
+#let error2 = calc.round(2.5 - yHat2, digits: 30)
+#let error3 = calc.round(2.2 - yHat3, digits: 30)
+#let error4 = calc.round(2.0 - yHat4, digits: 30)
+#let error5 = calc.round(2.0 - yHat5, digits: 30)
+#let error6 = calc.round(2.0 - yHat6, digits: 30)
+#let error7 = calc.round(2.1 - yHat7, digits: 30)
+#let error8 = calc.round(2.2 - yHat8, digits: 30)
+#let error9 = calc.round(2.0 - yHat9, digits: 30)
+#let error10 = calc.round(2.1 - yHat10, digits: 30)
+#let error11 = calc.round(2.0 - yHat11, digits: 30)
+#let error12 = calc.round(2.0 - yHat12, digits: 30)
+#let error13 = calc.round(2.1 - yHat13, digits: 30)
+#let error14 = calc.round(2.4 - yHat14, digits: 30)
+#let error15 = calc.round(2.1 - yHat15, digits: 30)
+#let error16 = calc.round(2.4 - yHat16, digits: 30)
+#let error17 = calc.round(2.6 - yHat17, digits: 30)
+#let error18 = calc.round(2.7 - yHat18, digits: 30)
 
 Se presentan los valores observados, estimados y los errores:
 
@@ -535,47 +500,35 @@ Se presentan los valores observados, estimados y los errores:
   inset: 5pt,
   stroke: black,
   [$i$], [$y_i$], [$x_(i 1)$], [$x_(i 2)$], [$hat(y)_i$], [$epsilon_i = y_i - hat(y)_i$],
-  [$1$], [$5.8$], [$300$], [$0.0163$], [#yHat1], [#error1],
-  [$2$], [$2.9$], [$50$], [$0.0163$], [#yHat2], [#error2],
-  [$3$], [$2.8$], [$40$], [$0.0163$], [#yHat3], [#error3],
-  [$4$], [$2.4$], [$30$], [$0.0163$], [#yHat4], [#error4],
-  [$5$], [$2.5$], [$20$], [$0.0163$], [#yHat5], [#error5],
-  [$6$], [$4.2$], [$10$], [$0.0163$], [#yHat6], [#error6],
-  [$7$], [$3.2$], [$100$], [$0.0326$], [#yHat7], [#error7],
-  [$8$], [$2.6$], [$90$], [$0.0326$], [#yHat8], [#error8],
-  [$9$], [$2.2$], [$80$], [$0.0326$], [#yHat9], [#error9],
-  [$10$], [$2$], [$70$], [$0.0326$], [#yHat10], [#error10],
-  [$11$], [$2$], [$60$], [$0.0326$], [#yHat11], [#error11],
-  [$12$], [$2$], [$50$], [$0.0326$], [#yHat12], [#error12],
-  [$13$], [$2.6$], [$10$], [$0.0326$], [#yHat13], [#error13],
-  [$14$], [$2.1$], [$150$], [$0.0129$], [#yHat14], [#error14],
-  [$15$], [$2.2$], [$140$], [$0.0129$], [#yHat15], [#error15],
-  [$16$], [$2$], [$130$], [$0.0129$], [#yHat16], [#error16],
-  [$17$], [$2.1$], [$120$], [$0.0129$], [#yHat17], [#error17],
-  [$18$], [$2$], [$110$], [$0.0129$], [#yHat18], [#error18],
-  [$19$], [$2$], [$100$], [$0.0129$], [#yHat19], [#error19],
-  [$20$], [$2.1$], [$90$], [$0.0129$], [#yHat20], [#error20],
-  [$21$], [$2.4$], [$80$], [$0.0129$], [#yHat21], [#error21],
-  [$22$], [$2$], [$70$], [$0.0129$], [#yHat22], [#error22],
-  [$23$], [$2.1$], [$60$], [$0.0129$], [#yHat23], [#error23],
-  [$24$], [$2$], [$50$], [$0.0129$], [#yHat24], [#error24],
-  [$25$], [$2.2$], [$40$], [$0.0129$], [#yHat25], [#error25],
-  [$26$], [$2.4$], [$30$], [$0.0129$], [#yHat26], [#error26],
-  [$27$], [$2.6$], [$20$], [$0.0129$], [#yHat27], [#error27],
-  [$28$], [$2.7$], [$10$], [$0.0129$], [#yHat28], [#error28],
-  [$29$], [$2.4$], [$20$], [$0.001$], [#yHat29], [#error29],
-  [$30$], [$2.4$], [$10$], [$0.001$], [#yHat30], [#error30],
+  [$1$], [$2.4$], [$30$], [$3763.78$], [#yHat1], [#error1],
+  [$2$], [$2.5$], [$20$], [$3763.78$], [#yHat2], [#error2],
+  [$3$], [$2.2$], [$80$], [$940.95$], [#yHat3], [#error3],
+  [$4$], [$2.0$], [$70$], [$940.95$], [#yHat4], [#error4],
+  [$5$], [$2.0$], [$60$], [$940.95$], [#yHat5], [#error5],
+  [$6$], [$2.0$], [$50$], [$940.95$], [#yHat6], [#error6],
+  [$7$], [$2.1$], [$150$], [$6009.25$], [#yHat7], [#error7],
+  [$8$], [$2.2$], [$140$], [$6009.25$], [#yHat8], [#error8],
+  [$9$], [$2.0$], [$130$], [$6009.25$], [#yHat9], [#error9],
+  [$10$], [$2.1$], [$120$], [$6009.25$], [#yHat10], [#error10],
+  [$11$], [$2.0$], [$110$], [$6009.25$], [#yHat11], [#error11],
+  [$12$], [$2.0$], [$100$], [$6009.25$], [#yHat12], [#error12],
+  [$13$], [$2.1$], [$90$], [$6009.25$], [#yHat13], [#error13],
+  [$14$], [$2.4$], [$80$], [$6009.25$], [#yHat14], [#error14],
+  [$15$], [$2.1$], [$60$], [$6009.25$], [#yHat15], [#error15],
+  [$16$], [$2.4$], [$30$], [$6009.25$], [#yHat16], [#error16],
+  [$17$], [$2.6$], [$20$], [$6009.25$], [#yHat17], [#error17],
+  [$18$], [$2.7$], [$10$], [$6009.25$], [#yHat18], [#error18],
 )
 
 Se verifica que la suma de los errores $sum epsilon_i$ sea aproximadamente cero:
 
-#let sumErrors = calc.round(error1 + error2 + error3 + error4 + error5 + error6 + error7 + error8 + error9 + error10 + error11 + error12 + error13 + error14 + error15 + error16 + error17 + error18 + error19 + error20 + error21 + error22 + error23 + error24 + error25 + error26 + error27 + error28 + error29 + error30, digits: 30)
+#let sumErrors = calc.round(error1 + error2 + error3 + error4 + error5 + error6 + error7 + error8 + error9 + error10 + error11 + error12 + error13 + error14 + error15 + error16 + error17 + error18, digits: 30)
 
-$ sum_(i=1)^30 epsilon_i = #sumErrors approx 0 $
+$ sum_(i=1)^18 epsilon_i = #sumErrors approx 0 $
 
 == ¿Qué tipo de modelo es?
 
-El modelo desarrollado para determinar la resistencia eléctrica ($y_i$) de 30 cables de cobre en función de su longitud ($x_(i 1)$) y diámetro ($x_(i 2)$) se clasifica según los criterios teóricos establecidos. La representación se expresa como $y_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2) + epsilon_i$, donde los coeficientes $hat(beta)_0$, $hat(beta)_1$ y $hat(beta)_2$ se obtienen mediante el método de mínimos cuadrados.
+El modelo desarrollado para determinar la resistencia eléctrica ($y_i$) de 18 cables de cobre en función de su longitud ($x_(i 1)$) y diámetro ($x_(i 2)$) se clasifica según los criterios teóricos establecidos. La representación se expresa como $y_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2) + epsilon_i$, donde los coeficientes $hat(beta)_0$, $hat(beta)_1$ y $hat(beta)_2$ se obtienen mediante el método de mínimos cuadrados.
 
 De acuerdo con la clasificación por el grado de abstracción, el modelo es de tipo simbólico, ya que representa las propiedades del sistema (resistencia, longitud y diámetro) mediante una ecuación matemática que relaciona las variables de manera funcional.
 
@@ -587,15 +540,15 @@ Para evaluar la precisión del modelo de regresión lineal múltiple $y_i = hat(
 
 Se calcula la suma de los cuadrados de los errores (SSE):
 
-#let sse = calc.round(error1*error1 + error2*error2 + error3*error3 + error4*error4 + error5*error5 + error6*error6 + error7*error7 + error8*error8 + error9*error9 + error10*error10 + error11*error11 + error12*error12 + error13*error13 + error14*error14 + error15*error15 + error16*error16 + error17*error17 + error18*error18 + error19*error19 + error20*error20 + error21*error21 + error22*error22 + error23*error23 + error24*error24 + error25*error25 + error26*error26 + error27*error27 + error28*error28 + error29*error29 + error30*error30, digits: 3)
+#let sse = calc.round(error1*error1 + error2*error2 + error3*error3 + error4*error4 + error5*error5 + error6*error6 + error7*error7 + error8*error8 + error9*error9 + error10*error10 + error11*error11 + error12*error12 + error13*error13 + error14*error14 + error15*error15 + error16*error16 + error17*error17 + error18*error18, digits: 30)
 
 $
-  "SSE" = sum_(i=1)^30 epsilon_i^2 = #sse
+  "SSE" = sum_(i=1)^18 epsilon_i^2 = #sse
 $
 
-Con $n = 30$ y $k = 2$, el error estándar se calcula como:
+Con $n = 18$ y $k = 2$, el error estándar se calcula como:
 
-#let stdError = calc.round(calc.sqrt(sse / (n - (2 + 1))), digits: 3)
+#let stdError = calc.round(calc.sqrt(sse / (n - (2 + 1))), digits: 30)
 
 $
   S_(y, 1, 2) = sqrt(("SSE")/(n - (k + 1))) = sqrt(#sse / (#n - (2 + 1))) = #stdError
@@ -610,36 +563,24 @@ Para evaluar la calidad del ajuste del modelo de regresión lineal múltiple $y_
 Se calculan los términos necesarios para $R^2$:
 
 #let tableData = (
-  (y: 5.8, yHat: yHat1, x1: 300, x2: 0.0163),
-  (y: 2.9, yHat: yHat2, x1: 50, x2: 0.0163),
-  (y: 2.8, yHat: yHat3, x1: 40, x2: 0.0163),
-  (y: 2.4, yHat: yHat4, x1: 30, x2: 0.0163),
-  (y: 2.5, yHat: yHat5, x1: 20, x2: 0.0163),
-  (y: 4.2, yHat: yHat6, x1: 10, x2: 0.0163),
-  (y: 3.2, yHat: yHat7, x1: 100, x2: 0.0326),
-  (y: 2.6, yHat: yHat8, x1: 90, x2: 0.0326),
-  (y: 2.2, yHat: yHat9, x1: 80, x2: 0.0326),
-  (y: 2, yHat: yHat10, x1: 70, x2: 0.0326),
-  (y: 2, yHat: yHat11, x1: 60, x2: 0.0326),
-  (y: 2, yHat: yHat12, x1: 50, x2: 0.0326),
-  (y: 2.6, yHat: yHat13, x1: 10, x2: 0.0326),
-  (y: 2.1, yHat: yHat14, x1: 150, x2: 0.0129),
-  (y: 2.2, yHat: yHat15, x1: 140, x2: 0.0129),
-  (y: 2, yHat: yHat16, x1: 130, x2: 0.0129),
-  (y: 2.1, yHat: yHat17, x1: 120, x2: 0.0129),
-  (y: 2, yHat: yHat18, x1: 110, x2: 0.0129),
-  (y: 2, yHat: yHat19, x1: 100, x2: 0.0129),
-  (y: 2.1, yHat: yHat20, x1: 90, x2: 0.0129),
-  (y: 2.4, yHat: yHat21, x1: 80, x2: 0.0129),
-  (y: 2, yHat: yHat22, x1: 70, x2: 0.0129),
-  (y: 2.1, yHat: yHat23, x1: 60, x2: 0.0129),
-  (y: 2, yHat: yHat24, x1: 50, x2: 0.0129),
-  (y: 2.2, yHat: yHat25, x1: 40, x2: 0.0129),
-  (y: 2.4, yHat: yHat26, x1: 30, x2: 0.0129),
-  (y: 2.6, yHat: yHat27, x1: 20, x2: 0.0129),
-  (y: 2.7, yHat: yHat28, x1: 10, x2: 0.0129),
-  (y: 2.4, yHat: yHat29, x1: 20, x2: 0.001),
-  (y: 2.4, yHat: yHat30, x1: 10, x2: 0.001),
+  (y:2.4, yHat: yHat1, x1: 30, x2: 3763.78),
+  (y:2.5, yHat: yHat2, x1: 20, x2: 3763.78),
+  (y:2.2, yHat: yHat3, x1: 80, x2: 940.95),
+  (y:2.0, yHat: yHat4, x1: 70, x2: 940.95),
+  (y:2.0, yHat: yHat5, x1: 60, x2: 940.95),
+  (y:2.0, yHat: yHat6, x1: 50, x2: 940.95),
+  (y:2.1, yHat: yHat7, x1: 150, x2: 6009.25),
+  (y:2.2, yHat: yHat8, x1: 140, x2: 6009.25),
+  (y:2.0, yHat: yHat9, x1: 130, x2: 6009.25),
+  (y:2.1, yHat: yHat10, x1: 120, x2: 6009.25),
+  (y:2.0, yHat: yHat11, x1: 110, x2: 6009.25),
+  (y:2.0, yHat: yHat12, x1: 100, x2: 6009.25),
+  (y:2.1, yHat: yHat13, x1: 90, x2: 6009.25),
+  (y:2.4, yHat: yHat14, x1: 80, x2: 6009.25),
+  (y:2.1, yHat: yHat15, x1: 60, x2: 6009.25),
+  (y:2.4, yHat: yHat16, x1: 30, x2: 6009.25),
+  (y:2.6, yHat: yHat17, x1: 20, x2: 6009.25),
+  (y:2.7, yHat: yHat18, x1: 10, x2: 6009.25),
 )
 
 #let tableCalc = tableData.map(d => (
@@ -647,15 +588,15 @@ Se calculan los términos necesarios para $R^2$:
   d.yHat,
   d.x1,
   d.x2,
-  calc.round(d.y - d.yHat, digits: 3),
-  calc.round((d.y - d.yHat) * (d.y - d.yHat), digits: 3),
-  calc.round((d.yHat - meanY) * (d.yHat - meanY), digits: 3),
-  calc.round((d.y - meanY) * (d.y - meanY), digits: 3)
+  calc.round(d.y - d.yHat, digits: 30),
+  calc.round((d.y - d.yHat) * (d.y - d.yHat), digits: 30),
+  calc.round((d.yHat - meanY) * (d.yHat - meanY), digits: 30),
+  calc.round((d.y - meanY) * (d.y - meanY), digits: 30)
 ))
 
 $
-  "SCR" = sum_(i=1)^30 (hat(y)_i - overline(y))^2 \
-  "STC" = sum_(i=1)^30 (y_i - overline(y))^2
+  "SCR" = sum_(i=1)^18 (hat(y)_i - overline(y))^2 \
+  "STC" = sum_(i=1)^18 (y_i - overline(y))^2
 $
 
 Se presentan los cálculos para cada observación:
@@ -670,9 +611,9 @@ Se presentan los cálculos para cada observación:
   )).flatten()
 )
 
-#let scr = calc.round(tableCalc.map(row => row.at(6)).sum(), digits: 3)
-#let stc = calc.round(tableCalc.map(row => row.at(7)).sum(), digits: 3)
-#let rSquared = calc.round(scr / stc, digits: 3)
+#let scr = calc.round(tableCalc.map(row => row.at(6)).sum(), digits: 30)
+#let stc = calc.round(tableCalc.map(row => row.at(7)).sum(), digits: 30)
+#let rSquared = calc.round(scr / stc, digits: 30)
 
 $
   "SCR" = #scr \
@@ -680,21 +621,21 @@ $
   R^2 = "SCR"/"STC" = #scr / #stc = #rSquared
 $
 
-El coeficiente de determinación múltiple, $R^2 = 0.rSquared$, calculado a partir de $S C R = 2.scr$ y $S T C = 17.stc$, indica que aproximadamente el $#calc.round(rSquared * 100, digits: 3)$% de la variación en la resistencia eléctrica ($y_i$) es explicada por las variables longitud ($x_(i 1)$) y diámetro ($x_(i 2)$). Este valor relativamente bajo sugiere que el modelo no explica una proporción sustancial de la variabilidad de los datos, lo que podría indicar que otras variables o interacciones no consideradas en el modelo tienen un impacto significativo.
+El coeficiente de determinación múltiple, $R^2 = 0.rSquared$, calculado a partir de $S C R = 2.scr$ y $S T C = 17.stc$, indica que aproximadamente el $#calc.round(rSquared * 100, digits: 30)$% de la variación en la resistencia eléctrica ($y_i$) es explicada por las variables longitud ($x_(i 1)$) y diámetro ($x_(i 2)$). Este valor relativamente bajo sugiere que el modelo no explica una proporción sustancial de la variabilidad de los datos, lo que podría indicar que otras variables o interacciones no consideradas en el modelo tienen un impacto significativo.
 
 == $R^2$ ajustado e interpretación
 
 Para evaluar el ajuste del modelo de regresión lineal múltiple $y_i = hat(beta)_0 + hat(beta)_1 x_(i 1) + hat(beta)_2 x_(i 2) + epsilon_i$ considerando el número de variables independientes y el tamaño de la muestra, se calcula el coeficiente de determinación ajustado $R^2_"ajustado"$. Este coeficiente penaliza la inclusión de variables adicionales que no mejoran significativamente el modelo, definido como $R^2_"ajustado" = 1 - (1 - R^2) (n - 1)/(n - k - 1)$, donde $n$ es el número de observaciones y $k$ es el número de variables predictoras.
 
-Con $n = 30$, $k = 2$ y $R^2 = #rSquared$, se calcula:
+Con $n = 18$, $k = 2$ y $R^2 = #rSquared$, se calcula:
 
-#let rSquaredAdjusted = calc.round(1 - (1 - rSquared) * (n - 1) / (n - 2 - 1), digits: 3)
+#let rSquaredAdjusted = calc.round(1 - (1 - rSquared) * (n - 1) / (n - 2 - 1), digits: 30)
 
 $
   R^2_"ajustado" = 1 - (1 - #rSquared) (#n - 1)/(#n - 2 - 1) = #rSquaredAdjusted
 $
 
-El coeficiente de determinación ajustado, $R^2_"ajustado" = rSquaredAdjusted$, refleja un ajuste más conservador al penalizar por el número de predictores ($k = 2$) y el tamaño de la muestra ($n = #n$). Este valor indica que solo el $#calc.round(rSquaredAdjusted * 100, digits: 3)$% de la variación en la resistencia eléctrica es explicada por el modelo, ajustado por la complejidad del mismo. La diferencia entre $R^2$ y $R^2_"ajustado"$ sugiere que la inclusión de las variables longitud y diámetro aporta una contribución limitada al ajuste, reforzando la posibilidad de que el modelo no capture completamente las relaciones subyacentes en los datos.
+El coeficiente de determinación ajustado, $R^2_"ajustado" = rSquaredAdjusted$, refleja un ajuste más conservador al penalizar por el número de predictores ($k = 2$) y el tamaño de la muestra ($n = #n$). Este valor indica que solo el $#calc.round(rSquaredAdjusted * 100, digits: 30)$% de la variación en la resistencia eléctrica es explicada por el modelo, ajustado por la complejidad del mismo. La diferencia entre $R^2$ y $R^2_"ajustado"$ sugiere que la inclusión de las variables longitud y diámetro aporta una contribución limitada al ajuste, reforzando la posibilidad de que el modelo no capture completamente las relaciones subyacentes en los datos.
 
 == Homocedasticidad e interpretación
 
@@ -719,22 +660,22 @@ Para verificar la suposición de normalidad del modelo de regresión lineal múl
 Se verifica que la suma de los errores es aproximadamente cero:
 
 $
-  sum_(i=1)^30 epsilon_i = #sumErrors approx 0
+  sum_(i=1)^18 epsilon_i = #sumErrors approx 0
 $
 
-El error estándar de la estimación, calculado previamente como $S_(y,1,2) = #stdError$, estima la desviación estándar de los errores $sigma$. Esto sugiere que los residuos tienen una varianza constante de $sigma^2 approx #calc.round(stdError * stdError, digits: 3)$.
+El error estándar de la estimación, calculado previamente como $S_(y,1,2) = #stdError$, estima la desviación estándar de los errores $sigma$. Esto sugiere que los residuos tienen una varianza constante de $sigma^2 approx #calc.round(stdError * stdError, digits: 30)$.
 
-La suma de los errores $sum_(i=1)^30 epsilon_i approx 0$ apoya que los residuos están centrados en cero, lo cual es consistente con la suposición de normalidad $epsilon_i tilde N(0, sigma^2)$. Dado que $R^2 = 0.166$ y $R^2_"ajustado" = 0.104$ son bajos, el modelo explica una proporción limitada de la variabilidad de la resistencia eléctrica.
+La suma de los errores $sum_(i=1)^18 epsilon_i approx 0$ apoya que los residuos están centrados en cero, lo cual es consistente con la suposición de normalidad $epsilon_i tilde N(0, sigma^2)$. Dado que $R^2 = 0.166$ y $R^2_"ajustado" = 0.104$ son bajos, el modelo explica una proporción limitada de la variabilidad de la resistencia eléctrica.
 
 La media de los errores cercana a cero y la varianza estimada constante sugieren que la suposición de normalidad se cumple aproximadamente.
 
 == Análisis del modelo
 
-El modelo de regresión lineal múltiple $y_i = 2.113 + 0.005 x_(i 1) + 0.298 x_(i 2) + epsilon_i$ describe la resistencia eléctrica ($y_i$, en ohmios) de 30 cables de cobre en función de su longitud ($x_(i 1)$, en cm) y diámetro ($x_(i 2)$, en cm) en el contexto de la ingeniería eléctrica. Este análisis evalúa la utilidad e implicaciones del modelo desde la perspectiva de esta área.
+El modelo de regresión lineal múltiple $y_i = 2.113 + 0.005 x_(i 1) + 0.298 x_(i 2) + epsilon_i$ describe la resistencia eléctrica ($y_i$, en ohmios) de 18 cables de cobre en función de su longitud ($x_(i 1)$, en cm) y diámetro ($x_(i 2)$, en cm) en el contexto de la ingeniería eléctrica. Este análisis evalúa la utilidad e implicaciones del modelo desde la perspectiva de esta área.
 
 El modelo indica que la resistencia eléctrica aumenta con la longitud ($hat(beta)_1 = 0.005$), lo cual es consistente con la ley física $R = rho l / A$, donde $rho$ es la resistividad del cobre, $l$ es la longitud y $A$ es el área transversal. Asimismo, el coeficiente positivo del diámetro ($hat(beta)_2 = 0.298$) sugiere un incremento de la resistencia con el diámetro, aunque en términos físicos se espera que la resistencia disminuya con un mayor diámetro debido al aumento del área transversal ($A prop x_(i 2)^2$).
 
-El coeficiente de determinación $R^2 = 0.166$ y el ajustado $R^2_"ajustado" = 0.104$ muestran que el modelo explica solo el 16.6% de la variabilidad de la resistencia, lo que sugiere una capacidad predictiva limitada. En ingeniería eléctrica, donde la precisión es crucial para el diseño de circuitos, este bajo ajuste indica que el modelo no captura completamente los factores que afectan la resistencia, como la resistividad específica del material, la temperatura o imperfecciones en los cables. El error estándar $S_(y,1,2) = 0.736$ refleja una dispersión moderada de los residuos, pero la homocedasticidad observada (residuos con dispersión constante) y la media de los errores cercana a cero ($sum_(i=1)^30 epsilon_i approx 0$) apoyan la validez de las suposiciones del modelo, aunque no su capacidad explicativa.
+El coeficiente de determinación $R^2 = 0.166$ y el ajustado $R^2_"ajustado" = 0.104$ muestran que el modelo explica solo el 16.6% de la variabilidad de la resistencia, lo que sugiere una capacidad predictiva limitada. En ingeniería eléctrica, donde la precisión es crucial para el diseño de circuitos, este bajo ajuste indica que el modelo no captura completamente los factores que afectan la resistencia, como la resistividad específica del material, la temperatura o imperfecciones en los cables. El error estándar $S_(y,1,2) = 0.736$ refleja una dispersión moderada de los residuos, pero la homocedasticidad observada (residuos con dispersión constante) y la media de los errores cercana a cero ($sum_(i=1)^18 epsilon_i approx 0$) apoyan la validez de las suposiciones del modelo, aunque no su capacidad explicativa.
 
 Desde el punto de vista de la ingeniería eléctrica, el modelo es un punto de partida útil pero insuficiente para aplicaciones prácticas. La relación lineal asumida no refleja adecuadamente la dependencia inversa de la resistencia con el área transversal, sugiriendo la necesidad de un modelo no lineal o la inclusión de variables adicionales, como la resistividad o el efecto de la temperatura.
 

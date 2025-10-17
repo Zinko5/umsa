@@ -1710,7 +1710,7 @@ $P("negativa"\/"excelente actuación") = probExcelenteActuaciónNegativa/sumaPro
 
 = Modelación de secuencias
 
-== Redes neuronales
+== Redes neuronales recurentes
 
 === Ejemplo
 
@@ -2025,3 +2025,478 @@ $
 // segundo parcial: tensorflow, entrenar queras (keras?) con un conjunto de cuentos para producir un cuento propio, producir palabras a traves de un conjunto de palabras con una red neuronal 
 
 // no necesariamente cuentos, texto en general
+
+== Redes LSTM (Long short term memory)
+
+E problema con las redes recurrentes es que tienen una limitación, cuando se introcude un texto, cada palabra se almacena en una variable, empezando por la primera en $x_1$, que se guarda en $h_1$, la siguiente palabra se almacena en un $h_2$, y va iterando de esa manera $h_1. h_2, h_3, dots, h_n$. Cuando el texto se hace muy largo, el modelo tiende a olvidar los primeros $h_i$.
+
+Una red LSTM tiene una mejor capacidad de guardar en memoria las primeras palabras del texto.
+
+=== Estructura de la red LSTM
+
+El método que aplica una red LSTM tener una mejor memoria, es almacenar cada palabra en una celda con tres puertas
+
+- Forget gate: Decide las cosas qué se deben olvidar de la palabra anterior. La primera palabra, tendrá un valor cero ya que no tiene palabra anterior.
+- Input gate: Decide qué nueva información guardar.
+- Output gate: Decide qué parte mostrar como salida.
+
+// #separador()
+
+// - ht - estado oculto de salida: Tiene la misma función que la memoria de red recurrente.
+// - st - estado de la celda: La memoria interna, atrapa las palabras.
+
+=== Fórmulas de LSTM
+
+$
+  sigma(z) = 1/(1 + e^(-z))
+$
+
+
+$
+  tanh = (e^z - e^(-z))/(e^z + e^(-z))
+$
+
+#separador()
+
+Forget gate:
+
+$
+  f_t = sigma (w_f dot x_t)
+$
+
+#separador()
+
+Input gate:
+
+$
+  i_t = sigma (w_i dot x_t)
+$
+
+#separador()
+
+$
+  tilde(c)_t = tanh (w_c dot x_t)
+$
+
+
+$
+  c_t = f_t dot c_(t - 1) + i_t + tilde(c)_t
+$
+
+#separador()
+
+Output gate:
+
+$
+  o_t = sigma(w_o dot x_t)
+$
+
+#separador()
+
+$
+  h_t = o_t dot tanh(c_t)
+$
+
+=== Ejemplo
+
+Texto:
+
+```txt
+Me gusta el ...
+```
+
+#grid(
+  stroke: black,
+  inset: 4pt,
+  columns: (auto, auto),
+  [Palabra], [Representación vectoria],
+  [Me], [[0.2, 0.1]],
+  [usta], [[0.4, 0.3]],
+  [el], [0.1, 0.2],
+)
+
+*Pesos*:
+- $w_f$ = [0.5, 0.1]
+- $w_i$ = [0.4, 0.2]
+- $w_c$ = [0.3, 0.3]
+- $w_o$ = [0.6, 0.9]
+
+*Valores iniciales*:
+- $h_0$ = 0
+- $c_0$ = 0
+
+*Primera palabra* "Me":
+
+#let x1 = (0.2, 0.1)
+#let wF = (0.5, 0.1)
+#let wI = (0.4, 0.2)
+#let wC = (0.3, 0.3)
+#let wO = (0.6, 0.9)
+#let c0 = 0
+#let h0 = 0
+
+// Forget gate
+#let zF1 = calc.round(wF.at(0) * x1.at(0) + wF.at(1) * x1.at(1), digits: 4)
+#let f1 = calc.round(1 / (1 + calc.exp(-zF1)), digits: 4)
+
+$
+f_1 = sigma(w_f dot x_1) = sigma((#wF.at(0), #wF.at(1)) dot (#x1.at(0), #x1.at(1))) = sigma(#zF1"") = #f1
+$
+
+// Input gate
+#let zI1 = calc.round(wI.at(0) * x1.at(0) + wI.at(1) * x1.at(1), digits: 4)
+#let i1 = calc.round(1 / (1 + calc.exp(-zI1)), digits: 4)
+
+$
+i_1 = sigma(w_i dot x_1) = sigma((#wI.at(0), #wI.at(1)) dot (#x1.at(0), #x1.at(1))) = sigma(#zI1"") = #i1
+$
+
+// Candidate cell state
+#let zC1 = calc.round(wC.at(0) * x1.at(0) + wC.at(1) * x1.at(1), digits: 4)
+#let tildeC1 = calc.round((calc.exp(zC1) - calc.exp(-zC1)) / (calc.exp(zC1) + calc.exp(-zC1)), digits: 4)
+
+$
+tilde(c)_1 = tanh(w_c dot x_1) = tanh((#wC.at(0), #wC.at(1)) dot (#x1.at(0), #x1.at(1))) = tanh(#zC1"") = #tildeC1
+$
+
+// Cell state
+#let c1 = calc.round(f1 * c0 + i1 * tildeC1, digits: 4)
+
+$
+c_1 = f_1 dot c_0 + i_1 dot tilde(c)_1 = #f1 dot #c0 + #i1 dot #tildeC1 = #c1
+$
+
+// Output gate
+#let zO1 = calc.round(wO.at(0) * x1.at(0) + wO.at(1) * x1.at(1), digits: 4)
+#let o1 = calc.round(1 / (1 + calc.exp(-zO1)), digits: 4)
+
+$
+o_1 = sigma(w_o dot x_1) = sigma((#wO.at(0), #wO.at(1)) dot (#x1.at(0), #x1.at(1))) = sigma(#zO1"") = #o1
+$
+
+// Hidden state
+#let tanhC1 = calc.round((calc.exp(c1) - calc.exp(-c1)) / (calc.exp(c1) + calc.exp(-c1)), digits: 4)
+#let h1 = calc.round(o1 * tanhC1, digits: 4)
+
+$
+h_1 = o_1 dot tanh(c_1) = #o1 dot tanh(#c1"") = #o1 dot #tanhC1 = #h1
+$
+
+*Segunda palabra* "gusta":
+
+#let x2 = (0.4, 0.3)
+
+// Forget gate
+#let zF2 = calc.round(wF.at(0) * x2.at(0) + wF.at(1) * x2.at(1), digits: 4)
+#let f2 = calc.round(1 / (1 + calc.exp(-zF2)), digits: 4)
+
+$
+f_2 = sigma(w_f dot x_2) = sigma((#wF.at(0), #wF.at(1)) dot (#x2.at(0), #x2.at(1))) = sigma(#zF2"") = #f2
+$
+
+// Input gate
+#let zI2 = calc.round(wI.at(0) * x2.at(0) + wI.at(1) * x2.at(1), digits: 4)
+#let i2 = calc.round(1 / (1 + calc.exp(-zI2)), digits: 4)
+
+$
+i_2 = sigma(w_i dot x_2) = sigma((#wI.at(0), #wI.at(1)) dot (#x2.at(0), #x2.at(1))) = sigma(#zI2"") = #i2
+$
+
+// Candidate cell state
+#let zC2 = calc.round(wC.at(0) * x2.at(0) + wC.at(1) * x2.at(1), digits: 4)
+#let tildeC2 = calc.round((calc.exp(zC2) - calc.exp(-zC2)) / (calc.exp(zC2) + calc.exp(-zC2)), digits: 4)
+
+$
+tilde(c)_2 = tanh(w_c dot x_2) = tanh((#wC.at(0), #wC.at(1)) dot (#x2.at(0), #x2.at(1))) = tanh(#zC2"") = #tildeC2
+$
+
+// Cell state
+#let c2 = calc.round(f2 * c1 + i2 * tildeC2, digits: 4)
+
+$
+c_2 = f_2 dot c_1 + i_2 dot tilde(c)_2 = #f2 dot #c1 + #i2 dot #tildeC2 = #c2
+$
+
+// Output gate
+#let zO2 = calc.round(wO.at(0) * x2.at(0) + wO.at(1) * x2.at(1), digits: 4)
+#let o2 = calc.round(1 / (1 + calc.exp(-zO2)), digits: 4)
+
+$
+o_2 = sigma(w_o dot x_2) = sigma((#wO.at(0), #wO.at(1)) dot (#x2.at(0), #x2.at(1))) = sigma(#zO2"") = #o2
+$
+
+// Hidden state
+#let tanhC2 = calc.round((calc.exp(c2) - calc.exp(-c2)) / (calc.exp(c2) + calc.exp(-c2)), digits: 4)
+#let h2 = calc.round(o2 * tanhC2, digits: 4)
+
+$
+h_2 = o_2 dot tanh(c_2) = #o2 dot tanh(#c2"") = #o2 dot #tanhC2 = #h2
+$
+
+*Tercera palabra* "el":
+
+#let x3 = (0.1, 0.2)
+
+// Forget gate
+#let zF3 = calc.round(wF.at(0) * x3.at(0) + wF.at(1) * x3.at(1), digits: 4)
+#let f3 = calc.round(1 / (1 + calc.exp(-zF3)), digits: 4)
+
+$
+f_3 = sigma(w_f dot x_3) = sigma((#wF.at(0), #wF.at(1)) dot (#x3.at(0), #x3.at(1))) = sigma(#zF3"") = #f3
+$
+
+// Input gate
+#let zI3 = calc.round(wI.at(0) * x3.at(0) + wI.at(1) * x3.at(1), digits: 4)
+#let i3 = calc.round(1 / (1 + calc.exp(-zI3)), digits: 4)
+
+$
+i_3 = sigma(w_i dot x_3) = sigma((#wI.at(0), #wI.at(1)) dot (#x3.at(0), #x3.at(1))) = sigma(#zI3"") = #i3
+$
+
+// Candidate cell state
+#let zC3 = calc.round(wC.at(0) * x3.at(0) + wC.at(1) * x3.at(1), digits: 4)
+#let tildeC3 = calc.round((calc.exp(zC3) - calc.exp(-zC3)) / (calc.exp(zC3) + calc.exp(-zC3)), digits: 4)
+
+$
+tilde(c)_3 = tanh(w_c dot x_3) = tanh((#wC.at(0), #wC.at(1)) dot (#x3.at(0), #x3.at(1))) = tanh(#zC3"") = #tildeC3
+$
+
+// Cell state
+#let c3 = calc.round(f3 * c2 + i3 * tildeC3, digits: 4)
+
+$
+c_3 = f_3 dot c_2 + i_3 dot tilde(c)_3 = #f3 dot #c2 + #i3 dot #tildeC3 = #c3
+$
+
+// Output gate
+#let zO3 = calc.round(wO.at(0) * x3.at(0) + wO.at(1) * x3.at(1), digits: 4)
+#let o3 = calc.round(1 / (1 + calc.exp(-zO3)), digits: 4)
+
+$
+o_3 = sigma(w_o dot x_3) = sigma((#wO.at(0), #wO.at(1)) dot (#x3.at(0), #x3.at(1))) = sigma(#zO3"") = #o3
+$
+
+// Hidden state
+#let tanhC3 = calc.round((calc.exp(c3) - calc.exp(-c3)) / (calc.exp(c3) + calc.exp(-c3)), digits: 4)
+#let h3 = calc.round(o3 * tanhC3, digits: 4)
+
+$
+h_3 = o_3 dot tanh(c_3) = #o3 dot tanh(#c3"") = #o3 dot #tanhC3 = #h3
+$
+
+#grid(
+  stroke: black,
+  inset: 4pt,
+  columns: (auto, auto, auto, auto, auto, auto, auto),
+  [Palabra], [$f_t$], [$i_t$], [$tilde(c)_t$], [$c_i$], [$o_t$], [$h_t$],
+  [Me], [#f1], [#i1], [#tildeC1], [#c1], [#o1], [#h1],
+  [Gusta], [#f2], [#i2], [#tildeC2], [#c2], [#o2], [#h2],
+  [El], [#f3], [#i3], [#tildeC3], [#c3], [#o3], [#h3],
+)
+
+=== Ejercicio:
+
+texto:
+
+```txt
+Ella come pan
+```
+
+#grid(
+  stroke: black,
+  inset: 4pt,
+  columns: (auto, auto),
+  [Palabra], [Representación vectoria],
+  [Ella], [[0.3, 0.2]],
+  [Come], [[0.5, 0.4]],
+  [Pan], [[0.2, 0.1]],
+)
+
+*Pesos*:
+- $w_f$ = [0.5, 0.1]
+- $w_i$ = [0.4, 0.2]
+- $w_c$ = [0.3, 0.3]
+- $w_o$ = [0.6, 0.9]
+
+*Valores iniciales*:
+- $h_0$ = 0
+- $c_0$ = 0
+
+*Primera palabra* "Ella":
+
+#let x1 = (0.3, 0.2)
+#let wF = (0.5, 0.1)
+#let wI = (0.4, 0.2)
+#let wC = (0.3, 0.3)
+#let wO = (0.6, 0.9)
+#let c0 = 0
+#let h0 = 0
+
+// Forget gate
+#let zF1 = calc.round(wF.at(0) * x1.at(0) + wF.at(1) * x1.at(1), digits: 4)
+#let f1 = calc.round(1 / (1 + calc.exp(-zF1)), digits: 4)
+
+$
+f_1 = sigma(w_f dot x_1) = sigma((#wF.at(0), #wF.at(1)) dot (#x1.at(0), #x1.at(1))) = sigma(#zF1"") = #f1
+$
+
+// Input gate
+#let zI1 = calc.round(wI.at(0) * x1.at(0) + wI.at(1) * x1.at(1), digits: 4)
+#let i1 = calc.round(1 / (1 + calc.exp(-zI1)), digits: 4)
+
+$
+i_1 = sigma(w_i dot x_1) = sigma((#wI.at(0), #wI.at(1)) dot (#x1.at(0), #x1.at(1))) = sigma(#zI1"") = #i1
+$
+
+// Candidate cell state
+#let zC1 = calc.round(wC.at(0) * x1.at(0) + wC.at(1) * x1.at(1), digits: 4)
+#let tildeC1 = calc.round((calc.exp(zC1) - calc.exp(-zC1)) / (calc.exp(zC1) + calc.exp(-zC1)), digits: 4)
+
+$
+tilde(c)_1 = tanh(w_c dot x_1) = tanh((#wC.at(0), #wC.at(1)) dot (#x1.at(0), #x1.at(1))) = tanh(#zC1"") = #tildeC1
+$
+
+// Cell state
+#let c1 = calc.round(f1 * c0 + i1 * tildeC1, digits: 4)
+
+$
+c_1 = f_1 dot c_0 + i_1 dot tilde(c)_1 = #f1 dot #c0 + #i1 dot #tildeC1 = #c1
+$
+
+// Output gate
+#let zO1 = calc.round(wO.at(0) * x1.at(0) + wO.at(1) * x1.at(1), digits: 4)
+#let o1 = calc.round(1 / (1 + calc.exp(-zO1)), digits: 4)
+
+$
+o_1 = sigma(w_o dot x_1) = sigma((#wO.at(0), #wO.at(1)) dot (#x1.at(0), #x1.at(1))) = sigma(#zO1"") = #o1
+$
+
+// Hidden state
+#let tanhC1 = calc.round((calc.exp(c1) - calc.exp(-c1)) / (calc.exp(c1) + calc.exp(-c1)), digits: 4)
+#let h1 = calc.round(o1 * tanhC1, digits: 4)
+
+$
+h_1 = o_1 dot tanh(c_1) = #o1 dot tanh(#c1"") = #o1 dot #tanhC1 = #h1
+$
+
+*Segunda palabra* "come":
+
+#let x2 = (0.5, 0.4)
+
+// Forget gate
+#let zF2 = calc.round(wF.at(0) * x2.at(0) + wF.at(1) * x2.at(1), digits: 4)
+#let f2 = calc.round(1 / (1 + calc.exp(-zF2)), digits: 4)
+
+$
+f_2 = sigma(w_f dot x_2) = sigma((#wF.at(0), #wF.at(1)) dot (#x2.at(0), #x2.at(1))) = sigma(#zF2"") = #f2
+$
+
+// Input gate
+#let zI2 = calc.round(wI.at(0) * x2.at(0) + wI.at(1) * x2.at(1), digits: 4)
+#let i2 = calc.round(1 / (1 + calc.exp(-zI2)), digits: 4)
+
+$
+i_2 = sigma(w_i dot x_2) = sigma((#wI.at(0), #wI.at(1)) dot (#x2.at(0), #x2.at(1))) = sigma(#zI2"") = #i2
+$
+
+// Candidate cell state
+#let zC2 = calc.round(wC.at(0) * x2.at(0) + wC.at(1) * x2.at(1), digits: 4)
+#let tildeC2 = calc.round((calc.exp(zC2) - calc.exp(-zC2)) / (calc.exp(zC2) + calc.exp(-zC2)), digits: 4)
+
+$
+tilde(c)_2 = tanh(w_c dot x_2) = tanh((#wC.at(0), #wC.at(1)) dot (#x2.at(0), #x2.at(1))) = tanh(#zC2"") = #tildeC2
+$
+
+// Cell state
+#let c2 = calc.round(f2 * c1 + i2 * tildeC2, digits: 4)
+
+$
+c_2 = f_2 dot c_1 + i_2 dot tilde(c)_2 = #f2 dot #c1 + #i2 dot #tildeC2 = #c2
+$
+
+// Output gate
+#let zO2 = calc.round(wO.at(0) * x2.at(0) + wO.at(1) * x2.at(1), digits: 4)
+#let o2 = calc.round(1 / (1 + calc.exp(-zO2)), digits: 4)
+
+$
+o_2 = sigma(w_o dot x_2) = sigma((#wO.at(0), #wO.at(1)) dot (#x2.at(0), #x2.at(1))) = sigma(#zO2"") = #o2
+$
+
+// Hidden state
+#let tanhC2 = calc.round((calc.exp(c2) - calc.exp(-c2)) / (calc.exp(c2) + calc.exp(-c2)), digits: 4)
+#let h2 = calc.round(o2 * tanhC2, digits: 4)
+
+$
+h_2 = o_2 dot tanh(c_2) = #o2 dot tanh(#c2"") = #o2 dot #tanhC2 = #h2
+$
+
+*Tercera palabra* "pan":
+
+#let x3 = (0.2, 0.1)
+
+// Forget gate
+#let zF3 = calc.round(wF.at(0) * x3.at(0) + wF.at(1) * x3.at(1), digits: 4)
+#let f3 = calc.round(1 / (1 + calc.exp(-zF3)), digits: 4)
+
+$
+f_3 = sigma(w_f dot x_3) = sigma((#wF.at(0), #wF.at(1)) dot (#x3.at(0), #x3.at(1))) = sigma(#zF3"") = #f3
+$
+
+// Input gate
+#let zI3 = calc.round(wI.at(0) * x3.at(0) + wI.at(1) * x3.at(1), digits: 4)
+#let i3 = calc.round(1 / (1 + calc.exp(-zI3)), digits: 4)
+
+$
+i_3 = sigma(w_i dot x_3) = sigma((#wI.at(0), #wI.at(1)) dot (#x3.at(0), #x3.at(1))) = sigma(#zI3"") = #i3
+$
+
+// Candidate cell state
+#let zC3 = calc.round(wC.at(0) * x3.at(0) + wC.at(1) * x3.at(1), digits: 4)
+#let tildeC3 = calc.round((calc.exp(zC3) - calc.exp(-zC3)) / (calc.exp(zC3) + calc.exp(-zC3)), digits: 4)
+
+$
+tilde(c)_3 = tanh(w_c dot x_3) = tanh((#wC.at(0), #wC.at(1)) dot (#x3.at(0), #x3.at(1))) = tanh(#zC3"") = #tildeC3
+$
+
+// Cell state
+#let c3 = calc.round(f3 * c2 + i3 * tildeC3, digits: 4)
+
+$
+c_3 = f_3 dot c_2 + i_3 dot tilde(c)_3 = #f3 dot #c2 + #i3 dot #tildeC3 = #c3
+$
+
+// Output gate
+#let zO3 = calc.round(wO.at(0) * x3.at(0) + wO.at(1) * x3.at(1), digits: 4)
+#let o3 = calc.round(1 / (1 + calc.exp(-zO3)), digits: 4)
+
+$
+o_3 = sigma(w_o dot x_3) = sigma((#wO.at(0), #wO.at(1)) dot (#x3.at(0), #x3.at(1))) = sigma(#zO3"") = #o3
+$
+
+// Hidden state
+#let tanhC3 = calc.round((calc.exp(c3) - calc.exp(-c3)) / (calc.exp(c3) + calc.exp(-c3)), digits: 4)
+#let h3 = calc.round(o3 * tanhC3, digits: 4)
+
+$
+h_3 = o_3 dot tanh(c_3) = #o3 dot tanh(#c3"") = #o3 dot #tanhC3 = #h3
+$
+
+*Resumen de resultados*:
+
+#grid(
+  stroke: black,
+  inset: 4pt,
+  columns: (auto, auto, auto, auto, auto, auto, auto),
+  [Palabra], [$f_t$], [$i_t$], [$tilde(c)_t$], [$c_t$], [$o_t$], [$h_t$],
+  [Ella], [#f1], [#i1], [#tildeC1], [#c1], [#o1], [#h1],
+  [Come], [#f2], [#i2], [#tildeC2], [#c2], [#o2], [#h2],
+  [Pan], [#f3], [#i3], [#tildeC3], [#c3], [#o3], [#h3],
+)
+
+// Segundo parcial:
+// Entrenar una red con refranes, que el corpus no sea demasiado extenso, se puede usar una red preentrenada para generar refranes o generar cuentos cortos
+// generar un modelo y luego, usar el modelo para generar refranes cortos
+// le das las primeras palabras y predice las siguientes
+// Preparar una presentación, con diapositivas
+// 
+// proximo proxima lunes
