@@ -426,7 +426,15 @@ replay_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,java
 
-# Python virtual environments
+# === PYTHON + TENSORFLOW + DEEP LEARNING ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
 venv/
 .venv/
 env/
@@ -434,10 +442,28 @@ ENV/
 __pycache__/
 *.pyc
 
-# Python virtual environments
-venv/
-.venv/
-env/
-ENV/
-__pycache__/
-*.pyc
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.idea/
+.vscode/
+*.code-workspace
+
+# Modelos y checkpoints
+*.h5
+*.hdf5
+*.pb
+*.pkl
+*.pth
+*.pt
+*.ckpt
+*.ckpt.*
+saved_model/
+models/
+checkpoints/
+tensorboard/
+
+# Logs y cache
+.pytest_cache/
+.mypy_cache/
