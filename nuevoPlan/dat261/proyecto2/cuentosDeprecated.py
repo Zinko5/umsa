@@ -53,12 +53,8 @@ def generarCuento(modelo, tokenizador, textoSemilla, longitudSecuencia, temperat
         palabraPredicha = tokenizador.index_word.get(indicePredicho, '')
         if palabraPredicha:
             textoGenerado += " " + palabraPredicha
-            if palabraPredicha in palabrasCierre and len(textoGenerado.split()) >= 5:
+            if palabraPredicha in palabrasCierre and len(textoGenerado.split()) >= 6:
                 break
-        if len(textoGenerado.split()) >= 15:
-            break
-    if len(textoGenerado.split()) > 15:
-        textoGenerado = ' '.join(textoGenerado.split()[:15])
     return textoGenerado
 
 def obtenerEnteroPositivo(mensaje, valorDefecto):

@@ -4,7 +4,7 @@ El documento, informe, presentación o documentación del trabajo debe estar esc
 
 Necesito que generes el código de Typst que tendrá el documento. Te pediré que generes fragmentos de código de Typst que yo colocaré en el archivo.typ así que deben tener continuidad. En cada nuevo mensaje, te indicaré qué contenido debe tener el fragmento de código Typst que generarás y me pasarás.
 
-En el documento, se deberán realizar algunos cálculos numéricos u otros procedimientos científicos, para que los realices correctamente te pasaré algunos apuntes teóricos, ejemplos, guías, pautas y/o instrucciones de lo que quiero que hagas y debes responder con el fragmento de código de Typst aplicando las fuentes a mi trabajo, cumpliendo sus requerimientos.
+En el documento, se es posible que se deban realizar algunos cálculos numéricos u otros procedimientos científicos, si ese es el caso, te pasaré algunos apuntes teóricos, ejemplos, guías, pautas y/o instrucciones de lo que quiero que hagas y debes responder con el fragmento de código de Typst aplicando las fuentes a mi trabajo, cumpliendo sus requerimientos.
 
 No hagas justificaciones matemáticas ni demostraciones de las fórmulas. Solo realiza el procedimiento paso por paso aplicando lo que digan las fuentes. 
 
@@ -52,7 +52,18 @@ Cuando muestres resultados numéricos, que tengan solo cuatro decimales.
 
 Al momento de nombrar a las variables que crees con `#let`, nómbralas usando camelCase.
 
-Evita escribir los valores numéricos manualmente, siempre que se pueda usa la función `#calc` para tener presición perfecta.
+Evita escribir los valores numéricos manualmente, siempre que se pueda usa la función `#calc` para tener presición perfecta, o usa una variable `#let` si el valor numérico se repite varias veces a lo largo del documento.
+
+---
+
+En el documento, es posible que se deban justificar cosas teóricas de programación, si ese es el caso, debes investigar en internet y usar tu conocimiento para explicar qué es cada cosa de programación que sea avanzada también es posible que te pase consideraciones del código. Por ejemplo, no debes explicar qué es un lenguaje popular como Python o Java, pero sí deberías explicar un lenguaje menos conocido como R. No debes explicar conceptos básicos del código, como estructuras de bucle o declaraciones de variables, pero sí deberías explicar aplicaciones de funciones de librerías complejas
+
+Cuando expliques una parte del código, menciónala explícitamente a través del modo raw que ofrece Typst, que pueden ser tanto en línea con \` \`, o en un bloque separado:
+\`\`\`[lenguaje]
+[código]
+\`\`\`
+
+Cuando menciones nombres de archivos, variables o funciones, házlo en notación de raw text \`\`, por ejemplo: "en el archivo `corpus.txt` se almacena el corpus".
 
 --- 
 
@@ -64,7 +75,7 @@ Instrucción:
 
 ---
 
-Fuentes:
+Fuentes o consideraciones:
 
 [x]
 

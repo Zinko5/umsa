@@ -6,6 +6,7 @@
 #set text(font: "DejaVu Sans") //Sans
 // #set text(font: "DejaVu Serif") //Serif
 #set par(justify: true)
+#show raw.where(block: false): set text(size: 1.2em)
 #show math.equation: set text(font: "DejaVu Math TeX Gyre")
 #show math.equation:box
 #let separador() = align(center)[#line(length: 100%)]

@@ -1,6 +1,6 @@
 #set text(lang:"es")
 #set text(font: "DejaVu Sans")
-#show math.equation: set text(font: "DejaVu Math TeX Gyre")
+#show math.equation: set text(font: "DejaVu Math TeX Gyre")#show raw.where(block: false): set text(size: 1.2em)
 
 #let fechaEntrega = datetime(year: 2025, month: 1, day: 1)
 

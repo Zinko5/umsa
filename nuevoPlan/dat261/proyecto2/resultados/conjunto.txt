@@ -1,0 +1,900 @@
+corto_longitudMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo de libro que narró sus los contaba de encantados
+
+Semilla: un gato
+un gato niño halló un libro que narró sus aventuras épicas
+
+Semilla: un niño
+un niño encontró un barco que hacía narró sus épicas
+
+Semilla: una anciana
+una anciana caída dio al granjero un campo de oro
+
+Semilla: en un pueblo
+en un pueblo nevado un faro cantó y reveló los cura seguro
+
+Semilla: en un bosque
+en un bosque oscuro un cisne cantó y dio perdido
+
+Semilla: había una vez
+había una vez una estrella que cantaron al viento]
+
+calificación: 2
+
+---
+mediano_dropoutMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo encontró un espejo que se llenaba de la animales
+
+Semilla: un gato
+un gato escribió un escudo que concedió deseos
+
+Semilla: un niño
+un niño encontró un martillo que construyó un puente de plata
+
+Semilla: una anciana
+una anciana tejió una campana cantó y guió a los barcos
+
+Semilla: en un pueblo
+en un pueblo nevado un sastre cosió abrigos que volaban
+
+Semilla: en un bosque
+en un bosque oscuro un faro cantó y llenó el futuro
+
+Semilla: había una vez
+había una vez un cisne habló y salvó al poblado]
+
+calificación: 5
+
+---
+muy_largo_temperaturaMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo halló una vela que al usarla se sentía la luz
+
+Semilla: un gato
+un gato talló un collar que al agitarlo abría la verdad
+
+Semilla: un niño
+un niño encontró un violín que al usarlo concedía la oscuridad
+
+Semilla: una anciana
+una anciana tejió un gorro que al leerlo daba la verdad
+
+Semilla: en un pueblo
+en un pueblo nevado un sastre cosió abrigos que volaron
+
+Semilla: en un bosque
+en un bosque secreto una fuente brotó con sueños
+
+Semilla: había una vez
+había una vez estrella caída se convirtió en un campo que anunció el amor]
+
+calificación: 4
+
+---
+muy_largo_longitudMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo de sueños una fuego que se materializó en un río de plata
+
+Semilla: un gato
+un gato tocó una cítara que hacía volar
+
+Semilla: un niño
+un niño encontró un anillo que al mirarlo daba la vida
+
+Semilla: una anciana
+una anciana tejió un gorro que al ponérselo daba la victoria
+
+Semilla: en un pueblo
+en un pueblo de una fuente brotó y guió a los marineros
+
+Semilla: en un bosque
+en un bosque de sueños una anguila caer una garra que era un amuleto
+
+Semilla: había una vez
+había una vez estrella caída se convirtió en un broche que al usarla daba la suerte]
+
+calificación: 5
+
+---
+largo_epocasMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo blanco aulló y la luna lo guió a casa
+
+Semilla: un gato
+un gato remó con un remo que convertía el agua
+
+Semilla: un niño
+un niño encontró un silbato que al soplarlo traía de vuelta a los animales
+
+Semilla: una anciana
+una anciana tejió un cinto que al ajustarlo daba la seguridad
+
+Semilla: en un pueblo
+en un pueblo costero un faro habló y evitó las tormentas
+
+Semilla: en un bosque
+en un bosque encantado un ciervo dorado cumplió deseos
+
+Semilla: había una vez
+había una vez un zorro que engañó al cuervo con astucia]
+
+calificación: 4
+
+---
+mediano_epocasMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo blanco aulló y sus palabras se hicieron eternas
+
+Semilla: un gato
+un gato cortó un tablón que se extendía y se convertía en un camino
+
+Semilla: un niño
+un niño encontró un silbato que al soplarlo traía de vuelta a los animales
+
+Semilla: una anciana
+una anciana tejió un tapete que al pisarlo transportaba a otro lugar
+
+Semilla: en un pueblo
+en un pueblo nevado un sastre cosió abrigos que volaban
+
+Semilla: en un bosque
+en un bosque oscuro un búho guió al viajero perdido
+
+Semilla: había una vez
+había una vez un zorro que engañó al poblado]
+
+calificación: 5
+
+---
+muy_largo_longitudMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo halló una linterna que al encenderla daba la protección
+
+Semilla: un gato
+un gato usó una red que contenía deseos
+
+Semilla: un niño
+un niño encontró un espejo que al mirarlo mostraba la libertad
+
+Semilla: una anciana
+una anciana tejió un gorro que al usarlo daba la esperanza
+
+Semilla: en un pueblo
+en un pueblo de flores una abeja gigante
+
+Semilla: en un bosque
+en un bosque de arena un grano se movió y reveló un camino
+
+Semilla: había una vez
+había una vez estrella caída se convirtió en una moneda que al usarla se multiplicaba]
+
+calificación: 3
+
+---
+mediano_temperaturaMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo encontró un pañuelo que hizo deseos
+
+Semilla: un gato
+un gato solitario un barco que narró sueños
+
+Semilla: un niño
+un niño encontró un faro que no se frotarlo para coser un subterráneo
+
+Semilla: una anciana
+una anciana cocinó una barco que bailó con la cercano
+
+Semilla: en un pueblo
+en un pueblo nevada un sastre cosió abrigos río que concedió la cuervo del deseo
+
+Semilla: en un bosque
+en un bosque oscuro un cisne dorado guió al poblado
+
+Semilla: había una vez
+había una vez un armadura que brillaba]
+
+calificación: 2
+
+---
+largo_base/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo talló una fruta croó que al morderla daba la mañana
+
+Semilla: un gato
+un gato limpió un zorro que narró sus las suerte
+
+Semilla: un niño
+un niño encontró un espejo que al girar hacía las preocupaciones
+
+Semilla: una anciana
+una anciana tejió un manto que hacía recordar las plantas de la cosas
+
+Semilla: en un pueblo
+en un pueblo de manzanas una ola se movió y reveló un portal
+
+Semilla: en un bosque
+en un bosque de sueños una manzana cayó y reveló un árbol seco
+
+Semilla: había una vez
+había una vez un cuerno que al usarlo daba la alegría]
+
+calificación: 2
+
+---
+mediano_temperaturaMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo encontró un martillo que al clavarse daba la maldad
+
+Semilla: un gato
+un gato escribió un sastre cosió abrigos que volaron
+
+Semilla: un niño
+un niño encontró un libro que narró aventuras al poblado
+
+Semilla: una anciana
+una anciana tejió un gorro que al beberlo se sentía la plantas de forma milagrosa
+
+Semilla: en un pueblo
+en un pueblo costero un faro cantó y mostró un camino
+
+Semilla: en un bosque
+en un bosque oscuro un pez dorado cantó y luz
+
+Semilla: había una vez
+había una vez un cisne cantó y llenó el futuro]
+
+calificación: 4
+
+---
+largo_longitudMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo talló un bizcocho que al morderlo daba la memoria
+
+Semilla: un gato
+un gato bebió tinta y guio al viajero a un tesoro
+
+Semilla: un niño
+un niño encontró un cinturón que al girar detenía el futuro
+
+Semilla: una anciana
+una anciana tejió un juguete que al mirarlo se sentía la alegría
+
+Semilla: en un pueblo
+en un pueblo costero un faro habló y advirtió de un camino
+
+Semilla: en un bosque
+en un bosque nevado un sastre cosió abrigos que volaban
+
+Semilla: había una vez
+había una vez un cisne que cantaron al poblado]
+
+calificación: 5
+
+---
+corto_epocasMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo halló un lobo que brilló y al poblado
+
+Semilla: un gato
+un gato niño halló un lobo que concedió al y los la proféticos
+
+Semilla: un niño
+un niño pintó una red que brilló y salvó al paz
+
+Semilla: una anciana
+una anciana caída una que salvó que al aventuras al niño
+
+Semilla: en un pueblo
+en un pueblo cristalino un río cantó una mágicas
+
+Semilla: en un bosque
+en un bosque oscuro un lobo habló y al viajero la viajeros la barcos
+
+Semilla: había una vez
+había una vez un herrero que lámpara un cueva]
+
+calificación: 1
+
+---
+mediano_longitudMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo creó una perla que brilló y salvó a los barcos
+
+Semilla: un gato
+un gato hizo una brújula que al beberlo se recordaban se sentía la desearlo
+
+Semilla: un niño
+un niño encontró un campo que al solas por la felicidad
+
+Semilla: una anciana
+una anciana tejió un retrato que al beberlo se entendía el futuro
+
+Semilla: en un pueblo
+en un pueblo costero un faro cantó y guió a los barcos
+
+Semilla: en un bosque
+en un bosque oscuro un cisne cantó y guió a los barcos
+
+Semilla: había una vez
+había una vez un pueblo costero un pez dorado cantó y guió a los barcos]
+
+calificación: 2
+
+---
+corto_base/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo horneó panes que cantaron al poblado
+
+Semilla: un gato
+un gato niño encontró un libro que construyó en un puente de plata
+
+Semilla: un niño
+un niño halló una red que atrapó deseos
+
+Semilla: una anciana
+una anciana tejió bufandas que dieron calor
+
+Semilla: en un pueblo
+en un pueblo nevado un faro cantó y guió a los barcos
+
+Semilla: en un bosque
+en un bosque oscuro un cisne cantó y dio las mágicas
+
+Semilla: había una vez
+había una vez un sastre cosió un dorado que nunca levitar los objetos]
+
+calificación: 3
+
+---
+largo_dropoutMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo talló un pan que al golpearlo creaba un vestido que nacieron eterna
+
+Semilla: un gato
+un gato talló una vela que al mirarlo se sentía la quietud
+
+Semilla: un niño
+un niño encontró un libro que contenía huevos de los que nacieron fénix
+
+Semilla: una anciana
+una anciana tejió un gorro que al mirarlo se sentía el tiempo
+
+Semilla: en un pueblo
+en un pueblo costero un faro habló y mostró el futuro
+
+Semilla: en un bosque
+en un bosque de hielo un glaciar se movió y reveló un secreto
+
+Semilla: había una vez
+había una vez un vestido que al mirarlo se sentía la fantasía]
+
+calificación: 4
+
+---
+largo_dropoutMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo encontró un silbato que al beberlo daba la vida
+
+Semilla: un gato
+un gato soltó una pepita que al usarlo daba la calidez
+
+Semilla: un niño
+un niño encontró un libro que engañó al cuervo con un peligro
+
+Semilla: una anciana
+una anciana tejió un manto que al beber de él daba la calma
+
+Semilla: en un pueblo
+en un pueblo de oro una pepita brilló y reveló un tesoro
+
+Semilla: en un bosque
+en un bosque de lava una palmera se desvaneció y reveló un escondite
+
+Semilla: había una vez
+había una vez un sastre cosió abrigos que dieron valor]
+
+calificación: 5
+
+---
+corto_longitudMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo horneó panes que dieron valor
+
+Semilla: un gato
+un gato caballero halló un caballero halló una manta que sonaba el reyes
+
+Semilla: un niño
+un niño halló un manto que brillaba
+
+Semilla: una anciana
+una anciana plantó semillas que cantaron al viento
+
+Semilla: en un pueblo
+en un pueblo nevado un faro cantó y guió a los barcos
+
+Semilla: en un bosque
+en un bosque oscuro un ciervo dorado dio un arco
+
+Semilla: había una vez
+había una vez un panes que abrió un puente mágico]
+
+calificación: 4
+
+---
+muy_largo_dropoutMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo lanzó un tazón que bailó y ahuyentó el camino
+
+Semilla: un gato
+un gato descubrió un tazón que al tocarla creaba objetos
+
+Semilla: un niño
+un niño encontró un anillo que al usarlo daba la protección
+
+Semilla: una anciana
+una anciana tejió un manto que al usarlo daba la suerte
+
+Semilla: en un pueblo
+en un pueblo de un niño
+
+Semilla: en un bosque
+en un bosque de niebla una roca brotó una garra que era un deseo
+
+Semilla: había una vez
+había una vez estrella caída se convirtió en un imán que al usarlo daba la vida]
+
+calificación: 4
+
+---
+corto_dropoutMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo blanco aulló y guió al viajero a un tesoro
+
+Semilla: un gato
+un gato pescador encontró un manto que hacía levitar la momentos del mares felices
+
+Semilla: un niño
+un niño halló una red que concedió deseos
+
+Semilla: una anciana
+una anciana plantó árboles que dieron calor
+
+Semilla: en un pueblo
+en un pueblo nevado un faro habló y dio frutos el agua
+
+Semilla: en un bosque
+en un bosque oscuro un cisne cantó y guió a un tesoro
+
+Semilla: había una vez
+había una vez un sastre cosió una cocinó que brilló y salvó al monstruo]
+
+calificación: 5
+
+---
+largo_epocasMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo fugaz un pan que al usarlo daba la suerte
+
+Semilla: un gato
+un gato cuidó una estrella habló y los las personas
+
+Semilla: un niño
+un niño encontró un pan que al mirarla daba la vida
+
+Semilla: una anciana
+una anciana tejió un espejo que al golpearlo creaba luz
+
+Semilla: en un pueblo
+en un pueblo de hielo un rayo se y encendió y reveló un atajo
+
+Semilla: en un bosque
+en un bosque de hielo un parche se reveló el secreto
+
+Semilla: había una vez
+había una vez una melodía que al comerlo se sentía la pasado]
+
+calificación: 1
+
+---
+corto_dropoutMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo creó un manto que brilló y guió a los barcos
+
+Semilla: un gato
+un gato herrero forjó una red que concedió deseos
+
+Semilla: un niño
+un niño halló una lámpara que liberó un genio historias de oro
+
+Semilla: una anciana
+una anciana tejió una red que hicieron soñar al poblado
+
+Semilla: en un pueblo
+en un pueblo nevado un cisne dorado abrigos que volaron
+
+Semilla: en un bosque
+en un bosque oscuro un faro guió al viajero a un tesoro
+
+Semilla: había una vez
+había una vez un aulló que salvó al poblado]
+
+calificación: 2
+
+---
+largo_temperaturaMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo halló un águila suave
+
+Semilla: un gato
+un gato construyó un estrella habló y evitó la verdad
+
+Semilla: un niño
+un niño de pueblo un zorro que brillaba
+
+Semilla: una anciana
+una anciana tejió una fruta que cayó y al hogar
+
+Semilla: en un pueblo
+en un pueblo de árboles una presa se reveló un nido
+
+Semilla: en un bosque
+en un bosque de hielo un tesoro
+
+Semilla: había una vez
+había una vez un campo que brilló el agua]
+
+calificación: 1
+
+---
+mediano_dropoutMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo hizo una cadena que al ser historias se apagaba
+
+Semilla: un gato
+un gato soltó una red que al atrapó en un tesoro
+
+Semilla: un niño
+un niño encontró un libro que concedió deseos
+
+Semilla: una anciana
+una anciana tejió un pan que al convirtió en un campo de la verdad
+
+Semilla: en un pueblo
+en un pueblo costero un pez dorado cantó y puros
+
+Semilla: en un bosque
+en un bosque oscuro un cisne cantó y guió a los barcos
+
+Semilla: había una vez
+había una vez un sastre cosió un que se generó atraía al poblado]
+
+calificación: 2
+
+---
+mediano_base/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo encontró un tronco que al ponérselo daba la maldad
+
+Semilla: un gato
+un gato hizo un pan y este que se elevó y trajo mensajes de la noche
+
+Semilla: un niño
+un niño encontró un bastón que mostraba la marea
+
+Semilla: una anciana
+una anciana plantó semillas que cantaron al granjero un campo de oro
+
+Semilla: en un pueblo
+en un pueblo nevado un faro cantó y guió a los barcos
+
+Semilla: en un bosque
+en un bosque oscuro un faro cantó y guió a los barcos
+
+Semilla: había una vez
+había una vez un sastre cosió un candelabro narró historias de héroes]
+
+calificación: 4
+
+---
+muy_largo_epocasMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo halló un cuerno que al usarlo daba la calma
+
+Semilla: un gato
+un gato cocinó un cinturón que al usarlo daba la astucia
+
+Semilla: un niño
+un niño encontró un espejo que al cubrirse daba la esperanza
+
+Semilla: una anciana
+una anciana tejió un pan que al usarlo daba la calma
+
+Semilla: en un pueblo
+en un pueblo de arena una fuente habló y reveló un tesoro
+
+Semilla: en un bosque
+en un bosque de arena un cactus cayó y reveló un tesoro
+
+Semilla: había una vez
+había una vez bruja cocinó un pan que al usarla daba la calma]
+
+calificación: 5
+
+---
+corto_temperaturaMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo halló una red que concedió aventuras al poblado
+
+Semilla: un gato
+un gato niño vasto una red que liberó un puente mágico
+
+Semilla: un niño
+un niño halló una linterna que narró aventuras fuerza
+
+Semilla: una anciana
+una anciana cocinó rocío que concedió al niño
+
+Semilla: en un pueblo
+en un pueblo buscó un pueblo cantó y que las volaban
+
+Semilla: en un bosque
+en un bosque encantado un faro habló y guió a los tripulación
+
+Semilla: había una vez
+había una vez un candelabro cantó y la se encantadas]
+
+calificación: 1
+
+---
+corto_epocasMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo blanco aulló y la luna lo guió a casa
+
+Semilla: un gato
+un gato niño halló una lámpara que liberó un genio bondadoso
+
+Semilla: un niño
+un niño halló un libro que narró sus sueños
+
+Semilla: una anciana
+una anciana tejió bufandas que dieron calor
+
+Semilla: en un pueblo
+en un pueblo nevado un faro cantó y guió a los barcos
+
+Semilla: en un bosque
+en un bosque oscuro un búho guió al viajero a un tesoro
+
+Semilla: había una vez
+había una vez un zorro que brilló y dio un cuervo de astucia]
+
+calificación: 4
+
+---
+corto_temperaturaMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo horneó panes que dieron valor
+
+Semilla: un gato
+un gato sastre cosió un manto que brilló y dio paz
+
+Semilla: un niño
+un niño halló una red que concedió deseos
+
+Semilla: una anciana
+una anciana plantó semillas que dieron calor
+
+Semilla: en un pueblo
+en un pueblo nevado un sastre cosió abrigos que narró historias de reyes
+
+Semilla: en un bosque
+en un bosque oscuro un ciervo dorado dio un arco
+
+Semilla: había una vez
+había una vez un sastre cosió una campana que voló y la momentos más felices]
+
+calificación: 3
+
+---
+mediano_longitudMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo hizo un gorro que al pisarlo cambiaba el clima
+
+Semilla: un gato
+un gato halló una balada que hizo que brillaba
+
+Semilla: un niño
+un niño encontró un espejo que caminaba serenidad al poblado
+
+Semilla: una anciana
+una anciana plantó una semilla que al comerla se multiplicaba
+
+Semilla: en un pueblo
+en un pueblo costero un faro habló y salvó a los barcos
+
+Semilla: en un bosque
+en un bosque oscuro un faro guió al viajero a un tesoro
+
+Semilla: había una vez
+había una vez un pueblo costero un libro que al comerla se preocupaciones]
+
+calificación: 2
+
+---
+muy_largo_temperaturaMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo blanco aulló y al granjero un árbol parlante
+
+Semilla: un gato
+un gato escribió un verso que se materializó en un río de plata
+
+Semilla: un niño
+un niño encontró un anillo que al usarlo daba la protección
+
+Semilla: una anciana
+una anciana tejió un gorro que al usarlo daba la protección
+
+Semilla: en un pueblo
+en un pueblo de espejos un reflejo se movió y reveló un tesoro
+
+Semilla: en un bosque
+en un bosque de secuoyas un pez dorado reveló un tesoro
+
+Semilla: había una vez
+había una vez bruja cocinó un árbol brilló y dio una moneda que calmó a la ciudad oculta]
+
+calificación: 3
+
+---
+muy_largo_epocasMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo blanco aulló y la luna lo guió a casa
+
+Semilla: un gato
+un gato remó con un remo que convertía daba la calma
+
+Semilla: un niño
+un niño encontró un anillo que al girarlo daba la paz
+
+Semilla: una anciana
+una anciana tejió un gorro que al ponérselo daba el conocimiento
+
+Semilla: en un pueblo
+en un pueblo de espejos un reflejo se movió y reveló un camino
+
+Semilla: en un bosque
+en un bosque de cristal un árbol brilló y dio un fruto
+
+Semilla: había una vez
+había una vez estrella de mar]
+
+calificación: 3
+
+---
+largo_longitudMas/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo talló un pan y reveló un secreto
+
+Semilla: un gato
+un gato escribió un pastel que al mirarla daba la memoria
+
+Semilla: un niño
+un niño encontró un anillo que al mirarla daba la memoria
+
+Semilla: una anciana
+una anciana tejió un vestido que al morderlo daba la seguridad
+
+Semilla: en un pueblo
+en un pueblo costero un faro habló y mostró el agua
+
+Semilla: en un bosque
+en un bosque oscuro un altar flotó y reveló un secreto
+
+Semilla: había una vez
+había una vez un zorro que narró podían por el amor]
+
+calificación: 4
+
+---
+largo_temperaturaMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo talló un pan que al probarlo daba la memoria
+
+Semilla: un gato
+un gato antiguo un candelabro narró historias de héroes
+
+Semilla: un niño
+un niño encontró un libro que narró aventuras de los animales
+
+Semilla: una anciana
+una anciana tejió un cinturón que al usarlo daba la fuerza
+
+Semilla: en un pueblo
+en un pueblo de hielo un glaciar se dobló y reveló un secreto
+
+Semilla: en un bosque
+en un bosque de hielo un faro habló y mostró un escondite
+
+Semilla: había una vez
+había una vez un espejo que narró aventuras épicas]
+
+calificación: 5
+
+---
+mediano_epocasMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo hizo una libro que historias con la comerla pasadas
+
+Semilla: un gato
+un gato halló un pez que brilló y al reino
+
+Semilla: un niño
+un niño horneó un pez cantó y mostró un campo que nunca del desearlo
+
+Semilla: una anciana
+una anciana horneó una pan que hacía que se estrellas
+
+Semilla: en un pueblo
+en un pueblo de un manto que brillaba
+
+Semilla: en un bosque
+en un bosque antiguo un pez cantó y atrapó y salvó de la verdad
+
+Semilla: había una vez
+había una vez de una estrella]
+
+calificación: 1
+
+---
+muy_largo_base/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo talló un manto que al morderlo daba la calma
+
+Semilla: un gato
+un gato escribió un anillo que al usarlo daba la fuerza
+
+Semilla: un niño
+un niño encontró un gorro que al ponérselo daba la vida
+
+Semilla: una anciana
+una anciana tejió un chal que al usarla daba la verdad
+
+Semilla: en un pueblo
+en un pueblo de arena un rayo se movió y reveló un pasaje
+
+Semilla: en un bosque
+en un bosque de piedra un árbol se derritió y reveló un pasaje
+
+Semilla: había una vez
+había una vez anciana tejió un gorro que al usarlo daba la protección]
+
+calificación: 4
+
+---
+muy_largo_dropoutMenos/cuentos_generados.txt:
+[Semilla: un lobo
+un lobo usó un pastel que al dárselo a otros se multiplicaba
+
+Semilla: un gato
+un gato usó pigmentos que al comerlo se sentía la libertad
+
+Semilla: un niño
+un niño encontró un pez que se convirtió en una flauta mágica
+
+Semilla: una anciana
+una anciana tejió un gorro que al ponérselo daba la sabiduría
+
+Semilla: en un pueblo
+en un pueblo de madera un rayo se movió y reveló un tesoro
+
+Semilla: en un bosque
+en un bosque de bailar una caja se movió y reveló un portal
+
+Semilla: había una vez
+había una vez anciana tejió un pañuelo que al usarla daba la fortuna]
+
+calificación: 4
+
+---
