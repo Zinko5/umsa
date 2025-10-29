@@ -487,7 +487,7 @@ La variable de respuesta $y$ es una variable aleatoria, en tanto que las variabl
 
 Las variables se llaman también variables matemáticas, y con frecuencia son controladas por el experimentador. La relación de $y$ con $x_1, x_2, dots, x_k$ se caracteriza por medio de un modelo matemático llamado ecuación de regresión.
 
-El valor esperado de $y$ para cada valor de $x$ es la esperanza de $y$ dado $x$, $E(y\/x) = beta_0 + b_1 x$.
+El valor esperado de $y$ para cada valor de $x$ es la esperanza de $y$ dado $x$, $E(y|x) = beta_0 + b_1 x$.
 
 $y = beta_0 + beta_1 x + epsilon$.
 
@@ -1841,7 +1841,7 @@ Si un experimento $E$ tiene un espacio muestral $omega$ y un evento $A$ que est�
 Sea un evento $b$ con $P(b) gt 0$, la probabilidad condicional de que ocurra el evento $a$ se define como:
 
 $
-  P(a \/ b) = P(a inter b)/P(b)
+  P(a | b) = P(a inter b)/P(b)
 $
 
 === Regla de la multiplicación
@@ -1849,20 +1849,199 @@ $
 De la división de probabilidad condicional, se obtiene una fórmula para encontrar la probabilidad de la intersección o producto de los eventos $a$ y $b$
 
 $
-  P(a\/b) = P(a inter b)/P(b); P(b) gt 0\
-  P(b\/a) = P(b inter a)/P(a); P(a) gt 0\
+  P(a|b) = P(a inter b)/P(b); P(b) gt 0\
+  P(b|a) = P(b inter a)/P(a); P(a) gt 0\
 $
 
 $
-  p(a inter b) = p(b) p(a\/b) = p(a b)\
-  p(b inter a) = p(a) p(b\/a) = p(a b)\
+  p(a inter b) = p(b) p(a|b) = p(a b)\
+  p(b inter a) = p(a) p(b|a) = p(a b)\
 $
+
+#separador()
+
+$
+  P(a | b) = (P(a inter b))/P(b) = (p(a))/(sum p(a_i) P(b | a_i))\
+  P(a | b) = (P(a inter b))/(P(b))\
+  P(a | b) = (P(a inter b))/(P(a))\
+$
+
+=== Ejemplo
+
+La universidad está considerando construir un edificio a la carrera de informática entre la ciudad de La Paz y la ciudad de El Alto. Un elemento vital en esta consideración es un proyecto que una las dos ciudades con el edificio. Si el gobierno aprueba el teleférico, hay una probabilidad de $0.90$ de que la universidad construya el edificio, en tanto si el teleférico no es aprobado, la probabilidad sólo es de $0.20$. Basándose en la información disponible, el rector de la universidad estima que hay una probabilidad de $0.60$ de que el teleférico sea aprobado.
+A) ¿Cuál es la probabilidad de que la univesidad construya el edificio de informática?
+B) Dado que el edificio fue construido, ¿cuál es la probabilidad de que el teleférico haya sido aprobado?
+
+#let probTelefericoAprobado = 0.60
+#let probEdificioDadoTeleferico = 0.90
+#let probEdificioDadoNoTeleferico = 0.20
+
+// Inciso A: Probabilidad de que la universidad construya el edificio
+Para calcular la probabilidad de que la universidad construya el edificio de informática, usamos la ley de probabilidad total. Sea $E$ el evento de que se construya el edificio y $T$ el evento de que el teleférico sea aprobado. Entonces:
+
+$ P(E) = P(E|T)P(T) + P(E|T')P(T') $
+
+Sustituyendo los valores:
+
+$ P(E) = (#probEdificioDadoTeleferico) (#probTelefericoAprobado) + (#probEdificioDadoNoTeleferico) (1 - #probTelefericoAprobado) $
+
+$ P(E) = (#calc.round(probEdificioDadoTeleferico * probTelefericoAprobado, digits: 4)) + (#calc.round(probEdificioDadoNoTeleferico * (1 - probTelefericoAprobado), digits: 4)) $
+
+$ P(E) = #calc.round(probEdificioDadoTeleferico * probTelefericoAprobado + probEdificioDadoNoTeleferico * (1 - probTelefericoAprobado), digits: 4) $
+
+Por lo tanto, la probabilidad de que se construya el edificio es $#calc.round(probEdificioDadoTeleferico * probTelefericoAprobado + probEdificioDadoNoTeleferico * (1 - probTelefericoAprobado), digits: 4)$.
+
+#let probEdificio = calc.round(probEdificioDadoTeleferico * probTelefericoAprobado + probEdificioDadoNoTeleferico * (1 - probTelefericoAprobado), digits: 4)
+
+// Inciso B: Probabilidad de que el teleférico sea aprobado dado que el edificio fue construido
+Para calcular la probabilidad de que el teleférico haya sido aprobado dado que el edificio fue construido, usamos el teorema de Bayes. Sea $E$ el evento de que se construya el edificio y $T$ el evento de que el teleférico sea aprobado. Entonces:
+
+$ P(T|E) = (P(E|T)P(T)) / P(E) $
+
+Sustituyendo los valores:
+
+$ P(T|E) = ((#probEdificioDadoTeleferico)(#probTelefericoAprobado)) / (#probEdificio) $
+
+$ P(T|E) = #calc.round((probEdificioDadoTeleferico * probTelefericoAprobado) / probEdificio, digits: 4) $
+
+Por lo tanto, la probabilidad de que el teleférico haya sido aprobado dado que el edificio fue construido es $#calc.round((probEdificioDadoTeleferico * probTelefericoAprobado) / probEdificio, digits: 4)$.
+
+=== Ejemplo
+
+El 0.2% de una población está infectado por gripe o influenza y la prueba para detectar la prescencia de la enfermedad da positivo en una persona enferma en 98% de las veces, en una persona sana, el 3% de las veces.
+
+Si una persona dió positivo en la prueba, ¿Cúal es la probabilidad de que tenga gripe?
+
+*Respuesta*:
+
+#let probGripe = 0.002
+#let probNoGripe = calc.round(1 - probGripe, digits: 4)
+#let probPosDadoGripe = 0.98
+#let probPosDadoNoGripe = 0.03
+
+Sea $G$ el evento de que una persona tenga gripe y $P$ el evento de que la prueba dé positivo. Entonces $overline(G)$ es no tener gripe y $N = overline(P)$ es negativo.
+
+Por dato del problema:
+
+$ P(G) = #probGripe $
+$ P(overline(G)) = #probNoGripe $
+$ P(P | G) = #probPosDadoGripe $
+$ P(P | overline(G)) = #probPosDadoNoGripe $
+
+La probabilidad conjunta de positivo y gripe es:
+
+$ P(P inter G) = P(P | G) P(G) = #probPosDadoGripe * #probGripe = #calc.round(probPosDadoGripe * probGripe, digits: 4) $
+
+La probabilidad conjunta de positivo y no gripe es:
+
+$ P(P inter overline(G)) = P(P | overline(G)) P(overline(G)) = #probPosDadoNoGripe * #probNoGripe = #calc.round(probPosDadoNoGripe * probNoGripe, digits: 4) $
+
+La probabilidad total de positivo es:
+
+$ P(P) = P(P inter G) + P(P inter overline(G)) = #calc.round(probPosDadoGripe * probGripe, digits: 4) + #calc.round(probPosDadoNoGripe * probNoGripe, digits: 4) = #calc.round(calc.round(probPosDadoGripe * probGripe, digits: 4) + calc.round(probPosDadoNoGripe * probNoGripe, digits: 4), digits: 4) $
+
+Por el teorema de Bayes, la probabilidad de tener gripe dado positivo es:
+
+$ P(G | P) = (P(P inter G)) / (P(P)) = (#calc.round(probPosDadoGripe * probGripe, digits: 4)) / (#calc.round(calc.round(probPosDadoGripe * probGripe, digits: 4) + calc.round(probPosDadoNoGripe * probNoGripe, digits: 4), digits: 4)) = #calc.round(calc.round(probPosDadoGripe * probGripe, digits: 4) / calc.round(calc.round(probPosDadoGripe * probGripe, digits: 4) + calc.round(probPosDadoNoGripe * probNoGripe, digits: 4), digits: 4), digits: 4) $
+
+#separador()
+
+El teorema de Bayes está hecho para aplicarse varias veces, porque la probabilidad de que tenga gripe era 0.2%, después de aplicar la prueba, subió la probabilidad de tener gripe a 6%
+
+
+*Práctica 18 y 19*: Demostrar si esto es verdadero o falso:
+
+$
+  // P(a | b) = P(b | a)¿?\
+  P(a inter b) = P(b) P(a | b)\
+  P(a inter b) = P(a) P(b | b)\
+  p(a | b) = (p(a) p(b | a))/p(b)\
+  p(a | b) = p(a | a)
+$
+
+
+=== Ejemplo
+
+Una fábrica de ensamblaje tiene dos máquinas que elaboran el $30 percent$ y $70 percent$ de ensamblaje de celulares. El porcentaje de celulares defectuosos que elaboran cada máquina es del $2 percent$ y $4 percent$ respectivamente. Si se selecciona al azar un celular, del ensamblaje y este fue defectuoso. ¿Cúal es la probabilidad de que haya sido ensamblado por la máquina uno?
+
+Sea $M_1$ el evento de que el celular sea ensamblado por la máquina 1 y $M_2$ por la máquina 2. Sea $D$ el evento de que el celular sea defectuoso.
+
+$
+P(M_1) = 0.3 quad ; quad P(M_2) = 0.7
+$
+
+$
+P(D | M_1) = 0.02 quad ; quad P(D | M_2) = 0.04
+$
+
+Se busca $P(M_1 | D)$.
+
+Por el teorema de Bayes,
+
+$
+P(M_1 | D) = (P(D inter M_1)) / P(D)
+$
+
+donde $P(D inter M_1) = P(M_1) P(D | M_1)$ y
+
+$
+P(D) = P(M_1) P(D | M_1) + P(M_2) P(D | M_2)
+$
+
+#let probM1 = 0.3
+#let probM2 = 0.7
+#let probDM1 = 0.02
+#let probDM2 = 0.04
+
+#let interDM1 = calc.round(probM1 * probDM1, digits: 4)
+#let interDM2 = calc.round(probM2 * probDM2, digits: 4)
+#let probD = calc.round(interDM1 + interDM2, digits: 4)
+
+$
+P(D inter M_1) = P(M_1) P(D | M_1) = #probM1 * #probDM1 = #interDM1
+$
+
+$
+P(D inter M_2) = P(M_2) P(D | M_2) = #probM2 * #probDM2 = #interDM2
+$
+
+$
+P(D) = #interDM1 + #interDM2 = #probD
+$
+
+$
+P(M_1 | D) = (#interDM1) / #probD = #calc.round(interDM1 / probD, digits: 4)
+$
+
+=== Datos experimentales en decisiones con riesgo
+
+Al desarrollar el criterio de decisiones con riego, se supone que las distrbuciones de probabilidad se conocen o pueden asegurarse, en este aspecto, estas probabilidades se denominan probabilidades a priori.
+
+Algunas veces es posible realizar un experimento acerca del sistema de estudio y dependiendo de los resultados de dicho experimento, modificar las prioridades a priori en el sentido de que se puede incluir información importante al calcular nuevas probabilidades. Estas probabilidades se conocen como *probabilidades a posteriori*.
+
+=== Ejemplo
+
+Suponga que un fabricante elabora un producto en lotes de tamaño fijos. Debido a descomposturas ocacionales en el procedimiento de producción, pueden producirse lotes con un número inaceptable de artículos defectuosos.
+
+La experiencia indica que la probabilidad de producir lotes malos es $0.05$, la probabilidad de producir un lote bueno es de $0.95$
+
+El fabricante sabe que al enviar un lote malo, puede ser penalizado, sin embargo, con base a probabilidades a priori, puede decidir que la probabilidad de elaborar un lote malo es demasiado pequeña, y en consecuencia puede elegir enviar aleatoriamente cualquiera de los lotes disponibles (criterio del futuro más probable).
+
+La desición anterior se hace sin sacar muestras al lote al transportar. Por ejemplo, si el fabricante toma su decisión después de probar una muestra de lote, la información adicional podría afectar a la decision final.
+
+Suponga que decide probar una muestra de los artículos del lote.
+
+Se representa por $z_1$, $z_2$ y $z_3$ los casos de los artículos. 
+
+Debido a que la muestra que se saque de un lote bueno o malo, las probabilidades condicionales $p(z_j | theta_i)$
+
+El último objetivo es utilizar estas probabilidades junto con las probabilidades a priori para calcular las probabilidades a posteriori, las cuales están definidas por: $p(theta_i | z_j)$. Esto es la probabilidad de seleccionar un lote bueno o malo. Estas probabilidades serán la base para tomar una decisión que dependa del resultado de la muestra.
 
 == Descripción a priori y a posteriori.
 == Inferencia bayesiana.
 == Clasificador bayesiano ingenuo. // pregunta del segundo parcial.
 == Estimación MAP (estimador máximo a posteriori).
-== Teoría de desición bayesiana.
+== Teoría de decisión bayesiana.
 == Regresión lineal bayesiana. // Si alcanza el tiempo
 = Métodos basados en árboles.
 == Árboles de regresión. // pregunta de examen.
