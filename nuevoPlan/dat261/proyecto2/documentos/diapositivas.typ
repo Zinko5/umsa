@@ -5,7 +5,7 @@
   fill: gradient.linear(rgb("#232049"), rgb("#1a1dbe"), angle: 45deg),
   margin: 2em
 )
-#set text(size: 21pt, font: "Cantarell", fill: white, lang: "es")
+#set text(size: 21pt, font: "Nimbus Sans", fill: white, lang: "es")
 #set strong(delta: 200)
 
 #let title-slide(body) = slide()[
@@ -21,7 +21,7 @@
 ]
 
 #title-slide[
-  #text(size: 48pt, weight: "bold")[Generación de Cuentos con LSTM]
+  #text(size: 48pt, weight: "bold")[Generación de Cuentos Cortos con LSTM]
   #v(1em)
   #text(size: 32pt)[Impacto de Parámetros y Corpus]
   #v(2em)
@@ -41,7 +41,11 @@
   - Sistema LSTM para generar cuentos cortos a partir de una semilla.
   - 4 tamaños de corpus (144 a 578 cuentos sintéticos).
   - 36 modelos: variación de dropout, temperatura, épocas, longitud de secuencia.
-  - Métricas: perplejidad, TTR, longitud, % cierre, calidad subjetiva (1–5).
+  - Métricas: perplejidad, TTR (diversidad), longitud, calidad subjetiva (1–5).
+   - Poca perplejidad: Mayor precisión.
+   - Mayor TTR: Mayor diversidad de palabras, no necesariamente bueno
+   - Longitud: Longitud del cuento generado.
+   - Calidad: Calificada manualmente según la escala de Likert.
 ]
 
 
@@ -80,10 +84,12 @@ Un herrero forjó un martillo que construyó un puente mágico.
   1. *Conversión a minúsculas* → normalización.
   2. *Tokenización* → `Tokenizer` de Keras.
   3. *Secuencias n-gram* → entrada: palabras previas, salida: siguiente.
-  4. *Relleno previo (`padding='pre'`)* → hasta `longitudSecuencia`.
-  5. *Separación*: `datosEntrada` (secuencia sin última) y `datosSalida` (palabra objetivo).
+  // 4. *Relleno previo (`padding='pre'`)* → hasta `longitudSecuencia`.
+  // 5. *Separación*: `datosEntrada` (secuencia sin última) y `datosSalida` (palabra objetivo).
 
   No se usó stopword removal ni lematización: se preservó estructura narrativa.
+
+  Tampoco se usó earlyStop, ya que el modelo no es lo suficientemente grande.
 ]
 
 #normal-slide("Metodología: Herramientas")[
@@ -126,9 +132,6 @@ Un herrero forjó un martillo que construyó un puente mágico.
     - Recopila métricas → `resumen_metricas.csv`
     - Genera 7 gráficos comparativos
     - Permite ingresar calidad subjetiva (1–5)
-  - Justificaciones técnicas:
-    - `padding='pre'` → orden temporal
-    - Temperatura → balance coherencia/creatividad
     - `palabrasCierre` → cierre garantizado
 ]
 
@@ -142,38 +145,64 @@ Un herrero forjó un martillo que construyó un puente mágico.
 ]
 
 #slide[
-  #set align(center + horizon)
-  #image("../analisis_resultados/1_perplejidad_por_variacion.png")
+  #set align(center +horizon)
+  #set page(margin: 0pt)
+  #grid(
+    columns: (auto, 20%),
+    column-gutter: 2em,
+    [#image("../analisis_resultados/1_perplejidad_por_variacion.png")], [Con más cuentos, la perplejidad baja mucho.]
+  )
 ]
 
 #slide[
   #set align(center + horizon)
-  #image("../analisis_resultados/2_ttr_por_temperatura.png")
+  #set page(margin: 0pt)
+  #grid(
+    columns: (auto, 20%),
+    column-gutter: 2em,
+    [#image("../analisis_resultados/2_ttr_por_temperatura.png")], [Alta temperatura = más variedad.]
+  )
 ]
 
 #slide[
   #set align(center + horizon)
-  #image("../analisis_resultados/3_longitudMedia_por_secuencia.png")
+  #set page(margin: 0pt)
+  #grid(
+    columns: (auto, 20%),
+    column-gutter: 2em,
+    [#image("../analisis_resultados/3_longitudMedia_por_secuencia.png")], [Con 50 palabras de memoria, los cuentos son más largos.]
+  )
+]
+
+// #slide[
+//   #set align(center + horizon)
+//   #set page(margin: 0pt)
+//   #grid(
+//     columns: (auto, 20%),
+//     column-gutter: 2em,
+//     [#image("../analisis_resultados/5_correlaciones_metricas.png")], [Perplejidad baja → calidad alta. TTR alto no siempre es bueno.]
+//   )
+// ]
+
+#slide[
+  #set align(center + horizon)
+  #set page(margin: 0pt)
+  #grid(
+    columns: (auto, 20%),
+    column-gutter: 2em,
+    [#image("../analisis_resultados/6_boxplot_perplejidad_corpus.png")], [Cuanto más grande el corpus, más estable y baja la perplejidad.]
+  )
 ]
 
 #slide[
   #set align(center + horizon)
-  #image("../analisis_resultados/4_porcentaje_cierre_por_dropout.png")
-]
+  #set page(margin: (left: 0pt))
+  #grid(
+    columns: (auto, 15%),
+    column-gutter: 2em,
 
-#slide[
-  #set align(center + horizon)
-  #image("../analisis_resultados/5_correlaciones_metricas.png")
-]
-
-#slide[
-  #set align(center + horizon)
-  #image("../analisis_resultados/6_boxplot_perplejidad_corpus.png")
-]
-
-#slide[
-  #set align(center + horizon)
-  #image("../analisis_resultados/7_calidad_subjetiva.png")
+    [#image("../analisis_resultados/7_calidad_subjetiva.png")], [Calificación 5 solo con dropout 0 y configuraciones balanceadas. Corpus pequeño nunca llega a 5.]
+  )
 ]
 
 #normal-slide("Ejemplos de cuentos generados")[
@@ -213,7 +242,6 @@ Un herrero forjó un martillo que construyó un puente mágico.
   - Cierre garantizado con `palabrasCierre`, pero calidad depende de coherencia interna.
   - Limitaciones: corpus sintético, evaluación subjetiva, sin métricas avanzadas.
 
-  *Futuro*: corpus humano, BERTScore, búsqueda automática de hiperparámetros.
 ]
 
 #title-slide[
